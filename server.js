@@ -124,11 +124,19 @@ Focus on: declarations pages, coverage schedules, premium breakdowns.
 
 Return ONLY the JSON — no explanation, no markdown, no code blocks.`;
 
+      const userContent = payload.pdf ? [
+        {
+          type: 'document',
+          source: { type: 'base64', media_type: 'application/pdf', data: payload.pdf },
+        },
+        { type: 'text', text: 'Extract all insurance coverage data from this PDF per the instructions.' },
+      ] : String(payload.text || '').slice(0, 120000);
+
       const data = JSON.stringify({
         model: 'claude-haiku-4-5',
         max_tokens: 4096,
         system: systemPrompt,
-        messages: [{ role: 'user', content: String(payload.text || '').slice(0, 120000) }],
+        messages: [{ role: 'user', content: userContent }],
       });
 
       const options = {
