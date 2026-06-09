@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Policy Renewal Checker</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -953,6 +954,12 @@
   </div>
 
 <script>
+  // ── PDF.js setup ────────────────────────────────────────────────────────────
+  if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+
   // ── Toast ───────────────────────────────────────────────────────────────────
   function showToast(msg, type = 'info') {
     const t = document.createElement('div');
@@ -968,24 +975,35 @@
     setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 3500);
   }
 
-  // ── PDF Parser (sends PDF directly to Claude) ──────────────────────────────
+  // ── PDF Parser (extract text with PDF.js, then send to Claude) ──────────────
   async function parsePDF(file, statusCallback) {
-    statusCallback('⏳ Reading PDF…');
+    statusCallback('⏳ Reading PDF pages…');
 
-    // Read file as base64
-    const base64 = await new Promise((resolve, reject) => {
+    const arrayBuffer = await new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.onload = e => resolve(e.target.result.split(',')[1]);
+      reader.onload = e => resolve(e.target.result);
       reader.onerror = () => reject(new Error('Could not read file'));
-      reader.readAsDataURL(file);
+      reader.readAsArrayBuffer(file);
     });
+
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    let fullText = '';
+
+    for (let p = 1; p <= pdf.numPages; p++) {
+      const page = await pdf.getPage(p);
+      const content = await page.getTextContent();
+      const pageText = content.items.map(i => i.str).join(' ').replace(/\s+/g, ' ').trim();
+      if (pageText) fullText += `\n=== Page ${p} ===\n${pageText}`;
+    }
+
+    if (!fullText.trim()) throw new Error('No text found in PDF. Is it a scanned image?');
 
     statusCallback('⏳ Extracting with AI… (this takes ~15 sec)');
 
     const resp = await fetch('/api/extract', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ pdf: base64 }),
+      body: JSON.stringify({ text: fullText }),
     });
 
     if (!resp.ok) {
@@ -1067,6 +1085,7 @@
       let parsed;
       if (file.name.toLowerCase().endsWith('.pdf')) {
         parsed = await parsePDF(file, msg => { nameEl.textContent = msg; });
+
         showToast(`✓ AI extracted ${parsed.records.length} coverage lines`);
       } else {
         nameEl.textContent = '⏳ Parsing…';
