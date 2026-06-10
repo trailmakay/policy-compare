@@ -414,6 +414,119 @@
       text-transform: uppercase;
     }
 
+    /* ── Policy identity check ── */
+    .policy-id {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (max-width: 640px) { .policy-id { grid-template-columns: 1fr; } }
+
+    .policy-id__card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 0.8rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .policy-id__tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      background: var(--gray-100);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .policy-id__tag--new { color: var(--blue-700); background: var(--blue-50); border: 1px solid var(--blue-100); }
+
+    .policy-id__name { font-size: 0.95rem; font-weight: 700; color: var(--gray-900); }
+    .policy-id__meta { font-size: 0.76rem; color: var(--gray-500); margin-top: 0.2rem; line-height: 1.5; }
+
+    /* ── Alerts ── */
+    .alert {
+      border-radius: var(--radius);
+      padding: 0.7rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+    .alert--warn { background: var(--amber-50); border: 1px solid #fcd34d; color: #92400e; }
+
+    /* ── Verify / source check ── */
+    .verify-row {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .btn-verify {
+      align-self: flex-start;
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      color: var(--gray-700);
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius);
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .btn-verify:hover { border-color: var(--blue-600); color: var(--blue-700); background: var(--blue-50); }
+    .verify-note { font-size: 0.74rem; color: var(--gray-500); line-height: 1.5; max-width: 720px; }
+
+    .extract-view {
+      margin-top: 0.85rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 760px) { .extract-view { grid-template-columns: 1fr; } }
+    .extract-col {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+    }
+    .extract-col__head {
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0.5rem 0.8rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gray-600);
+    }
+    .extract-col__body { max-height: 320px; overflow-y: auto; }
+    .extract-col__body table { font-size: 0.74rem; }
+    .extract-col__body th { background: var(--gray-100); color: var(--gray-600); position: sticky; top: 0; }
+
+    /* Row "review" pill */
+    .pill-review {
+      display: inline-block;
+      margin-left: 0.35rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-50);
+      border: 1px solid #fcd34d;
+      border-radius: 4px;
+      padding: 0.1rem 0.35rem;
+      vertical-align: middle;
+    }
+
     /* ── Premium headline banner ── */
     .premium-banner {
       display: flex;
@@ -949,6 +1062,24 @@
 
     <!-- Results -->
     <div id="results" class="hidden">
+      <!-- Policy identity check -->
+      <div class="policy-id" id="policyId">
+        <div class="policy-id__card">
+          <div class="policy-id__tag">Previous Policy</div>
+          <div class="policy-id__name" id="idOldName">—</div>
+          <div class="policy-id__meta" id="idOldMeta"></div>
+        </div>
+        <div class="policy-id__card">
+          <div class="policy-id__tag policy-id__tag--new">Renewal Policy</div>
+          <div class="policy-id__name" id="idNewName">—</div>
+          <div class="policy-id__meta" id="idNewMeta"></div>
+        </div>
+      </div>
+      <div class="alert alert--warn hidden" id="idWarn"></div>
+
+      <!-- Premium reconciliation warning -->
+      <div class="alert alert--warn hidden" id="reconWarn"></div>
+
       <!-- Agent headline banner -->
       <div class="premium-banner hidden" id="premiumBanner">
         <div class="premium-banner__left">
@@ -1037,6 +1168,13 @@
           </div>
         </div>
       </div>
+
+      <!-- Verify / source check -->
+      <div class="verify-row">
+        <button class="btn-verify" id="btnViewExtract">🔍 Show what the AI read from each PDF</button>
+        <div class="verify-note">⚠️ Figures are read from the PDF by AI and may contain errors. Always confirm key numbers against the declarations page before quoting a client.</div>
+      </div>
+      <div class="extract-view hidden" id="extractView"></div>
     </div>
 
     <!-- Idle state -->
@@ -1105,7 +1243,7 @@
       'Premium':     row.Premium     || '',
     }));
 
-    return { headers: AI_HEADERS, records, aiExtracted: true };
+    return { headers: AI_HEADERS, records, aiExtracted: true, meta: result.meta || {} };
   }
 
   // ── CSV Parser ──────────────────────────────────────────────────────────────
@@ -1246,7 +1384,12 @@
     document.querySelectorAll('.filter-tab').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
     renderRows();
 
+    const aiMode = !!(dataOld && dataOld.aiExtracted && dataNew && dataNew.aiExtracted);
     buildAgentSummary();
+    buildPolicyIdentity(aiMode);
+    buildReconciliation(aiMode);
+    document.querySelector('.verify-row').style.display = aiMode ? 'flex' : 'none';
+    document.getElementById('extractView').classList.add('hidden');
 
     document.getElementById('results').classList.remove('hidden');
     document.getElementById('idleState').classList.add('hidden');
@@ -1257,6 +1400,105 @@
     if (v == null) return null;
     const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));
     return isNaN(n) ? null : n;
+  }
+
+  function money(n) {
+    return '$' + Number(n).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function parseDate(s) {
+    if (!s) return null;
+    const t = Date.parse(String(s).replace(/-/g, '/'));
+    return isNaN(t) ? null : new Date(t);
+  }
+
+  function normName(s) {
+    return String(s || '').toLowerCase().replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim();
+  }
+
+  // Feature 1: confirm we loaded the right two policies (same client, right order).
+  function buildPolicyIdentity(aiMode) {
+    const block = document.getElementById('policyId');
+    const warn = document.getElementById('idWarn');
+    warn.classList.add('hidden');
+    const mo = (dataOld && dataOld.meta) || {}, mn = (dataNew && dataNew.meta) || {};
+
+    if (!aiMode || (!mo.insured && !mn.insured && !mo.policyNumber && !mn.policyNumber)) {
+      block.classList.add('hidden');
+      return;
+    }
+    block.classList.remove('hidden');
+    document.getElementById('idOldName').textContent = mo.insured || '(name not found)';
+    document.getElementById('idNewName').textContent = mn.insured || '(name not found)';
+    const metaLine = m => {
+      const bits = [];
+      if (m.policyNumber) bits.push('Policy ' + m.policyNumber);
+      if (m.effectiveDate || m.expirationDate) bits.push('Term ' + (m.effectiveDate || '?') + ' – ' + (m.expirationDate || '?'));
+      if (m.carrier) bits.push(m.carrier);
+      return bits.join('  •  ');
+    };
+    document.getElementById('idOldMeta').textContent = metaLine(mo);
+    document.getElementById('idNewMeta').textContent = metaLine(mn);
+
+    const warns = [];
+    if (mo.insured && mn.insured && normName(mo.insured) !== normName(mn.insured)) {
+      warns.push(`The named insured differs between the two files ("${mo.insured}" vs "${mn.insured}"). Make sure both PDFs are for the SAME client.`);
+    }
+    const dOld = parseDate(mo.effectiveDate), dNew = parseDate(mn.effectiveDate);
+    if (dOld && dNew && dOld.getTime() > dNew.getTime()) {
+      warns.push(`The renewal effective date (${mn.effectiveDate}) is earlier than the previous policy (${mo.effectiveDate}). The two files may be loaded in the wrong slots.`);
+    }
+    if (warns.length) {
+      warn.classList.remove('hidden');
+      warn.innerHTML = '<span>⚠️</span><span>' + warns.map(esc).join('<br>') + '</span>';
+    }
+  }
+
+  // Feature 2: do the line-item premiums add up to the stated total?
+  function policyTotals(records) {
+    let sum = 0, total = null;
+    (records || []).forEach(r => {
+      const prem = parseMoney(r.Premium);
+      if (prem == null) return;
+      if (/total[^›]*premium/i.test(r.Coverage || '') || /summary/i.test(r.Section || '')) {
+        if (total == null) total = prem;
+      } else {
+        sum += prem;
+      }
+    });
+    return { sum, total };
+  }
+
+  function buildReconciliation(aiMode) {
+    const el = document.getElementById('reconWarn');
+    el.classList.add('hidden');
+    if (!aiMode) return;
+    const msgs = [];
+    [['Previous', dataOld], ['Renewal', dataNew]].forEach(([label, d]) => {
+      const { sum, total } = policyTotals(d.records);
+      if (total == null || sum <= 0) return;
+      const diff = Math.abs(sum - total);
+      if (diff > 20 && diff / total > 0.03) {
+        msgs.push(`${label} policy: the line-item premiums I read add up to ${money(sum)}, but the stated total is ${money(total)} (off by ${money(diff)}). Verify against the declarations page.`);
+      }
+    });
+    if (msgs.length) {
+      el.classList.remove('hidden');
+      el.innerHTML = '<span>⚠️</span><span>' + msgs.map(esc).join('<br>') + '</span>';
+    }
+  }
+
+  // Feature 3: let the agent see exactly what was read from each PDF.
+  function buildExtractView() {
+    const wrap = document.getElementById('extractView');
+    const col = (title, d) => {
+      const rows = (d && d.records) || [];
+      const body = rows.map(r =>
+        `<tr><td>${esc(r.Section || '')}</td><td>${esc(r.Coverage || '')}</td><td>${esc(r.Limit || '')}</td><td>${esc(r.Deductible || '')}</td><td>${esc(r.Premium || '')}</td></tr>`).join('');
+      return `<div class="extract-col"><div class="extract-col__head">${esc(title)} — ${rows.length} lines</div>` +
+        `<div class="extract-col__body"><table><thead><tr><th>Section</th><th>Coverage</th><th>Limit</th><th>Deduct.</th><th>Premium</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+    };
+    wrap.innerHTML = col('Previous Policy', dataOld) + col('Renewal Policy', dataNew);
   }
 
   // Build the headline banner: total premium change + what's driving it.
@@ -1294,7 +1536,6 @@
     banner.classList.remove('hidden', 'pb-up', 'pb-down', 'pb-flat');
     banner.classList.add(up ? 'pb-up' : down ? 'pb-down' : 'pb-flat');
 
-    const money = n => '$' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const arrow = up ? '▲' : down ? '▼' : '';
     document.getElementById('pbAmount').textContent =
       `${arrow} ${money(Math.abs(delta))}  (${up ? '+' : down ? '−' : ''}${pct}%)`;
@@ -1380,7 +1621,7 @@
       if (status === 'changed' && oldRow && newRow) {
         changes = VALUE_HEADERS.filter(h => (oldRow[h] || '') !== (newRow[h] || ''));
       }
-      return { status, key: e.k || '', oldRow, newRow, changes };
+      return { status, key: e.k || '', oldRow, newRow, changes, review: !!e.rv };
     });
 
     compareResults = collapseWholeVehicles(compareResults);
@@ -1548,7 +1789,7 @@
       }).join('');
 
       return `<tr class="row--${r.status}">
-        <td><span class="badge badge--${r.status}">${labels[r.status]}</span></td>
+        <td><span class="badge badge--${r.status}">${labels[r.status]}</span>${r.review ? '<span class="pill-review" title="The AI was not confident about this line — double-check it">review</span>' : ''}</td>
         ${keyCell}${valueCells}
       </tr>`;
     }).join('');
@@ -1557,6 +1798,13 @@
   function esc(str) {
     return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
+
+  // ── View extracted data toggle ───────────────────────────────────────────────
+  document.getElementById('btnViewExtract').addEventListener('click', () => {
+    const v = document.getElementById('extractView');
+    if (v.classList.contains('hidden')) { buildExtractView(); v.classList.remove('hidden'); }
+    else v.classList.add('hidden');
+  });
 
   // ── Filters ─────────────────────────────────────────────────────────────────
   document.getElementById('filterRow').addEventListener('click', e => {

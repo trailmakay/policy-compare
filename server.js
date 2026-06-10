@@ -141,10 +141,11 @@ const server = http.createServer((req, res) => {
         return;
       }
 
-      const systemPrompt = `You are an insurance document parser. Your job is to extract every coverage, limit, premium, driver, and vehicle from the insurance policy text provided.
+      const systemPrompt = `You are an insurance document parser. Your job is to extract the policy identity AND every coverage, limit, premium, driver, and vehicle from the insurance policy text provided.
 
 Return ONLY a valid JSON object in this exact format:
-{"rows": [
+{"meta":{"insured":"JOHN A SMITH","policyNumber":"43-0127-00","effectiveDate":"11-20-2025","expirationDate":"11-20-2026","carrier":"Auto-Owners Insurance"},
+"rows": [
   {
     "Type": "Auto",
     "Section": "Vehicle 1 - 2019 Ford F-150",
@@ -155,7 +156,14 @@ Return ONLY a valid JSON object in this exact format:
   }
 ]}
 
-Rules:
+META rules:
+- "insured" = the primary named insured's full name exactly as printed
+- "policyNumber" = the policy number
+- "effectiveDate" / "expirationDate" = the policy term start/end dates, exactly as printed
+- "carrier" = the insurance company name
+- If any meta field is not found, use "".
+
+ROW rules:
 - "Type" = policy type: Auto, Homeowners, Renters, Umbrella, Life, Farm, Commercial, or Other
 - "Section" = logical grouping within the policy. For auto: use vehicle description (e.g. "Vehicle 1 - 2020 Toyota Camry VIN:1HGBH41"). For home: use section name (Dwelling, Personal Property, Liability). For drivers: use "Drivers".
 - "Coverage" = the specific coverage or item name
@@ -203,11 +211,19 @@ Return ONLY the JSON — no explanation, no markdown, no code blocks. Output com
             const text = msg.content?.[0]?.text ?? '';
             const rows = extractArray(text, 'rows');
             if (!rows) throw new Error('Could not read AI response');
+            // Best-effort policy identity (flat object, survives truncation via regex)
+            let meta = {};
+            const fullParse = text.match(/\{[\s\S]*\}/);
+            if (fullParse) { try { const o = JSON.parse(fullParse[0]); if (o.meta) meta = o.meta; } catch {} }
+            if (!meta.insured) {
+              const mm = text.match(/"meta"\s*:\s*(\{[^}]*\})/);
+              if (mm) { try { meta = JSON.parse(mm[1]); } catch {} }
+            }
             res.writeHead(200, {
               'content-type': 'application/json',
               'access-control-allow-origin': '*',
             });
-            res.end(JSON.stringify({ rows }));
+            res.end(JSON.stringify({ rows, meta }));
           } catch (err) {
             res.writeHead(500, { 'content-type': 'application/json' });
             res.end(JSON.stringify({ error: err.message }));
@@ -336,9 +352,11 @@ Return ONLY the JSON.`;
               }
             });
 
-            // Safety net: anything still unmatched is shown, so nothing is ever lost.
-            oldRows.forEach((r, i) => { if (!usedOld.has(i)) entries.push({ s: 'missing', k: labelOf(r), o: valOf(r) }); });
-            newRows.forEach((r, i) => { if (!usedNew.has(i)) entries.push({ s: 'added',   k: labelOf(r), n: valOf(r) }); });
+            // Safety net: anything still unmatched is shown, so nothing is ever
+            // lost. These were NOT confidently matched by the AI, so flag them
+            // "rv" (review) — the agent should double-check these by eye.
+            oldRows.forEach((r, i) => { if (!usedOld.has(i)) entries.push({ s: 'missing', k: labelOf(r), o: valOf(r), rv: true }); });
+            newRows.forEach((r, i) => { if (!usedNew.has(i)) entries.push({ s: 'added',   k: labelOf(r), n: valOf(r), rv: true }); });
 
             res.writeHead(200, {
               'content-type': 'application/json',
