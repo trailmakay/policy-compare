@@ -59,6 +59,70 @@ function extractArray(text, key) {
   return null;
 }
 
+// One promise-based call to Claude; returns the assistant's text.
+function askAnthropic({ system, content, max_tokens = 8192 }) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify({
+      model: 'claude-haiku-4-5', max_tokens, temperature: 0,
+      system, messages: [{ role: 'user', content }],
+    });
+    const options = {
+      hostname: 'api.anthropic.com', path: '/v1/messages', method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'content-length': Buffer.byteLength(data),
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+    };
+    let resp = '';
+    const r = https.request(options, up => {
+      up.on('data', c => { resp += c; });
+      up.on('end', () => {
+        try {
+          const m = JSON.parse(resp);
+          if (m.error) return reject(new Error(m.error.message || 'Anthropic error'));
+          resolve(m.content?.[0]?.text ?? '');
+        } catch (e) { reject(e); }
+      });
+    });
+    r.on('error', reject);
+    r.write(data); r.end();
+  });
+}
+
+function parseMoneyServer(v) {
+  if (v == null) return null;
+  const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));
+  return isNaN(n) ? null : n;
+}
+
+// Use the policy's own printed total premium as an answer key: do the line-item
+// premiums add up to it? Returns { total, diff } or null if no total found.
+function reconcileScore(rows) {
+  let sum = 0, total = null;
+  (rows || []).forEach(r => {
+    const p = parseMoneyServer(r.Premium);
+    if (p == null) return;
+    if (/total[^a-z]*premium/i.test(r.Coverage || '') || /summary/i.test(r.Section || '')) {
+      if (total == null) total = p;
+    } else sum += p;
+  });
+  if (total == null) return null;
+  return { total, diff: Math.abs(sum - total) };
+}
+
+function parseMeta(text) {
+  let meta = {};
+  const f = text.match(/\{[\s\S]*\}/);
+  if (f) { try { const o = JSON.parse(f[0]); if (o.meta) meta = o.meta; } catch {} }
+  if (!meta.insured) {
+    const mm = text.match(/"meta"\s*:\s*(\{[^}]*\})/);
+    if (mm) { try { meta = JSON.parse(mm[1]); } catch {} }
+  }
+  return meta;
+}
+
 const MIME = {
   '.html': 'text/html',
   '.css':  'text/css',
@@ -205,65 +269,40 @@ Focus on: declarations pages, coverage schedules, premium breakdowns.
 
 Return ONLY the JSON — no explanation, no markdown, no code blocks. Output compact minified JSON (no extra spaces or line breaks) so the full list fits.`;
 
-      const data = JSON.stringify({
-        model: 'claude-haiku-4-5',
-        max_tokens: 8192,
-        temperature: 0,
-        system: systemPrompt,
-        messages: [{ role: 'user', content: policyText.slice(0, 120000) }],
-      });
+      const content = policyText.slice(0, 120000);
+      try {
+        // First read.
+        const text1 = await askAnthropic({ system: systemPrompt, content });
+        let rows = extractArray(text1, 'rows');
+        if (!rows) throw new Error('Could not read AI response');
+        let meta = parseMeta(text1);
 
-      const options = {
-        hostname: 'api.anthropic.com',
-        path: '/v1/messages',
-        method: 'POST',
-        headers: {
-          'content-type':      'application/json',
-          'content-length':    Buffer.byteLength(data),
-          'x-api-key':         API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-      };
-
-      let responseData = '';
-      const proxy = https.request(options, upstream => {
-        upstream.on('data', chunk => { responseData += chunk; });
-        upstream.on('end', () => {
+        // Self-check: do the line-item premiums add up to the printed total?
+        // If not, the read missed something — read it again, more carefully,
+        // and keep whichever version reconciles better with the printed total.
+        const score1 = reconcileScore(rows);
+        if (score1 && score1.total > 0 && score1.diff > Math.max(25, score1.total * 0.03)) {
           try {
-            const msg = JSON.parse(responseData);
-            if (msg.error) throw new Error(msg.error.message || 'Anthropic error');
-            const text = msg.content?.[0]?.text ?? '';
-            const rows = extractArray(text, 'rows');
-            if (!rows) throw new Error('Could not read AI response');
-            // Best-effort policy identity (flat object, survives truncation via regex)
-            let meta = {};
-            const fullParse = text.match(/\{[\s\S]*\}/);
-            if (fullParse) { try { const o = JSON.parse(fullParse[0]); if (o.meta) meta = o.meta; } catch {} }
-            if (!meta.insured) {
-              const mm = text.match(/"meta"\s*:\s*(\{[^}]*\})/);
-              if (mm) { try { meta = JSON.parse(mm[1]); } catch {} }
+            const carefulPrompt = systemPrompt +
+              `\n\nCAREFUL RE-READ: A first pass did not fully reconcile. Be exhaustive: include EVERY premium-bearing line (each vehicle's coverages and every per-vehicle premium) so the individual premiums add up to the printed total premium. Do not skip any line that carries a premium.`;
+            const text2 = await askAnthropic({ system: carefulPrompt, content });
+            const rows2 = extractArray(text2, 'rows');
+            const score2 = reconcileScore(rows2);
+            if (rows2 && rows2.length && score2 && score2.diff < score1.diff) {
+              rows = rows2;
+              meta = parseMeta(text2) || meta;
             }
-            const out = { rows, meta };
-            cacheSet(extractKey, out);
-            res.writeHead(200, {
-              'content-type': 'application/json',
-              'access-control-allow-origin': '*',
-            });
-            res.end(JSON.stringify(out));
-          } catch (err) {
-            res.writeHead(500, { 'content-type': 'application/json' });
-            res.end(JSON.stringify({ error: err.message }));
-          }
-        });
-      });
+          } catch { /* keep first read if the re-read fails (e.g. rate limit) */ }
+        }
 
-      proxy.on('error', err => {
-        if (!res.headersSent) res.writeHead(502, { 'content-type': 'application/json' });
+        const out = { rows, meta };
+        cacheSet(extractKey, out);
+        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
+        res.end(JSON.stringify(out));
+      } catch (err) {
+        res.writeHead(500, { 'content-type': 'application/json' });
         res.end(JSON.stringify({ error: err.message }));
-      });
-
-      proxy.write(data);
-      proxy.end();
+      }
     });
     return;
   }
