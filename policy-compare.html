@@ -1244,7 +1244,7 @@
     const tbody = document.getElementById('tableBody');
     const filtered = currentFilter === 'all' ? compareResults.filter(isMeaningfulChange)
       : currentFilter === 'key' ? compareResults.filter(isKeyChange)
-      : compareResults.filter(r => r.status === currentFilter && isMeaningfulChange(r));
+      : compareResults.filter(r => r.status === currentFilter);
 
     if (filtered.length === 0) {
       tbody.innerHTML = `<tr><td colspan="99" style="text-align:center;color:var(--gray-400);padding:2rem;font-size:0.82rem;">No items in this category.</td></tr>`;
