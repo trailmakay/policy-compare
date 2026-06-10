@@ -1211,7 +1211,53 @@
       return { status, key: e.k || '', oldRow, newRow, changes };
     });
 
+    compareResults = collapseWholeVehicles(compareResults);
     finishCompare('Policy Line', VALUE_HEADERS);
+  }
+
+  // If an ENTIRE vehicle was added or removed, show it as a single line
+  // ("2017 Mazda 6 — vehicle removed") instead of one row per coverage.
+  function vehicleInfo(key) {
+    const parts = String(key).split(' › ');
+    const section = parts[1] || '', coverage = parts[2] || '';
+    const yearRe = /\b(19|20)\d{2}\b/;
+    let disp = null;
+    if (yearRe.test(section)) disp = section.replace(/^vehicle\s*\d+\s*-\s*/i, '').trim();
+    else if (/^vehicle\s*-\s*/i.test(coverage)) disp = coverage.replace(/^vehicle\s*-\s*/i, '').trim();
+    if (!disp) return null;
+    const norm = disp.toLowerCase().replace(/[^a-z0-9 ]/g, ' ')
+      .replace(/\binternational\b/g, 'intl').replace(/\s+/g, ' ').trim();
+    return { norm, disp };
+  }
+
+  function collapseWholeVehicles(results) {
+    const groups = new Map(); // normalized vehicle -> { idxs, disp }
+    results.forEach((r, i) => {
+      const v = vehicleInfo(r.key);
+      if (!v) return;
+      if (!groups.has(v.norm)) groups.set(v.norm, { idxs: [], disp: v.disp });
+      const g = groups.get(v.norm);
+      g.idxs.push(i);
+      if (v.disp.length > g.disp.length) g.disp = v.disp; // keep the fullest description
+    });
+
+    const remove = new Set();
+    const collapsed = [];
+    for (const g of groups.values()) {
+      if (g.idxs.length < 2) continue;
+      const statuses = g.idxs.map(i => results[i].status);
+      const allMissing = statuses.every(s => s === 'missing');
+      const allAdded   = statuses.every(s => s === 'added');
+      if (!allMissing && !allAdded) continue; // car still exists — keep its line items
+      g.idxs.forEach(i => remove.add(i));
+      collapsed.push({
+        status: allMissing ? 'missing' : 'added',
+        key: `Auto › ${allMissing ? 'Vehicle Removed' : 'Vehicle Added'} › ${g.disp}`,
+        oldRow: null, newRow: null, changes: [],
+      });
+    }
+    if (!remove.size) return results;
+    return results.filter((_, i) => !remove.has(i)).concat(collapsed);
   }
 
   document.getElementById('btnCompare').addEventListener('click', async () => {

@@ -319,7 +319,24 @@ Return ONLY the JSON.`;
               }
             }
 
-            // Safety net: anything the AI forgot is added here, so nothing is ever lost.
+            // Auto-pair any leftovers with an IDENTICAL Type|Section|Coverage
+            // identity (e.g. "Total Auto Premium") that the AI left unmatched.
+            const idOf = r => (r.Type + '|' + r.Section + '|' + r.Coverage).toLowerCase().replace(/\s+/g, ' ').trim();
+            const newById = new Map();
+            newRows.forEach((r, j) => { if (!usedNew.has(j)) { const id = idOf(r); (newById.get(id) || newById.set(id, []).get(id)).push(j); } });
+            oldRows.forEach((r, i) => {
+              if (usedOld.has(i)) return;
+              const bucket = newById.get(idOf(r));
+              if (bucket && bucket.length) {
+                const j = bucket.shift();
+                usedOld.add(i); usedNew.add(j);
+                const o = valOf(r), n = valOf(newRows[j]);
+                const changed = o.Limit !== n.Limit || o.Deductible !== n.Deductible || o.Premium !== n.Premium;
+                entries.push({ s: changed ? 'changed' : 'match', k: labelOf(newRows[j]), o, n });
+              }
+            });
+
+            // Safety net: anything still unmatched is shown, so nothing is ever lost.
             oldRows.forEach((r, i) => { if (!usedOld.has(i)) entries.push({ s: 'missing', k: labelOf(r), o: valOf(r) }); });
             newRows.forEach((r, i) => { if (!usedNew.has(i)) entries.push({ s: 'added',   k: labelOf(r), n: valOf(r) }); });
 
