@@ -90,7 +90,7 @@ function extractArray(text, key) {
 // Uses the stronger model (Sonnet) by default. If the per-minute rate limit is
 // hit it waits and retries once; if it's still limited, it falls back to the
 // faster model (Haiku, higher limits) so the app never hard-fails on a big read.
-const PRIMARY_MODEL = 'claude-sonnet-4-6';
+const PRIMARY_MODEL = 'claude-haiku-4-5';
 const FALLBACK_MODEL = 'claude-haiku-4-5';
 
 function askAnthropic({ system, content, max_tokens = 8192, model = PRIMARY_MODEL, attempt = 0 }) {
@@ -405,7 +405,7 @@ Return ONLY the JSON.`;
                       '\n\nNEW POLICY (renewal):\n' + list(newRows, 'n');
 
       const data = JSON.stringify({
-        model: 'claude-sonnet-4-6',
+        model: 'claude-haiku-4-5',
         max_tokens: 8192,
         temperature: 0,
         system: systemPrompt,

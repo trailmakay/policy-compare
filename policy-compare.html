@@ -1636,7 +1636,9 @@
     const yearRe = /\b(19|20)\d{2}\b/;
     let disp = null;
     if (yearRe.test(section)) disp = section.replace(/^vehicle\s*\d+\s*-\s*/i, '').trim();
-    else if (/^vehicle\s*-\s*/i.test(coverage)) disp = coverage.replace(/^vehicle\s*-\s*/i, '').trim();
+    // A "Vehicles" list row carries the car in the coverage, with or without a
+    // "Vehicle -" prefix — catch either so it collapses with the car's lines.
+    else if (yearRe.test(coverage)) disp = coverage.replace(/^vehicle\s*-\s*/i, '').trim();
     if (!disp) return null;
     const norm = disp.toLowerCase().replace(/[^a-z0-9 ]/g, ' ')
       .replace(/\binternational\b/g, 'intl').replace(/\s+/g, ' ').trim();
