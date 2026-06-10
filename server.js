@@ -3,6 +3,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const pdfParse = require('pdf-parse/lib/pdf-parse.js');
 
 // Load .env if present
 try {
@@ -19,6 +20,33 @@ const PORT = process.env.PORT || 3000;
 if (!API_KEY) {
   console.error('ERROR: Set ANTHROPIC_API_KEY in your environment or .env file');
   process.exit(1);
+}
+
+// Pull the coverage rows out of the AI's reply. Handles the normal case, and
+// also repairs a response that got cut off mid-list (keeps all complete rows).
+function extractRows(text) {
+  // Normal case: a complete JSON object
+  const m = text.match(/\{[\s\S]*\}/);
+  if (m) {
+    try {
+      const obj = JSON.parse(m[0]);
+      if (Array.isArray(obj.rows)) return obj.rows;
+    } catch {}
+  }
+  // Repair case: response truncated — close the array after the last full row
+  const start = text.indexOf('[');
+  if (start >= 0) {
+    let arr = text.slice(start);
+    const lastObj = arr.lastIndexOf('}');
+    if (lastObj >= 0) {
+      arr = arr.slice(0, lastObj + 1) + ']';
+      try {
+        const rows = JSON.parse(arr);
+        if (Array.isArray(rows)) return rows;
+      } catch {}
+    }
+  }
+  return null;
 }
 
 const MIME = {
@@ -86,10 +114,32 @@ const server = http.createServer((req, res) => {
   if (req.method === 'POST' && parsed.pathname === '/api/extract') {
     let body = '';
     req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
+    req.on('end', async () => {
       let payload;
       try { payload = JSON.parse(body); } catch {
         res.writeHead(400); res.end('Bad JSON'); return;
+      }
+
+      // Get the policy text — either provided directly, or extracted from an
+      // uploaded PDF (base64) right here on the server (works regardless of
+      // which browser the client uses, and keeps token usage low).
+      let policyText = String(payload.text || '');
+      if (payload.pdf) {
+        try {
+          const buf = Buffer.from(payload.pdf, 'base64');
+          const data = await pdfParse(buf);
+          policyText = data.text || '';
+        } catch (err) {
+          res.writeHead(500, { 'content-type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Could not read PDF: ' + err.message }));
+          return;
+        }
+      }
+
+      if (!policyText.trim()) {
+        res.writeHead(400, { 'content-type': 'application/json' });
+        res.end(JSON.stringify({ error: 'No text found in the file. It may be a scanned image.' }));
+        return;
       }
 
       const systemPrompt = `You are an insurance document parser. Your job is to extract every coverage, limit, premium, driver, and vehicle from the insurance policy text provided.
@@ -122,13 +172,13 @@ ALSO include:
 Skip: page numbers, addresses, phone numbers, agent contact info, privacy notices, legal boilerplate, accident instruction cards, ID card text.
 Focus on: declarations pages, coverage schedules, premium breakdowns.
 
-Return ONLY the JSON — no explanation, no markdown, no code blocks.`;
+Return ONLY the JSON — no explanation, no markdown, no code blocks. Output compact minified JSON (no extra spaces or line breaks) so the full list fits.`;
 
       const data = JSON.stringify({
         model: 'claude-haiku-4-5',
-        max_tokens: 4096,
+        max_tokens: 8192,
         system: systemPrompt,
-        messages: [{ role: 'user', content: String(payload.text || '').slice(0, 80000) }],
+        messages: [{ role: 'user', content: policyText.slice(0, 120000) }],
       });
 
       const options = {
@@ -151,14 +201,13 @@ Return ONLY the JSON — no explanation, no markdown, no code blocks.`;
             const msg = JSON.parse(responseData);
             if (msg.error) throw new Error(msg.error.message || 'Anthropic error');
             const text = msg.content?.[0]?.text ?? '';
-            // Pull out the JSON object even if Claude wrapped it in anything
-            const match = text.match(/\{[\s\S]*\}/);
-            if (!match) throw new Error('No JSON found in AI response');
+            const rows = extractRows(text);
+            if (!rows) throw new Error('Could not read AI response');
             res.writeHead(200, {
               'content-type': 'application/json',
               'access-control-allow-origin': '*',
             });
-            res.end(match[0]);
+            res.end(JSON.stringify({ rows }));
           } catch (err) {
             res.writeHead(500, { 'content-type': 'application/json' });
             res.end(JSON.stringify({ error: err.message }));
