@@ -4,6 +4,17 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 const pdfParse = require('pdf-parse/lib/pdf-parse.js');
+const crypto = require('crypto');
+
+// Simple in-memory cache so identical inputs always return the identical answer
+// (makes results repeatable, instant, and free on re-runs).
+const cache = new Map();
+const hash = s => crypto.createHash('sha256').update(s).digest('hex');
+function cacheGet(k) { return cache.get(k); }
+function cacheSet(k, v) {
+  cache.set(k, v);
+  if (cache.size > 80) cache.delete(cache.keys().next().value); // cap memory
+}
 
 // Load .env if present
 try {
@@ -119,6 +130,15 @@ const server = http.createServer((req, res) => {
         res.writeHead(400); res.end('Bad JSON'); return;
       }
 
+      // Return a cached result if we've seen this exact file/text before.
+      const extractKey = 'extract:' + hash(payload.pdf || ('text:' + String(payload.text || '')));
+      const cachedExtract = cacheGet(extractKey);
+      if (cachedExtract) {
+        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
+        res.end(JSON.stringify(cachedExtract));
+        return;
+      }
+
       // Get the policy text — either provided directly, or extracted from an
       // uploaded PDF (base64) right here on the server (works regardless of
       // which browser the client uses, and keeps token usage low).
@@ -219,11 +239,13 @@ Return ONLY the JSON — no explanation, no markdown, no code blocks. Output com
               const mm = text.match(/"meta"\s*:\s*(\{[^}]*\})/);
               if (mm) { try { meta = JSON.parse(mm[1]); } catch {} }
             }
+            const out = { rows, meta };
+            cacheSet(extractKey, out);
             res.writeHead(200, {
               'content-type': 'application/json',
               'access-control-allow-origin': '*',
             });
-            res.end(JSON.stringify({ rows, meta }));
+            res.end(JSON.stringify(out));
           } catch (err) {
             res.writeHead(500, { 'content-type': 'application/json' });
             res.end(JSON.stringify({ error: err.message }));
@@ -253,6 +275,15 @@ Return ONLY the JSON — no explanation, no markdown, no code blocks. Output com
       }
       const oldRows = Array.isArray(payload.oldRows) ? payload.oldRows : [];
       const newRows = Array.isArray(payload.newRows) ? payload.newRows : [];
+
+      // Same two policies in → same comparison out.
+      const compareKey = 'compare:' + hash(JSON.stringify({ o: oldRows, n: newRows }));
+      const cachedCompare = cacheGet(compareKey);
+      if (cachedCompare) {
+        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
+        res.end(JSON.stringify(cachedCompare));
+        return;
+      }
 
       const systemPrompt = `You are an expert insurance policy analyst. You are given two NUMBERED lists of coverage lines: the client's CURRENT policy (OLD items o0, o1, …) and their RENEWAL policy (NEW items n0, n1, …). Each item shows: Type | Section | Coverage | Limit | Deductible | Premium.
 
@@ -358,11 +389,13 @@ Return ONLY the JSON.`;
             oldRows.forEach((r, i) => { if (!usedOld.has(i)) entries.push({ s: 'missing', k: labelOf(r), o: valOf(r), rv: true }); });
             newRows.forEach((r, i) => { if (!usedNew.has(i)) entries.push({ s: 'added',   k: labelOf(r), n: valOf(r), rv: true }); });
 
+            const out = { entries };
+            cacheSet(compareKey, out);
             res.writeHead(200, {
               'content-type': 'application/json',
               'access-control-allow-origin': '*',
             });
-            res.end(JSON.stringify({ entries }));
+            res.end(JSON.stringify(out));
           } catch (err) {
             res.writeHead(500, { 'content-type': 'application/json' });
             res.end(JSON.stringify({ error: err.message }));
