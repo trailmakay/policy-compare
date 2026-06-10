@@ -28,9 +28,36 @@ try {
 const API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const PORT = process.env.PORT || 3000;
 
+// Optional password protection (HTTP Basic Auth). Set APP_PASSWORD in the
+// environment to lock the app; leave it unset to run open (e.g. local dev).
+const APP_USER = process.env.APP_USER || 'agent';
+const APP_PASSWORD = process.env.APP_PASSWORD || '';
+
 if (!API_KEY) {
   console.error('ERROR: Set ANTHROPIC_API_KEY in your environment or .env file');
   process.exit(1);
+}
+if (!APP_PASSWORD) {
+  console.warn('WARNING: APP_PASSWORD is not set — the app is open to anyone with the URL.');
+}
+
+// Returns true if the request carries the correct Basic-Auth credentials
+// (or if no password is configured at all).
+function checkAuth(req) {
+  if (!APP_PASSWORD) return true;
+  const header = req.headers['authorization'] || '';
+  const m = header.match(/^Basic (.+)$/);
+  if (!m) return false;
+  let decoded = '';
+  try { decoded = Buffer.from(m[1], 'base64').toString('utf8'); } catch { return false; }
+  const i = decoded.indexOf(':');
+  if (i < 0) return false;
+  const user = decoded.slice(0, i);
+  const pass = decoded.slice(i + 1);
+  const passBuf = Buffer.from(pass);
+  const wantBuf = Buffer.from(APP_PASSWORD);
+  const passOk = passBuf.length === wantBuf.length && crypto.timingSafeEqual(passBuf, wantBuf);
+  return user === APP_USER && passOk;
 }
 
 // Pull a named array out of the AI's JSON reply. Handles the normal case, and
@@ -133,6 +160,16 @@ const MIME = {
 
 const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url);
+
+  // Password gate — applies to the page and every API endpoint.
+  if (!checkAuth(req)) {
+    res.writeHead(401, {
+      'WWW-Authenticate': 'Basic realm="Policy Renewal Checker", charset="UTF-8"',
+      'content-type': 'text/plain',
+    });
+    res.end('Authentication required.');
+    return;
+  }
 
   // ── Proxy endpoint ──────────────────────────────────────────────────────────
   if (req.method === 'POST' && parsed.pathname === '/api/ask') {
