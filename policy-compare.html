@@ -414,6 +414,88 @@
       text-transform: uppercase;
     }
 
+    /* ── Premium headline banner ── */
+    .premium-banner {
+      display: flex;
+      gap: 1.5rem;
+      align-items: stretch;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-left: 5px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.4rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+    }
+
+    .premium-banner.pb-up   { border-left-color: var(--red);   background: linear-gradient(90deg, #fff5f5 0%, var(--white) 60%); }
+    .premium-banner.pb-down { border-left-color: var(--green); background: linear-gradient(90deg, #f0fdf4 0%, var(--white) 60%); }
+    .premium-banner.pb-flat { border-left-color: var(--gray-400); }
+
+    .premium-banner__left {
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 1.5rem;
+      border-right: 1px solid var(--gray-200);
+    }
+
+    .premium-banner__label, .premium-banner__sublabel {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 0.35rem;
+    }
+
+    .premium-banner__amount {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--gray-900);
+    }
+
+    .pb-up   .premium-banner__amount { color: var(--red); }
+    .pb-down .premium-banner__amount { color: var(--green); }
+
+    .premium-banner__oldnew {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .premium-banner__right { flex: 1; display: flex; flex-direction: column; justify-content: center; min-width: 240px; }
+
+    .premium-banner__list {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .premium-banner__list li {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      font-weight: 500;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .premium-banner__list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.5rem;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--blue-500);
+    }
+
     /* ── Toolbar ── */
     .toolbar {
       display: flex;
@@ -867,6 +949,19 @@
 
     <!-- Results -->
     <div id="results" class="hidden">
+      <!-- Agent headline banner -->
+      <div class="premium-banner hidden" id="premiumBanner">
+        <div class="premium-banner__left">
+          <div class="premium-banner__label">Total Premium</div>
+          <div class="premium-banner__amount" id="pbAmount">—</div>
+          <div class="premium-banner__oldnew" id="pbOldNew"></div>
+        </div>
+        <div class="premium-banner__right">
+          <div class="premium-banner__sublabel">What's driving it</div>
+          <ul class="premium-banner__list" id="pbDrivers"></ul>
+        </div>
+      </div>
+
       <div class="summary">
         <div class="stat stat--missing">
           <div class="stat__num" id="cntMissing">0</div>
@@ -1151,9 +1246,86 @@
     document.querySelectorAll('.filter-tab').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
     renderRows();
 
+    buildAgentSummary();
+
     document.getElementById('results').classList.remove('hidden');
     document.getElementById('idleState').classList.add('hidden');
     maybeEnableDraftEmail();
+  }
+
+  function parseMoney(v) {
+    if (v == null) return null;
+    const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));
+    return isNaN(n) ? null : n;
+  }
+
+  // Build the headline banner: total premium change + what's driving it.
+  function buildAgentSummary() {
+    const banner = document.getElementById('premiumBanner');
+
+    // Total premium: prefer explicit "Total … Premium" summary lines.
+    let oldT = 0, newT = 0, found = false;
+    compareResults.forEach(r => {
+      if (/total[^›]*premium/i.test(r.key)) {
+        const o = parseMoney(r.oldRow && r.oldRow.Premium);
+        const n = parseMoney(r.newRow && r.newRow.Premium);
+        if (o != null) { oldT += o; found = true; }
+        if (n != null) { newT += n; found = true; }
+      }
+    });
+    // Fallback: sum individual line premiums (skip summary rows to avoid double count).
+    if (!found) {
+      compareResults.forEach(r => {
+        if (/summary|total/i.test(r.key)) return;
+        const o = parseMoney(r.oldRow && r.oldRow.Premium);
+        const n = parseMoney(r.newRow && r.newRow.Premium);
+        if (o != null) oldT += o;
+        if (n != null) newT += n;
+      });
+      found = oldT > 0 || newT > 0;
+    }
+
+    if (!found) { banner.classList.add('hidden'); return; }
+
+    const delta = newT - oldT;
+    const pct = oldT > 0 ? Math.round(Math.abs(delta) / oldT * 100) : 0;
+    const up = delta > 0.5, down = delta < -0.5;
+
+    banner.classList.remove('hidden', 'pb-up', 'pb-down', 'pb-flat');
+    banner.classList.add(up ? 'pb-up' : down ? 'pb-down' : 'pb-flat');
+
+    const money = n => '$' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const arrow = up ? '▲' : down ? '▼' : '';
+    document.getElementById('pbAmount').textContent =
+      `${arrow} ${money(Math.abs(delta))}  (${up ? '+' : down ? '−' : ''}${pct}%)`;
+    document.getElementById('pbOldNew').textContent =
+      `${money(oldT)} → ${money(newT)} ${up ? 'increase' : down ? 'decrease' : '(no change)'}`;
+
+    // What's driving it
+    const vehAdded   = compareResults.filter(r => /vehicle added/i.test(r.key)).length;
+    const vehRemoved = compareResults.filter(r => /vehicle removed/i.test(r.key)).length;
+    const drvAdded   = compareResults.filter(r => r.status === 'added'   && /driver -/i.test(r.key)).length;
+    const drvRemoved = compareResults.filter(r => r.status === 'missing' && /driver -/i.test(r.key)).length;
+    const covChanges = compareResults.filter(r => r.status === 'changed' && !/total[^›]*premium/i.test(r.key) && isMeaningfulChange(r)).length;
+    const covAdded   = compareResults.filter(r => r.status === 'added'   && !/vehicle added/i.test(r.key)   && !/driver -/i.test(r.key)).length;
+    const covDropped = compareResults.filter(r => r.status === 'missing' && !/vehicle removed/i.test(r.key) && !/driver -/i.test(r.key) && !/total[^›]*premium/i.test(r.key)).length;
+
+    const items = [];
+    if (vehRemoved) items.push(`${vehRemoved} vehicle${vehRemoved > 1 ? 's' : ''} removed`);
+    if (vehAdded)   items.push(`${vehAdded} vehicle${vehAdded > 1 ? 's' : ''} added`);
+    if (drvRemoved) items.push(`${drvRemoved} driver${drvRemoved > 1 ? 's' : ''} removed`);
+    if (drvAdded)   items.push(`${drvAdded} driver${drvAdded > 1 ? 's' : ''} added`);
+    if (covChanges) items.push(`${covChanges} coverage/limit change${covChanges > 1 ? 's' : ''}`);
+    if (covDropped) items.push(`${covDropped} coverage${covDropped > 1 ? 's' : ''} dropped`);
+    if (covAdded)   items.push(`${covAdded} coverage${covAdded > 1 ? 's' : ''} added`);
+
+    if (!items.length && (up || down)) {
+      items.push(`Coverage appears unchanged — this looks like a straight rate ${up ? 'increase' : 'decrease'}.`);
+    } else if (!items.length) {
+      items.push('No coverage changes detected.');
+    }
+
+    document.getElementById('pbDrivers').innerHTML = items.map(t => `<li>${esc(t)}</li>`).join('');
   }
 
   // Simple exact-match comparison (used for CSV files).
