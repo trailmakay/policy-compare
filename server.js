@@ -167,6 +167,83 @@ function parseMeta(text) {
   return meta;
 }
 
+// ── Deterministic policy comparison ─────────────────────────────────────────
+// Matches coverages across two policies in code (no AI), so the result is exact,
+// instant, and identical every time for the same input.
+const CMP_MAKE_MAP = { toyt:'toyota', hond:'honda', intl:'international', chev:'chevrolet', chevy:'chevrolet', vw:'volkswagen', mercbenz:'mercedes', frt:'freightliner' };
+const cmpNorm = s => String(s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+const CMP_YEAR = /\b(19|20)\d{2}\b/;
+
+function comparePolicies(oldRows, newRows) {
+  const vehDescriptor = r => {
+    const sec = String(r.Section||''), cov = String(r.Coverage||'');
+    if (CMP_YEAR.test(sec)) return sec.replace(/^vehicle\s*\d+\s*-\s*/i,'').trim();
+    if (/^vehicles?$/i.test(sec) && CMP_YEAR.test(cov)) return cov.replace(/^vehicle\s*-\s*/i,'').trim();
+    return null;
+  };
+  const parseVeh = desc => {
+    const toks = cmpNorm(desc).split(' ').filter(Boolean).map(t => CMP_MAKE_MAP[t]||t);
+    let year=''; const rest=[];
+    toks.forEach(t => { if(!year && /^(19|20)\d{2}$/.test(t)) year=t; else rest.push(t); });
+    return { year, toks: rest, desc };
+  };
+  const vehScore = (a,b) => { if(a.year&&b.year&&a.year!==b.year) return -1; const sb=new Set(b.toks); let s=0; a.toks.forEach(t=>{ if(sb.has(t)) s++; }); return s; };
+
+  const oldDescs=[...new Set(oldRows.map(vehDescriptor).filter(Boolean))];
+  const newDescs=[...new Set(newRows.map(vehDescriptor).filter(Boolean))];
+  const oldV=oldDescs.map(parseVeh), newV=newDescs.map(parseVeh);
+  const cand=[];
+  oldV.forEach((o,i)=>newV.forEach((n,j)=>{ const s=vehScore(o,n); if(s>=1) cand.push([s,i,j]); }));
+  cand.sort((x,y)=>y[0]-x[0]);
+  const usedOi=new Set(), usedNj=new Set(), oldDescToId={}, newDescToId={};
+  cand.forEach(([s,i,j])=>{ if(usedOi.has(i)||usedNj.has(j)) return; usedOi.add(i); usedNj.add(j); oldDescToId[oldDescs[i]]='V'+j; newDescToId[newDescs[j]]='V'+j; });
+  oldDescs.forEach(d=>{ if(!(d in oldDescToId)) oldDescToId[d]='Oonly:'+d; });
+  newDescs.forEach(d=>{ if(!(d in newDescToId)) newDescToId[d]='Nonly:'+d; });
+
+  const driverKey = cov => { const n=cmpNorm(cov).replace(/^driver\s*/,'').trim().split(' ').filter(Boolean); return 'DR|'+(n[0]||'')+'|'+(n[n.length-1]||''); };
+  const rowKey = (r, side) => {
+    const desc=vehDescriptor(r);
+    if (desc) {
+      const id = side==='o' ? oldDescToId[desc] : newDescToId[desc];
+      if (/^vehicles?$/i.test(String(r.Section||''))) return 'VH|'+id+'|__LIST__';
+      return 'VH|'+id+'|'+cmpNorm(r.Coverage);
+    }
+    const sec=String(r.Section||'');
+    if (/drivers?/i.test(sec)) return driverKey(r.Coverage);
+    if (/summary/i.test(sec))  return 'SM|'+cmpNorm(r.Coverage);
+    return 'OT|'+cmpNorm(sec)+'|'+cmpNorm(r.Coverage);
+  };
+  const isOT = r => !vehDescriptor(r) && !/drivers?|summary/i.test(String(r.Section||''));
+  const label = r => {
+    const desc=vehDescriptor(r);
+    if (desc && !/^vehicles?$/i.test(String(r.Section||''))) return 'Auto › '+desc+' › '+r.Coverage;
+    return 'Auto › '+(r.Section||'')+' › '+r.Coverage;
+  };
+  const val = r => ({ Limit: r.Limit||'', Deductible: r.Deductible||'', Premium: r.Premium||'' });
+
+  const oldMap=new Map(), newMap=new Map();
+  oldRows.forEach(r=>{ const k=rowKey(r,'o'); if(!oldMap.has(k)) oldMap.set(k,r); });
+  newRows.forEach(r=>{ const k=rowKey(r,'n'); if(!newMap.has(k)) newMap.set(k,r); });
+
+  const matched=[], missing=[], added=[];
+  for (const [k,r] of oldMap){ if(newMap.has(k)) matched.push([r,newMap.get(k)]); else missing.push(r); }
+  for (const [k,r] of newMap){ if(!oldMap.has(k)) added.push(r); }
+
+  // Reconcile leftover package/other coverages by unique coverage name (handles
+  // the same coverage filed under a different section name in each policy).
+  const mCov=new Map(), aCov=new Map();
+  missing.forEach((r,i)=>{ if(!isOT(r)) return; const c=cmpNorm(r.Coverage); (mCov.get(c)||mCov.set(c,[]).get(c)).push(i); });
+  added.forEach((r,j)=>{ if(!isOT(r)) return; const c=cmpNorm(r.Coverage); (aCov.get(c)||aCov.set(c,[]).get(c)).push(j); });
+  const dropM=new Set(), dropA=new Set();
+  for (const [c,mis] of mCov){ const adds=aCov.get(c); if(mis.length===1 && adds && adds.length===1){ matched.push([missing[mis[0]], added[adds[0]]]); dropM.add(mis[0]); dropA.add(adds[0]); } }
+
+  const entries=[];
+  matched.forEach(([o,n])=>{ const ov=val(o), nv=val(n); const ch=ov.Limit!==nv.Limit||ov.Deductible!==nv.Deductible||ov.Premium!==nv.Premium; entries.push({ s: ch?'changed':'match', k: label(n), o: ov, n: nv }); });
+  missing.forEach((r,i)=>{ if(!dropM.has(i)) entries.push({ s:'missing', k: label(r), o: val(r) }); });
+  added.forEach((r,j)=>{ if(!dropA.has(j)) entries.push({ s:'added', k: label(r), n: val(r) }); });
+  return entries;
+}
+
 const MIME = {
   '.html': 'text/html',
   '.css':  'text/css',
@@ -382,131 +459,16 @@ Return ONLY the JSON — no explanation, no markdown, no code blocks. Output com
         return;
       }
 
-      const systemPrompt = `You are an expert insurance policy analyst. You are given two NUMBERED lists of coverage lines: the client's CURRENT policy (OLD items o0, o1, …) and their RENEWAL policy (NEW items n0, n1, …). Each item shows: Type | Section | Coverage | Limit | Deductible | Premium.
-
-Your ONLY job is to PAIR each old item with the new item that represents the SAME coverage on the SAME vehicle/section. Match INTELLIGENTLY:
-- Two vehicles are the SAME vehicle if they share year + make + model, EVEN IF the "Vehicle N" position number differs and EVEN IF spelling/abbreviation differs ("International"="Intl", "RAM"="Ram", "16FT"="16ft", "Dr"="DR"). Position numbers often shift between policies — ignore them.
-- Two coverages match if they mean the same thing, ignoring minor wording ("Property Damage"="Property Damage Liability") or how each document grouped them.
-
-Output ONLY compact minified JSON, no markdown:
-{"pairs":[{"o":<old index number or null>,"n":<new index number or null>,"k":"label"}]}
-Rules:
-- If an old item matches a new item: one pair with BOTH "o" and "n".
-- If an old item has NO match in the new policy: {"o":<i>,"n":null,"k":…} (it was dropped).
-- If a new item has NO match in the old policy: {"o":null,"n":<j>,"k":…} (it was added).
-- Use each old index AT MOST once and each new index AT MOST once.
-- "k" = a clear "Type › Section › Coverage" label. For vehicles use the real "YEAR MAKE MODEL" (never a bare position number), e.g. "Auto › 2021 Ram 2500 › Collision". Prefer the renewal policy's wording.
-- CRITICAL: account for EVERY old index and EVERY new index. Do not skip any.
-Return ONLY the JSON.`;
-
-      const list = (rows, p) => rows.map((r, i) =>
-        `${p}${i}: ${r.Type} | ${r.Section} | ${r.Coverage} | ${r.Limit} | ${r.Deductible} | ${r.Premium}`).join('\n');
-      const userMsg = 'OLD POLICY (current):\n' + list(oldRows, 'o') +
-                      '\n\nNEW POLICY (renewal):\n' + list(newRows, 'n');
-
-      const data = JSON.stringify({
-        model: 'claude-haiku-4-5',
-        max_tokens: 8192,
-        temperature: 0,
-        system: systemPrompt,
-        messages: [{ role: 'user', content: userMsg.slice(0, 150000) }],
-      });
-
-      const options = {
-        hostname: 'api.anthropic.com',
-        path: '/v1/messages',
-        method: 'POST',
-        headers: {
-          'content-type':      'application/json',
-          'content-length':    Buffer.byteLength(data),
-          'x-api-key':         API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-      };
-
-      let responseData = '';
-      const proxy = https.request(options, upstream => {
-        upstream.on('data', chunk => { responseData += chunk; });
-        upstream.on('end', () => {
-          try {
-            const msg = JSON.parse(responseData);
-            if (msg.error) throw new Error(msg.error.message || 'Anthropic error');
-            const text = msg.content?.[0]?.text ?? '';
-            const pairs = extractArray(text, 'pairs') || [];
-
-            // Reconcile the AI's pairings against the real rows — this GUARANTEES
-            // every line is accounted for and computes the actual changes.
-            const valOf   = r => ({ Limit: r.Limit || '', Deductible: r.Deductible || '', Premium: r.Premium || '' });
-            const labelOf = r => [r.Type, r.Section, r.Coverage].filter(Boolean).join(' › ');
-            const usedOld = new Set(), usedNew = new Set();
-            const entries = [];
-
-            for (const p of pairs) {
-              let oi = Number.isInteger(p.o) ? p.o : null;
-              let ni = Number.isInteger(p.n) ? p.n : null;
-              if (oi !== null && (oi < 0 || oi >= oldRows.length || usedOld.has(oi))) oi = null;
-              if (ni !== null && (ni < 0 || ni >= newRows.length || usedNew.has(ni))) ni = null;
-              if (oi === null && ni === null) continue;
-              if (oi !== null) usedOld.add(oi);
-              if (ni !== null) usedNew.add(ni);
-              const oRow = oi !== null ? oldRows[oi] : null;
-              const nRow = ni !== null ? newRows[ni] : null;
-              const k = (typeof p.k === 'string' && p.k.trim()) ? p.k.trim() : labelOf(nRow || oRow);
-              if (oRow && nRow) {
-                const o = valOf(oRow), n = valOf(nRow);
-                const changed = o.Limit !== n.Limit || o.Deductible !== n.Deductible || o.Premium !== n.Premium;
-                entries.push({ s: changed ? 'changed' : 'match', k, o, n });
-              } else if (oRow) {
-                entries.push({ s: 'missing', k, o: valOf(oRow) });
-              } else {
-                entries.push({ s: 'added', k, n: valOf(nRow) });
-              }
-            }
-
-            // Auto-pair any leftovers with an IDENTICAL Type|Section|Coverage
-            // identity (e.g. "Total Auto Premium") that the AI left unmatched.
-            const idOf = r => (r.Type + '|' + r.Section + '|' + r.Coverage).toLowerCase().replace(/\s+/g, ' ').trim();
-            const newById = new Map();
-            newRows.forEach((r, j) => { if (!usedNew.has(j)) { const id = idOf(r); (newById.get(id) || newById.set(id, []).get(id)).push(j); } });
-            oldRows.forEach((r, i) => {
-              if (usedOld.has(i)) return;
-              const bucket = newById.get(idOf(r));
-              if (bucket && bucket.length) {
-                const j = bucket.shift();
-                usedOld.add(i); usedNew.add(j);
-                const o = valOf(r), n = valOf(newRows[j]);
-                const changed = o.Limit !== n.Limit || o.Deductible !== n.Deductible || o.Premium !== n.Premium;
-                entries.push({ s: changed ? 'changed' : 'match', k: labelOf(newRows[j]), o, n });
-              }
-            });
-
-            // Safety net: anything still unmatched is shown, so nothing is ever
-            // lost. These were NOT confidently matched by the AI, so flag them
-            // "rv" (review) — the agent should double-check these by eye.
-            oldRows.forEach((r, i) => { if (!usedOld.has(i)) entries.push({ s: 'missing', k: labelOf(r), o: valOf(r), rv: true }); });
-            newRows.forEach((r, i) => { if (!usedNew.has(i)) entries.push({ s: 'added',   k: labelOf(r), n: valOf(r), rv: true }); });
-
-            const out = { entries };
-            cacheSet(compareKey, out);
-            res.writeHead(200, {
-              'content-type': 'application/json',
-              'access-control-allow-origin': '*',
-            });
-            res.end(JSON.stringify(out));
-          } catch (err) {
-            res.writeHead(500, { 'content-type': 'application/json' });
-            res.end(JSON.stringify({ error: err.message }));
-          }
-        });
-      });
-
-      proxy.on('error', err => {
-        if (!res.headersSent) res.writeHead(502, { 'content-type': 'application/json' });
+      try {
+        const entries = comparePolicies(oldRows, newRows);
+        const out = { entries };
+        cacheSet(compareKey, out);
+        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
+        res.end(JSON.stringify(out));
+      } catch (err) {
+        res.writeHead(500, { 'content-type': 'application/json' });
         res.end(JSON.stringify({ error: err.message }));
-      });
-
-      proxy.write(data);
-      proxy.end();
+      }
     });
     return;
   }
