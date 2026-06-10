@@ -1128,31 +1128,10 @@
   }
 
   // ── Compare ─────────────────────────────────────────────────────────────────
-  document.getElementById('btnCompare').addEventListener('click', () => {
-    const keyField = document.getElementById('keyField').value;
-    const allHeaders = [...new Set([...dataOld.headers, ...dataNew.headers])];
-    const valueHeaders = allHeaders.filter(h => h !== keyField);
-    savedValueHeaders = valueHeaders;
+  // Shared: once we have compareResults + headers, paint the screen.
+  function finishCompare(keyField, valueHeaders) {
     savedKeyField = keyField;
-
-    const oldMap = new Map(dataOld.records.map(r => [r[keyField], r]));
-    const newMap = new Map(dataNew.records.map(r => [r[keyField], r]));
-
-    compareResults = [];
-
-    for (const [key, oldRow] of oldMap) {
-      if (!newMap.has(key)) {
-        compareResults.push({ status: 'missing', key, oldRow, newRow: null, changes: [] });
-        continue;
-      }
-      const newRow = newMap.get(key);
-      const changes = valueHeaders.filter(h => (oldRow[h] ?? '') !== (newRow[h] ?? ''));
-      compareResults.push({ status: changes.length ? 'changed' : 'match', key, oldRow, newRow, changes });
-    }
-
-    for (const [key, newRow] of newMap) {
-      if (!oldMap.has(key)) compareResults.push({ status: 'added', key, oldRow: null, newRow, changes: [] });
-    }
+    savedValueHeaders = valueHeaders;
 
     const order = { missing: 0, changed: 1, added: 2, match: 3 };
     compareResults.sort((a, b) => order[a.status] - order[b.status]);
@@ -1164,8 +1143,8 @@
 
     document.getElementById('tableHead').innerHTML = `<tr>
       <th>Status</th>
-      <th>${keyField}</th>
-      ${valueHeaders.map(h => `<th>${h}</th>`).join('')}
+      <th>${esc(keyField)}</th>
+      ${valueHeaders.map(h => `<th>${esc(h)}</th>`).join('')}
     </tr>`;
 
     currentFilter = 'all';
@@ -1175,6 +1154,86 @@
     document.getElementById('results').classList.remove('hidden');
     document.getElementById('idleState').classList.add('hidden');
     maybeEnableDraftEmail();
+  }
+
+  // Simple exact-match comparison (used for CSV files).
+  function runLocalCompare() {
+    const keyField = document.getElementById('keyField').value;
+    const allHeaders = [...new Set([...dataOld.headers, ...dataNew.headers])];
+    const valueHeaders = allHeaders.filter(h => h !== keyField);
+
+    const oldMap = new Map(dataOld.records.map(r => [r[keyField], r]));
+    const newMap = new Map(dataNew.records.map(r => [r[keyField], r]));
+
+    compareResults = [];
+    for (const [key, oldRow] of oldMap) {
+      if (!newMap.has(key)) { compareResults.push({ status: 'missing', key, oldRow, newRow: null, changes: [] }); continue; }
+      const newRow = newMap.get(key);
+      const changes = valueHeaders.filter(h => (oldRow[h] ?? '') !== (newRow[h] ?? ''));
+      compareResults.push({ status: changes.length ? 'changed' : 'match', key, oldRow, newRow, changes });
+    }
+    for (const [key, newRow] of newMap) {
+      if (!oldMap.has(key)) compareResults.push({ status: 'added', key, oldRow: null, newRow, changes: [] });
+    }
+    finishCompare(keyField, valueHeaders);
+  }
+
+  // AI-powered comparison (used for PDFs): Claude matches coverages across the
+  // two policies even when vehicle numbers shift or wording differs.
+  async function runAiCompare() {
+    const VALUE_HEADERS = ['Limit', 'Deductible', 'Premium'];
+    const slim = recs => recs.map(r => ({
+      Type: r.Type || '', Section: r.Section || '', Coverage: r.Coverage || '',
+      Limit: r.Limit || '', Deductible: r.Deductible || '', Premium: r.Premium || '',
+    }));
+
+    const resp = await fetch('/api/compare', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ oldRows: slim(dataOld.records), newRows: slim(dataNew.records) }),
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.error || `Comparison failed (${resp.status})`);
+    }
+    const result = await resp.json();
+    if (result.error) throw new Error(result.error);
+    if (!Array.isArray(result.entries)) throw new Error('Unexpected comparison response.');
+
+    compareResults = result.entries.map(e => {
+      const status = e.s || 'match';
+      const oldRow = e.o ? { Limit: e.o.Limit || '', Deductible: e.o.Deductible || '', Premium: e.o.Premium || '' } : null;
+      const newRow = e.n ? { Limit: e.n.Limit || '', Deductible: e.n.Deductible || '', Premium: e.n.Premium || '' } : null;
+      let changes = [];
+      if (status === 'changed' && oldRow && newRow) {
+        changes = VALUE_HEADERS.filter(h => (oldRow[h] || '') !== (newRow[h] || ''));
+      }
+      return { status, key: e.k || '', oldRow, newRow, changes };
+    });
+
+    finishCompare('Policy Line', VALUE_HEADERS);
+  }
+
+  document.getElementById('btnCompare').addEventListener('click', async () => {
+    const btn = document.getElementById('btnCompare');
+    const useAi = dataOld.aiExtracted && dataNew.aiExtracted;
+    const originalHtml = btn.innerHTML;
+
+    if (useAi) {
+      btn.disabled = true;
+      btn.innerHTML = '⏳ AI is comparing both policies… (~20 sec)';
+    }
+
+    try {
+      if (useAi) await runAiCompare();
+      else runLocalCompare();
+    } catch (err) {
+      showToast('Comparison failed: ' + err.message, 'error');
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalHtml;
+    }
   });
 
   // Keywords that signal an agent-relevant field
