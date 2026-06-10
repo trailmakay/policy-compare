@@ -87,10 +87,16 @@ function extractArray(text, key) {
 }
 
 // One promise-based call to Claude; returns the assistant's text.
-function askAnthropic({ system, content, max_tokens = 8192 }) {
+// Uses the stronger model (Sonnet) by default. If the per-minute rate limit is
+// hit it waits and retries once; if it's still limited, it falls back to the
+// faster model (Haiku, higher limits) so the app never hard-fails on a big read.
+const PRIMARY_MODEL = 'claude-sonnet-4-6';
+const FALLBACK_MODEL = 'claude-haiku-4-5';
+
+function askAnthropic({ system, content, max_tokens = 8192, model = PRIMARY_MODEL, attempt = 0 }) {
   return new Promise((resolve, reject) => {
     const data = JSON.stringify({
-      model: 'claude-haiku-4-5', max_tokens, temperature: 0,
+      model, max_tokens, temperature: 0,
       system, messages: [{ role: 'user', content }],
     });
     const options = {
@@ -102,18 +108,29 @@ function askAnthropic({ system, content, max_tokens = 8192 }) {
         'anthropic-version': '2023-06-01',
       },
     };
+    const again = (opts, waitMs) => setTimeout(() => {
+      askAnthropic({ system, content, max_tokens, ...opts }).then(resolve, reject);
+    }, waitMs);
+
     let resp = '';
     const r = https.request(options, up => {
       up.on('data', c => { resp += c; });
       up.on('end', () => {
         try {
           const m = JSON.parse(resp);
-          if (m.error) return reject(new Error(m.error.message || 'Anthropic error'));
+          if (m.error) {
+            const msg = m.error.message || 'Anthropic error';
+            const rateLimited = up.statusCode === 429 || up.statusCode === 529 ||
+              m.error.type === 'rate_limit_error' || /rate limit|overloaded/i.test(msg);
+            if (rateLimited && attempt < 1) return again({ model, attempt: 1 }, 25000);       // wait & retry same model
+            if (rateLimited && model !== FALLBACK_MODEL) return again({ model: FALLBACK_MODEL, attempt: 0 }, 1500); // fall back
+            return reject(new Error(msg));
+          }
           resolve(m.content?.[0]?.text ?? '');
         } catch (e) { reject(e); }
       });
     });
-    r.on('error', reject);
+    r.on('error', err => { if (attempt < 1) return again({ model, attempt: 1 }, 3000); reject(err); });
     r.write(data); r.end();
   });
 }
@@ -388,7 +405,7 @@ Return ONLY the JSON.`;
                       '\n\nNEW POLICY (renewal):\n' + list(newRows, 'n');
 
       const data = JSON.stringify({
-        model: 'claude-haiku-4-5',
+        model: 'claude-sonnet-4-6',
         max_tokens: 8192,
         temperature: 0,
         system: systemPrompt,
