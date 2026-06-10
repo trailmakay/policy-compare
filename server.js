@@ -196,6 +196,10 @@ ALSO include:
 - One row per vehicle: Type="Auto", Section="Vehicles", Coverage="Vehicle - [Year Make Model]", Limit="VIN: [VIN if available]", Deductible="", Premium=""
 - One row for total premium per policy type: Type=[type], Section="Summary", Coverage="Total [Type] Premium", Limit="", Deductible="", Premium="[amount]"
 
+BUNDLED PACKAGES — IMPORTANT for consistency:
+- If the policy includes a bundled package of extra coverages (e.g. a name containing "Package", "Plus", "Advantage", "Enhancement", or a grouping called "Additional Coverage"/"Additional Coverages"), output exactly ONE row for the WHOLE package: Section="[package name]", Coverage="[package name]", Limit="Included", Deductible="N/A", Premium="[the package's premium if shown, else '']".
+- Do NOT itemize the individual sub-coverages inside such a package. Treat the package as a single line item.
+
 Skip: page numbers, addresses, phone numbers, agent contact info, privacy notices, legal boilerplate, accident instruction cards, ID card text.
 Focus on: declarations pages, coverage schedules, premium breakdowns.
 
