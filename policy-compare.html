@@ -954,10 +954,27 @@
   </div>
 
 <script>
-  // ── PDF.js setup ────────────────────────────────────────────────────────────
-  if (typeof pdfjsLib !== 'undefined') {
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  // ── PDF.js setup (Safari-safe worker loading) ───────────────────────────────
+  const PDF_WORKER_URL = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  let pdfWorkerReady = null;
+
+  // Safari refuses to start a Web Worker from a cross-origin (CDN) URL, which
+  // throws "The string did not match the expected pattern." To avoid it, we
+  // download the worker script once, wrap it in a local blob URL, and use that.
+  async function ensurePdfWorker() {
+    if (pdfWorkerReady) return pdfWorkerReady;
+    pdfWorkerReady = (async () => {
+      try {
+        const res = await fetch(PDF_WORKER_URL);
+        const code = await res.text();
+        const blobUrl = URL.createObjectURL(new Blob([code], { type: 'application/javascript' }));
+        pdfjsLib.GlobalWorkerOptions.workerSrc = blobUrl;
+      } catch {
+        // Fall back to the direct CDN URL if the download fails
+        pdfjsLib.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL;
+      }
+    })();
+    return pdfWorkerReady;
   }
 
   // ── Toast ───────────────────────────────────────────────────────────────────
@@ -978,6 +995,7 @@
   // ── PDF Parser (extract text with PDF.js, then send to Claude) ──────────────
   async function parsePDF(file, statusCallback) {
     statusCallback('⏳ Reading PDF pages…');
+    await ensurePdfWorker();
 
     const arrayBuffer = await new Promise((resolve, reject) => {
       const reader = new FileReader();
