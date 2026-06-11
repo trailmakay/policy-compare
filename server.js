@@ -237,11 +237,62 @@ function comparePolicies(oldRows, newRows) {
   const dropM=new Set(), dropA=new Set();
   for (const [c,mis] of mCov){ const adds=aCov.get(c); if(mis.length===1 && adds && adds.length===1){ matched.push([missing[mis[0]], added[adds[0]]]); dropM.add(mis[0]); dropA.add(adds[0]); } }
 
+  const pg = r => (r && (r.Page || r.page)) || null;
   const entries=[];
-  matched.forEach(([o,n])=>{ const ov=val(o), nv=val(n); const ch=ov.Limit!==nv.Limit||ov.Deductible!==nv.Deductible||ov.Premium!==nv.Premium; entries.push({ s: ch?'changed':'match', k: label(n), o: ov, n: nv }); });
-  missing.forEach((r,i)=>{ if(!dropM.has(i)) entries.push({ s:'missing', k: label(r), o: val(r) }); });
-  added.forEach((r,j)=>{ if(!dropA.has(j)) entries.push({ s:'added', k: label(r), n: val(r) }); });
+  matched.forEach(([o,n])=>{ const ov=val(o), nv=val(n); const ch=ov.Limit!==nv.Limit||ov.Deductible!==nv.Deductible||ov.Premium!==nv.Premium; entries.push({ s: ch?'changed':'match', k: label(n), o: ov, n: nv, pg: pg(n)||pg(o), pgs:'new' }); });
+  missing.forEach((r,i)=>{ if(!dropM.has(i)) entries.push({ s:'missing', k: label(r), o: val(r), pg: pg(r), pgs:'old' }); });
+  added.forEach((r,j)=>{ if(!dropA.has(j)) entries.push({ s:'added', k: label(r), n: val(r), pg: pg(r), pgs:'new' }); });
   return entries;
+}
+
+// ── Page tracking ───────────────────────────────────────────────────────────
+// Read a PDF but tag each page so we can later say which page a coverage is on.
+function pageMarkedRender() {
+  let counter = 0;
+  return pageData => {
+    const n = pageData.pageNumber || (++counter);
+    return pageData.getTextContent({ normalizeWhitespace:false, disableCombineTextItems:false }).then(tc => {
+      let text='', lastY;
+      for (const it of tc.items) { if (lastY===it.transform[5] || !lastY) text+=it.str; else text+='\n'+it.str; lastY=it.transform[5]; }
+      return '\n===PAGE '+n+'===\n'+text;
+    });
+  };
+}
+function buildPages(marked) {
+  const re=/===PAGE (\d+)===/g; let m, prev=null, lastIdx=0; const parts=[];
+  while ((m=re.exec(marked))) { if (prev!==null) parts.push({ page:prev, text:marked.slice(lastIdx, m.index) }); prev=+m[1]; lastIdx=re.lastIndex; }
+  if (prev!==null) parts.push({ page:prev, text:marked.slice(lastIdx) });
+  return parts.map(p => ({ page:p.page, norm:' '+p.text.toUpperCase().replace(/[^A-Z0-9]+/g,' ').trim()+' ' }));
+}
+// Find the page whose text contains the most of the needle's distinctive words.
+// Distinctive words (make/model/coverage names) are weighted far above the year,
+// which appears on many pages — and we refuse to guess on a year-only match.
+function pageForNeedle(pages, needle) {
+  if (!needle) return null;
+  const toks=[...new Set(String(needle).toUpperCase().replace(/[^A-Z0-9]+/g,' ').split(' ').filter(t => t.length>=3 || /^(19|20)\d{2}$/.test(t)))];
+  if (!toks.length) return null;
+  let best=null, bestScore=0;
+  for (const p of pages) {
+    let sc=0; for (const t of toks) if (p.norm.includes(' '+t+' ')) sc += /^(19|20)\d{2}$/.test(t) ? 1 : 10;
+    if (sc>bestScore) { bestScore=sc; best=p.page; }
+  }
+  if (bestScore>=10) return best; // found a distinctive (non-year) word cleanly
+  // Last resort for glued/abbreviated raw text (e.g. "2017MAZD 6"): the 4-char
+  // prefix of the longest distinctive word as a substring.
+  const distinct=toks.filter(t => !/^(19|20)\d{2}$/.test(t)).sort((a,b)=>b.length-a.length);
+  for (const t of distinct) { const pre=t.slice(0,4); if (pre.length<4) continue;
+    for (const p of pages) if (p.norm.includes(pre)) return p.page;
+  }
+  return null;
+}
+function rowNeedle(r) {
+  const sec=String(r.Section||''), cov=String(r.Coverage||'');
+  const desc = CMP_YEAR.test(sec) ? sec.replace(/^vehicle\s*\d+\s*-\s*/i,'').trim()
+    : (/^vehicles?$/i.test(sec) && CMP_YEAR.test(cov)) ? cov.replace(/^vehicle\s*-\s*/i,'').trim()
+    : null;
+  if (desc) return desc;
+  if (/drivers?/i.test(sec)) return cov.replace(/^driver\s*-?\s*/i,'').trim();
+  return cov || sec;
 }
 
 const MIME = {
@@ -338,11 +389,13 @@ const server = http.createServer((req, res) => {
       // uploaded PDF (base64) right here on the server (works regardless of
       // which browser the client uses, and keeps token usage low).
       let policyText = String(payload.text || '');
+      let markedText = '';
       if (payload.pdf) {
         try {
           const buf = Buffer.from(payload.pdf, 'base64');
-          const data = await pdfParse(buf);
-          policyText = data.text || '';
+          const data = await pdfParse(buf, { pagerender: pageMarkedRender() });
+          markedText = data.text || '';
+          policyText = markedText.replace(/===PAGE \d+===/g, ' '); // clean copy for the AI
         } catch (err) {
           res.writeHead(500, { 'content-type': 'application/json' });
           res.end(JSON.stringify({ error: 'Could not read PDF: ' + err.message }));
@@ -424,6 +477,12 @@ Return ONLY the JSON — no explanation, no markdown, no code blocks. Output com
               meta = parseMeta(text2) || meta;
             }
           } catch { /* keep first read if the re-read fails (e.g. rate limit) */ }
+        }
+
+        // Stamp each row with the PDF page it was found on (deterministic search).
+        if (markedText) {
+          const pages = buildPages(markedText);
+          rows.forEach(r => { const p = pageForNeedle(pages, rowNeedle(r)); if (p) r.Page = p; });
         }
 
         const out = { rows, meta };

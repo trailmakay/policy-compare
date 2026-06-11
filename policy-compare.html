@@ -511,6 +511,22 @@
     .extract-col__body table { font-size: 0.74rem; }
     .extract-col__body th { background: var(--gray-100); color: var(--gray-600); position: sticky; top: 0; }
 
+    /* Page reference tag */
+    .page-tag {
+      display: inline-block;
+      margin-left: 0.5rem;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--gray-500);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      padding: 0.08rem 0.4rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
     /* Row "review" pill */
     .pill-review {
       display: inline-block;
@@ -1241,6 +1257,7 @@
       'Limit':       row.Limit       || '',
       'Deductible':  row.Deductible  || '',
       'Premium':     row.Premium     || '',
+      'Page':        row.Page        || null,
     }));
 
     return { headers: AI_HEADERS, records, aiExtracted: true, meta: result.meta || {} };
@@ -1597,7 +1614,7 @@
     const VALUE_HEADERS = ['Limit', 'Deductible', 'Premium'];
     const slim = recs => recs.map(r => ({
       Type: r.Type || '', Section: r.Section || '', Coverage: r.Coverage || '',
-      Limit: r.Limit || '', Deductible: r.Deductible || '', Premium: r.Premium || '',
+      Limit: r.Limit || '', Deductible: r.Deductible || '', Premium: r.Premium || '', Page: r.Page || null,
     }));
 
     const resp = await fetch('/api/compare', {
@@ -1621,7 +1638,7 @@
       if (status === 'changed' && oldRow && newRow) {
         changes = VALUE_HEADERS.filter(h => (oldRow[h] || '') !== (newRow[h] || ''));
       }
-      return { status, key: e.k || '', oldRow, newRow, changes, review: !!e.rv };
+      return { status, key: e.k || '', oldRow, newRow, changes, review: !!e.rv, pg: e.pg || null, pgs: e.pgs || null };
     });
 
     compareResults = collapseWholeVehicles(compareResults);
@@ -1665,10 +1682,12 @@
       const allAdded   = statuses.every(s => s === 'added');
       if (!allMissing && !allAdded) continue; // car still exists — keep its line items
       g.idxs.forEach(i => remove.add(i));
+      const rep = g.idxs.map(i => results[i]).find(r => r.pg) || results[g.idxs[0]];
       collapsed.push({
         status: allMissing ? 'missing' : 'added',
         key: `Auto › ${allMissing ? 'Vehicle Removed' : 'Vehicle Added'} › ${g.disp}`,
         oldRow: null, newRow: null, changes: [],
+        pg: rep.pg || null, pgs: rep.pgs || null,
       });
     }
     if (!remove.size) return results;
@@ -1773,7 +1792,10 @@
 
     const labels = { missing: 'Missing', changed: 'Changed', added: 'Added', match: 'Unchanged' };
     tbody.innerHTML = filtered.map(r => {
-      const keyCell = `<td><strong>${esc(r.key)}</strong></td>`;
+      const pageTag = r.pg
+        ? `<span class="page-tag" title="Find this on page ${r.pg} of the ${r.pgs === 'old' ? 'current' : 'renewal'} policy">${r.pgs === 'old' ? 'current' : 'renewal'} p.${r.pg}</span>`
+        : '';
+      const keyCell = `<td><strong>${esc(r.key)}</strong>${pageTag}</td>`;
       const valueCells = savedValueHeaders.map(h => {
         if (r.status === 'missing') {
           const v = r.oldRow?.[h] ?? '';
