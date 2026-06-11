@@ -156,6 +156,18 @@ function reconcileScore(rows) {
   return { total, diff: Math.abs(sum - total) };
 }
 
+// Strip PII the tool doesn't need (phones, emails, SSNs) BEFORE sending text to
+// the AI. Coverage/premium/vehicle data and the insured name are kept (needed).
+// Page-finding uses the un-redacted text, which never leaves the server.
+function redactPII(text) {
+  return String(text)
+    .replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, '[email]')
+    .replace(/\b\d{3}-\d{2}-\d{4}\b/g, '[id]')                          // SSN-like
+    .replace(/\(\d{3}\)\s*\d{3}[-.\s]?\d{4}/g, '[phone]')               // (801) 785-4343
+    .replace(/\b\d{3}[-.\s]\d{3}[-.\s]\d{4}\b/g, '[phone]')             // 801-785-4343
+    .replace(/\b1[-.\s]?\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/g, '[phone]');  // 1.800.288.8740
+}
+
 function parseMeta(text) {
   let meta = {};
   const f = text.match(/\{[\s\S]*\}/);
@@ -453,7 +465,7 @@ Focus on: declarations pages, coverage schedules, premium breakdowns.
 
 Return ONLY the JSON — no explanation, no markdown, no code blocks. Output compact minified JSON (no extra spaces or line breaks) so the full list fits.`;
 
-      const content = policyText.slice(0, 120000);
+      const content = redactPII(policyText).slice(0, 120000);
       try {
         // First read.
         const text1 = await askAnthropic({ system: systemPrompt, content });

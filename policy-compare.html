@@ -511,6 +511,18 @@
     .extract-col__body table { font-size: 0.74rem; }
     .extract-col__body th { background: var(--gray-100); color: var(--gray-600); position: sticky; top: 0; }
 
+    .privacy-note {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      line-height: 1.55;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 0.55rem 0.8rem;
+      margin-bottom: 1rem;
+      max-width: 100%;
+    }
+
     /* Page reference tag */
     .page-tag {
       display: inline-block;
@@ -1062,6 +1074,8 @@
         </div>
       </div>
     </div>
+
+    <p class="privacy-note">🔒 Uploaded policies are read to extract coverage details, then discarded — nothing is stored. Phone numbers, emails, and ID numbers are stripped out before any AI processing. Coverage data is processed via Anthropic's API, which does not train on it.</p>
 
     <!-- Key field config (only shown for CSV files) -->
     <div class="section-label" id="stepTwoLabel" style="display:none; margin-top:1rem;">Step 2 — Select Matching Column</div>
