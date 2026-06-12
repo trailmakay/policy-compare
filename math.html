@@ -38,6 +38,11 @@
   .row { display:flex; gap:12px; }
   .row .btn { margin-top:0; }
   .hide { display:none !important; }
+  .camwrap { position:relative; width:100%; aspect-ratio:3/4; max-height:60vh; background:#000;
+    border-radius:14px; overflow:hidden; border:1px solid var(--line); margin-bottom:14px; }
+  .camwrap video { width:100%; height:100%; object-fit:cover; display:block; }
+  .camhint { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:24px; color:var(--muted); font-size:.95rem; background:#0b1220; }
   .preview { width:100%; border-radius:12px; margin-top:14px; border:1px solid var(--line); }
   .err { color:var(--bad); font-size:.9rem; margin-top:10px; min-height:1em; }
   .muted { color:var(--muted); font-size:.85rem; }
@@ -77,12 +82,19 @@
     <div id="pcErr" class="err"></div>
   </div>
 
-  <!-- Main screen -->
+  <!-- Main screen: live camera -->
   <div id="main" class="card hide">
-    <div class="row">
-      <button id="takeBtn" class="btn primary">📷 Take a photo</button>
+    <div id="camwrap" class="camwrap">
+      <video id="video" playsinline autoplay muted></video>
+      <div id="camHint" class="camhint hide"></div>
+    </div>
+    <button id="snap" class="btn primary">📷 Capture &amp; solve</button>
+    <div class="row" style="margin-top:12px;">
+      <button id="flipBtn" class="btn ghost">🔄 Flip</button>
       <button id="uploadBtn" class="btn ghost">🖼 Upload</button>
     </div>
+    <!-- Fallback if the live camera can't open (some devices/permissions) -->
+    <button id="takeBtn" class="btn ghost hide" style="margin-top:12px;">📷 Use phone camera</button>
     <input id="camera" class="hide" type="file" accept="image/*" capture="environment">
     <input id="gallery" class="hide" type="file" accept="image/*">
     <img id="preview" class="preview hide" alt="your math problem">
@@ -117,6 +129,7 @@ const KEY = 'mathPasscode';
 function show(view) {
   $('gate').classList.toggle('hide', view !== 'gate');
   $('main').classList.toggle('hide', view !== 'main');
+  if (view === 'main') startCamera(); else stopCamera();
 }
 function start() {
   if (localStorage.getItem(KEY) === null) show('gate');
@@ -134,17 +147,67 @@ $('pcGo').onclick = () => {
 $('pc').addEventListener('keydown', e => { if (e.key === 'Enter') $('pcGo').click(); });
 $('changePc').onclick = () => { localStorage.removeItem(KEY); $('result').classList.add('hide'); show('gate'); };
 
-// ── Photo capture ───────────────────────────────────────────────────────────
+// ── Live in-app camera ───────────────────────────────────────────────────────
+let stream = null, facing = 'environment';
+
+async function startCamera() {
+  stopCamera();
+  $('preview').classList.add('hide');
+  $('status').textContent = '';
+  $('camHint').classList.add('hide');
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return cameraFallback('This browser cannot open a live camera. Use Upload, or the phone-camera button below.');
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: facing }, audio: false });
+    $('video').srcObject = stream;
+    $('video').classList.remove('hide');
+    $('snap').classList.remove('hide');
+    $('flipBtn').classList.remove('hide');
+    $('takeBtn').classList.add('hide');
+  } catch (e) {
+    cameraFallback('Camera permission was blocked. Allow camera access in your browser, or use the buttons below.');
+  }
+}
+function cameraFallback(msg) {
+  $('video').classList.add('hide');
+  $('snap').classList.add('hide');
+  $('flipBtn').classList.add('hide');
+  $('takeBtn').classList.remove('hide');
+  $('camHint').textContent = msg;
+  $('camHint').classList.remove('hide');
+}
+function stopCamera() {
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+}
+
+// Grab the current camera frame and solve off it.
+$('snap').onclick = () => {
+  const v = $('video');
+  if (!v.videoWidth) { $('status').textContent = 'Camera is still warming up — try again in a second.'; return; }
+  const max = 1568;
+  let w = v.videoWidth, h = v.videoHeight;
+  if (w > max || h > max) { const s = max / Math.max(w, h); w = Math.round(w*s); h = Math.round(h*s); }
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  c.getContext('2d').drawImage(v, 0, 0, w, h);
+  const dataUrl = c.toDataURL('image/jpeg', 0.9);
+  $('preview').src = dataUrl; $('preview').classList.remove('hide');
+  solve(dataUrl.split(',')[1]);
+};
+
+$('flipBtn').onclick = () => { facing = facing === 'environment' ? 'user' : 'environment'; startCamera(); };
+
+// Fallbacks: the phone's own camera app, or pick from the gallery.
 $('takeBtn').onclick = () => $('camera').click();
 $('uploadBtn').onclick = () => $('gallery').click();
 $('camera').onchange = e => handleFile(e.target.files[0]);
 $('gallery').onchange = e => handleFile(e.target.files[0]);
+
 $('again').onclick = () => {
   $('result').classList.add('hide'); $('preview').classList.add('hide'); $('status').textContent='';
   $('stepArea').classList.add('hide'); $('problemBar').classList.add('hide');
+  show('main');                          // re-reveal the camera and restart it
 };
 
-// Shrink big phone photos before upload — faster, cheaper, still very readable.
+// Shrink big photos (from upload or the phone camera) before sending.
 function handleFile(file) {
   if (!file) return;
   $('status').textContent = '';
@@ -166,6 +229,8 @@ function handleFile(file) {
 
 // ── Solve ───────────────────────────────────────────────────────────────────
 async function solve(base64) {
+  stopCamera();
+  $('main').classList.add('hide');       // hide the camera while solving/showing steps
   $('result').classList.remove('hide');
   $('stepArea').classList.add('hide');
   $('problemBar').classList.add('hide');
