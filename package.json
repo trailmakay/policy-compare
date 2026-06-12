@@ -2,7 +2,8 @@
   "name": "policy-compare",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "math": "node math-server.js"
   },
   "dependencies": {
     "pdf-parse": "^1.1.1"

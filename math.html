@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Math Photo Tutor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Math Tutor">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icon.svg">
+<link rel="icon" href="/icon.svg">
+<style>
+  :root { --bg:#0f172a; --card:#1e293b; --ink:#e2e8f0; --muted:#94a3b8;
+          --teal:#5eead4; --teal-d:#14b8a6; --line:#334155; --bad:#f87171; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; background:var(--bg); color:var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  body { padding: max(16px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom)); }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  header { text-align:center; padding: 8px 0 18px; }
+  header h1 { margin:0; font-size: 1.45rem; letter-spacing:.2px; }
+  header p { margin:6px 0 0; color:var(--muted); font-size:.92rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px;
+          padding:18px; margin-bottom:16px; }
+  label { display:block; font-size:.9rem; color:var(--muted); margin-bottom:8px; }
+  input[type=text], input[type=password] {
+    width:100%; padding:14px; font-size:1rem; border-radius:12px;
+    border:1px solid var(--line); background:#0b1220; color:var(--ink); }
+  .btn { display:flex; align-items:center; justify-content:center; gap:10px;
+    width:100%; padding:16px; font-size:1.05rem; font-weight:600; border:none;
+    border-radius:14px; cursor:pointer; margin-top:12px; }
+  .btn.primary { background:var(--teal); color:#062a25; }
+  .btn.ghost { background:transparent; color:var(--teal); border:1px solid var(--teal-d); }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity:.5; }
+  .row { display:flex; gap:12px; }
+  .row .btn { margin-top:0; }
+  .hide { display:none !important; }
+  .preview { width:100%; border-radius:12px; margin-top:14px; border:1px solid var(--line); }
+  .err { color:var(--bad); font-size:.9rem; margin-top:10px; min-height:1em; }
+  .muted { color:var(--muted); font-size:.85rem; }
+  .spin { display:flex; align-items:center; gap:12px; color:var(--muted); padding:8px 2px; }
+  .dot { width:14px; height:14px; border-radius:50%; border:3px solid var(--line);
+         border-top-color:var(--teal); animation:sp .8s linear infinite; }
+  @keyframes sp { to { transform: rotate(360deg); } }
+  .solution { white-space: pre-wrap; line-height:1.55; font-size:1.05rem; }
+  .solution b { color:var(--teal); }
+  .problembar { background:#0b1220; border:1px solid var(--line); border-radius:12px;
+    padding:12px 14px; font-size:.95rem; line-height:1.4; margin-bottom:16px; }
+  .problembar b { color:var(--teal); }
+  .stepmeta { color:var(--teal-d); font-size:.8rem; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; margin-bottom:4px; }
+  .steptitle { margin:0 0 12px; font-size:1.25rem; line-height:1.3; }
+  .dots { display:flex; gap:7px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
+  .dots span { width:8px; height:8px; border-radius:50%; background:var(--line); transition:background .2s; }
+  .dots span.on { background:var(--teal); }
+  .dots span.done { background:var(--teal-d); }
+  .change { background:none; border:none; color:var(--muted); font-size:.82rem;
+            text-decoration:underline; cursor:pointer; margin-top:10px; }
+  footer { text-align:center; color:var(--muted); font-size:.78rem; padding-top:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>📷 Math Photo Tutor</h1>
+    <p>Snap a problem — get the answer <em>and</em> learn how to do it.</p>
+  </header>
+
+  <!-- Passcode screen -->
+  <div id="gate" class="card hide">
+    <label for="pc">Enter your passcode</label>
+    <input id="pc" type="password" inputmode="text" autocomplete="off" placeholder="Passcode from whoever shared this">
+    <button id="pcGo" class="btn primary">Continue</button>
+    <div id="pcErr" class="err"></div>
+  </div>
+
+  <!-- Main screen -->
+  <div id="main" class="card hide">
+    <div class="row">
+      <button id="takeBtn" class="btn primary">📷 Take a photo</button>
+      <button id="uploadBtn" class="btn ghost">🖼 Upload</button>
+    </div>
+    <input id="camera" class="hide" type="file" accept="image/*" capture="environment">
+    <input id="gallery" class="hide" type="file" accept="image/*">
+    <img id="preview" class="preview hide" alt="your math problem">
+    <div id="status" class="err"></div>
+    <button id="changePc" class="change">Change passcode</button>
+  </div>
+
+  <!-- Result: click-through steps -->
+  <div id="result" class="card hide">
+    <div id="problemBar" class="problembar hide"></div>
+    <div id="loading" class="spin hide"><span class="dot"></span>Reading the problem and working it out…</div>
+    <div id="stepArea" class="hide">
+      <div id="stepMeta" class="stepmeta"></div>
+      <h2 id="stepTitle" class="steptitle"></h2>
+      <div id="stepBody" class="solution"></div>
+      <div class="row" style="margin-top:18px;">
+        <button id="backBtn" class="btn ghost">← Back</button>
+        <button id="nextBtn" class="btn primary">Next step →</button>
+      </div>
+      <div id="dots" class="dots"></div>
+    </div>
+    <button id="again" class="btn ghost" style="margin-top:16px;">📷 New problem</button>
+  </div>
+
+  <footer>Up to pre-calc · Tip: add this to your home screen to use it like an app.</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const KEY = 'mathPasscode';
+
+function show(view) {
+  $('gate').classList.toggle('hide', view !== 'gate');
+  $('main').classList.toggle('hide', view !== 'main');
+}
+function start() {
+  if (localStorage.getItem(KEY) === null) show('gate');
+  else show('main');
+}
+
+// ── Passcode ────────────────────────────────────────────────────────────────
+$('pcGo').onclick = () => {
+  const v = $('pc').value.trim();
+  if (!v) { $('pcErr').textContent = 'Please enter the passcode.'; return; }
+  localStorage.setItem(KEY, v);
+  $('pcErr').textContent = '';
+  show('main');
+};
+$('pc').addEventListener('keydown', e => { if (e.key === 'Enter') $('pcGo').click(); });
+$('changePc').onclick = () => { localStorage.removeItem(KEY); $('result').classList.add('hide'); show('gate'); };
+
+// ── Photo capture ───────────────────────────────────────────────────────────
+$('takeBtn').onclick = () => $('camera').click();
+$('uploadBtn').onclick = () => $('gallery').click();
+$('camera').onchange = e => handleFile(e.target.files[0]);
+$('gallery').onchange = e => handleFile(e.target.files[0]);
+$('again').onclick = () => {
+  $('result').classList.add('hide'); $('preview').classList.add('hide'); $('status').textContent='';
+  $('stepArea').classList.add('hide'); $('problemBar').classList.add('hide');
+};
+
+// Shrink big phone photos before upload — faster, cheaper, still very readable.
+function handleFile(file) {
+  if (!file) return;
+  $('status').textContent = '';
+  const img = new Image();
+  img.onload = () => {
+    const max = 1568;
+    let { width: w, height: h } = img;
+    if (w > max || h > max) { const s = max / Math.max(w, h); w = Math.round(w*s); h = Math.round(h*s); }
+    const c = document.createElement('canvas'); c.width = w; c.height = h;
+    c.getContext('2d').drawImage(img, 0, 0, w, h);
+    const dataUrl = c.toDataURL('image/jpeg', 0.9);
+    $('preview').src = dataUrl;
+    $('preview').classList.remove('hide');
+    solve(dataUrl.split(',')[1]);          // base64 after the comma
+  };
+  img.onerror = () => { $('status').textContent = "Couldn't read that image — try another."; };
+  img.src = URL.createObjectURL(file);
+}
+
+// ── Solve ───────────────────────────────────────────────────────────────────
+async function solve(base64) {
+  $('result').classList.remove('hide');
+  $('stepArea').classList.add('hide');
+  $('problemBar').classList.add('hide');
+  $('loading').classList.remove('hide');
+  try {
+    const res = await fetch('/solve', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ passcode: localStorage.getItem(KEY) || '', image: base64, mediaType: 'image/jpeg' }),
+    });
+    const out = await res.json();
+    if (res.status === 401) {
+      $('result').classList.add('hide');
+      localStorage.removeItem(KEY);
+      show('gate');
+      $('pcErr').textContent = 'That passcode is not right. Try again.';
+      return;
+    }
+    if (!res.ok) throw new Error(out.error || 'Something went wrong.');
+    buildSteps(out.result);
+  } catch (e) {
+    $('loading').classList.add('hide');
+    $('stepArea').classList.remove('hide');
+    $('stepMeta').textContent = '';
+    $('stepTitle').textContent = 'Something went wrong';
+    $('stepBody').innerHTML = '<span style="color:var(--bad)">' + esc(e.message) + '</span>';
+    $('backBtn').classList.add('hide'); $('nextBtn').classList.add('hide'); $('dots').innerHTML = '';
+  }
+}
+
+// ── Click-through stepper ────────────────────────────────────────────────────
+let pages = [], pageIdx = 0;
+
+function buildSteps(r) {
+  $('loading').classList.add('hide');
+  $('stepArea').classList.remove('hide');
+  pages = [];
+
+  if (!r || r.readable === false) {
+    pages.push({ meta: 'Hmm', title: "I couldn't read that", body: r && r.message ? r.message : 'Please try a clearer, well-lit photo.' });
+    $('problemBar').classList.add('hide');
+  } else {
+    $('problemBar').innerHTML = '<b>Problem:</b> ' + render(r.problem || '');
+    $('problemBar').classList.remove('hide');
+    (r.steps || []).forEach((s, i) => {
+      pages.push({ meta: `Step ${i + 1} of ${r.steps.length}`, title: s.title, body: s.detail });
+    });
+    pages.push({ meta: 'Answer', title: 'The answer', body: (r.answer || '') + (r.check ? '\n\nCheck: ' + r.check : '') });
+    if (r.practice) pages.push({ meta: 'Your turn', title: 'Try one yourself', body: r.practice });
+  }
+
+  pageIdx = 0;
+  renderPage();
+}
+
+function renderPage() {
+  const p = pages[pageIdx];
+  $('stepMeta').textContent = p.meta;
+  $('stepTitle').textContent = p.title;
+  $('stepBody').innerHTML = render(p.body);
+
+  $('backBtn').classList.toggle('hide', pageIdx === 0);
+  const last = pageIdx === pages.length - 1;
+  $('nextBtn').classList.toggle('hide', last);
+  $('nextBtn').textContent = pages[pageIdx + 1] && pages[pageIdx + 1].meta === 'Answer' ? 'Show the answer →' : 'Next step →';
+
+  // progress dots
+  $('dots').innerHTML = pages.map((_, i) =>
+    `<span class="${i === pageIdx ? 'on' : (i < pageIdx ? 'done' : '')}"></span>`).join('');
+}
+
+$('nextBtn').onclick = () => { if (pageIdx < pages.length - 1) { pageIdx++; renderPage(); scrollTop(); } };
+$('backBtn').onclick = () => { if (pageIdx > 0) { pageIdx--; renderPage(); scrollTop(); } };
+function scrollTop() { $('result').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+
+// Safe renderer: escape everything, then allow **bold** and keep line breaks.
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function render(text) {
+  return esc(text).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+}
+
+start();
+
+// Optional: a service worker would make it fully offline-installable; not needed
+// for "add to home screen," which already works from the manifest + meta tags.
+</script>
+</body>
+</html>
