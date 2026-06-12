@@ -43,6 +43,13 @@
   .camwrap video { width:100%; height:100%; object-fit:cover; display:block; }
   .camhint { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
     text-align:center; padding:24px; color:var(--muted); font-size:.95rem; background:#0b1220; }
+  .cropbox { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    border:2px solid var(--teal); border-radius:10px; pointer-events:none;
+    box-shadow:0 0 0 9999px rgba(0,0,0,.55); }
+  .camtip { position:absolute; top:10px; left:0; right:0; text-align:center; pointer-events:none;
+    color:#fff; font-size:.8rem; font-weight:600; text-shadow:0 1px 4px #000; }
+  .sizerow { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .sizerow input[type=range] { flex:1; accent-color:var(--teal); }
   .preview { width:100%; border-radius:12px; margin-top:14px; border:1px solid var(--line); }
   .err { color:var(--bad); font-size:.9rem; margin-top:10px; min-height:1em; }
   .muted { color:var(--muted); font-size:.85rem; }
@@ -86,7 +93,13 @@
   <div id="main" class="card hide">
     <div id="camwrap" class="camwrap">
       <video id="video" playsinline autoplay muted></video>
+      <div id="cropbox" class="cropbox"></div>
+      <div id="camTip" class="camtip">Line up ONE problem inside the box</div>
       <div id="camHint" class="camhint hide"></div>
+    </div>
+    <div id="sizeRow" class="sizerow">
+      <span class="muted">Box size</span>
+      <input id="boxSize" type="range" min="20" max="78" value="42" aria-label="Capture box size">
     </div>
     <button id="snap" class="btn primary">📷 Capture &amp; solve</button>
     <div class="row" style="margin-top:12px;">
@@ -160,15 +173,28 @@ async function startCamera() {
     stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: facing }, audio: false });
     $('video').srcObject = stream;
     $('video').classList.remove('hide');
+    $('cropbox').classList.remove('hide');
+    $('camTip').classList.remove('hide');
+    $('sizeRow').classList.remove('hide');
     $('snap').classList.remove('hide');
     $('flipBtn').classList.remove('hide');
     $('takeBtn').classList.add('hide');
+    // Best-effort continuous autofocus (ignored where unsupported, e.g. some iOS).
+    try {
+      const track = stream.getVideoTracks()[0];
+      if (track && track.applyConstraints) await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] });
+    } catch {}
+    $('video').onloadedmetadata = updateCropBox;
+    updateCropBox();
   } catch (e) {
     cameraFallback('Camera permission was blocked. Allow camera access in your browser, or use the buttons below.');
   }
 }
 function cameraFallback(msg) {
   $('video').classList.add('hide');
+  $('cropbox').classList.add('hide');
+  $('camTip').classList.add('hide');
+  $('sizeRow').classList.add('hide');
   $('snap').classList.add('hide');
   $('flipBtn').classList.add('hide');
   $('takeBtn').classList.remove('hide');
@@ -179,15 +205,35 @@ function stopCamera() {
   if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 }
 
-// Grab the current camera frame and solve off it.
+// Size the on-screen framing box: ~90% wide, height set by the slider.
+function updateCropBox() {
+  const wrap = $('camwrap');
+  const W = wrap.clientWidth, H = wrap.clientHeight;
+  if (!W || !H) return;
+  $('cropbox').style.width = Math.round(W * 0.9) + 'px';
+  $('cropbox').style.height = Math.round(H * ($('boxSize').value / 100)) + 'px';
+}
+$('boxSize').oninput = updateCropBox;
+window.addEventListener('resize', updateCropBox);
+
+// Capture ONLY what's inside the framing box, then solve off that crop.
 $('snap').onclick = () => {
   const v = $('video');
   if (!v.videoWidth) { $('status').textContent = 'Camera is still warming up — try again in a second.'; return; }
-  const max = 1568;
-  let w = v.videoWidth, h = v.videoHeight;
-  if (w > max || h > max) { const s = max / Math.max(w, h); w = Math.round(w*s); h = Math.round(h*s); }
-  const c = document.createElement('canvas'); c.width = w; c.height = h;
-  c.getContext('2d').drawImage(v, 0, 0, w, h);
+  const vr = v.getBoundingClientRect(), br = $('cropbox').getBoundingClientRect();
+  const dispW = vr.width, dispH = vr.height, vw = v.videoWidth, vh = v.videoHeight;
+  // Map the on-screen box to source pixels, accounting for object-fit: cover.
+  const scale = Math.max(dispW / vw, dispH / vh);
+  const offX = (vw * scale - dispW) / 2, offY = (vh * scale - dispH) / 2;
+  let sx = (br.left - vr.left + offX) / scale;
+  let sy = (br.top - vr.top + offY) / scale;
+  let sw = br.width / scale, sh = br.height / scale;
+  sx = Math.max(0, Math.min(sx, vw)); sy = Math.max(0, Math.min(sy, vh));
+  sw = Math.min(sw, vw - sx); sh = Math.min(sh, vh - sy);
+  const out = Math.min(1, 1568 / Math.max(sw, sh));
+  const ow = Math.round(sw * out), oh = Math.round(sh * out);
+  const c = document.createElement('canvas'); c.width = ow; c.height = oh;
+  c.getContext('2d').drawImage(v, sx, sy, sw, sh, 0, 0, ow, oh);
   const dataUrl = c.toDataURL('image/jpeg', 0.9);
   $('preview').src = dataUrl; $('preview').classList.remove('hide');
   solve(dataUrl.split(',')[1]);
