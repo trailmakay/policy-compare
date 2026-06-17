@@ -225,17 +225,26 @@ function comparePolicies(oldRows, newRows) {
   // variations of the same person ("Tayler"/"Taylor") pair instead of looking
   // like one driver dropped and another added.
   const driverKey = cov => { const n=cmpNorm(cov).replace(/^driver\s*/,'').trim().split(' ').filter(Boolean); return 'DR|'+((n[0]||'').slice(0,3))+'|'+(n[n.length-1]||''); };
+  // Normalize a coverage name for matching: drop parenthetical abbreviations
+  // like "(BI)"/"(COMP)" and filler words, so "Bodily Injury Liability" and
+  // "Bodily Injury (BI)" match (different carriers write the same coverage
+  // differently), while keeping genuinely distinct coverages distinct.
+  const covKey = cov => String(cov||'').toLowerCase()
+    .replace(/\([^)]*\)/g,' ')
+    .replace(/[^a-z0-9 ]/g,' ')
+    .replace(/\b(liability|coverage|cov|premium|limits?)\b/g,' ')
+    .replace(/\s+/g,' ').trim();
   const rowKey = (r, side) => {
     const desc=vehDescriptor(r);
     if (desc) {
       const id = side==='o' ? oldDescToId[desc] : newDescToId[desc];
       if (/^vehicles?$/i.test(String(r.Section||''))) return 'VH|'+id+'|__LIST__';
-      return 'VH|'+id+'|'+cmpNorm(r.Coverage);
+      return 'VH|'+id+'|'+covKey(r.Coverage);
     }
     const sec=String(r.Section||'');
     if (/drivers?/i.test(sec)) return driverKey(r.Coverage);
-    if (/summary/i.test(sec))  return 'SM|'+cmpNorm(r.Coverage);
-    return 'OT|'+cmpNorm(sec)+'|'+cmpNorm(r.Coverage);
+    if (/summary/i.test(sec))  return 'SM|'+covKey(r.Coverage);
+    return 'OT|'+cmpNorm(sec)+'|'+covKey(r.Coverage);
   };
   const isOT = r => !vehDescriptor(r) && !/drivers?|summary/i.test(String(r.Section||''));
   const label = r => {
@@ -256,8 +265,8 @@ function comparePolicies(oldRows, newRows) {
   // Reconcile leftover package/other coverages by unique coverage name (handles
   // the same coverage filed under a different section name in each policy).
   const mCov=new Map(), aCov=new Map();
-  missing.forEach((r,i)=>{ if(!isOT(r)) return; const c=cmpNorm(r.Coverage); (mCov.get(c)||mCov.set(c,[]).get(c)).push(i); });
-  added.forEach((r,j)=>{ if(!isOT(r)) return; const c=cmpNorm(r.Coverage); (aCov.get(c)||aCov.set(c,[]).get(c)).push(j); });
+  missing.forEach((r,i)=>{ if(!isOT(r)) return; const c=covKey(r.Coverage); (mCov.get(c)||mCov.set(c,[]).get(c)).push(i); });
+  added.forEach((r,j)=>{ if(!isOT(r)) return; const c=covKey(r.Coverage); (aCov.get(c)||aCov.set(c,[]).get(c)).push(j); });
   const dropM=new Set(), dropA=new Set();
   for (const [c,mis] of mCov){ const adds=aCov.get(c); if(mis.length===1 && adds && adds.length===1){ matched.push([missing[mis[0]], added[adds[0]]]); dropM.add(mis[0]); dropA.add(adds[0]); } }
 
