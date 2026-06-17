@@ -229,11 +229,18 @@ function comparePolicies(oldRows, newRows) {
   // like "(BI)"/"(COMP)" and filler words, so "Bodily Injury Liability" and
   // "Bodily Injury (BI)" match (different carriers write the same coverage
   // differently), while keeping genuinely distinct coverages distinct.
-  const covKey = cov => String(cov||'').toLowerCase()
-    .replace(/\([^)]*\)/g,' ')
-    .replace(/[^a-z0-9 ]/g,' ')
-    .replace(/\b(liability|coverage|cov|premium|limits?)\b/g,' ')
-    .replace(/\s+/g,' ').trim();
+  const covKey = cov => {
+    const raw = String(cov||'').toLowerCase();
+    // Canonicalize a few common coverages that carriers word very differently,
+    // so e.g. "Tow/Roadside Assistance" == "Towing and Emergency Road Side Services".
+    if (/\btow|road\s?side/.test(raw)) return 'roadside';
+    if (/rental|loss of use|transportation expense/.test(raw)) return 'rental';
+    return raw
+      .replace(/\([^)]*\)/g,' ')
+      .replace(/[^a-z0-9 ]/g,' ')
+      .replace(/\b(liability|coverage|cov|premium|limits?)\b/g,' ')
+      .replace(/\s+/g,' ').trim();
+  };
   const rowKey = (r, side) => {
     const desc=vehDescriptor(r);
     if (desc) {
