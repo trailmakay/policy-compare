@@ -187,6 +187,15 @@ const cmpNorm = s => String(s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').repl
 const CMP_YEAR = /\b(19|20)\d{2}\b/;
 
 function comparePolicies(oldRows, newRows) {
+  // Drop per-vehicle premium SUBTOTALS (a "Total Premium" line under a specific
+  // vehicle). They're redundant with the vehicle's own coverage premiums, and
+  // one policy's read often has them while the other's doesn't — which would
+  // create false "missing" rows and double-count the premium banner.
+  const isVehSubtotal = r => CMP_YEAR.test(String(r.Section||'')) &&
+    (/total[^a-z]*premium/i.test(String(r.Coverage||'')) || /^\s*premium\s*$/i.test(String(r.Coverage||'')));
+  oldRows = oldRows.filter(r => !isVehSubtotal(r));
+  newRows = newRows.filter(r => !isVehSubtotal(r));
+
   const vehDescriptor = r => {
     const sec = String(r.Section||''), cov = String(r.Coverage||'');
     if (CMP_YEAR.test(sec)) return sec.replace(/^vehicle\s*\d+\s*-\s*/i,'').trim();
@@ -212,7 +221,10 @@ function comparePolicies(oldRows, newRows) {
   oldDescs.forEach(d=>{ if(!(d in oldDescToId)) oldDescToId[d]='Oonly:'+d; });
   newDescs.forEach(d=>{ if(!(d in newDescToId)) newDescToId[d]='Nonly:'+d; });
 
-  const driverKey = cov => { const n=cmpNorm(cov).replace(/^driver\s*/,'').trim().split(' ').filter(Boolean); return 'DR|'+(n[0]||'')+'|'+(n[n.length-1]||''); };
+  // Match drivers by last name + first 3 letters of the first name, so spelling
+  // variations of the same person ("Tayler"/"Taylor") pair instead of looking
+  // like one driver dropped and another added.
+  const driverKey = cov => { const n=cmpNorm(cov).replace(/^driver\s*/,'').trim().split(' ').filter(Boolean); return 'DR|'+((n[0]||'').slice(0,3))+'|'+(n[n.length-1]||''); };
   const rowKey = (r, side) => {
     const desc=vehDescriptor(r);
     if (desc) {
@@ -455,6 +467,7 @@ ALSO include:
 - One row per named driver: Type=same as policy type, Section="Drivers", Coverage="Driver - [Full Name]", Limit="", Deductible="", Premium=""
 - One row per vehicle: Type="Auto", Section="Vehicles", Coverage="Vehicle - [Year Make Model]", Limit="VIN: [VIN if available]", Deductible="", Premium=""
 - One row for total premium per policy type: Type=[type], Section="Summary", Coverage="Total [Type] Premium", Limit="", Deductible="", Premium="[amount]"
+- Do NOT create a per-vehicle premium subtotal row (e.g. a "Total Premium" line under an individual vehicle). The only total-premium row is the single policy-wide one in the Summary section above.
 
 BUNDLED PACKAGES — IMPORTANT for consistency:
 - If the policy includes a bundled package of extra coverages (e.g. a name containing "Package", "Plus", "Advantage", "Enhancement", or a grouping called "Additional Coverage"/"Additional Coverages"), output exactly ONE row for the WHOLE package: Section="[package name]", Coverage="[package name]", Limit="Included", Deductible="N/A", Premium="[the package's premium if shown, else '']".
