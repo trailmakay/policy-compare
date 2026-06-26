@@ -44,7 +44,7 @@ HANDLED_LABEL = os.environ.get("HANDLED_LABEL", "Handled")
 # most carrier marketing lands, and we want it captured so it can be bundled into
 # the digest's separate marketing section. Social notifications stay excluded.
 DEFAULT_QUERY = (
-    f"in:inbox -label:{HANDLED_LABEL} newer_than:1m "
+    f"in:inbox -label:{HANDLED_LABEL} newer_than:30d"
     "-category:social"
 )
 
