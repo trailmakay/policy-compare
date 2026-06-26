@@ -53,6 +53,8 @@ def main() -> int:
                              "has arrived since the last digest")
     parser.add_argument("--skip-if-empty", action="store_true",
                         help="With --email, don't send an all-clear when no emails matched")
+    parser.add_argument("--no-marketing", action="store_true",
+                        help="Suppress the marketing/promotions section from the digest")
     args = parser.parse_args()
 
     if not config.ANTHROPIC_API_KEY:
@@ -116,7 +118,7 @@ def main() -> int:
 
     digest.print_console(display)
 
-    html = digest.render_html(display, marketing=marketing)
+    html = digest.render_html(display, marketing=None if args.no_marketing else marketing)
     with open(args.out, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"HTML digest written to: {args.out}")
