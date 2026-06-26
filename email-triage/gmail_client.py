@@ -30,6 +30,7 @@ class Email:
     sender_email: str  # just the address
     subject: str
     date: str
+    internal_date: int  # Gmail epoch-ms timestamp — used for newest-first sort
     snippet: str
     body: str
 
@@ -127,6 +128,7 @@ def fetch_emails(service, query: str, max_emails: int) -> list[Email]:
                 sender_email=parseaddr(sender)[1],
                 subject=headers.get("subject", "(no subject)"),
                 date=headers.get("date", ""),
+                internal_date=int(msg.get("internalDate", 0)),
                 snippet=msg.get("snippet", ""),
                 body=body,
             )

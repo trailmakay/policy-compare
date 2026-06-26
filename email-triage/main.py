@@ -99,7 +99,7 @@ def main() -> int:
     results = [
         triage_mod.result_from_cache(by_id[eid], v) for eid, v in cache.items()
     ]
-    results.sort(key=lambda r: r.rank)
+    results.sort(key=lambda r: (r.rank, -r.email.internal_date))
 
     # Pull carrier marketing/promotions into their own bundled section.
     marketing = [r for r in results if r.is_marketing]

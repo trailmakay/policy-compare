@@ -180,5 +180,5 @@ def triage_emails(emails: list[Email]) -> list[TriageResult]:
         except Exception as e:  # one bad batch shouldn't sink the whole run
             print(f"  warning: batch {n} failed ({e}); will retry next run.")
 
-    results.sort(key=lambda r: r.rank)
+    results.sort(key=lambda r: (r.rank, -r.email.internal_date))
     return results
