@@ -1,0 +1,16 @@
+# --- Inbox Triage schedule ---------------------------------------------------
+# Two guaranteed digests a day (7am + 9pm), plus an hourly check in between that
+# only emails when a new important message has arrived.
+#
+# To install: run `crontab -e` and paste the two lines below (without these
+# comments). Times are the machine's LOCAL time. "Morning" is 7am here — change
+# the 7 if you want a different morning time.
+#
+# NOTE: only install this AFTER the one-time setup is done (ANTHROPIC_API_KEY in
+# .env, and the client's Gmail connected). Otherwise every run just errors.
+
+# 7:00am and 9:00pm — always send the full digest, no matter what
+0 7,21 * * * cd "/Users/makayjamestrail/Ai consulting/email-triage" && .venv/bin/python main.py --email >> cron.log 2>&1
+
+# Every other hour (9am, 11am, 1pm, 3pm, 5pm, 7pm) — only email if a new important message arrived
+0 9,11,13,15,17,19 * * * cd "/Users/makayjamestrail/Ai consulting/email-triage" && .venv/bin/python main.py --email --only-if-new >> cron.log 2>&1

@@ -1,0 +1,7 @@
+# Install the latest Anthropic SDK so structured outputs (output_config.format)
+# and the current model IDs are available:  pip install -U anthropic
+anthropic>=0.69
+google-api-python-client>=2.100
+google-auth-oauthlib>=1.2
+google-auth>=2.30
+python-dotenv>=1.0

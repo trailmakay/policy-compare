@@ -1,0 +1,14 @@
+# Secrets and credentials — NEVER commit these
+.env
+credentials.json
+token.json
+
+# Generated output
+digest.html
+state.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
