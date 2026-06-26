@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import html
+from datetime import datetime, timezone
 
 import config
 from triage import TriageResult
@@ -41,6 +42,8 @@ def render_html(results: list[TriageResult], marketing: list[TriageResult] | Non
     summary_line = " · ".join(
         f"{counts[k]} {k}" for k in ["urgent", "high", "medium", "low"] if counts.get(k)
     ) or "nothing to report"
+
+    timestamp = datetime.now(timezone.utc).strftime("%B %-d, %Y · %-I:%M %p UTC")
 
     cards = []
     for r in results:
@@ -127,7 +130,7 @@ def render_html(results: list[TriageResult], marketing: list[TriageResult] | Non
 <body>
   <div class="wrap">
     <h1>Inbox Digest</h1>
-    <p class="sub">{summary_line}</p>
+    <p class="sub">{summary_line} · {timestamp}</p>
     {''.join(cards) if cards else '<p>No emails matched — nothing to triage.</p>'}
     {mkt_section}
     <p class="footer">Done with one? Apply the
