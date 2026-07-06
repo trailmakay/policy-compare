@@ -1736,7 +1736,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=161"></script>
+  <script src="data.js?v=164"></script>
   <script>
     function showTab(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -2107,7 +2107,7 @@
       // list-4 additions (verified)
       'lemhi-river':{site:'13305000',normal:121}, 'pahsimeroi-river':{site:'13302005',normal:142}, 'priest-river':{site:'12395000',normal:392}, 'moyie-river':{site:'12306500',normal:110}, 'east-river':{site:'09112500',normal:196}, 'homestake-creek':{site:'09064000',normal:22}, 'michigan-river':{site:'06614800',normal:2},
       // CO top-50 completion (verified)
-      'animas-river':{site:'09361500',normal:458}, 'uncompahgre-river':{site:'09146200',normal:130}, 'big-thompson-river':{site:'06741510',normal:68}, 'cache-la-poudre-river':{site:'06752260',normal:54}, 'clear-creek-co':{site:'06719505',normal:161}, 'boulder-creek':{site:'06730200',normal:85},  'dolores-river':{site:'09166500',normal:191}, 'white-river-co':{site:'09304500',normal:345},  'crystal-river':{site:'09081600',normal:146},
+      'animas-river':{site:'09361500',normal:458}, 'uncompahgre-river':{site:'09146200',normal:130}, 'big-thompson-river':{site:'06741510',normal:68}, 'clear-creek-co':{site:'06719505',normal:161}, 'boulder-creek':{site:'06730200',normal:85},  'dolores-river':{site:'09166500',normal:191}, 'white-river-co':{site:'09304500',normal:345},  'crystal-river':{site:'09081600',normal:146},
       // WY top-50 completion (verified)
       'little-snake-river':{site:'09257000',normal:7}, 'shell-creek':{site:'06278300',normal:10}, 'fontenelle-creek':{site:'09210500',normal:34},
       // all-states gauge pass (verified live)
@@ -2119,7 +2119,7 @@
       'bear-river-uinta':{site:'10011500',normal:78},
       'fremont-river':{site:'09330000',normal:60},
       'fish-creek-scofield':{site:'09310500',normal:13},
-      'price-river':{site:'09313520',normal:1},
+      'price-river':{site:'09311500',normal:120},
       'chalk-creek':{site:'10131000',normal:17},
       'rock-creek-uinta':{site:'09279000',normal:67},
       'santa-clara-river':{site:'09408400',normal:3},
@@ -2274,7 +2274,8 @@
       'bear-creek-co':   { abbrev:'BCRMORCO', normal:28  },  // Bear Creek at Morrison
       'joe-wright-creek':{ abbrev:'JWCCHACO', normal:61  },  // Joe Wright Ck below Chambers Res
       'grape-creek':     { abbrev:'GRABDWCO', normal:25  },  // Grape Creek below DeWeese Res
-      'st-vrain-creek':  { abbrev:'NSVBBRCO', normal:34  }   // N St Vrain below Buttonrock
+      'st-vrain-creek':  { abbrev:'NSVBBRCO', normal:34  },  // N St Vrain below Buttonrock
+      'cache-la-poudre-river': { abbrev:'CLAFTCCO', normal:102 } // Poudre at canyon mouth (fishable water; town gauge is diverted)
     };
     // Unified gauge lookup: a fishery is gauged by USGS, Colorado DWR, or neither.
     function gaugeFor(f){
@@ -2538,7 +2539,7 @@
       'brush-creek-ut':[40.58883,-109.46544],
       'buffalo-fork':[43.83806,-110.44083],
       'bull-lake-creek':[43.17661,-109.20256],
-      'cache-la-poudre-river':[40.58808,-105.06922],
+      'cache-la-poudre-river':[40.66451,-105.22419],
       'chalk-creek':[40.9205,-111.40159],
       'cheesman-canyon':[39.25999,-105.22194],
       'chena-river':[64.90197,-146.36133],
@@ -2659,7 +2660,7 @@
       'portneuf-river':[42.87167,-112.46806],
       'potlatch-river':[46.49861,-116.76194],
       'powder-river-mt':[46.42944,-105.31033],
-      'price-river':[39.63738,-110.85777],
+      'price-river':[39.78691,-111.12017],
       'prickly-pear-creek':[46.5191,-111.94679],
       'priest-river':[48.20852,-116.91464],
       'prospect-creek':[47.58606,-115.3551],
@@ -3392,7 +3393,7 @@
         ${TIDE_STATIONS[f.id] ? '<div class="flow-banner" data-live="tide" style="display:none;">Loading tide…</div>' : ''}
         <div data-live="banner">${flowBanner}</div>
         <div class="detail-section">
-          <div class="detail-section-title">🐟 Fish Species</div>
+          <div class="detail-section-title">${ICO.fish} Fish Species</div>
           <div class="species-chips">${f.species.split(' · ').map(s => `<span class="species-chip" onclick="searchFish(this.textContent)">${esc(s.trim())}</span>`).join('')}</div>
         </div>
         <div class="detail-section">
@@ -3401,7 +3402,7 @@
         </div>
         ${VIEW_MONTH!==MONTH ? `<div class="trip-month-banner">🗓️ Showing hatches &amp; flies for <b>${MONTH_NAMES[VIEW_MONTH]}</b> (your trip) — not today</div>` : ''}
         <div class="detail-section">
-          <div class="detail-section-title">Active Hatches — ${MONTH_NAMES[VIEW_MONTH]}</div>
+          <div class="detail-section-title" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">Active Hatches — ${MONTH_NAMES[VIEW_MONTH]} ${ratingPill(f, VIEW_MONTH)}</div>
           ${hatchRows}
         </div>
         <div class="detail-section">
@@ -4173,8 +4174,8 @@
            : s >= 3 ? { t:'GOOD',  c:'#a06a1f', bg:'var(--tan-light)' }
            :          { t:'SLOW',  c:'#7a7a7a', bg:'#ececec' };
     }
-    function ratingPill(f){
-      const r = monthRating(f);
+    function ratingPill(f, m){
+      const r = monthRating(f, m);
       return `<span class="rating-pill" style="color:${r.c};background:${r.bg};">${r.t}</span>`;
     }
     function bestTimeWindows(f, m){
