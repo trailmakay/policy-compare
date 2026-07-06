@@ -357,6 +357,11 @@
       font-size: 12px;
       opacity: 0.8;
     }
+    .detail-rating-row {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 12px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.92);
+    }
+    .detail-rating-row .rating-pill { font-size: 12px; padding: 3px 11px; }
     .sat-view-btn {
       margin-top: 12px;
       display: inline-flex;
@@ -1736,7 +1741,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=164"></script>
+  <script src="data.js?v=171"></script>
   <script>
     function showTab(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -3376,10 +3381,11 @@
           <div class="detail-type-badge">${isLake?LAKE_SVG+' Lake':RIVER_SVG+' River'}</div>
           <div class="detail-river-name">${esc(f.name)}</div>
           <div class="detail-meta">
-            <span>📍 ${esc(f.state)}</span>
-            <span>🎣 ${esc(f.waterType)}</span>
+            <span>${ICO.pin} ${esc(f.state)}</span>
+            <span>${ICO.fish} ${esc(f.waterType)}</span>
             <span>${rankBadge}</span>
           </div>
+          <div class="detail-rating-row">Fishing ${MONTH_NAMES[VIEW_MONTH]}${VIEW_MONTH!==MONTH?' (trip)':''}: ${ratingPill(f, VIEW_MONTH)}</div>
           <button class="sat-view-btn" onclick="satelliteView('${f.id}')">${ICO.sat} See it from above (Satellite)</button>
           <div class="fix-loc" onclick="reportLocation('${f.id}')">📍 Wrong spot? Fix it →</div>
         </div>
@@ -3903,8 +3909,8 @@
         else if (!stateFilter && f.state.toLowerCase().includes(cq)) match = 'state: '+f.state;
         else {
           const town = (TOWNS[f.id]||[]).find(t => t.toLowerCase().includes(cq));
-          if (town) match = ICO.pin + ' near '+town;
-          else if (speciesHit(f, cq)) match = ICO.fish + ' ' + speciesHit(f, cq) + (stateFilter ? ' · '+f.state : '');
+          if (town) match = 'near '+town;
+          else if (speciesHit(f, cq)) match = speciesHit(f, cq) + (stateFilter ? ' · '+f.state : '');
           else {
             const h = f.hatches.find(h=>h.name.toLowerCase().includes(cq));
             if (h) match = 'hatch: '+h.name;

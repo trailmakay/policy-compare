@@ -15493,6 +15493,50 @@ const HATCHED_DATA = [
     note: 'A high, remote lake atop Thousand Lake Mountain north of Torrey — the quieter, higher plateau across the valley from Boulder Mountain. Brook trout, tiger trout and splake cruise its cold, clear water at nearly 11,000 feet. Rough access keeps it lonely; bring a tube and fish leeches and small dries in a spectacular alpine setting.'
   },
   {
+    id: 'neff-reservoir', name: 'Neff Reservoir', state: 'Utah', type: 'lake',
+    waterType: 'Alpine Lake', rank: 0, species: 'Brook · Tiger Trout',
+    accolades: [ { icon: '🏔️', text: 'Thousand Lake Mountain lake', source: 'Thousand Lake Mtn' } ],
+    conditions: { temp: '54°F', elev: '11,000 ft', wind: 'W 8', best: 'Jul–Sep' },
+    sections: ['Inlet', 'Drop-offs', 'Outlet'],
+    hatches: [
+      { name: 'Midge', months: [6,7,8,9], peak: [7], timing: 'AM' },
+      { name: 'Callibaetis', months: [7,8], peak: [7], timing: 'Midday' },
+      { name: 'Flying Ant / Terrestrial', months: [7,8,9], peak: [8], timing: 'Afternoon' },
+      { name: 'Damselfly', months: [7,8], peak: [7], timing: 'Morning' }
+    ],
+    flies: [
+      { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 }
+    ],
+    access: [ { type: '🥾', name: 'Neff Reservoir', desc: 'Atop Thousand Lake Mtn, W of Deep Creek Lake', lat: 38.44708, lng: -111.49339 } ],
+    note: 'A small, remote reservoir atop Thousand Lake Mountain just west of Deep Creek Lake on the high plateau north of Torrey. Brook and tiger trout hold in its cold, clear water near 11,000 feet. Rough four-wheel-drive and hike-in access keep it quiet — bring a float tube and fish small dries, ants and a bugger in a spectacular alpine basin.'
+  },
+  {
+    id: 'snow-lake-ut', name: 'Snow Lake', state: 'Utah', type: 'lake',
+    waterType: 'Alpine Lake', rank: 0, species: 'Brook · Tiger Trout',
+    accolades: [ { icon: '🏔️', text: 'Thousand Lake Mountain lake', source: 'Thousand Lake Mtn' } ],
+    conditions: { temp: '54°F', elev: '11,000 ft', wind: 'W 8', best: 'Jul–Sep' },
+    sections: ['Inlet', 'Drop-offs', 'Outlet'],
+    hatches: [
+      { name: 'Midge', months: [6,7,8,9], peak: [7], timing: 'AM' },
+      { name: 'Callibaetis', months: [7,8], peak: [7], timing: 'Midday' },
+      { name: 'Flying Ant / Terrestrial', months: [7,8,9], peak: [8], timing: 'Afternoon' },
+      { name: 'Damselfly', months: [7,8], peak: [7], timing: 'Morning' }
+    ],
+    flies: [
+      { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 }
+    ],
+    access: [ { type: '🥾', name: 'Snow Lake', desc: 'Atop Thousand Lake Mtn, next to Deep Creek Lake', lat: 38.4246, lng: -111.46069 } ],
+    note: 'A small alpine lake atop Thousand Lake Mountain, tucked just south of Deep Creek Lake on the high plateau north of Torrey. Brook and tiger trout hold in its cold, clear water near 11,000 feet. Rough, remote access keeps it quiet — pack in a tube and fish small dries, ants and a bugger in a spectacular high-country setting.'
+  },
+  {
     id: 'pine-creek-bm', name: 'Pine Creek', state: 'Utah', type: 'river',
     waterType: 'Freestone', rank: 0, species: 'Colorado River Cutthroat · Brook · Brown',
     accolades: [ { icon: '🏔️', text: 'Boulder Mtn freestone near Torrey', source: 'Near Torrey' } ],
@@ -15552,7 +15596,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'UM Creek', desc: 'Off UT-25 between Fish Lake and Fremont' } ],
+    access: [ { type: '🥾', name: 'UM Creek', desc: 'Off UT-25 between Fish Lake and Fremont', lat: 38.53701, lng: -111.53892 } ],
     note: 'A meadow creek in the Fremont River drainage between Fish Lake and Fremont, holding wild browns, rainbows, brookies and cutthroat. Willow-lined and rich, its beaver-pond flats reward careful dry-fly work — a quiet, pretty small stream in the high country near Fish Lake.'
   },
   {
@@ -16902,6 +16946,8 @@ const HATCHED_TOWNS = {
   'rim-lake':['Torrey','Grover'],
   'halfmoon-lake-bm':['Torrey','Grover'],
   'deep-creek-lake':['Fremont','Loa'],
+  'snow-lake-ut':['Fremont','Loa'],
+  'neff-reservoir':['Bicknell','Loa'],
   'pine-creek-bm':['Torrey','Grover'],
   'oak-creek-bm':['Torrey','Grover'],
   'um-creek':['Fremont','Loa'],
@@ -16981,11 +17027,11 @@ const HATCHED_LAKE_COORDS = {
   'gooseberry-res':[38.83,-111.58],
   'cleveland-res':[39.61,-111.24],
   'ferron-reservoir':[39.15,-111.44],
-  'mill-meadow-res':[38.42,-111.52],
+  'mill-meadow-res':[38.5024,-111.56594],
   'upper-bowns-res':[38.02,-111.42],
   'enterprise-res':[37.55,-113.75],
   'baker-res-ut':[37.42,-113.63],
-  'forsyth-res':[38.53,-111.45],
+  'forsyth-res':[38.52474,-111.53115],
   'lost-creek-res-ut':[41.16,-111.36],
   'huntington-res':[39.62,-111.27],
   'white-pine-lake-ut':[41.92,-111.65],
@@ -17143,6 +17189,8 @@ const HATCHED_LAKE_COORDS = {
   'rim-lake':[38.074,-111.5079],
   'halfmoon-lake-bm':[38.0808,-111.4739],
   'deep-creek-lake':[38.4337,-111.4646],
+  'snow-lake-ut':[38.4246,-111.46069],
+  'neff-reservoir':[38.44708,-111.49339],
   'lake-lowell':[43.5593,-116.6975],
   'mormon-reservoir':[43.2683,-114.8092],
   'little-camas-reservoir':[43.3341,-115.3827],
