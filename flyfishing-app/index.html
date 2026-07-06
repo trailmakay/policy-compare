@@ -260,6 +260,7 @@
     .ranked-name { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
     .ranked-location { font-size: 12px; color: var(--text-soft); margin-bottom: 6px; }
     .ranked-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .rating-pill { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.4px; }
     .card-species { font-size: 12px; color: var(--text-soft); margin-top: 5px; line-height: 1.45; }
     .card-species .cs-hit { color: #b7891f; font-weight: 800; }
     .trip-month-banner {
@@ -1735,7 +1736,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=160"></script>
+  <script src="data.js?v=161"></script>
   <script>
     function showTab(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -3645,7 +3646,7 @@
           <div class="ranked-info">
             <div class="ranked-name">${esc(f.name)}</div>
             <div class="ranked-location">${esc(f.state)} · ${esc(f.waterType)}</div>
-            <div class="ranked-tags"><span class="tag water">${esc(f.conditions.temp)}</span></div>
+            <div class="ranked-tags"><span class="tag water">${esc(f.conditions.temp)}</span> ${ratingPill(f)}</div>
             <div class="card-species">${ICO.fish}${esc(f.species)}</div>
             <div class="card-summary">${esc(shortSummary(f))}</div>
             ${acc?`<div class="access-row"><span class="access-pin">${accessIcon(acc.type)}</span> ${f.access.length} access point${f.access.length>1?'s':''}</div>`:''}
@@ -3683,7 +3684,7 @@
           <div class="ranked-info">
             <div class="ranked-name">${esc(f.name)}</div>
             <div class="ranked-location">${esc(f.state)} · ${esc(f.waterType)}</div>
-            <div class="ranked-tags"><span class="tag water">${esc(f.conditions.temp)}</span></div>
+            <div class="ranked-tags"><span class="tag water">${esc(f.conditions.temp)}</span> ${ratingPill(f)}</div>
             <div class="card-species">${ICO.fish}${esc(f.species)}</div>
             <div class="card-summary">${esc(shortSummary(f))}</div>
             ${acc?`<div class="access-row"><span class="access-pin">${accessIcon(acc.type)}</span> ${f.access.length} access point${f.access.length>1?'s':''}</div>`:''}
@@ -4164,6 +4165,17 @@
         else if (h.months.includes(m)) s += 1;
       });
       return s;
+    }
+    // PRIME / GOOD / SLOW rating for a water this month (same thresholds as the planner).
+    function monthRating(f, m){
+      const s = monthScore(f, m == null ? MONTH : m);
+      return s >= 6 ? { t:'PRIME', c:'#256c47', bg:'var(--green-pale)' }
+           : s >= 3 ? { t:'GOOD',  c:'#a06a1f', bg:'var(--tan-light)' }
+           :          { t:'SLOW',  c:'#7a7a7a', bg:'#ececec' };
+    }
+    function ratingPill(f){
+      const r = monthRating(f);
+      return `<span class="rating-pill" style="color:${r.c};background:${r.bg};">${r.t}</span>`;
     }
     function bestTimeWindows(f, m){
       const active = f.hatches.filter(h => h.months.includes(m));
