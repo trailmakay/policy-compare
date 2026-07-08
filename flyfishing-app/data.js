@@ -1627,7 +1627,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'whitney-res', name: 'Whitney Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Alpine Reservoir', rank: 0, species: 'Brook · Cutthroat · Tiger Trout',
+    waterType: 'Alpine Reservoir', rank: 0, species: 'Brook · Cutthroat · Tiger Trout · Rainbow',
     accolades: [ { icon: '🏔️', text: 'Quiet north-slope Uinta lake', source: 'Near the Bear River' } ],
     conditions: { temp: '54°F', elev: '8,900 ft', wind: 'W 8', best: 'AM' },
     sections: ['Dam', 'Inlet', 'Shoreline'],
@@ -4698,7 +4698,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'scofield-res', name: 'Scofield Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Cutthroat · Tiger Trout',
+    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Cutthroat · Tiger Trout · Tiger Musky',
     accolades: [ { icon: '🏔️', text: 'Popular high-country trout lake', source: 'Carbon County' } ],
     conditions: { temp: '56°F', elev: '7,620 ft', wind: 'W 12', best: 'AM' },
     sections: ['Madsen Bay', 'Mountain View', 'Dam'],
@@ -4781,7 +4781,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'causey-res', name: 'Causey Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Kokanee · Tiger Trout · Splake · Brown',
+    waterType: 'Reservoir', rank: 0, species: 'Kokanee · Tiger Trout · Splake · Brown · Rainbow',
     accolades: [ { icon: '🌲', text: 'Scenic narrow canyon reservoir', source: 'Ogden Valley' } ],
     conditions: { temp: '58°F', elev: '5,710 ft', wind: 'W 8', best: 'AM' },
     sections: ['Three forks', 'Dam', 'Shoreline'],
@@ -4804,7 +4804,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'rockport-res', name: 'Rockport Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Brown · Smallmouth',
+    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Brown · Smallmouth · Kokanee',
     accolades: [ { icon: '🏞️', text: 'Weber River reservoir', source: 'Near Wanship' } ],
     conditions: { temp: '62°F', elev: '6,030 ft', wind: 'SW 12', best: 'AM / Evening' },
     sections: ['Inlet (Weber)', 'Dam', 'Juniper'],
@@ -4995,7 +4995,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'pelican-lake', name: 'Pelican Lake', state: 'Utah', type: 'lake',
-    waterType: 'Shallow Warmwater Lake', rank: 0, species: 'Bluegill · Largemouth Bass',
+    waterType: 'Shallow Warmwater Lake', rank: 0, species: 'Bluegill · Largemouth Bass · Tiger Musky · Wiper',
     accolades: [ { icon: '🏆', text: 'Legendary bluegill-on-the-fly lake', source: 'Uinta Basin' } ],
     conditions: { temp: '68°F', elev: '4,800 ft', wind: 'SW 14', best: 'AM / Evening' },
     sections: ['Weed beds', 'Shoreline', 'Open flats'],
@@ -6505,7 +6505,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'hyrum-res', name: 'Hyrum Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Bluegill · Largemouth Bass · Yellow Perch',
+    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Bluegill · Largemouth Bass · Yellow Perch · Brown',
     accolades: [ { icon: '🏞️', text: 'Cache Valley community reservoir', source: 'Hyrum State Park' } ],
     conditions: { temp: '62°F', elev: '4,700 ft', wind: 'S 10', best: 'AM / Evening' },
     sections: ['State Park', 'Dam', 'Shoreline'],
@@ -6546,7 +6546,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'porcupine-res', name: 'Porcupine Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Kokanee · Rainbow · Brown · Cutthroat',
+    waterType: 'Reservoir', rank: 0, species: 'Kokanee · Rainbow · Brown · Cutthroat · Splake · Lake Trout',
     accolades: [ { icon: '🐟', text: 'Fall kokanee run', source: 'Cache Valley, near Avon' } ],
     conditions: { temp: '58°F', elev: '5,500 ft', wind: 'W 10', best: 'AM' },
     sections: ['Inlet (East Fork Little Bear)', 'Dam', 'Shoreline'],
@@ -6760,7 +6760,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'kolob-res', name: 'Kolob Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'High Reservoir', rank: 0, species: 'Cutthroat · Rainbow · Brook',
+    waterType: 'High Reservoir', rank: 0, species: 'Cutthroat · Rainbow · Brook · Cutbow',
     accolades: [ { icon: '🏔️', text: 'High trophy-cutthroat lake above Zion', source: 'Kolob Terrace' } ],
     conditions: { temp: '58°F', elev: '8,100 ft', wind: 'SW 12', best: 'AM / Evening' },
     sections: ['Dam', 'Inlet', 'Shoreline'],
@@ -6883,7 +6883,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'piute-res', name: 'Piute Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Brown · Smallmouth Bass',
+    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Brown · Smallmouth Bass · White Bass',
     accolades: [ { icon: '🐟', text: 'Fast-growing trout & smallmouth', source: 'Sevier River, near Junction' } ],
     conditions: { temp: '62°F', elev: '5,900 ft', wind: 'SW 14', best: 'AM / Evening' },
     sections: ['State Park', 'Inlet (Sevier)', 'Dam'],
@@ -6946,7 +6946,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'tropic-res', name: 'Tropic Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'High Reservoir', rank: 0, species: 'Rainbow · Brook · Cutthroat',
+    waterType: 'High Reservoir', rank: 0, species: 'Rainbow · Brook · Cutthroat · Tiger Trout',
     accolades: [ { icon: '🌲', text: 'Ponderosa-ringed lake below Bryce', source: 'East Fork Sevier, near Bryce Canyon' } ],
     conditions: { temp: '56°F', elev: '7,900 ft', wind: 'SW 12', best: 'AM / Evening' },
     sections: ['Dam', 'Inlet (East Fork Sevier)', 'Shoreline'],
@@ -9474,7 +9474,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'mill-meadow-res', name: 'Mill Meadow Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Brown · Tiger Trout · Splake',
+    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Brown · Kokanee · Tiger Musky · Brook',
     accolades: [ { icon: '🎣', text: 'Fremont River reservoir', source: 'Near Fremont' } ],
     conditions: { temp: '58°F', elev: '7,000 ft', wind: 'W 10', best: 'AM / Evening' },
     sections: ['Upper', 'Middle', 'Lower'],
@@ -9578,7 +9578,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'lost-creek-res-ut', name: 'Lost Creek Reservoir', state: 'Utah', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Cutthroat · Brown',
+    waterType: 'Reservoir', rank: 0, species: 'Rainbow · Cutthroat · Brown · Tiger Trout',
     accolades: [ { icon: '🎣', text: 'NE Utah trout reservoir', source: 'Near Croydon' } ],
     conditions: { temp: '58°F', elev: '6,000 ft', wind: 'W 10', best: 'AM / Evening' },
     sections: ['Upper', 'Middle', 'Lower'],

@@ -261,6 +261,7 @@
     .ranked-location { font-size: 12px; color: var(--text-soft); margin-bottom: 6px; }
     .ranked-tags { display: flex; gap: 6px; flex-wrap: wrap; }
     .rating-pill { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.4px; }
+    .ramp-tag { font-size: 10px; font-weight: 700; color: var(--water); background: var(--water-light); padding: 1px 6px; border-radius: 8px; white-space: nowrap; }
     .card-species { font-size: 12px; color: var(--text-soft); margin-top: 5px; line-height: 1.45; }
     .card-species .cs-hit { color: #b7891f; font-weight: 800; }
     .trip-month-banner {
@@ -1062,6 +1063,21 @@
     .hc-plan { background: linear-gradient(135deg, #1a3a50, #2d6a8a); }
     .hc-journal { background: linear-gradient(135deg, #4a4a4a, #2a2a2a); }
     .hc-fav { background: linear-gradient(135deg, #b8923e, var(--tan)); }
+    .hc-map { background: linear-gradient(135deg, #2f6b30, #1c5a8f); }
+    /* Map prototype */
+    #mapCanvas { height: 62vh; width: 100%; border-radius: 12px; background: #dfe4df; z-index: 0; }
+    .map-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .map-filter { display: flex; gap: 6px; }
+    .map-fchip { font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 16px; background: var(--white); border: 1px solid var(--border); color: var(--text-soft); cursor: pointer; }
+    .map-fchip.active { background: var(--green); border-color: var(--green); color: #fff; }
+    .map-land-toggle { font-size: 12px; font-weight: 600; color: var(--text-soft); display: flex; align-items: center; gap: 5px; }
+    .map-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; font-size: 11px; font-weight: 600; color: var(--text-soft); }
+    .map-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 4px; vertical-align: -2px; }
+    .map-note { font-size: 11px; color: var(--text-soft); margin-top: 8px; line-height: 1.4; }
+    .leaflet-popup-content { font-family: inherit; }
+    .map-pop-name { font-weight: 800; font-size: 14px; }
+    .map-pop-sub { font-size: 12px; color: var(--text-soft); margin: 2px 0 6px; }
+    .map-pop-btn { display: inline-block; background: var(--green); color: #fff; font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
     .home-settings-row {
       margin-top: 14px; text-align: center; padding: 12px;
       background: var(--white); border: 1px solid var(--border); border-radius: 12px;
@@ -1741,7 +1757,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=171"></script>
+  <script src="data.js?v=175"></script>
   <script>
     function showTab(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -3345,10 +3361,13 @@
       const chips = f.sections.map((s,i) => `
         <div class="section-chip ${i===sectionIdx?(isLake?'lake-active':'active'):''}" onclick="selectSection('${f.id}',${i})">${esc(s)}</div>`).join('');
 
-      const access = f.access.map((a, ai) => `
-        <div class="access-detail"><span class="access-pin">${accessIcon(a.type)}</span> <strong>${esc(a.name)}</strong> — ${esc(a.desc)}
+      // Boat ramps / launches first — that's where you actually put in, so directions default to them.
+      const accessOrder = f.access.map((a, ai) => ai)
+        .sort((x, y) => (isRampAccess(f.access[y]) ? 1 : 0) - (isRampAccess(f.access[x]) ? 1 : 0));
+      const access = accessOrder.map(ai => { const a = f.access[ai]; return `
+        <div class="access-detail"><span class="access-pin">${accessIcon(a.type)}</span> <strong>${esc(a.name)}</strong>${isRampAccess(a)?' <span class="ramp-tag">🚤 launch</span>':''} — ${esc(a.desc)}
           <span class="access-go" onclick="navigateTo('${f.id}', ${ai})">Directions ›</span>
-        </div>`).join('');
+        </div>`; }).join('');
 
       const accolades = (f.accolades||[]).map(a => `
         <div class="accolade-item">
@@ -3561,6 +3580,23 @@
           <div class="license-note">Fish legally &amp; ethically — know the rules, respect limits, and keep our waters great.</div>
         </div>`;
     }
+    // Is this access a boat ramp / marina / launch / fishing-access site?
+    function isRampAccess(a){
+      if (!a) return false;
+      return /\bramp\b|\bmarina\b|\blaunch\b|\bFAS\b|boat ramp/i.test((a.name||'') + ' ' + (a.desc||''));
+    }
+    // Build a strong POI search for a boat ramp so directions land at the launch, not the water's middle.
+    function rampQuery(f, a){
+      const strip = s => (s||'').replace(/\s*\([^)]*\)/g,'').trim();
+      const paren = (a.name||'').match(/\(([^)]+)\)/);
+      const town = ((window.HATCHED_TOWNS||{})[f.id]||[])[0] || '';
+      const parts = [];
+      // e.g. "Hailstone (Jordanelle SP)" → search the park/marina area
+      if (paren && /SP\b|State Park|Marina|Reservoir|WMA/i.test(paren[1])) parts.push(paren[1].replace(/\bSP\b/,'State Park'));
+      parts.push(strip(a.name), strip(f.name), town, (f.state||'').split('/')[0].trim());
+      const seen = new Set();
+      return parts.filter(Boolean).filter(p => { const k=p.toLowerCase(); if(seen.has(k)) return false; seen.add(k); return true; }).join(', ');
+    }
     function navigateTo(id, i){
       // Start turn-by-turn DIRECTIONS to the water from the user's current location.
       // Prefer an exact coordinate when we have a trustworthy one — an access pin, or a
@@ -3571,8 +3607,15 @@
       if (!f) return;
       const a = (f.access && f.access[i]) ? f.access[i] : null;
       const pref = mapsPref();
-      const coord = (a && a.lat != null) ? [a.lat, a.lng] : fisheryCoords(f);
-      const dest = coord ? (coord[0] + ',' + coord[1]) : encodeURIComponent(geocodeQuery(f, a ? a.name : ''));
+      let dest;
+      if (a && a.lat != null) {
+        dest = a.lat + ',' + a.lng;                                  // exact pinned access
+      } else if (isRampAccess(a)) {
+        dest = encodeURIComponent(rampQuery(f, a));                  // boat ramp → search the launch POI, not the water's middle
+      } else {
+        const coord = fisheryCoords(f);
+        dest = coord ? (coord[0] + ',' + coord[1]) : encodeURIComponent(geocodeQuery(f, a ? a.name : ''));
+      }
       const url = pref === 'google'
         ? 'https://www.google.com/maps/dir/?api=1&destination=' + dest         // routes from current location
         : 'https://maps.apple.com/?daddr=' + dest + '&dirflg=d';               // daddr = drive-to destination
@@ -4617,6 +4660,46 @@
     }
 
     /* ─── Init ─── */
+    // ── In-app Map (prototype): Leaflet + Esri satellite + BLM public-land overlay ──
+    let MAP=null, MAP_LAND=null, MAP_MARKERS=null, mapFilter='all';
+    function initMap(){
+      if (typeof L === 'undefined'){ document.getElementById('mapCanvas').innerHTML = '<div style="padding:20px;color:#666;font-size:13px;">Map needs an internet connection to load.</div>'; return; }
+      if (MAP){ setTimeout(()=>MAP.invalidateSize(), 120); return; }
+      MAP = L.map('mapCanvas', { zoomControl:true }).setView([41.2,-111.7], 6);
+      const sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom:18, attribution:'Imagery © Esri' }).addTo(MAP);
+      const topo = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom:17, attribution:'© OpenTopoMap' });
+      // Public-land ownership shading (BLM Surface Management Agency — colors by owner: BLM/USFS/NPS/State…)
+      MAP_LAND = L.tileLayer('https://gis.blm.gov/arcgis/rest/services/lands/BLM_Natl_SMA_Cached_without_PriRes/MapServer/tile/{z}/{y}/{x}', { maxZoom:16, opacity:0.45, attribution:'Land © BLM' }).addTo(MAP);
+      L.control.layers({ 'Satellite': sat, 'Topo': topo }, {}, { position:'topright' }).addTo(MAP);
+      MAP_MARKERS = L.layerGroup().addTo(MAP);
+      plotMapMarkers();
+      setTimeout(()=>MAP.invalidateSize(), 200);
+    }
+    function plotMapMarkers(){
+      if (!MAP_MARKERS) return;
+      MAP_MARKERS.clearLayers();
+      DATA.forEach(f=>{
+        if (mapFilter!=='all' && f.type!==mapFilter) return;
+        const c = waterCoord(f); if (!c) return;
+        const color = f.type==='lake' ? '#6a4fa5' : '#3f7d9e';
+        const m = L.circleMarker(c, { radius:5, color:'#fff', weight:1.5, fillColor:color, fillOpacity:0.95 });
+        m.bindPopup('<div class="map-pop-name">'+esc(f.name)+'</div><div class="map-pop-sub">'+esc(f.state)+' · '+esc(f.waterType)+'</div><span class="map-pop-btn" onclick="mapOpenWater(\''+f.id+'\')">Open fishery ›</span>');
+        m.addTo(MAP_MARKERS);
+      });
+    }
+    function setMapFilter(el, k){
+      document.querySelectorAll('.map-fchip').forEach(c=>c.classList.remove('active'));
+      el.classList.add('active'); mapFilter=k; plotMapMarkers();
+    }
+    function toggleLandLayer(on){
+      if (!MAP || !MAP_LAND) return;
+      if (on) MAP_LAND.addTo(MAP); else MAP.removeLayer(MAP_LAND);
+    }
+    function mapOpenWater(id){
+      const f=fishById(id); if(!f) return;
+      showNav2(f.type==='lake'?'lakes':'rivers');
+      openFishery(id);
+    }
     // Subtle haptic tap on key interactions (Android; no-op where unsupported)
     function haptic(ms){ try { if (navigator.vibrate) navigator.vibrate(ms || 8); } catch(e){} }
     document.addEventListener('click', (e) => {
