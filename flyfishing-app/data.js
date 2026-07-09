@@ -897,7 +897,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–10', color: 'Tan', conf: 4 }
     ],
     access: [
-      { type: '🚶', name: 'Rock Creek Road', desc: 'Gravel road follows entire creek' },
+      { type: '🚶', name: 'Rock Creek Road', desc: 'Gravel road follows entire creek', lat: 46.96742, lng: -114.22789 },
       { type: '🅿️', name: 'Valley of the Moon', desc: 'Lower access near I-90' }
     ],
     note: 'A blue-ribbon freestone gem near Missoula. The salmonfly hatch in late May–June is the marquee event. The long gravel road gives wade access to the whole creek.'
@@ -945,7 +945,7 @@ const HATCHED_DATA = [
       { name: 'San Juan Worm', type: 'nymph', size: '12–14', color: 'Red', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Wedding of the Waters', desc: 'Canyon float put-in' },
+      { type: '🛶', name: 'Wedding of the Waters', desc: 'Canyon float put-in', lat: 43.58107, lng: -108.21372 },
       { type: '🅿️', name: 'Boysen tailwater', desc: 'Wade below the dam' }
     ],
     note: 'Big trout in a dramatic canyon below Boysen Reservoir. Nymph deep through the runs. A tribal fishing permit is required for the reservation water above the canyon.'
@@ -2422,7 +2422,7 @@ const HATCHED_DATA = [
       { name: 'Coho Flash Fly', type: 'streamer', size: '2–4', color: 'Pink, chartreuse', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Crooked Creek SRA', desc: 'Bank & launch access' },
+      { type: '🅿️', name: 'Crooked Creek SRA', desc: 'Bank & launch access', lat: 60.38861, lng: -151.30306 },
       { type: '🛶', name: 'Kasilof launch', desc: 'Drift-boat put-in below Tustumena' }
     ],
     note: 'A glacial sister to the Kenai — known for early-season kings and a heavy sockeye run. Drift-boat only on much of it. Beads and egg-sucking leeches behind the reds; coho flies in the fall.'
@@ -2487,7 +2487,7 @@ const HATCHED_DATA = [
       { name: 'Coho Flash Fly', type: 'streamer', size: '2–4', color: 'Pink, chartreuse', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Deep Creek SRA', desc: 'Sterling Hwy access near Ninilchik' }
+      { type: '🅿️', name: 'Deep Creek SRA', desc: 'Sterling Hwy access near Ninilchik', lat: 60.03361, lng: -151.69694 }
     ],
     note: 'A small, fun roadside river near Ninilchik with kings in early summer, silvers and steelhead in fall. Swing leeches through the runs. Easy access right off the Sterling Highway.'
   },
@@ -2567,7 +2567,7 @@ const HATCHED_DATA = [
       { name: 'Bead (egg)', type: 'nymph', size: '6–8 mm', color: 'Peach, red', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Deshka Landing', desc: 'Boat access via the Susitna (no road to river)' }
+      { type: '🛶', name: 'Deshka Landing', desc: 'Boat access via the Susitna (no road to river)', lat: 61.69278, lng: -150.30639 }
     ],
     note: 'A clear-water gem reached by boat from Deshka Landing — famous for its king run and excellent silver fishing. Behind the salmon, rainbows feed on beads. A great fly river once you are on the water.'
   },
@@ -2593,7 +2593,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–4', color: 'White, olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'King Salmon / Rapids Camp', desc: 'Boat access; fly-in to King Salmon' }
+      { type: '🛶', name: 'King Salmon / Rapids Camp', desc: 'Boat access; fly-in to King Salmon', lat: 58.68444, lng: -156.42361 }
     ],
     note: 'A Bristol Bay legend — enormous, broad-shouldered "leopard" rainbows below Naknek Lake. Beads behind sockeye in summer, flesh and mouse in the fall. Fly-in country (King Salmon hub). Big water, big fish.'
   },
@@ -2780,7 +2780,7 @@ const HATCHED_DATA = [
       { name: 'Coho Flash Fly', type: 'streamer', size: '2–4', color: 'Pink', conf: 3 }
     ],
     access: [
-      { type: '🅿️', name: 'Klutina Lake Rd (Copper Center)', desc: 'Road access along the river (fees)' }
+      { type: '🅿️', name: 'Klutina Lake Rd (Copper Center)', desc: 'Road access along the river (fees)', lat: 61.95528, lng: -145.28583 }
     ],
     note: 'A glacial Copper River tributary with strong king and sockeye runs reachable by road at Copper Center. Heavy current and off-color water — fish leeches and beads in the soft edges and behind the reds. Private-road access fees apply in places.'
   },
@@ -3004,7 +3004,7 @@ const HATCHED_DATA = [
       { name: 'Pink Clouser', type: 'streamer', size: '4–8', color: 'Pink/white', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Glacier Hwy (out the road)', desc: 'Roadside pullout north of Juneau' }
+      { type: '🅿️', name: 'Glacier Hwy (out the road)', desc: 'Roadside pullout north of Juneau', lat: 58.2775, lng: -134.61444 }
     ],
     note: 'A small "out the road" Juneau creek with sea-run cutthroat and dollies in the tannic beaver-pond water, pinks and coho in season, and a modest spring steelhead showing. Fish the tidewater and ponds. Quiet and pretty.'
   },
@@ -3110,7 +3110,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–4', color: 'Pink/white', conf: 3 }
     ],
     access: [
-      { type: '🅿️', name: 'Fish Creek Rd (Douglas)', desc: 'Road access near the pond/mouth' }
+      { type: '🅿️', name: 'Fish Creek Rd (Douglas)', desc: 'Road access near the pond/mouth', lat: 58.26444, lng: -134.52194 }
     ],
     note: 'A convenient Douglas Island creek across the bridge from Juneau — loads of pinks in even years, plus chums, coho, and dollies. Fish the tidewater and pond mouth on the tide with pink Clousers. Very accessible.'
   },
@@ -3151,7 +3151,7 @@ const HATCHED_DATA = [
       { name: 'Coho Flash Fly', type: 'streamer', size: '2–4', color: 'Pink, chartreuse', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Thane Road', desc: 'Roadside access south of Juneau' }
+      { type: '🅿️', name: 'Thane Road', desc: 'Roadside access south of Juneau', lat: 58.26111, lng: -134.32306 }
     ],
     note: 'A small Thane Road creek south of Juneau that gets a strong chum run (chums love chartreuse/pink), plus pinks and coho. Fish the tidewater at the mouth on the incoming tide. Quick after-work option for Juneau anglers.'
   },
@@ -3172,7 +3172,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–4', color: 'Pink/white', conf: 3 }
     ],
     access: [
-      { type: '🅿️', name: 'Egan Dr / Salmon Creek', desc: 'In-town access near downtown Juneau' }
+      { type: '🅿️', name: 'Egan Dr / Salmon Creek', desc: 'In-town access near downtown Juneau', lat: 58.33028, lng: -134.47111 }
     ],
     note: 'A handy in-town Juneau creek — chums and pinks crowd the mouth mid-summer, coho follow in the fall. Fish the tidewater on the tide. Convenient for a quick session right near downtown.'
   },
@@ -3554,7 +3554,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 }
     ],
     access: [
-      { type: '🚶', name: 'Bozeman-area access', desc: 'Walk-in spring-fed meadow water' }
+      { type: '🚶', name: 'Bozeman-area access', desc: 'Walk-in spring-fed meadow water', lat: 45.6641, lng: -110.95272 }
     ],
     note: 'A spring-influenced meadow stream right outside Bozeman — sneaky-good browns for an after-work session. Small, clear, and brushy; stealth and fine tippet. Streamers move the bigger fish in fall.'
   },
@@ -3876,7 +3876,7 @@ const HATCHED_DATA = [
       { name: 'Stimulator', type: 'dry', size: '10–12', color: 'Orange', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'North Fork Rd (Prichard)', desc: 'Road access in the Panhandle' }
+      { type: '🅿️', name: 'North Fork Rd (Prichard)', desc: 'Road access in the Panhandle', lat: 47.55714, lng: -116.256 }
     ],
     note: "A gorgeous Panhandle cutthroat river — the North Fork above Prichard offers easy road access and willing wild cutts on attractor dries. Catch-and-release ethic keeps the fish big. Best July–September."
   },
@@ -4120,7 +4120,7 @@ const HATCHED_DATA = [
       { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 }
     ],
     access: [
-      { type: '🅿️', name: 'Warm River Campground', desc: 'Easy access near Ashton (huge tame trout at the bridge)' }
+      { type: '🅿️', name: 'Warm River Campground', desc: 'Easy access near Ashton (huge tame trout at the bridge)', lat: 44.11103, lng: -111.33356 }
     ],
     note: 'A small, spring-fed creek near Island Park — easy access and famously huge (protected) trout you can watch at the campground bridge. Great for kids and a relaxed afternoon, with willing fish upstream away from the crowds.'
   },
@@ -4455,7 +4455,7 @@ const HATCHED_DATA = [
       { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 }
     ],
     access: [
-      { type: '🅿️', name: 'Kilgore-area roads', desc: 'Backroad meadow access NW of Island Park' }
+      { type: '🅿️', name: 'Kilgore-area roads', desc: 'Backroad meadow access NW of Island Park', lat: 44.36436, lng: -111.89331 }
     ],
     note: 'A small, quiet meadow creek up in the Kilgore country northwest of Island Park — brookies and cutthroat in willow-lined runs. Hoppers along the grassy banks in late summer. Very little pressure; a true off-the-radar spot.'
   },
@@ -4476,7 +4476,7 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Warm River / Robinson Creek', desc: 'Forest access near Ashton / Island Park' }
+      { type: '🅿️', name: 'Warm River / Robinson Creek', desc: 'Forest access near Ashton / Island Park', lat: 44.28853, lng: -111.088 }
     ],
     note: 'A tiny brook-trout creek joining the Warm River near Island Park — pure attractor-dry fun in pretty pocket water. Great for kids and a quick, low-pressure session in the Henry\'s Fork country.'
   },
@@ -4544,7 +4544,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'SR-31 (Huntington Canyon)', desc: 'Roadside access in the canyon' }
+      { type: '🅿️', name: 'SR-31 (Huntington Canyon)', desc: 'Roadside access in the canyon', lat: 39.14914, lng: -110.91294 }
     ],
     note: 'A scenic central-Utah canyon stream known for its colorful tiger trout, plus browns and cutthroat. Easy access along SR-31 between Electric Lake and Huntington. Attractor dries and small nymphs; the tigers love a swung soft hackle.'
   },
@@ -4650,7 +4650,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 3 }
     ],
     access: [
-      { type: '🅿️', name: 'Mammoth Creek Rd', desc: 'Access near Hatch / Duck Creek' }
+      { type: '🅿️', name: 'Mammoth Creek Rd', desc: 'Access near Hatch / Duck Creek', lat: 37.62609, lng: -112.44549 }
     ],
     note: 'A clear high-meadow creek in southern Utah near Duck Creek Village — wild browns and brookies in willow-lined runs. Hoppers along the banks in late summer. Pretty, quiet water at elevation.'
   },
@@ -5273,7 +5273,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Northeast Entrance Rd', desc: 'Roadside access near Cooke City' }
+      { type: '🅿️', name: 'Northeast Entrance Rd', desc: 'Roadside access near Cooke City', lat: 45.02244, lng: -109.91435 }
     ],
     note: 'A clear, accessible cutthroat stream paralleling the road near the northeast entrance, joining the Lamar. Easy wading and willing fish on attractor dries — a perfect spot to pair with the Lamar on a Yellowstone day.'
   },
@@ -5568,7 +5568,7 @@ const HATCHED_DATA = [
       { name: 'Glo-Bug (Egg)', type: 'nymph', size: '6–10', color: 'Orange, peach, cerise', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Klawock River (town)', desc: 'Roadside access in Klawock, off Hwy 924' },
+      { type: '🅿️', name: 'Klawock River (town)', desc: 'Roadside access in Klawock, off Hwy 924', lat: 55.49972, lng: -132.95917 },
       { type: '🛶', name: 'Klawock Lake outlet', desc: 'Upper river / lake outlet' }
     ],
     note: 'The most productive coho river on Prince of Wales — the Klawock Hatchery pumps out millions of smolt, so the late-August-into-September silver run is outstanding and road-accessible right in town. Wild spring steelhead in April–May, sockeye in summer. Tannic, tea-colored water; fish bright flies and time the tide.'
@@ -5591,7 +5591,7 @@ const HATCHED_DATA = [
       { name: 'Muddler / Sculpin', type: 'streamer', size: '4–8', color: 'Olive, brown', conf: 3 }
     ],
     access: [
-      { type: '🚶', name: 'Thorne River (FS roads)', desc: 'Access via forest roads out of Thorne Bay' },
+      { type: '🚶', name: 'Thorne River (FS roads)', desc: 'Access via forest roads out of Thorne Bay', lat: 55.68333, lng: -132.55028 },
       { type: '🛶', name: 'Thorne Bay tidewater', desc: 'Lower river & estuary' }
     ],
     note: 'One of the best wild steelhead rivers on Prince of Wales — a fabled tea-stained river winding through the Tongass with a strong April run and even a trickle of winter fish. Superb sea-run cutthroat too. Swing Intruders and leeches through the runs. A true bucket-list SE Alaska river.'
@@ -5779,7 +5779,7 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Sinks Canyon State Park', desc: 'Roadside canyon access SW of Lander' }
+      { type: '🅿️', name: 'Sinks Canyon State Park', desc: 'Roadside canyon access SW of Lander', lat: 42.85395, lng: -108.69942 }
     ],
     note: 'A pretty freestone tumbling out of the Wind River Range through Sinks Canyon near Lander — where the river famously disappears into a cave (the Sinks) and reappears downstream (the Rise). Wild browns, brookies, and cutthroat on stoneflies and attractor dries. Easy roadside access and light pressure.'
   },
@@ -6090,7 +6090,7 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
     ],
     access: [
-      { type: '🚶', name: 'Wood River Rd (Meeteetse)', desc: 'Gravel-road access SW of Meeteetse' }
+      { type: '🚶', name: 'Wood River Rd (Meeteetse)', desc: 'Gravel-road access SW of Meeteetse', lat: 44.11107, lng: -108.95791 }
     ],
     note: 'A pretty little cutthroat stream up the Wood River Road from Meeteetse — eager Yellowstone cutthroat and brookies in a quiet Absaroka canyon. Attractor dries and hoppers; drivable gravel access with lots of pullouts. A perfect low-pressure day off the beaten path.'
   },
@@ -6133,7 +6133,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'US-14A (Burgess Junction)', desc: 'Roadside meadow access high in the Bighorns' }
+      { type: '🅿️', name: 'US-14A (Burgess Junction)', desc: 'Roadside meadow access high in the Bighorns', lat: 44.8183, lng: -107.45536 }
     ],
     note: 'A gorgeous little high-country meadow stream near Burgess Junction on the Bighorn Scenic Byway — willing brookies and cutthroat in clear, willow-lined runs at 8,000+ feet. Attractor dries and hoppers all summer. Cool, scenic, and a joy to wade. Special regs on some reaches — check the rules.'
   },
@@ -6457,7 +6457,7 @@ const HATCHED_DATA = [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Big Cottonwood Canyon (SR-190)', desc: 'Roadside pullouts SE of Salt Lake City' }
+      { type: '🅿️', name: 'Big Cottonwood Canyon (SR-190)', desc: 'Roadside pullouts SE of Salt Lake City', lat: 40.6805, lng: -111.91216 }
     ],
     note: 'A tumbling little Wasatch canyon stream barely 20 minutes from downtown Salt Lake — wild browns, cutthroat, and brookies in pretty pocket water. Attractor dries and a surprise Green Drake in June. No bait; artificial-only in stretches. A perfect quick after-work session close to the city.'
   },
@@ -6480,7 +6480,7 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Little Cottonwood Canyon (SR-210)', desc: 'Roadside pullouts below Snowbird/Alta' }
+      { type: '🅿️', name: 'Little Cottonwood Canyon (SR-210)', desc: 'Roadside pullouts below Snowbird/Alta', lat: 40.66578, lng: -111.90799 }
     ],
     note: 'A small, steep Wasatch creek in the canyon below Snowbird and Alta — eager wild browns, cutthroat, and brookies in tight pocket water right next to Salt Lake. Attractor dries and small nymphs. Water is diverted low in stretches, so fish the flowing sections. A fun, quick urban-adjacent escape.'
   },
@@ -7283,7 +7283,7 @@ const HATCHED_DATA = [
       { name: 'Sockeye Fly (Coho/Comet)', type: 'streamer', size: '4–8', color: 'Sparse red, blue', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Iliamna / Newhalen (fly-in)', desc: 'Fly-in to Iliamna, then boat/road to the river' }
+      { type: '🛶', name: 'Iliamna / Newhalen (fly-in)', desc: 'Fly-in to Iliamna, then boat/road to the river', lat: 59.71333, lng: -154.89 }
     ],
     note: 'A powerful clear river connecting Sixmile Lake to Lake Iliamna in the heart of Bristol Bay — one of the great sockeye rivers on earth, with clouds of reds in July and the trophy rainbows and char that gorge behind them into fall. Bead fishing at its finest. Fly-in via Iliamna; a bucket-list Bristol Bay water.'
   },
@@ -7413,7 +7413,7 @@ const HATCHED_DATA = [
       { name: 'Pink Pollywog', type: 'streamer', size: '2–6', color: 'Pink', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Ninilchik (Sterling Hwy)', desc: 'Roadside access in Ninilchik village' }
+      { type: '🅿️', name: 'Ninilchik (Sterling Hwy)', desc: 'Roadside access in Ninilchik village', lat: 60.0575, lng: -151.66 }
     ],
     note: 'A convenient road-accessible stream on the lower Kenai Peninsula at Ninilchik — hatchery and wild kings in late spring, pinks and a strong fall silver run, plus Dolly Varden and a few fall steelhead. Small and tannic; time the tide at the mouth. An easy, popular option right off the Sterling Highway on the way to Homer.'
   },
@@ -7501,7 +7501,7 @@ const HATCHED_DATA = [
       { name: 'Pink Pollywog', type: 'streamer', size: '2–6', color: 'Pink', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Buskin River State Rec Site', desc: 'Roadside access near Kodiak city & airport' }
+      { type: '🅿️', name: 'Buskin River State Rec Site', desc: 'Roadside access near Kodiak city & airport', lat: 57.75361, lng: -152.47833 }
     ],
     note: 'Kodiak\'s most popular and accessible river, right by town and the airport — sockeye in summer, pinks, a strong fall silver run, plus Dolly Varden and some fall steelhead. Small and easy to wade, with a state rec site and good bank access. The go-to for a road-based Kodiak fly-fishing day.'
   },
@@ -7622,7 +7622,7 @@ const HATCHED_DATA = [
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '2–6', color: 'Black/purple', conf: 4 },
       { name: 'Flesh Fly', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Aleknagik / Dillingham', desc: 'Boat access from Aleknagik or Dillingham' } ],
+    access: [ { type: '🛶', name: 'Aleknagik / Dillingham', desc: 'Boat access from Aleknagik or Dillingham', lat: 59.0575, lng: -158.41028 } ],
     note: 'A short, powerful clear river draining the Wood River lakes to Bristol Bay near Dillingham — carries one of the planet\'s great sockeye runs, and the rainbows and char that follow them grow enormous. Bead and flesh fishing in the fall is spectacular. Reachable by boat from the road at Aleknagik.'
   },
   {
@@ -7795,7 +7795,7 @@ const HATCHED_DATA = [
       { name: 'Flesh Fly', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Gates of the Arctic (fly-in)', desc: 'Fly-in wilderness float; no roads' } ],
+    access: [ { type: '🛶', name: 'Gates of the Arctic (fly-in)', desc: 'Fly-in wilderness float; no roads', lat: 66.98139, lng: -162.50639 } ],
     note: 'A vast Wild & Scenic river draining the Brooks Range through the largest untouched watershed in North America — bright sea-run Dolly Varden (char), chum salmon, and grayling in achingly remote Arctic wilderness. A multi-week fly-in float through Gates of the Arctic. Solitude on a scale found almost nowhere else.'
   },
   {
@@ -7813,7 +7813,7 @@ const HATCHED_DATA = [
       { name: 'Flesh Fly', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'ANWR (fly-in)', desc: 'Bush-plane fly-in; wilderness float, no roads' } ],
+    access: [ { type: '🛶', name: 'ANWR (fly-in)', desc: 'Bush-plane fly-in; wilderness float, no roads', lat: 70.065, lng: -144.0825 } ],
     note: 'A stunning clearwater river dropping out of the Brooks Range across the coastal plain of the Arctic National Wildlife Refuge to the Beaufort Sea — big sea-run Arctic char and grayling amid caribou and the wildest scenery on the continent. A bucket-list bush-plane float through ANWR. Cold, remote, and unforgettable.'
   },
   {
@@ -8261,7 +8261,7 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
     ],
-    access: [ { type: '🅿️', name: 'Pack River Rd (Sandpoint)', desc: 'Road access N of Sandpoint toward the Selkirks' } ],
+    access: [ { type: '🅿️', name: 'Pack River Rd (Sandpoint)', desc: 'Road access N of Sandpoint toward the Selkirks', lat: 48.28465, lng: -116.3738 } ],
     note: 'A pretty north Idaho freestone tumbling out of the Selkirk Mountains to Lake Pend Oreille near Sandpoint — westslope cutthroat, rainbows, and brookies on attractor dries, plus protected bull trout. Quiet, scenic, and lightly fished. A great walk-and-wade in gorgeous Panhandle country.'
   },
   {
@@ -9407,7 +9407,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Mirror Lake Hwy (UT-150)', desc: 'Pullouts NE of Kamas along Beaver Creek' } ],
+    access: [ { type: '🚗', name: 'Mirror Lake Hwy (UT-150)', desc: 'Pullouts NE of Kamas along Beaver Creek', lat: 40.70245, lng: -111.34213 } ],
     note: 'A pretty little freestone paralleling the Mirror Lake Highway northeast of Kamas, tumbling out of the western Uintas. Wild browns, brookies and cutthroat fill the pockets and undercuts — a fun, low-pressure small stream for a light rod and a box of attractor dries.'
   },
   {
@@ -9636,7 +9636,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Millcreek Canyon', desc: 'Pullouts along Millcreek Canyon Rd, SLC' } ],
+    access: [ { type: '🚗', name: 'Millcreek Canyon', desc: 'Pullouts along Millcreek Canyon Rd, SLC', lat: 40.70967, lng: -111.92355 } ],
     note: 'A tight little canyon stream right at Salt Lake City\'s back door in Millcreek Canyon, holding small wild browns and cutthroat in its plunge pools. It\'s tiny and technical, best with a short rod and a bushy dry — a fun after-work escape minutes from the valley.'
   },
   {
@@ -10321,7 +10321,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Goose Creek (Big Goose Canyon)', desc: 'W of Sheridan up Big Goose Rd' } ],
+    access: [ { type: '🚗', name: 'Goose Creek (Big Goose Canyon)', desc: 'W of Sheridan up Big Goose Rd', lat: 44.80414, lng: -106.95618 } ],
     note: 'The creek running through Sheridan and up into the eastern Bighorns via its Big and Little Goose forks, holding wild browns, rainbows, brookies and cutthroat. The town reach is fun and accessible; the canyon forks offer prettier pocket water. A convenient small stream on the Bighorn front.'
   },
   {
@@ -10363,7 +10363,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Crazy Woman Canyon Rd', desc: 'Off US-16 SW of Buffalo' } ],
+    access: [ { type: '🚗', name: 'Crazy Woman Canyon Rd', desc: 'Off US-16 SW of Buffalo', lat: 44.0647, lng: -106.60088 } ],
     note: 'A tumbling creek dropping through dramatic Crazy Woman Canyon out of the Bighorns near Buffalo, packed with eager brookies plus browns, rainbows and cutthroat. The canyon road offers pretty pocket-water access — a fun light-rod stream with big scenery on the mountains\' eastern front.'
   },
   {
@@ -11115,7 +11115,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'South Boulder River', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'South Boulder River', desc: 'Public access along the valley road', lat: 45.84326, lng: -111.9186 } ],
     note: 'A pretty freestone draining the Tobacco Root Mountains to the Jefferson near Cardwell, holding rainbows, browns, cutthroat and whitefish. The canyon reach offers classic pocket water; the lower river runs through ranchland. A quiet alternative to the busy Jefferson nearby.'
   },
   {
@@ -11157,7 +11157,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'West Boulder River', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'West Boulder River', desc: 'Public access along the valley road', lat: 45.66077, lng: -110.1013 } ],
     note: 'A gorgeous freestone dropping from the Absaroka-Beartooth country to the Yellowstone Valley, with a popular trailhead and campground. Wild rainbows, cutthroat and brookies fill the pocket water — a beautiful small river for dries and a hike into the wilderness above.'
   },
   {
@@ -11220,7 +11220,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Nevada Creek', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'Nevada Creek', desc: 'Public access along the valley road', lat: 46.89466, lng: -113.04395 } ],
     note: 'A meandering prairie-and-meadow creek in the Helmville country, a tributary of the Blackfoot, holding wild browns, rainbows and brookies. Much runs through ranchland, so mind access — but the beaver-pond flats and undercut banks reward careful dry-fly work.'
   },
   {
@@ -11262,7 +11262,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Rattlesnake Creek', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'Rattlesnake Creek', desc: 'Public access along the valley road', lat: 46.8677, lng: -113.98511 } ],
     note: 'A cold, clear creek tumbling out of the Rattlesnake Wilderness right into Missoula, holding native westslope cutthroat, rainbows and brookies (bull trout are protected — release them). A beloved close-to-town escape, best fished up in the canyon away from the trailhead crowds.'
   },
   {
@@ -11304,7 +11304,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Deep Creek', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'Deep Creek', desc: 'Public access along the valley road', lat: 46.28437, lng: -111.51136 } ],
     note: 'A small creek draining the Big Belt Mountains to the Missouri near Townsend, holding wild browns, rainbows, brookies and cutthroat. The canyon reach along the forest road offers fun pocket-water fishing — a peaceful side trip from the Canyon Ferry area.'
   },
   {
@@ -11325,7 +11325,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Blacktail Deer Creek', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'Blacktail Deer Creek', desc: 'Public access along the valley road', lat: 45.23131, lng: -112.63391 } ],
     note: 'A meadow creek flowing into the Beaverhead at Dillon, holding wild browns, rainbows, brookies and a population of native Arctic grayling in its upper reaches — a rare treat. Much is private ranchland, so mind access, but the fluvial grayling make it special.'
   },
   {
@@ -11346,7 +11346,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Basin Creek', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'Basin Creek', desc: 'Public access along the valley road', lat: 45.98215, lng: -112.50391 } ],
     note: 'A small headwater creek in the mountains above Butte, part of the city\'s water supply country, holding eager brookies and native westslope cutthroat. Tiny, cold and scenic — a fun short-rod stream for the Butte area.'
   },
   {
@@ -11390,7 +11390,7 @@ const HATCHED_DATA = [
       { name: 'Trico Spinner', type: 'dry', size: '18–22', color: 'Black', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'O’Dell Creek', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'O’Dell Creek', desc: 'Public access along the valley road', lat: 45.36493, lng: -111.70692 } ],
     note: 'A rich spring creek meandering through the Madison Valley near Ennis, restored into a gem of technical dry-fly water. Wild browns and rainbows sip PMDs, tricos and midges over its weedy channels. Much is private (some access by arrangement) — smooth, clear currents that reward a careful presentation.'
   },
   {
@@ -11413,7 +11413,7 @@ const HATCHED_DATA = [
       { name: 'Trico Spinner', type: 'dry', size: '18–22', color: 'Black', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Poindexter Slough', desc: 'Public access along the valley road' } ],
+    access: [ { type: '🚗', name: 'Poindexter Slough', desc: 'Public access along the valley road', lat: 45.19659, lng: -112.67891 } ],
     note: 'A classic spring creek just outside Dillon, and a rare one that\'s open to the public. Wild browns and rainbows hold in its clear, weedy channels, feeding selectively on PMDs, tricos, BWOs and midges. Technical, rewarding dry-fly water — mind the fragile banks and fish light tippet.'
   },
   {
@@ -12285,7 +12285,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Coho Streamer', type: 'streamer', size: '2–6', color: 'Chartreuse, pink, purple', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Resurrection Creek', desc: 'Public/road or fly-in access' } ],
+    access: [ { type: '🚗', name: 'Resurrection Creek', desc: 'Public/road or fly-in access', lat: 60.92667, lng: -149.64444 } ],
     note: 'A historic gold-rush creek tumbling into Turnagain Arm at Hope, with runs of pink, silver and sockeye salmon and resident Dolly Varden that gorge on drifting eggs. Recently restored for salmon habitat, it offers accessible, scenic salmon fishing a short drive from Anchorage — swing streamers and drift beads through the holes.'
   },
   {
@@ -12328,7 +12328,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Coho Streamer', type: 'streamer', size: '2–6', color: 'Chartreuse, pink, purple', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Koyuk River', desc: 'Public/road or fly-in access' } ],
+    access: [ { type: '🚗', name: 'Koyuk River', desc: 'Public/road or fly-in access', lat: 64.92917, lng: -161.13417 } ],
     note: 'A remote Seward Peninsula river flowing to Norton Sound at the village of Koyuk, with strong runs of pink and silver salmon and excellent Arctic char and Dolly Varden fishing. Fly-in wilderness water — swing bright streamers for chrome char and silvers in stunning, empty tundra country.'
   },
   {
@@ -12395,7 +12395,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Coho Streamer', type: 'streamer', size: '2–6', color: 'Chartreuse, pink, purple', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Crooked Creek', desc: 'Public/road or fly-in access' } ],
+    access: [ { type: '🚗', name: 'Crooked Creek', desc: 'Public/road or fly-in access', lat: 60.32333, lng: -151.28222 } ],
     note: 'A clear tributary of the Kasilof River on the Kenai Peninsula, with a popular hatchery king run, silver salmon, a fall steelhead run and resident Dolly Varden and rainbows. A well-known bank fishery near the Crooked Creek State Rec Site — drift beads and swing streamers through the runs.'
   },
   {
@@ -12418,7 +12418,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Coho Streamer', type: 'streamer', size: '2–6', color: 'Chartreuse, pink, purple', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Deep Creek', desc: 'Public/road or fly-in access' } ],
+    access: [ { type: '🚗', name: 'Deep Creek', desc: 'Public/road or fly-in access', lat: 60.03361, lng: -151.69694 } ],
     note: 'A popular clear-water creek meeting Cook Inlet at Ninilchik on the southern Kenai Peninsula, with runs of king, pink and silver salmon, a fall steelhead run and resident Dolly Varden. Roadside access along the Sterling Highway makes it a favorite — drift beads and eggs for a shot at chrome in beautiful surroundings.'
   },
   {
@@ -12440,7 +12440,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Coho Streamer', type: 'streamer', size: '2–6', color: 'Chartreuse, pink, purple', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Stariski Creek', desc: 'Public/road or fly-in access' } ],
+    access: [ { type: '🚗', name: 'Stariski Creek', desc: 'Public/road or fly-in access', lat: 59.88194, lng: -151.79722 } ],
     note: 'A small, intimate creek near Anchor Point on the southern Kenai, with silver and pink salmon runs and a treasured wild steelhead run in the fall, plus resident Dolly Varden. Tight, brushy water rewards careful swinging and drifting — a quiet alternative to the busier Kenai salmon rivers.'
   },
   {
@@ -12506,7 +12506,7 @@ const HATCHED_DATA = [
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'John River', desc: 'Remote; fly-in or Dalton Hwy access' } ],
+    access: [ { type: '🚗', name: 'John River', desc: 'Remote; fly-in or Dalton Hwy access', lat: 66.91361, lng: -151.65361 } ],
     note: 'A wild, clear river flowing south from Anaktuvuk Pass through the heart of Gates of the Arctic National Park to the Koyukuk at Bettles. Superb Arctic grayling and char fishing, with chum and sheefish in the lower reaches. A fly-in float through some of the most remote wilderness in North America.'
   },
   {
@@ -12616,7 +12616,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Johnson Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'Johnson Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.8866, lng: -113.5478 } ],
     note: 'A small, remote headwater creek in the Raft River Mountains of Utah\'s far northwest corner, part of the Snake River drainage — which is why it holds native Yellowstone cutthroat rather than the Bonneville cutthroat found across most of the state. A tiny, willow-lined conservation stream cherished by anglers who make the long drive for pure natives. Fish light and tread carefully.'
   },
   {
@@ -12637,7 +12637,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'George Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'George Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.9169, lng: -113.4806 } ],
     note: 'A little native-trout stream tumbling out of the Raft River Mountains in far northwest Utah. Because this corner drains to the Snake River, its cutthroat are Yellowstone cutthroat — a real prize for Utah anglers who love natives. Small, cold and lightly fished; a short rod and attractor dries are all you need.'
   },
   {
@@ -12658,7 +12658,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Left Fork George Creek', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'Left Fork George Creek', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.9169, lng: -113.482 } ],
     note: 'A tiny tributary of George Creek high in the Raft River Mountains, holding a pure conservation population of native Yellowstone cutthroat. This is intimate, brushy headwater fishing for jewel-like wild trout — genuine off-the-map water in Utah\'s remote northwest, best treated gently and released carefully.'
   },
   {
@@ -12679,7 +12679,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Trapper Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'Trapper Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 42.183, lng: -113.9417 } ],
     note: 'A small freestone in the Raft River Mountains of northwest Utah, part of the Snake River drainage and home to native Yellowstone cutthroat. Willing wild trout fill its pockets and undercut banks — a quiet, scenic little creek for anglers chasing Utah\'s only true Yellowstone cutthroat country.'
   },
   {
@@ -12700,7 +12700,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Clear Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'Clear Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.949, lng: -113.3487 } ],
     note: 'A cold, clear headwater stream in the Raft River Mountains of Utah\'s northwest corner, one of the better native Yellowstone cutthroat waters in the range thanks to its Snake River drainage. Its forks add more miles of native water. A treasured, remote conservation stream — light rods, attractor dries, and careful catch-and-release.'
   },
   {
@@ -12721,7 +12721,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'North Fork Clear Creek', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'North Fork Clear Creek', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.949, lng: -113.3487 } ],
     note: 'A small upper fork of Clear Creek in the Raft River Mountains, holding a pure population of native Yellowstone cutthroat. Tiny, tumbling and lightly fished — classic headwater dry-fly water for anglers who prize Utah\'s northwest-corner natives. Handle these wild fish gently.'
   },
   {
@@ -12742,7 +12742,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'South Fork Clear Creek', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'South Fork Clear Creek', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.948, lng: -113.349 } ],
     note: 'The southern fork of Clear Creek high in the Raft River Mountains, a pure native Yellowstone cutthroat conservation stream in Utah\'s remote northwest. Intimate pocket water and eager wild trout reward the long drive — a special, seldom-seen corner of Utah cutthroat country.'
   },
   {
@@ -12763,7 +12763,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Bull Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'Bull Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.905, lng: -113.51 } ],
     note: 'A small native-trout creek in the Raft River Mountains of far northwest Utah, part of the Snake River drainage that gives this corner its Yellowstone cutthroat. Quiet, willow-lined water with willing wild trout — a light-rod stream for anglers seeking Utah\'s rare native Yellowstone cutthroat.'
   },
   {
@@ -12784,7 +12784,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Fisher Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek' } ],
+    access: [ { type: '🥾', name: 'Fisher Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 41.92, lng: -113.46 } ],
     note: 'A tiny, out-of-the-way creek in the Raft River Mountains of northwest Utah, holding native Yellowstone cutthroat thanks to its Snake River drainage. Cold, clear and seldom fished — a genuine backcountry small stream for anglers who love wild natives and solitude.'
   },
   {
@@ -12805,7 +12805,7 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Cassia Creek (Raft River drainage)', desc: 'Near Elba / City of Rocks, Raft River drainage' } ],
+    access: [ { type: '🥾', name: 'Cassia Creek (Raft River drainage)', desc: 'Near Elba / City of Rocks, Raft River drainage', lat: 42.3477, lng: -113.355 } ],
     note: 'A native-trout creek in the Raft River drainage on the Utah–Idaho border country near the City of Rocks, holding Yellowstone cutthroat that belong to the Snake River lineage. A pretty high-desert-and-mountain stream — willing wild cutthroat on attractor dries in a scenic, lightly pressured corner.'
   },
 
@@ -13080,7 +13080,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'East Fork Salmon River', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'East Fork Salmon River', desc: 'Public access along the river road', lat: 44.26825, lng: -114.32673 } ],
     note: 'A pretty tributary of the main Salmon near Clayton, flowing out of the White Cloud peaks, with wild westslope cutthroat and rainbows and important Chinook and steelhead spawning runs. Scenic, lightly fished trout water — cast dries in the meadow and canyon reaches beneath the mountains.'
   },
   {
@@ -13433,7 +13433,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Piedra River', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Piedra River', desc: 'Public access along the river road', lat: 37.4375, lng: -107.1806 } ],
     note: 'A gorgeous, remote freestone north of Pagosa Springs, one of southwest Colorado\'s blue-ribbon rivers, cutting through a rugged wilderness box canyon. Wild browns, rainbows, brookies and native cutthroat rise to attractor dries in its pocket water. Little roadside access means a hike gets you solitude and eager fish in stunning country.'
   },
   {
@@ -13536,7 +13536,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'East Fork Bitterroot River', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'East Fork Bitterroot River', desc: 'Public access along the river road', lat: 45.9402, lng: -114.12703 } ],
     note: 'The East Fork of the Bitterroot gathers in the mountains near Sula and joins the West Fork to form the main river above Darby. Wild rainbows, browns, cutthroat and brookies fill its freestone runs (bull trout protected). A pretty, less-crowded headwater alternative to the famous main stem, with classic Bitterroot dry-fly fishing.'
   },
   {
@@ -13557,7 +13557,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'North Fork Blackfoot River', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'North Fork Blackfoot River', desc: 'Public access along the river road', lat: 46.98494, lng: -113.12895 } ],
     note: 'A beautiful tributary of the Blackfoot flowing out of the Scapegoat Wilderness near Ovando, with wild westslope cutthroat, rainbows, browns and whitefish (bull trout protected). Clear and lightly fished, it rewards a hike above the trailhead with eager trout on dries in true "A River Runs Through It" country.'
   },
   {
@@ -13578,7 +13578,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Monture Creek', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Monture Creek', desc: 'Public access along the river road', lat: 47.16661, lng: -113.16061 } ],
     note: 'A clear, willow-lined tributary of the Blackfoot near Ovando, famous from Norman Maclean\'s writing, holding wild westslope cutthroat, rainbows and browns (bull trout protected). Intimate pocket water and meadow bends make for lovely small-stream dry-fly fishing amid the Blackfoot Valley\'s big scenery.'
   },
   {
@@ -13641,7 +13641,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Clearwater River', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Clearwater River', desc: 'Public access along the river road', lat: 47.39021, lng: -113.56203 } ],
     note: 'The river linking the Clearwater chain of lakes in the Seeley-Swan valley, holding rainbows, browns and whitefish in the flowing reaches and northern pike where it slows through the lakes (bull trout protected). A fun, varied fishery — trout on dries in the river sections, big flies for pike near the lake mouths.'
   },
   {
@@ -13683,7 +13683,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Little Popo Agie River', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Little Popo Agie River', desc: 'Public access along the river road', lat: 42.90552, lng: -108.589 } ],
     note: 'A tumbling little river dropping out of the Wind River Range south of Lander, holding wild browns, rainbows, brookies and cutthroat in its canyon pocket water. A fun, scenic light-rod stream close to town — a nice companion to the nearby Middle Popo Agie and Sinks Canyon.'
   },
   {
@@ -13704,7 +13704,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Torrey Creek', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Torrey Creek', desc: 'Public access along the river road', lat: 43.50357, lng: -109.54904 } ],
     note: 'A clear creek tumbling out of the Wind River Range near Dubois past the Trail Lakes, a popular gateway into the Fitzpatrick Wilderness and the Glacier Trail. Willing rainbows, brookies and cutthroat fill its pocket water — a fun light-rod stream and a beautiful jumping-off point for the high country.'
   },
   {
@@ -13725,7 +13725,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Crystal Creek', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Crystal Creek', desc: 'Public access along the river road', lat: 43.61161, lng: -110.43159 } ],
     note: 'A pretty tributary of the Gros Ventre River northeast of Jackson, holding native Snake River fine-spotted cutthroat and brookies. Willing wild trout rise to attractor dries in its meadow and canyon reaches — a quiet, scenic small stream in the beautiful Gros Ventre country (Wyoming license required).'
   },
   {
@@ -13746,7 +13746,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Cliff Creek', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Cliff Creek', desc: 'Public access along the river road', lat: 43.24854, lng: -110.49546 } ],
     note: 'A small tributary of the Hoback River near Bondurant, tumbling out of the Wyoming Range, full of eager native Snake River fine-spotted cutthroat and brookies. A fun, seldom-fished light-rod creek with a waterfall and pretty pocket water — attractor dries move fish all day in the Jackson-area backcountry.'
   },
   {
@@ -13767,7 +13767,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Owl Creek', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'Owl Creek', desc: 'Public access along the river road', lat: 43.72329, lng: -108.15871 } ],
     note: 'A foothills creek draining the Owl Creek Mountains toward Thermopolis in the Bighorn Basin, holding browns, rainbows and cutthroat in its canyon reaches. Part of the drainage borders the Wind River Reservation, so know your boundaries and permits. A quiet, scenic small stream in a lesser-known corner of Wyoming.'
   },
   {
@@ -13830,7 +13830,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'French Creek', desc: 'Public access along the river road' } ],
+    access: [ { type: '🚗', name: 'French Creek', desc: 'Public access along the river road', lat: 41.19108, lng: -106.54336 } ],
     note: 'A tumbling creek draining the Sierra Madre and Snowy Range near Encampment, holding wild browns, brookies and rainbows in its forest pocket water. A fun, scenic light-rod stream in the quiet Platte Valley country of south-central Wyoming — attractor dries and a short rod are all you need.'
   },
 
@@ -14581,7 +14581,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Savery Creek', desc: 'Public access along the valley' } ],
+    access: [ { type: '🚗', name: 'Savery Creek', desc: 'Public access along the valley', lat: 41.01024, lng: -107.44895 } ],
     note: 'A freestone draining the Sierra Madre to the Little Snake near Savery in south-central Wyoming, holding native Colorado River cutthroat along with browns and brookies. Much runs through ranchland, so mind access, but the forest reaches above offer fun dry-fly fishing for natives in lonely, scenic country.'
   },
   {
@@ -14665,7 +14665,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Spread Creek', desc: 'Public access along the valley' } ],
+    access: [ { type: '🚗', name: 'Spread Creek', desc: 'Public access along the valley', lat: 43.8105, lng: -110.54965 } ],
     note: 'A freestone tributary of the Snake flowing out of the Absaroka foothills to Grand Teton National Park near Moran, holding native Snake River fine-spotted cutthroat and whitefish. The lower reaches are roadside; upstream it turns wild. Classic cutthroat dry-fly water beneath the Tetons (Wyoming license required).'
   },
   {
@@ -14728,7 +14728,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'East Rosebud Creek', desc: 'Public access along the valley' } ],
+    access: [ { type: '🚗', name: 'East Rosebud Creek', desc: 'Public access along the valley', lat: 45.48328, lng: -109.45683 } ],
     note: 'A beautiful freestone tumbling from East Rosebud Lake down the Beartooth Front near Roscoe, with wild rainbows, browns, brookies, cutthroat and whitefish. The canyon and meadow reaches offer classic pocket-water fishing beneath the towering Beartooth peaks — a scenic gem near Red Lodge.'
   },
   {
@@ -14749,7 +14749,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Ninemile Creek', desc: 'Public access along the valley' } ],
+    access: [ { type: '🚗', name: 'Ninemile Creek', desc: 'Public access along the valley', lat: 47.02881, lng: -114.39373 } ],
     note: 'A restored tributary of the Clark Fork in the Ninemile valley northwest of Missoula, holding westslope cutthroat, rainbows, browns and brookies (bull trout protected). Once damaged by placer mining and now much recovered, it offers pretty small-stream dry-fly fishing close to town.'
   },
   {
@@ -14814,7 +14814,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Sixteenmile Creek', desc: 'Public access along the valley' } ],
+    access: [ { type: '🚗', name: 'Sixteenmile Creek', desc: 'Public access along the valley', lat: 46.2655, lng: -110.54131 } ],
     note: 'A meadow-and-canyon creek flowing from the Ringling country through a spectacular gorge to the Missouri near Toston, holding wild rainbows, browns and cutthroat. Most is private ranchland (the canyon is famously hard to access), but where you can reach it, it offers wild trout in stunning, rugged surroundings.'
   },
   {
@@ -14877,7 +14877,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Marsh Creek', desc: 'Public access along the valley' } ],
+    access: [ { type: '🚗', name: 'Marsh Creek', desc: 'Public access along the valley', lat: 44.32852, lng: -115.09204 } ],
     note: 'A meadow stream in the high country near Stanley, one of the primary headwaters of the Middle Fork Salmon and a critical Chinook and steelhead spawning stream. Wild westslope cutthroat rise to dries in its clear meanders (mind spawning-season closures). Remote, protected and beautiful Sawtooth-country water.'
   },
   {
@@ -14898,7 +14898,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Big Creek (Salmon)', desc: 'Public access along the valley' } ],
+    access: [ { type: '🚗', name: 'Big Creek (Salmon)', desc: 'Public access along the valley', lat: 45.06074, lng: -115.45178 } ],
     note: 'A large, remote tributary of the Middle Fork Salmon in the heart of the Frank Church Wilderness near the old mining town of Yellow Pine, holding wild westslope cutthroat and Chinook and steelhead spawning water (bull trout protected). Fly-in or a long backcountry drive — pristine cutthroat fishing in one of the wildest places in the Lower 48.'
   },
   {
@@ -14920,7 +14920,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Rainbow / Trout Bead', type: 'nymph', size: '8–12', color: 'Roe, apricot', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Kwethluk River', desc: 'Fly-in or boat access' } ],
+    access: [ { type: '🚗', name: 'Kwethluk River', desc: 'Fly-in or boat access', lat: 60.81389, lng: -161.44806 } ],
     note: 'A clear tributary of the Kuskokwim near Bethel, a classic wilderness float with strong salmon runs and excellent resident rainbows, Dolly Varden and grayling. Fly-in only — drift beads behind the sockeye and swing streamers for chrome char and hard-fighting leopard rainbows in gorgeous, empty country.'
   },
   {
@@ -14964,7 +14964,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Rainbow / Trout Bead', type: 'nymph', size: '8–12', color: 'Roe, apricot', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Holitna River', desc: 'Fly-in or boat access' } ],
+    access: [ { type: '🚗', name: 'Holitna River', desc: 'Fly-in or boat access', lat: 61.68111, lng: -157.16861 } ],
     note: 'A slow, winding lowland tributary of the Kuskokwim near Sleetmute, loaded with trophy northern pike and sheefish plus king, chum and silver salmon runs. Classic fly-in wilderness — throw big flies for gator pike in the sloughs and swing for sheefish and salmon in the main river.'
   },
   {
@@ -14986,7 +14986,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Rainbow / Trout Bead', type: 'nymph', size: '8–12', color: 'Roe, apricot', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Stony River', desc: 'Fly-in or boat access' } ],
+    access: [ { type: '🚗', name: 'Stony River', desc: 'Fly-in or boat access', lat: 61.76944, lng: -156.59111 } ],
     note: 'A clear river draining the Alaska Range foothills to the upper Kuskokwim, with king, chum and silver salmon runs and good rainbows, grayling and pike. Remote and lightly fished fly-in water — a genuine wilderness river for anglers who want salmon and resident fish far from any crowds.'
   },
   {
@@ -15007,7 +15007,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Rainbow / Trout Bead', type: 'nymph', size: '8–12', color: 'Roe, apricot', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Egegik River', desc: 'Fly-in or boat access' } ],
+    access: [ { type: '🚗', name: 'Egegik River', desc: 'Fly-in or boat access', lat: 58.20528, lng: -157.41861 } ],
     note: 'The short, powerful river draining Becharof Lake to Bristol Bay at Egegik, funneling one of the largest sockeye runs on earth, followed by silvers, with big Arctic char and rainbows gorging behind them. Fly-in or lodge-based — a chrome factory where the sheer numbers of fish are almost hard to believe.'
   },
   {
@@ -15028,7 +15028,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Rainbow / Trout Bead', type: 'nymph', size: '8–12', color: 'Roe, apricot', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'Ugashik River', desc: 'Fly-in or boat access' } ],
+    access: [ { type: '🚗', name: 'Ugashik River', desc: 'Fly-in or boat access', lat: 57.49556, lng: -157.60194 } ],
     note: 'The river connecting the Ugashik Lakes on the Alaska Peninsula, famous as the home of the world-record Arctic grayling and huge Arctic char, along with major sockeye and silver runs. Fly-in wilderness — a bucket-list spot where trophy grayling sip dries against a backdrop of tundra and volcanoes.'
   },
   {
@@ -15050,7 +15050,7 @@ const HATCHED_DATA = [
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Rainbow / Trout Bead', type: 'nymph', size: '8–12', color: 'Roe, apricot', conf: 4 }
     ],
-    access: [ { type: '🚗', name: 'King Salmon River', desc: 'Fly-in or boat access' } ],
+    access: [ { type: '🚗', name: 'King Salmon River', desc: 'Fly-in or boat access', lat: 58.22389, lng: -157.32889 } ],
     note: 'A clear Alaska Peninsula river running to Bristol Bay, with strong runs of king, chum and silver salmon and resident Arctic char. Fly-in wilderness water — swing bright streamers for fresh salmon and drift for char in a remote, tundra-lined river well off the beaten path.'
   },
   {
@@ -15554,7 +15554,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Pine Creek (Boulder Mtn)', desc: 'Off UT-12 / Boulder Mtn roads SW of Torrey' } ],
+    access: [ { type: '🥾', name: 'Pine Creek (Boulder Mtn)', desc: 'Off UT-12 / Boulder Mtn roads SW of Torrey', lat: 38.30304, lng: -111.53463 } ],
     note: 'A pretty freestone tumbling off Boulder Mountain toward Torrey, holding native Colorado River cutthroat, brookies and browns in its pocket water and beaver ponds. A fun, scenic light-rod stream in the red-rock-meets-alpine country near Capitol Reef — attractor dries move fish all day up in the aspens.'
   },
   {
