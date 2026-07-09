@@ -483,6 +483,15 @@
 
     /* Fly grid */
     .fly-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .fly-more { margin-top: 10px; }
+    .fly-more-btn {
+      display: block; width: 100%; margin: 10px 0 2px;
+      background: var(--green-pale); color: var(--green);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 9px 12px; font-size: 12.5px; font-weight: 700;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+    }
+    .fly-more-btn:active { transform: scale(0.98); }
     .fly-card {
       background: var(--surface);
       border-radius: 10px;
@@ -3576,7 +3585,15 @@
           }
           return b.conf - a.conf;
         });
-        return `<div class="fly-subhead">${TYPE_LABEL[t]}</div><div class="fly-grid">${list.map(flyCardHTML).join('')}</div>`;
+        // Show the top 3 per section; tuck the rest behind a "See more" toggle to cut clutter
+        const head = list.slice(0, 3), rest = list.slice(3);
+        let html = `<div class="fly-subhead">${TYPE_LABEL[t]}</div><div class="fly-grid">${head.map(flyCardHTML).join('')}</div>`;
+        if (rest.length) {
+          const kind = TYPE_LABEL[t].replace(/^\S+\s/,'').toLowerCase();
+          html += `<div class="fly-grid fly-more" style="display:none;">${rest.map(flyCardHTML).join('')}</div>`
+                + `<button class="fly-more-btn" data-kind="${kind}" onclick="toggleFlyMore(this)">See ${rest.length} more ${kind} ›</button>`;
+        }
+        return html;
       }).join('');
 
       const chips = f.sections.map((s,i) => `
@@ -3786,6 +3803,17 @@
       'Alaska':   { agency:'Alaska Dept. of Fish & Game', buy:'https://www.adfg.alaska.gov/store/',    regs:'https://www.adfg.alaska.gov/index.cfm?adfg=fishingSportRegulations.main',
                     note:'License required — residents 18+, nonresidents 16+. King salmon need a King Salmon Stamp. In-season Emergency Orders can change rules overnight — always check current EOs before you fish.' }
     };
+    // Expand/collapse the hidden flies in a section (top-3 shown by default)
+    function toggleFlyMore(btn){
+      const more = btn.previousElementSibling;
+      if (!more || !more.classList.contains('fly-more')) return;
+      const open = more.style.display !== 'none';
+      more.style.display = open ? 'none' : '';
+      const n = more.children.length;
+      const kind = btn.getAttribute('data-kind') || 'more';
+      btn.textContent = open ? `See ${n} more ${kind} ›` : 'Show less ‹';
+      if (typeof haptic === 'function') haptic();
+    }
     function licenseHTML(f){
       const info = LICENSE_INFO[f.state];
       if (!info) return '';
