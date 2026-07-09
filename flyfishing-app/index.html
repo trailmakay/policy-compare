@@ -262,6 +262,11 @@
     .ranked-tags { display: flex; gap: 6px; flex-wrap: wrap; }
     .rating-pill { font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.4px; }
     .ramp-tag { font-size: 10px; font-weight: 700; color: var(--water); background: var(--water-light); padding: 1px 6px; border-radius: 8px; white-space: nowrap; }
+    .nearby-waterway { background: linear-gradient(135deg, var(--green), var(--green-light)); color: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .nearby-waterway .nw-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.85; }
+    .nearby-waterway .nw-name { font-size: 20px; font-weight: 800; margin-top: 3px; display: flex; align-items: center; gap: 8px; }
+    .nearby-waterway .nw-sub { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+    .nearby-waterway .nw-open { display: inline-block; margin-top: 10px; background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; }
     .card-species { font-size: 12px; color: var(--text-soft); margin-top: 5px; line-height: 1.45; }
     .card-species .cs-hit { color: #b7891f; font-weight: 800; }
     .trip-month-banner {
@@ -1469,7 +1474,7 @@
         <div class="location-or">or search a place</div>
         <div class="location-search">
           <span class="search-icon" style="opacity:0.5;">🔍</span>
-          <input type="text" id="nearbyInput" value="Utah" oninput="renderNearby()" />
+          <input type="text" id="nearbyInput" placeholder="State, city, or water name…" oninput="renderNearby()" />
         </div>
       </div>
       <div class="nearby-filters">
@@ -1495,6 +1500,7 @@
           <option value="999">Show all</option>
         </select>
       </div>
+      <div id="nearbyWaterway" class="nearby-waterway" style="display:none;"></div>
       <p class="section-label" id="nearbyLabel">Best Fisheries</p>
       <div id="nearbyList"></div>
     </div>
@@ -1774,8 +1780,9 @@
     </div>
   </div>
 
-  <script src="data.js?v=187"></script>
+  <script src="data.js?v=188"></script>
   <script>
+    let keepNearbyState = false;   // set true when returning to Nearby from a detail page (don't reset)
     function showTab(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       const page = document.getElementById('tab-' + name);
@@ -1789,6 +1796,8 @@
       if (sb) sb.style.display = (name === 'plan' && tripSelection.size) ? 'flex' : 'none';
       if (name === 'plan') buildFishOptions();
       if (name === 'home') renderHomeConditions();
+      if (name === 'nearby' && !keepNearbyState) resetNearby();
+      keepNearbyState = false;
       window.scrollTo(0, 0);
     }
     // Used by both the bottom nav and the Home hub cards
@@ -3480,6 +3489,7 @@
     function detailBackHTML(){
       const label = detailBackContext === 'search' ? '‹ Back to results'
                   : detailBackContext === 'plan'   ? '‹ Back to trip'
+                  : detailBackContext === 'nearby' ? '‹ Back to Nearby'
                   : '‹ Back';
       return `<button class="detail-back" onclick="goBackFromDetail()">${label}</button>`;
     }
@@ -3493,6 +3503,16 @@
         document.getElementById('riverDetailWrap').style.display = 'none';
         document.getElementById('lakeDetailWrap').style.display = 'none';
         showTab('plan');
+        window.scrollTo(0,0);
+      } else if (detailBackContext === 'nearby'){
+        // restore the list wraps so rivers/lakes tabs aren't stuck in detail view,
+        // then return to Nearby WITHOUT wiping the list you were looking at
+        document.getElementById('riverDetailWrap').style.display = 'none';
+        document.getElementById('riverListWrap').style.display = 'block';
+        document.getElementById('lakeDetailWrap').style.display = 'none';
+        document.getElementById('lakeListWrap').style.display = 'block';
+        keepNearbyState = true;
+        showTab('nearby');
         window.scrollTo(0,0);
       } else {
         if (currentDetailIsLake) showLakeList(); else showRiverList();
@@ -4051,6 +4071,15 @@
     }
 
     /* ─── Nearby ─── */
+    // Start the Nearby page blank every time it's opened — no pre-filled place or filters.
+    function resetNearby(){
+      const inp = document.getElementById('nearbyInput'); if (inp) inp.value = '';
+      const t = document.getElementById('nearbyTarget'); if (t) t.value = '';
+      const wt = document.getElementById('nearbyType'); if (wt) wt.value = '';
+      nearbyByDistance = false;
+      const bw = document.getElementById('nearbyWaterway'); if (bw) bw.style.display = 'none';
+      renderNearby();
+    }
     function renderNearby(){
       const q = (document.getElementById('nearbyInput').value||'').trim().toLowerCase();
       const target = document.getElementById('nearbyTarget') ? document.getElementById('nearbyTarget').value : '';
@@ -4086,6 +4115,7 @@
       const shown = Math.min(limit, total);
       const countTxt = (limit < total) ? ` — top ${shown} of ${total}` : (total ? ` (${total})` : '');
       const nearMe = (nearbyByDistance && USER_LOC && !q);
+      if (!nearMe){ const bw = document.getElementById('nearbyWaterway'); if (bw) bw.style.display = 'none'; }
       document.getElementById('nearbyLabel').textContent =
         `📍 ${nearMe?'Nearest ':''}${tLabel?tLabel+' ':''}${wLabel}${nearMe?' to you':(q?' near '+locTxt:'')}${countTxt}`;
 
@@ -4098,7 +4128,7 @@
           ? (f.species.split(' · ').find(s => speciesMatches({species:s}, target)) || f.species.split(' · ')[0])
           : f.species.split(' · ')[0];
         return `
-        <div class="ranked-card" onclick="openFishery('${f.id}')">
+        <div class="ranked-card" onclick="openFishery('${f.id}', null, 'nearby')">
           <div style="font-size:22px;min-width:32px;text-align:center;">${f.type==='lake'?LAKE_SVG:RIVER_SVG}</div>
           <div class="ranked-info">
             <div class="ranked-name">${esc(f.name)}</div>
@@ -4132,6 +4162,37 @@
         navigator.geolocation.getCurrentPosition(p => onOk(p.coords.latitude, p.coords.longitude), onErr, opts);
       } else { onErr(new Error('no geolocation')); }
     }
+    // "What water am I next to?" — ask OpenStreetMap (Overpass) for the nearest named
+    // waterway to the GPS point. Works even for long rivers where our single pin is far away.
+    async function whatAmINear(lat, lng){
+      const banner = document.getElementById('nearbyWaterway'); if (!banner) return;
+      banner.style.display = 'block';
+      banner.innerHTML = '<div class="nw-label">Checking the water beside you…</div>';
+      try {
+        const q = '[out:json][timeout:20];way(around:1300,'+lat+','+lng+')[waterway][name];out tags center 60;';
+        let d = null;
+        for (const host of ['https://overpass-api.de/api/interpreter','https://overpass.kumi.systems/api/interpreter']){
+          try { const r = await fetch(host, { method:'POST', body: q }); if (r.ok){ d = await r.json(); break; } } catch(e){}
+        }
+        if (!d){ banner.style.display = 'none'; return; }
+        let ways = (d.elements||[]).filter(e => e.tags && e.tags.name && e.center);
+        if (!ways.length){ banner.style.display = 'none'; return; }
+        const rank = { river:0, canal:1, tidal_channel:1, stream:2, stream_end:2 };
+        ways.forEach(w => { w._d = haversineMi([lat,lng],[w.center.lat, w.center.lon]); });
+        ways.sort((a,b) => (rank[a.tags.waterway]??3) - (rank[b.tags.waterway]??3) || a._d - b._d);
+        const nm = ways[0].tags.name;
+        // match to an app water
+        const norm = s => (s||'').toLowerCase().replace(/\s*\([^)]*\)/g,'').replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();
+        const nn = norm(nm);
+        const match = DATA.find(f => norm(f.name) === nn)
+                   || DATA.find(f => { const fn = norm(f.name); return fn && (fn.includes(nn) || nn.includes(fn)); });
+        banner.innerHTML = '<div class="nw-label">🎣 You’re right next to</div>'
+          + '<div class="nw-name">' + RIVER_SVG + ' ' + esc(nm) + '</div>'
+          + (match
+              ? '<div class="nw-sub">It’s in Hatched — hatches, flies &amp; live conditions.</div><span class="nw-open" onclick="mapOpenWater(\'' + match.id + '\')">Open in Hatched ›</span>'
+              : '<div class="nw-sub">Not in Hatched yet — but that’s the water beside you.</div>');
+      } catch(e){ banner.style.display = 'none'; }
+    }
     function requestLocation(showFeedback){
       getPosition(
         (lat, lng) => {
@@ -4142,6 +4203,7 @@
           nearbyByDistance = true;
           const inp = document.getElementById('nearbyInput'); if (inp) inp.value = '';
           renderNearby();
+          if (document.getElementById('tab-nearby').classList.contains('active')) whatAmINear(lat, lng);
         },
         () => {
           localStorage.setItem('hatched_loc_pref', 'denied');
