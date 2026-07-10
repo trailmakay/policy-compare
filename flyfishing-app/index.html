@@ -2634,6 +2634,43 @@
 
     /* ─── Live wind for lakes (Open-Meteo, free, no key) ─── */
     const LAKE_COORDS = window.HATCHED_LAKE_COORDS || {};
+    // Boat-ramp coordinates (OpenStreetMap slipway/marina, distance-verified) — the
+    // drivable launch, used as the destination instead of a lake’s center point.
+    const RAMP_COORDS = {
+      'aurora-res':[39.61077,-104.67563], 'barr-lake':[39.94807,-104.74902], 'big-sand-wash-reservoir':[40.29627,-110.22176],
+      'bighorn-lake':[45.30429,-107.97332], 'blackfoot-reservoir':[42.84619,-111.60168], 'blue-mesa-res':[38.45472,-107.32932],
+      'boulder-reservoir':[40.07067,-105.22138], 'boyd-lake-co':[40.43758,-105.03966], 'boysen-reservoir':[43.33068,-108.15232],
+      'buffalo-bill-res':[44.45685,-109.18965], 'carter-lake':[40.31351,-105.22137], 'causey-res':[41.29732,-111.58629],
+      'chatfield-res':[39.55734,-105.06754], 'cherry-creek-res':[39.63976,-104.84421], 'cooney-reservoir':[45.44949,-109.21158],
+      'crouse-reservoir':[40.72012,-109.18353], 'currant-creek-res':[40.33466,-111.05821], 'deadmans-basin-reservoir':[46.33009,-109.43295],
+      'devil-creek-reservoir':[42.30002,-112.20585], 'dillon-res':[39.58857,-106.0699], 'dworshak-res':[46.62333,-116.22205],
+      'east-canyon-res':[40.92152,-111.59145], 'echo-res':[40.95799,-111.40835], 'elkhead-reservoir':[40.56352,-107.38379],
+      'fish-lake':[38.54761,-111.72333], 'flaming-gorge-res':[40.92339,-109.44673], 'fort-peck':[48.01573,-106.43632],
+      'fremont-lake':[42.90518,-109.83582], 'georgetown-lake':[46.20656,-113.28564], 'gunlock-res':[37.25367,-113.77384],
+      'hauser-lake':[46.74545,-111.88623], 'hebgen':[44.80301,-111.21686], 'henrys-lake':[44.62027,-111.37321],
+      'holter-lake':[46.99311,-111.9917], 'hungry-horse-res':[48.31149,-113.96475], 'hyrum-res':[41.62658,-111.86602],
+      'island-park-res':[44.41613,-111.39501], 'jackson-lake':[43.90068,-110.64273], 'jackson-reservoir':[40.39297,-104.09072],
+      'joes-valley-res':[39.2918,-111.28665], 'john-martin-reservoir':[38.07576,-102.95013], 'kenai-lake':[60.38334,-149.72032],
+      'lake-frances':[48.30873,-112.28868], 'lake-koocanusa':[48.90461,-115.16373], 'lake-lowell':[43.56114,-116.66161],
+      'lake-mary-ronan':[47.92483,-114.38567], 'lake-powell':[37.51349,-110.73186], 'lewis-lake':[44.28265,-110.62867],
+      'lindbergh-lake':[47.40417,-113.72567], 'little-camas-reservoir':[43.34838,-115.39001], 'lucky-peak-res':[43.59245,-115.98015],
+      'mackay-res':[43.96026,-113.68318], 'mann-lake':[46.3697,-116.8585], 'matt-warner-reservoir':[40.77195,-109.30628],
+      'mcgregor-lake':[48.03079,-114.89927], 'meadowlark-lake':[44.17267,-107.21523], 'millsite-res':[39.09317,-111.19226],
+      'minersville-res':[38.21866,-112.83059], 'navajo-reservoir-co':[37.00698,-107.41401], 'new-fork-lakes':[43.09599,-109.96102],
+      'newton-res':[41.89784,-111.97281], 'north-sterling-reservoir':[40.77675,-103.2716], 'noxon-reservoir':[47.95438,-115.73973],
+      'otter-creek-res':[38.16743,-112.0173], 'palisade-reservoir':[39.20537,-111.66603], 'payette-lake':[44.93731,-116.08195],
+      'pettit-lake':[43.98068,-114.86346], 'pineview-res':[41.26202,-111.79436], 'piute-res':[38.31939,-112.19594],
+      'placid-lake':[47.11841,-113.50355], 'pueblo-reservoir':[38.25319,-104.73854], 'quail-creek-res':[37.18706,-113.3936],
+      'recapture-reservoir':[37.6673,-109.44304], 'red-fleet-res':[40.58566,-109.44102], 'redfish-lake':[44.13042,-114.91878],
+      'ridgway-reservoir':[38.22336,-107.73455], 'rifle-gap-reservoir':[39.63178,-107.75693], 'rockport-res':[40.77509,-111.39062],
+      'sagehen-reservoir':[44.33371,-116.18775], 'salmon-falls-creek-res':[42.2063,-114.7312], 'salmon-lake':[47.08624,-113.39437],
+      'saratoga-lake':[41.45098,-106.80409], 'scofield-res':[39.78954,-111.12932], 'shadow-mountain-res':[40.20711,-105.84854],
+      'spinney':[38.98075,-105.62526], 'spirit-lake':[47.95969,-116.87345], 'stanley-lake':[44.24674,-115.06328],
+      'starvation-res':[40.19161,-110.45587], 'steinaker-res':[40.51565,-109.53785], 'taylor-park-res':[38.82389,-106.58087],
+      'trinidad-lake':[37.14447,-104.55836], 'turquoise-lake':[39.2579,-106.36113], 'twin-lakes-co':[39.08577,-106.36926],
+      'upsata-lake':[47.07359,-113.22948], 'utah-lake':[40.14236,-111.80288], 'vega-res':[39.22819,-107.79406],
+      'warm-lake':[44.65243,-115.6655], 'winchester-lake':[46.23302,-116.62188], 'wolford-res':[40.14243,-106.41179]
+    };
 
     // Gauge coordinates (USGS + CDWR) - directions/overview for any gauged water land on the real reach.
     const GAUGE_COORDS = {
@@ -2883,6 +2920,7 @@
     function fisheryCoords(f){
       const a=(f.access||[]).find(x=>x.lat!=null);
       if(a) return [a.lat, a.lng];
+      if(RAMP_COORDS[f.id]) return RAMP_COORDS[f.id];   // boat ramp = the drivable destination
       if(LAKE_COORDS[f.id]) return LAKE_COORDS[f.id];
       if(GAUGE_COORDS[f.id]) return GAUGE_COORDS[f.id];
       return null;
