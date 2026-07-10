@@ -2131,6 +2131,11 @@
        Verified gauge IDs → real-time flow (CFS) + water temp. `normal` = typical
        summer flow, used to classify High/Normal/Low against the live reading. */
     const GAUGES = {
+      // Coverage-audit additions — verified active USGS gauges (current flow checked live)
+      'gore-creek':{site:'09066510',normal:65},              // Gore Ck at mouth nr Minturn
+      'south-platte-deckers':{site:'06701900',normal:250},   // S Platte blw Brush Ck nr Trumbull (Deckers reach)
+      'south-platte-eleven-mile':{site:'06700000',normal:110},// S Platte abv Cheesman (below Eleven Mile Canyon)
+      'campbell-creek':{site:'15274600',normal:90},          // Campbell Ck nr Spenard (Anchorage)
       'snake-idaho-falls':{site:'13060000',normal:4700},
       // UT/WY expansion 2 (verified)
       'blacksmith-fork':{site:'10113500',normal:80}, 'ogden-river':{site:'10137500',normal:60},
