@@ -1248,7 +1248,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Eleven Mile State Park', desc: 'Ramps, camping, fee' },
+      { type: '🚤', name: 'Eleven Mile State Park', desc: 'Ramps, camping, fee' },
       { type: '🚶', name: 'North shore', desc: 'Walk-in / tube access' }
     ],
     note: 'High-plains reservoir in South Park full of big, cruising rainbows. Chironomids under an indicator off the north shore is the go-to. Constant wind — fish the sheltered coves.'
@@ -2912,7 +2912,7 @@ const HATCHED_DATA = [
       { name: 'Bead (egg)', type: 'nymph', size: '6–8 mm', color: 'Peach, red', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Skilak Lake Rd ramps', desc: 'Kenai NWR access (Lower/Upper)' }
+      { type: '🚤', name: 'Skilak Lake Rd ramps', desc: 'Kenai NWR access (Lower/Upper)' }
     ],
     note: 'A large, often-windy glacial lake on the Kenai system in the wildlife refuge. Fly anglers focus on the inlets (Upper Kenai) and outlet where rainbows and dollies concentrate. Lake trout hold deep — streamers on sink-tips early season. Wind can blow up fast and dangerous; fish early.'
   },
@@ -3597,7 +3597,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Silos / Goose Bay ramps', desc: 'Multiple boat launches' }
+      { type: '🚤', name: 'Silos / Goose Bay ramps', desc: 'Multiple boat launches' }
     ],
     note: 'A big, windy Missouri-system reservoir near Helena — fly anglers do best on the shallow shelves and the Missouri inlet for spring/fall rainbows. Mostly a boat/tube game. Big water, big wind.'
   },
@@ -3683,7 +3683,7 @@ const HATCHED_DATA = [
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Clark Canyon ramps', desc: 'Boat launches near the dam (I-15)' }
+      { type: '🚤', name: 'Clark Canyon ramps', desc: 'Boat launches near the dam (I-15)' }
     ],
     note: 'A fertile reservoir near Dillon that grows fat rainbows and browns — and feeds the famous Beaverhead below. Chironomids and damsels from a tube; strip buggers along the dam face. Best at ice-off and in fall. Windy.'
   },
@@ -3704,7 +3704,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Ennis Lake / Valley Garden', desc: 'Boat & shoreline access' }
+      { type: '🚤', name: 'Ennis Lake / Valley Garden', desc: 'Boat & shoreline access' }
     ],
     note: 'A shallow, weedy widening of the Madison River — Callibaetis gulpers on calm summer mornings can be excellent. Warms up a lot in summer (be mindful of fish stress). Tube the flats and the Madison inlet.'
   },
@@ -3746,7 +3746,7 @@ const HATCHED_DATA = [
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Hyalite Reservoir', desc: 'Paved road up from Bozeman; tube/shore' }
+      { type: '🚤', name: 'Hyalite Reservoir', desc: 'Paved road up from Bozeman; tube/shore' }
     ],
     note: 'A gorgeous mountain reservoir a short drive from Bozeman, holding cutthroat, brookies, and arctic grayling. Tube the shoreline with dries and buggers on calm evenings. A popular, scenic, family-friendly spot.'
   },
@@ -4183,7 +4183,7 @@ const HATCHED_DATA = [
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Lake Cascade State Park', desc: 'Multiple ramps near Cascade' }
+      { type: '🚤', name: 'Lake Cascade State Park', desc: 'Multiple ramps near Cascade' }
     ],
     note: 'A big reservoir near McCall famous for chunky holdover rainbows (and trophy perch for gear anglers). Chironomids and damsels from a tube over the flats; strip buggers at ice-off and in fall. Windy — go early.'
   },
@@ -4222,7 +4222,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Priest Lake ramps', desc: 'State park launches, Panhandle' }
+      { type: '🚤', name: 'Priest Lake ramps', desc: 'State park launches, Panhandle' }
     ],
     note: 'A deep, pristine Panhandle lake mainly known for lake trout (deep, mostly gear). Fly anglers chase cutthroat at the tributary mouths and the scenic Thorofare connecting to Upper Priest. Beautiful, forested, and quiet.'
   },
@@ -4284,7 +4284,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'West Magic / Moonstone', desc: 'Ramps near Sun Valley' }
+      { type: '🚤', name: 'West Magic / Moonstone', desc: 'Ramps near Sun Valley' }
     ],
     note: 'A fertile reservoir on the Big Wood River that grows trout fast — popular with Sun Valley stillwater anglers, especially at ice-off and in fall. Chironomids under an indicator is the go-to. Notoriously windy, so fish early.'
   },
@@ -4305,7 +4305,7 @@ const HATCHED_DATA = [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Snake River inlet ramps', desc: 'Near American Falls / Pocatello' }
+      { type: '🚤', name: 'Snake River inlet ramps', desc: 'Near American Falls / Pocatello' }
     ],
     note: 'A big Snake River reservoir that produces giant brown trout — strip big streamers near the inlet and spring creeks, especially fall when the browns get aggressive. Vast and windy; a boat is a big help. Trophy potential is real here.'
   },
@@ -4371,7 +4371,7 @@ const HATCHED_DATA = [
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Blowout / Calamity ramps', desc: 'Boat launches off US-26 near Irwin' }
+      { type: '🚤', name: 'Blowout / Calamity ramps', desc: 'Boat launches off US-26 near Irwin' }
     ],
     note: 'A big, scenic reservoir on the South Fork Snake near Swan Valley — cutthroat and browns cruise the shorelines and inlets, with lake trout and kokanee deep. Fly anglers fish the inlets and drop-offs from a boat or tube. Feeds the famous South Fork below.'
   },
@@ -4392,7 +4392,7 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Chartreuse/white', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Blacktail / Juniper ramps', desc: 'Boat launches near Idaho Falls' }
+      { type: '🚤', name: 'Blacktail / Juniper ramps', desc: 'Boat launches near Idaho Falls' }
     ],
     note: 'A handy reservoir close to Idaho Falls — kokanee and rainbows for trout anglers, plus a surprising smallmouth bass fishery in the rocky arms. Strip buggers along the shoreline and fish the inlets. Quick after-work option.'
   },
@@ -4887,7 +4887,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Panguitch Lake ramps', desc: 'Boat launches near Panguitch' }
+      { type: '🚤', name: 'Panguitch Lake ramps', desc: 'Boat launches near Panguitch' }
     ],
     note: 'A big, fertile high-mountain lake in southern Utah famous for fast-growing rainbows. Chironomids under an indicator and buggers along the weed lines; callibaetis in summer. Cool air and great ice-off and fall fishing.'
   },
@@ -4988,7 +4988,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Bear Lake State Park', desc: 'Ramps on the Utah/Idaho line' },
+      { type: '🚤', name: 'Bear Lake State Park', desc: 'Ramps on the Utah/Idaho line' },
       { type: '🚶', name: 'Cisco Beach', desc: 'Rocky shoreline — cutthroat & cisco run' }
     ],
     note: 'A stunning turquoise lake straddling the Utah/Idaho border, home to unique Bonneville cutthroat and the famous winter Bear Lake cisco run. Fly anglers strip baitfish along the rocky shores (Cisco Beach, Rockpile) for cutthroat. Big, deep, and often windy.'
@@ -5009,7 +5009,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Pelican Lake', desc: 'Ramps in the Uinta Basin near Vernal' }
+      { type: '🚤', name: 'Pelican Lake', desc: 'Ramps in the Uinta Basin near Vernal' }
     ],
     note: 'A shallow, fertile Uinta Basin lake legendary for giant bluegill on the fly, plus largemouth bass. Sight-fish the weed beds with damsel nymphs and small poppers — the bluegill grow dinner-plate big. A unique warmwater gem in trout country.'
   },
@@ -5492,7 +5492,7 @@ const HATCHED_DATA = [
   },
   {
     id: 'boysen-res', name: 'Boysen Reservoir', state: 'Wyoming', type: 'lake',
-    waterType: 'Reservoir', rank: 0, species: 'Walleye · Brown · Rainbow · Perch',
+    waterType: 'Reservoir', rank: 0, species: 'Walleye · Sauger · Yellow Perch · Rainbow · Brown · Burbot',
     accolades: [ { icon: '🐟', text: 'Big Wind River Basin reservoir', source: 'Near Shoshoni' } ],
     conditions: { temp: '62°F', elev: '4,725 ft', wind: 'SW 16', best: 'AM / Evening' },
     sections: ['Brannon', 'Tough Creek', 'North end'],
@@ -5505,7 +5505,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Boysen State Park', desc: 'Ramps near Shoshoni (fee)' }
+      { type: '🚤', name: 'Boysen State Park', desc: 'Ramps near Shoshoni (fee)' }
     ],
     note: 'A big, windy Wind River Basin reservoir best known for walleye and perch, with browns and rainbows too — and it feeds the famous Wind River Canyon below the dam. Fly anglers strip Clousers along the rocky points. Open water; pick a calm morning.'
   },
@@ -5543,7 +5543,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Pathfinder (BLM)', desc: 'Ramps & shoreline access' }
+      { type: '🚤', name: 'Pathfinder (BLM)', desc: 'Ramps & shoreline access' }
     ],
     note: 'A big North Platte reservoir just below the Miracle Mile, holding trophy browns, rainbows, and walleye. The river inlet and rocky points are the fly-fishing hot spots — strip baitfish and leeches. Vast, scenic, and very windy; time it for calm mornings.'
   },
@@ -5953,7 +5953,7 @@ const HATCHED_DATA = [
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Louis Lake (Shoshone NF)', desc: 'Access up Louis Lake Rd SW of Lander' }
+      { type: '🚤', name: 'Louis Lake (Shoshone NF)', desc: 'Access up Louis Lake Rd SW of Lander' }
     ],
     note: 'A pretty, pine-ringed lake in the southern Wind River Range up the Louis Lake Road from Lander — lake trout, rainbows, brookies, and splake. Tube the shoreline and inlet with buggers and chironomids; brookies rise to dries on calm evenings. Cool, scenic, and a great basecamp for the high country.'
   },
@@ -6350,7 +6350,7 @@ const HATCHED_DATA = [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Lake DeSmet (Buffalo)', desc: 'Ramps just off I-90 north of Buffalo' }
+      { type: '🚤', name: 'Lake DeSmet (Buffalo)', desc: 'Ramps just off I-90 north of Buffalo' }
     ],
     note: 'A big, windy lake north of Buffalo famous for growing trophy brown trout, plus rainbows, lake trout, and perch. Strip baitfish and leech patterns along the rocky shorelines and drop-offs; chironomids at ice-off. Easy I-90 access. Fish early before the wind stacks up.'
   },
@@ -6392,7 +6392,7 @@ const HATCHED_DATA = [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Fontenelle Reservoir (BLM)', desc: 'Ramps off US-189 near La Barge' }
+      { type: '🚤', name: 'Fontenelle Reservoir (BLM)', desc: 'Ramps off US-189 near La Barge' }
     ],
     note: 'A Green River reservoir near La Barge with browns, rainbows, kokanee, and lake trout — and it feeds the excellent tailwater and Seedskadee stretch below. Strip buggers along the shorelines and inlet; chironomids at ice-off. Big, open, and windy. A worthwhile stop in southwest Wyoming.'
   },
@@ -6411,7 +6411,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Glendo State Park', desc: 'Ramps off I-25 (fee)' }
+      { type: '🚤', name: 'Glendo State Park', desc: 'Ramps off I-25 (fee)' }
     ],
     note: 'A big North Platte reservoir at Glendo State Park known for walleye, perch, and a smallmouth bass fishery, with stocked rainbows too — fly anglers strip Clousers and buggers along the rocky points and coves. It feeds the North Platte below. Popular, open, and windy; a fun warmwater option.'
   },
@@ -6432,7 +6432,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Whiskey Basin (Dubois)', desc: 'Access up Trail Lake Rd SE of Dubois' }
+      { type: '🚤', name: 'Whiskey Basin (Dubois)', desc: 'Access up Trail Lake Rd SE of Dubois' }
     ],
     note: 'A chain of scenic lakes in the Whiskey Basin near Dubois at the foot of the Wind River Range — lake trout, browns, and rainbows with a stunning bighorn-sheep-country backdrop. Tube the shorelines and inlets with buggers and chironomids. Gorgeous, quiet, and a gateway to Glacier Trail country.'
   },
@@ -6499,7 +6499,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'White, olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Willard Bay State Park', desc: 'North & South Marinas off I-15 (fee)' }
+      { type: '🚤', name: 'Willard Bay State Park', desc: 'North & South Marinas off I-15 (fee)' }
     ],
     note: 'A big freshwater bay diked off the Great Salt Lake near Ogden — a warmwater fly fishery for hard-hitting wiper (white bass × striper), plus walleye, catfish, and smallmouth. Chase wiper boils with Clousers and shad patterns in summer mornings; strip the dike shorelines. A blast on a 6–7 weight.'
   },
@@ -6540,7 +6540,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Mantua Reservoir', desc: 'Ramps in Mantua, just off US-89/91' }
+      { type: '🚤', name: 'Mantua Reservoir', desc: 'Ramps in Mantua, just off US-89/91' }
     ],
     note: 'A shallow, weedy reservoir tucked in the mountains above Brigham City — outstanding bluegill fishing on small poppers and spiders, plus largemouth bass and stocked rainbows. Sight-fish the weed beds in summer. Easy access and a super-fun panfish-on-the-fly spot.'
   },
@@ -6561,7 +6561,7 @@ const HATCHED_DATA = [
       { name: 'Pink/Orange Kokanee Fly', type: 'streamer', size: '8–10', color: 'Pink, orange, chartreuse', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Porcupine Reservoir', desc: 'Access up the Little Bear canyon near Avon' }
+      { type: '🚤', name: 'Porcupine Reservoir', desc: 'Access up the Little Bear canyon near Avon' }
     ],
     note: 'A pretty Cache Valley reservoir known for its fall kokanee run, plus rainbows, browns, and cutthroat. Strip buggers and fish chironomids from a tube; in September the kokanee stage and turn red at the inlet. Scenic and quiet up the Little Bear drainage near Avon.'
   },
@@ -6710,7 +6710,7 @@ const HATCHED_DATA = [
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, white', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Yuba State Park (Oasis)', desc: 'Ramps off I-15 near Levan (fee)' }
+      { type: '🚤', name: 'Yuba State Park (Oasis)', desc: 'Ramps off I-15 near Levan (fee)' }
     ],
     note: 'A big, warm Sevier River reservoir in central Utah known for walleye, northern pike, and smallmouth bass — a genuine warmwater fly destination. Strip Clousers and big pike flies along the weed lines and rocky points. Sandy beaches and open water; windy in the afternoons. A fun change from trout.'
   },
@@ -6775,7 +6775,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Kolob Reservoir (Kolob Terrace Rd)', desc: 'Access up from Virgin, above Zion' }
+      { type: '🚤', name: 'Kolob Reservoir (Kolob Terrace Rd)', desc: 'Access up from Virgin, above Zion' }
     ],
     note: 'A high, scenic reservoir on the Kolob Terrace above Zion National Park, managed for trophy cutthroat — big, hard-fighting fish that crush buggers and chironomids from a tube. The drive up from Virgin is spectacular. Special regulations protect the size; a hidden southern-Utah gem at 8,000+ feet.'
   },
@@ -6795,7 +6795,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Sand Hollow State Park', desc: 'Ramps E of St. George (fee)' }
+      { type: '🚤', name: 'Sand Hollow State Park', desc: 'Ramps E of St. George (fee)' }
     ],
     note: 'A stunning red-rock and sand-dune reservoir near St. George — one of southern Utah\'s best largemouth bass fisheries, plus bluegill, crappie, and catfish. Throw poppers along the rocky points at dawn and strip crawdad and baitfish patterns. Warm year-round; a true low-desert warmwater destination.'
   },
@@ -6920,7 +6920,7 @@ const HATCHED_DATA = [
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
     ],
     access: [
-      { type: '🛶', name: 'Koosharem Reservoir', desc: 'Access in Grass Valley near Koosharem' }
+      { type: '🚤', name: 'Koosharem Reservoir', desc: 'Access in Grass Valley near Koosharem' }
     ],
     note: 'A shallow, fertile reservoir in Grass Valley that pumps out fat, fast-growing rainbows, cutthroat, and tiger trout. Chironomids and scuds under an indicator, plus damsels in June. Excellent ice-off and fall fishing. Open and windy — fish it early. A quality south-central Utah stillwater.'
   },
@@ -6940,7 +6940,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Johnson Valley Reservoir (SR-25)', desc: 'Access just N of Fish Lake' }
+      { type: '🚤', name: 'Johnson Valley Reservoir (SR-25)', desc: 'Access just N of Fish Lake' }
     ],
     note: 'A high reservoir just north of Fish Lake, best known as one of Utah\'s few tiger muskie fisheries — big, toothy predators you chase with large streamers near the weed lines and drop-offs. Yellow perch and a few rainbows (drifted down from Fish Lake) round it out. A unique warmwater-on-the-fly challenge at 8,900 feet.'
   },
@@ -6961,7 +6961,7 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 3 }
     ],
     access: [
-      { type: '🛶', name: 'Tropic Reservoir (King Creek)', desc: 'Access up the East Fork Sevier S of Bryce jct' }
+      { type: '🚤', name: 'Tropic Reservoir (King Creek)', desc: 'Access up the East Fork Sevier S of Bryce jct' }
     ],
     note: 'A ponderosa-pine-ringed reservoir on the East Fork Sevier just southwest of Bryce Canyon — stocked rainbows, brookies, and cutthroat. Tube the shorelines and the inlet with buggers and chironomids. A cool, scenic high-country stillwater and a perfect fishing stop on a Bryce/southern-Utah road trip.'
   },
@@ -8007,7 +8007,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, white', conf: 3 }
     ],
-    access: [ { type: '🛶', name: 'Aleknagik (road from Dillingham)', desc: 'Road-accessible from Dillingham (~25 mi)' } ],
+    access: [ { type: '🚤', name: 'Aleknagik (road from Dillingham)', desc: 'Road-accessible from Dillingham (~25 mi)' } ],
     note: 'The first and most accessible of the Wood River lakes, reachable by road from Dillingham — a sockeye superhighway that grows big rainbows and char, plus grayling and pike. The Agulukpak and river-mouth areas are rainbow magnets. A gateway to the Wood-Tikchik wilderness and Bristol Bay lodges.'
   },
   {
@@ -8026,7 +8026,7 @@ const HATCHED_DATA = [
       { name: 'Bead (egg)', type: 'nymph', size: '6–10 mm', color: 'Peach, orange', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White, silver', conf: 3 }
     ],
-    access: [ { type: '🛶', name: 'Port Alsworth (fly-in)', desc: 'Fly-in to Port Alsworth; boat the lake' } ],
+    access: [ { type: '🚤', name: 'Port Alsworth (fly-in)', desc: 'Fly-in to Port Alsworth; boat the lake' } ],
     note: 'A breathtaking 40-mile turquoise lake ringed by volcanoes in Lake Clark National Park — lake trout in the depths, big rainbows and char around the inlets, plus sockeye, grayling, and pike. It feeds the legendary Newhalen River to Iliamna. Fly-in to Port Alsworth; stunning wilderness and a Bristol Bay gateway.'
   },
   {
@@ -8376,7 +8376,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Sandpoint / Bayview ramps', desc: 'Ramps around the lake near Sandpoint' } ],
+    access: [ { type: '🚤', name: 'Sandpoint / Bayview ramps', desc: 'Ramps around the lake near Sandpoint' } ],
     note: 'Idaho\'s largest and deepest lake, a vast, stunning water in the Panhandle near Sandpoint — famous for giant Kamloops rainbow trout, huge lake trout (mackinaw), kokanee, and a strong smallmouth bass fishery, plus protected bull trout. Troll and strip big streamers for the trophies. Deep, cold, and scenic beneath the Selkirks and Cabinets.'
   },
   {
@@ -8415,7 +8415,7 @@ const HATCHED_DATA = [
       { name: 'Popper', type: 'dry', size: '2–8', color: 'Chartreuse, black', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'CJ Strike (Idaho Power)', desc: 'Ramps near Bruneau & Grand View' } ],
+    access: [ { type: '🚤', name: 'CJ Strike (Idaho Power)', desc: 'Ramps near Bruneau & Grand View' } ],
     note: 'A big Snake River reservoir in southwest Idaho near Bruneau and Grand View — an excellent warmwater fishery for smallmouth bass, crappie, catfish, and perch, plus stocked rainbows in the cool months. Poppers and Clousers along the rocky shorelines and in the Bruneau arm. A birdwatcher\'s paradise too.'
   },
   {
@@ -8630,7 +8630,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
     ],
-    access: [ { type: '🛶', name: 'Keyhole State Park', desc: 'Multiple ramps in the park near Pine Haven / Moorcroft' } ],
+    access: [ { type: '🚤', name: 'Keyhole State Park', desc: 'Multiple ramps in the park near Pine Haven / Moorcroft' } ],
     note: 'A sprawling warmwater reservoir on the Belle Fourche River in the northeast corner of the state, tucked below Devils Tower. Walleye are the headliner, but smallmouth, pike and perch keep a fly rod busy in the coves. Fish streamers along the weedlines early and late — this is prairie warmwater fishing, not trout country.'
   },
   {
@@ -8670,7 +8670,7 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Scud', type: 'nymph', size: '14–16', color: 'Olive, tan', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Brooks Lake Campground', desc: 'FR-515 off US-26/287 NW of Dubois' } ],
+    access: [ { type: '🚤', name: 'Brooks Lake Campground', desc: 'FR-515 off US-26/287 NW of Dubois' } ],
     note: 'A stunning high lake ringed by the Pinnacle Buttes northwest of Dubois, on the way to Togwotee Pass. Cutthroat, rainbows, brookies and lake trout cruise the shallows and drop-offs — a float tube or pram and a Callibaetis or leech pattern is deadly. One of the most photogenic stillwaters in the state.'
   },
   {
@@ -8689,7 +8689,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Boulder Lake Campground', desc: 'Boulder Lake Rd off US-191 SE of Pinedale' } ],
+    access: [ { type: '🚤', name: 'Boulder Lake Campground', desc: 'Boulder Lake Rd off US-191 SE of Pinedale' } ],
     note: 'A long glacial lake at the foot of the Wind River Range southeast of Pinedale, and a classic jumping-off point for backpackers heading into the high country. It holds lake trout, browns, rainbows and cutthroat — troll or cast streamers along the drop-offs, or fish Callibaetis on calm mornings. Big-mountain scenery and cold, clear water.'
   },
   {
@@ -9146,7 +9146,7 @@ const HATCHED_DATA = [
       { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 3 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 }
     ],
-    access: [ { type: '🛶', name: 'Heeney / Prairie Point', desc: 'Ramps off CO-9 N of Silverthorne' } ],
+    access: [ { type: '🚤', name: 'Heeney / Prairie Point', desc: 'Ramps off CO-9 N of Silverthorne' } ],
     note: 'A reservoir on the lower Blue River near Heeney, well known for its kokanee salmon and lake trout along with rainbows and browns. Fly anglers work the Blue River inlet and the shoreline drop-offs with streamers. Quieter than the nearby Dillon and Summit hotspots, with good early-and-late action from a boat or tube.'
   },
   {
@@ -9167,7 +9167,7 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
     ],
-    access: [ { type: '🛶', name: 'Stagecoach State Park', desc: 'Ramps off CR-14 S of Steamboat Springs' } ],
+    access: [ { type: '🚤', name: 'Stagecoach State Park', desc: 'Ramps off CR-14 S of Steamboat Springs' } ],
     note: 'A productive reservoir on the Yampa south of Steamboat, known for chunky rainbows and browns plus a solid northern pike fishery in the weedy coves. The short Gold Medal tailwater below the dam is a bonus. Fish damsels and leeches along the shoreline weed lines, or throw big flies for pike. Scenic state-park setting.'
   },
   {
@@ -9186,7 +9186,7 @@ const HATCHED_DATA = [
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Steamboat Lake State Park', desc: 'Ramps off CR-129 near Hahns Peak' } ],
+    access: [ { type: '🚤', name: 'Steamboat Lake State Park', desc: 'Ramps off CR-129 near Hahns Peak' } ],
     note: 'A picture-postcard lake beneath Hahns Peak north of Steamboat Springs, well stocked with rainbows and cutthroat that grow fast on its rich Callibaetis and damsel hatches. A joy from a float tube on a calm morning — sight-fish cruisers with a Callibaetis dry or strip a leech. One of the prettiest stillwaters in northern Colorado.'
   },
   {
@@ -9325,7 +9325,7 @@ const HATCHED_DATA = [
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Horsetooth — Satanka / Inlet Bay', desc: 'Ramps off CR-38E W of Fort Collins' } ],
+    access: [ { type: '🚤', name: 'Horsetooth — Satanka / Inlet Bay', desc: 'Ramps off CR-38E W of Fort Collins' } ],
     note: 'A long, rocky reservoir tucked against the foothills just west of Fort Collins, and one of the Front Range’s best warmwater fly fisheries. Smallmouth prowl the rock walls, walleye and largemouth hold in the coves, and there are stocked trout in spring. Strip Clousers and crayfish along the steep east-shore ledges. A fun close-to-town change of pace.'
   },
   {
@@ -9365,7 +9365,7 @@ const HATCHED_DATA = [
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown', conf: 4 },
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
     ],
-    access: [ { type: '🛶', name: 'McPhee / House Creek ramps', desc: 'Off CR-25 near Dolores' } ],
+    access: [ { type: '🚤', name: 'McPhee / House Creek ramps', desc: 'Off CR-25 near Dolores' } ],
     note: 'A large reservoir on the Dolores River in the far southwest, and one of Colorado’s better multi-species fisheries — smallmouth bass, kokanee, rainbows, pike and crappie all share the water. Fly anglers do best on the smallmouth along the rocky points and the trout near the inlets. The reservoir also feeds the Dolores tailwater downstream. A warmwater-meets-trout change of pace.'
   },
   {
@@ -16172,7 +16172,6 @@ const HATCHED_DATA = [
   {"id":"sylvan-lake","name":"Sylvan Lake","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook · Brown","accolades":[{"icon":"🏔️","text":"Brush Creek high lake","source":"Sylvan Lake State Park"}],"conditions":{"temp":"52°F","elev":"8,500 ft","wind":"W 6","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Sylvan Lake State Park","desc":"No-wake ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A high, pretty no-wake lake in Sylvan Lake State Park south of Eagle — stocked rainbows plus brookies and browns. Cool water fishes all summer; ideal for float tubes and a family outing."},
   {"id":"north-sterling-reservoir","name":"North Sterling Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Wiper · Crappie · Largemouth Bass · Catfish","accolades":[{"icon":"🐟","text":"Northeast Colorado walleye","source":"North Sterling State Park"}],"conditions":{"temp":"66°F","elev":"4,000 ft","wind":"NW 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"North Sterling State Park","desc":"Ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"Northeast Colorado’s big plains reservoir in North Sterling State Park — a strong walleye and wiper fishery with crappie and bass. Boat-fish the inlets and points; wipers chase shad on top in summer."},
   {"id":"elkhead-reservoir","name":"Elkhead Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Smallmouth Bass · Northern Pike · Crappie · Largemouth Bass · Bluegill","accolades":[{"icon":"🐟","text":"Yampa-basin bass & pike","source":"Yampa River State Park"}],"conditions":{"temp":"62°F","elev":"6,400 ft","wind":"W 12","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Elkhead / Yampa State Park","desc":"Ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A bass-and-pike reservoir east of Craig managed as part of Yampa River State Park — quality smallmouth and northern pike. Fly anglers throw Clousers and big streamers along the rocky shorelines and coves."},
-  {"id":"boysen-reservoir","name":"Boysen Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Sauger · Yellow Perch · Rainbow · Brown · Burbot","accolades":[{"icon":"🐟","text":"Premier Wyoming walleye","source":"Boysen State Park"}],"conditions":{"temp":"62°F","elev":"4,725 ft","wind":"W 16","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Boysen State Park","desc":"Multiple ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"One of Wyoming’s premier walleye reservoirs, straddling the Wind River between Shoshoni and Wind River Canyon — walleye, sauger, and jumbo perch, plus trout near the dam. Big, windy water best fished from a boat."},
   {"id":"big-sandy-reservoir","name":"Big Sandy Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Cutthroat","accolades":[{"icon":"🏔️","text":"Upper Green trout reservoir","source":"Below the Wind River Range"}],"conditions":{"temp":"56°F","elev":"6,700 ft","wind":"SW 16","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Big Sandy ramp","desc":"WGFD ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A trout reservoir on the Big Sandy River in the upper Green basin near Farson — rainbows, browns, and cutthroat in cold, clear water below the Winds. Wind rules the day; fish the leeward shore and the inlet."},
   {"id":"meeks-cabin-reservoir","name":"Meeks Cabin Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Brook · Tiger Trout","accolades":[{"icon":"🏔️","text":"Uinta North Slope reservoir","source":"Blacks Fork drainage"}],"conditions":{"temp":"52°F","elev":"8,700 ft","wind":"W 10","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Meeks Cabin ramp","desc":"Forest Service ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A high Uinta-North-Slope reservoir on the Blacks Fork in southwest Wyoming — rainbows, browns, brookies, and tiger trout. Remote and cold; a fine backcountry stillwater and gateway to the Blacks Fork."},
   {"id":"healy-reservoir","name":"Healy Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Rainbow · Largemouth Bass · Yellow Perch","accolades":[{"icon":"🐟","text":"Powder River Basin walleye","source":"Near Buffalo"}],"conditions":{"temp":"62°F","elev":"4,600 ft","wind":"W 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Healy Reservoir ramp","desc":"County ramp east of Buffalo"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warm, fertile reservoir just east of Buffalo on Clear Creek — walleye, bass, and perch with stocked trout. Low elevation means an early warm-water bite; strip streamers along the dam and flooded shoreline."},
@@ -17036,7 +17035,7 @@ const HATCHED_TOWNS = {
    Approximate lake-center coords; fine for regional weather.
    =================================================================== */
 const HATCHED_LAKE_COORDS = {
-  'matt-warner-reservoir':[40.7729,-109.2966], 'crouse-reservoir':[40.7244,-109.1837], 'recapture-reservoir':[37.6687,-109.4429], 'palisade-reservoir':[39.2047,-111.669], 'vernon-reservoir':[39.9892,-112.3866], 'settlement-canyon-reservoir':[40.5099,-112.294], 'crawford-reservoir':[38.6829,-107.6011], 'jackson-reservoir':[40.3919,-104.0737], 'ridgway-reservoir':[38.2308,-107.7564], 'rifle-gap-reservoir':[39.6314,-107.7586], 'sylvan-lake':[39.4773,-106.7318], 'north-sterling-reservoir':[40.7787,-103.2753], 'elkhead-reservoir':[40.5642,-107.4183], 'boysen-reservoir':[43.3191,-108.1839], 'big-sandy-reservoir':[42.2709,-109.4348], 'meeks-cabin-reservoir':[41.0126,-110.5829], 'healy-reservoir':[44.4105,-106.6101], 'lake-viva-naughton':[41.9887,-110.6641], 'grayrocks-reservoir':[42.1462,-104.7434], 'little-payette-lake':[44.9162,-116.0342], 'crane-falls-lake':[42.9653,-115.8433], 'ackley-lake':[46.9534,-109.9386], 'deadmans-basin-reservoir':[46.3441,-109.4253], 'duck-lake-mt':[48.8688,-113.3335], 'lake-frances':[48.2865,-112.2642], 'martinsdale-reservoir':[46.4432,-110.2796], 'pishkun-reservoir':[47.6827,-112.4713],
+  'matt-warner-reservoir':[40.7729,-109.2966], 'crouse-reservoir':[40.7244,-109.1837], 'recapture-reservoir':[37.6687,-109.4429], 'palisade-reservoir':[39.2047,-111.669], 'vernon-reservoir':[39.9892,-112.3866], 'settlement-canyon-reservoir':[40.5099,-112.294], 'crawford-reservoir':[38.6829,-107.6011], 'jackson-reservoir':[40.3919,-104.0737], 'ridgway-reservoir':[38.2308,-107.7564], 'rifle-gap-reservoir':[39.6314,-107.7586], 'sylvan-lake':[39.4773,-106.7318], 'north-sterling-reservoir':[40.7787,-103.2753], 'elkhead-reservoir':[40.5642,-107.4183], 'big-sandy-reservoir':[42.2709,-109.4348], 'meeks-cabin-reservoir':[41.0126,-110.5829], 'healy-reservoir':[44.4105,-106.6101], 'lake-viva-naughton':[41.9887,-110.6641], 'grayrocks-reservoir':[42.1462,-104.7434], 'little-payette-lake':[44.9162,-116.0342], 'crane-falls-lake':[42.9653,-115.8433], 'ackley-lake':[46.9534,-109.9386], 'deadmans-basin-reservoir':[46.3441,-109.4253], 'duck-lake-mt':[48.8688,-113.3335], 'lake-frances':[48.2865,-112.2642], 'martinsdale-reservoir':[46.4432,-110.2796], 'pishkun-reservoir':[47.6827,-112.4713],
   'navajo-reservoir-co':[37.0179,-107.3864], 'john-martin-reservoir':[38.073,-103.028], 'barr-lake':[39.9433,-104.7644], 'alcova-reservoir':[42.5308,-106.7469], 'ocean-lake':[43.1848,-108.602], 'fresno-reservoir':[48.6975,-110.0233], 'tongue-river-reservoir':[45.0604,-106.7899], 'cooney-reservoir':[45.444,-109.2223], 'kens-lake':[38.4819,-109.4298], 'puffer-lake':[38.3166,-112.3625], 'big-sand-wash-reservoir':[40.298,-110.2261],
   'henrys-lake':[44.61,-111.38], 'flaming-gorge':[41.17655,-109.53384], 'hebgen':[44.79346,-111.24631],
   'spinney':[38.98317,-105.64219], 'fish-lake':[38.55,-111.72], 'island-park-res':[44.42,-111.40],

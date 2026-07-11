@@ -1802,7 +1802,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=190"></script>
+  <script src="data.js?v=191"></script>
   <script>
     let keepNearbyState = false;   // set true when returning to Nearby from a detail page (don't reset)
     function showTab(name) {
@@ -2639,7 +2639,7 @@
     const RAMP_COORDS = {
       'aurora-res':[39.61077,-104.67563], 'barr-lake':[39.94807,-104.74902], 'big-sand-wash-reservoir':[40.29627,-110.22176],
       'bighorn-lake':[45.30429,-107.97332], 'blackfoot-reservoir':[42.84619,-111.60168], 'blue-mesa-res':[38.45472,-107.32932],
-      'boulder-reservoir':[40.07067,-105.22138], 'boyd-lake-co':[40.43758,-105.03966], 'boysen-reservoir':[43.33068,-108.15232],
+      'boulder-reservoir':[40.07067,-105.22138], 'boyd-lake-co':[40.43758,-105.03966],
       'buffalo-bill-res':[44.45685,-109.18965], 'carter-lake':[40.31351,-105.22137], 'causey-res':[41.29732,-111.58629],
       'chatfield-res':[39.55734,-105.06754], 'cherry-creek-res':[39.63976,-104.84421], 'cooney-reservoir':[45.44949,-109.21158],
       'crouse-reservoir':[40.72012,-109.18353], 'currant-creek-res':[40.33466,-111.05821], 'deadmans-basin-reservoir':[46.33009,-109.43295],
@@ -2669,7 +2669,36 @@
       'starvation-res':[40.19161,-110.45587], 'steinaker-res':[40.51565,-109.53785], 'taylor-park-res':[38.82389,-106.58087],
       'trinidad-lake':[37.14447,-104.55836], 'turquoise-lake':[39.2579,-106.36113], 'twin-lakes-co':[39.08577,-106.36926],
       'upsata-lake':[47.07359,-113.22948], 'utah-lake':[40.14236,-111.80288], 'vega-res':[39.22819,-107.79406],
-      'warm-lake':[44.65243,-115.6655], 'winchester-lake':[46.23302,-116.62188], 'wolford-res':[40.14243,-106.41179]
+      'warm-lake':[44.65243,-115.6655], 'winchester-lake':[46.23302,-116.62188], 'wolford-res':[40.14243,-106.41179],
+      'aleknagik-lake':[59.27224,-158.62438], 'american-falls-res':[42.94973,-112.77403], 'anderson-ranch-res':[43.36336,-115.44415],
+      'arrowrock-res':[43.6022,-115.89479], 'ashley-lake':[48.21325,-114.61665], 'ashton-res':[44.06995,-111.51054],
+      'bear-lake':[41.96519,-111.39846], 'big-lake-ak':[61.53286,-149.8337], 'boulder-lake-wy':[42.85596,-109.62236],
+      'boysen-res':[43.26285,-108.19271], 'brooks-lake':[43.75176,-110.00496], 'bull-lake-mt':[48.26676,-115.85365],
+      'canyon-ferry':[46.6435,-111.68483], 'chena-lake':[64.79401,-147.18897], 'cj-strike-res':[42.95393,-115.96896],
+      'clark-canyon-res':[44.99876,-112.85721], 'coeur-dalene-lake':[47.53668,-116.77511], 'columbine-lake':[40.20711,-105.84854],
+      'crawford-reservoir':[38.68711,-107.60007], 'dailey-lake':[45.26454,-110.80943], 'eleven-mile-res':[38.9348,-105.50467],
+      'ennis-lake':[45.44823,-111.67323], 'enterprise-res':[37.51852,-113.85938], 'fernan-lake':[47.67035,-116.74785],
+      'ferron-reservoir':[39.13993,-111.45041], 'fielding-lake':[63.19228,-145.65079], 'finger-lake':[61.60933,-149.26345],
+      'flaming-gorge':[41.16413,-109.55695], 'fontenelle-res':[42.03097,-110.07495], 'glendo-res':[42.49732,-104.96398],
+      'granite-reservoir':[41.17777,-105.23771], 'green-mountain-res':[39.84892,-106.23573], 'harding-lake':[64.43464,-146.88056],
+      'hauser-lake-id':[47.77045,-117.01802], 'hayden-lake':[47.74881,-116.73955], 'hidden-lake-ak':[60.47412,-150.32731],
+      'horsetooth-res':[40.54233,-105.15003], 'hyalite-res':[45.4852,-110.97868], 'johnson-valley-res':[38.61068,-111.63268],
+      'keyhole-res':[44.36993,-104.79357], 'kolob-res':[37.43329,-113.04327], 'koosharem-res':[38.5916,-111.84896],
+      'lake-cascade':[44.58738,-116.0676], 'lake-clark':[60.20311,-154.31548], 'lake-desmet':[44.48042,-106.76606],
+      'lake-elmo':[45.84015,-108.47692], 'lake-john':[40.7663,-106.47027], 'lake-pend-oreille':[48.1687,-116.50309],
+      'lost-creek-res-ut':[41.18625,-111.38132], 'louis-lake':[42.63334,-108.87857], 'magic-reservoir':[43.33525,-114.43271],
+      'mantua-res':[41.50021,-111.94204], 'mcphee-res':[37.51903,-108.53573], 'mirror-lake-ak':[61.42651,-149.41861],
+      'nancy-lake':[61.67896,-150.00185], 'nenana-lake':[64.55568,-149.11352], 'palisades-res':[43.28228,-111.12037],
+      'panguitch-lake':[37.72122,-112.63314], 'parvin-lake':[40.79097,-105.5727], 'pathfinder-res':[42.46778,-106.87317],
+      'paxson-lake':[62.88659,-145.52637], 'pelican-lake':[40.18431,-109.69124], 'porcupine-res':[41.51807,-111.72435],
+      'priest-lake':[48.56021,-116.92571], 'quake-lake':[44.82586,-111.45821], 'quartz-lake-ak':[64.19835,-145.82525],
+      'ririe-res':[43.50478,-111.7612], 'ruedi-res':[39.37122,-106.8132], 'sand-hollow-res':[37.12098,-113.38212],
+      'seeley-lake':[47.18115,-113.49052], 'sibley-lake':[44.75931,-107.43754], 'skilak-lake':[60.4383,-150.32143],
+      'stagecoach-res':[40.28419,-106.85387], 'steamboat-lake':[40.79608,-106.94811], 'tangle-lakes':[63.04476,-146.02695],
+      'tiber-reservoir':[48.32047,-111.10772], 'torrey-lake':[43.45028,-109.54056], 'tropic-res':[37.61018,-112.25345],
+      'twin-lakes-id':[47.89285,-116.88663], 'whitefish-lake':[48.42636,-114.37321], 'willard-bay':[41.35425,-112.07537],
+      'windfall-lake':[58.49154,-134.78769], 'worthen-res':[42.6996,-108.92614], 'yuba-res':[39.3752,-112.02802],
+      'flathead-lake':[48.07427,-114.22716]
     };
 
     // Gauge coordinates (USGS + CDWR) - directions/overview for any gauged water land on the real reach.
@@ -3897,7 +3926,8 @@
     // Is this access a boat ramp / marina / launch / fishing-access site?
     function isRampAccess(a){
       if (!a) return false;
-      return /\bramp\b|\bmarina\b|\blaunch\b|\bFAS\b|boat ramp/i.test((a.name||'') + ' ' + (a.desc||''));
+      if (a.type === '🚤') return true;
+      return /\bramps?\b|\bmarinas?\b|\blaunch(es)?\b|\bFAS\b|boat ramp/i.test((a.name||'') + ' ' + (a.desc||''));
     }
     // Build a strong POI search for a boat ramp so directions land at the launch, not the water's middle.
     function rampQuery(f, a){
