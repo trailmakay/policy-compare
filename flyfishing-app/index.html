@@ -745,6 +745,20 @@
       padding: 14px 16px;
       margin-bottom: 12px;
     }
+    /* Journal recap */
+    .recap-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 6px 6px 12px; margin-bottom: 16px; }
+    .recap-tabs { display: flex; gap: 4px; background: var(--green-pale); border-radius: 10px; padding: 4px; margin-bottom: 12px; }
+    .recap-tab { flex: 1; border: none; background: transparent; color: var(--green); font-size: 12px; font-weight: 700; padding: 7px 4px; border-radius: 8px; cursor: pointer; }
+    .recap-tab.active { background: var(--green); color: #fff; }
+    .recap-body { padding: 0 10px; }
+    .recap-stats { display: flex; gap: 8px; margin-bottom: 6px; }
+    .recap-stat { flex: 1; text-align: center; background: var(--green-pale); border-radius: 10px; padding: 10px 4px; }
+    .recap-stat .num { font-size: 22px; font-weight: 800; color: var(--green); line-height: 1; }
+    .recap-stat .lbl { font-size: 11px; color: var(--text-soft); margin-top: 4px; }
+    .recap-row { font-size: 13px; padding: 8px 2px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 12px; }
+    .recap-row .rk { color: var(--text-soft); white-space: nowrap; }
+    .recap-row .rv { font-weight: 700; text-align: right; }
+    .recap-empty { text-align: center; color: var(--text-soft); font-size: 13px; padding: 14px 0; }
     .entry-card-top {
       display: flex;
       justify-content: space-between;
@@ -1638,6 +1652,16 @@
         <button class="journal-new-btn" onclick="openEntryForm()">+ New Entry</button>
       </div>
 
+      <!-- Season recap -->
+      <div id="journalRecap" class="recap-card" style="display:none;">
+        <div class="recap-tabs">
+          <button class="recap-tab" data-period="month" onclick="setRecapPeriod('month')">This Month</button>
+          <button class="recap-tab active" data-period="year" onclick="setRecapPeriod('year')">This Year</button>
+          <button class="recap-tab" data-period="all" onclick="setRecapPeriod('all')">All Time</button>
+        </div>
+        <div class="recap-body" id="recapBody"></div>
+      </div>
+
       <!-- Entry list -->
       <div id="journalList"></div>
 
@@ -2042,7 +2066,58 @@
       renderJournal();
     }
     function esc(s){ return (s||'').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+    // ── Journal recap: month / year / all-time stats from your logged trips ──
+    let recapPeriod = 'year';
+    function setRecapPeriod(p){
+      recapPeriod = p;
+      document.querySelectorAll('.recap-tab').forEach(t => t.classList.toggle('active', t.dataset.period === p));
+      renderRecap();
+    }
+    function recapInPeriod(e, period, now){
+      if (period === 'all') return true;
+      const d = e.date; if (!d) return false;
+      if (period === 'year')  return d.slice(0,4) === String(now.getFullYear());
+      if (period === 'month') return d.slice(0,7) === now.toISOString().slice(0,7);
+      return true;
+    }
+    function renderRecap(){
+      const wrap = document.getElementById('journalRecap'); if (!wrap) return;
+      const list = loadEntries();
+      if (!list.length){ wrap.style.display = 'none'; return; }
+      wrap.style.display = 'block';
+      const now = new Date();
+      const inP = list.filter(e => recapInPeriod(e, recapPeriod, now));
+      const body = document.getElementById('recapBody');
+      if (!inP.length){
+        body.innerHTML = '<div class="recap-empty">No trips logged ' + (recapPeriod === 'month' ? 'this month' : recapPeriod === 'year' ? 'this year' : 'yet') + ' — get out there!</div>';
+        return;
+      }
+      const trips = inP.length;
+      const fish  = inP.reduce((s,e) => s + (parseInt(e.count,10) || 0), 0);
+      const days  = new Set(inP.map(e => e.date).filter(Boolean)).size;
+      // most-fished water
+      const wc = {};
+      inP.forEach(e => { const w = (e.water||'').trim(); if (w && w !== 'Untitled trip') wc[w] = (wc[w]||0) + 1; });
+      const topWater = Object.entries(wc).sort((a,b) => b[1]-a[1])[0];
+      // species by number of trips they appear in
+      const sc = {};
+      inP.forEach(e => (e.species||'').split(' · ').map(s => s.trim()).filter(Boolean).forEach(s => sc[s] = (sc[s]||0) + 1));
+      const topSp = Object.entries(sc).sort((a,b) => b[1]-a[1]).slice(0,3).map(s => s[0]);
+      // best single day
+      const best = inP.filter(e => parseInt(e.count,10) > 0).sort((a,b) => (parseInt(b.count,10)||0) - (parseInt(a.count,10)||0))[0];
+      let html = '<div class="recap-stats">'
+        + '<div class="recap-stat"><div class="num">' + trips + '</div><div class="lbl">' + (trips===1?'trip':'trips') + '</div></div>'
+        + '<div class="recap-stat"><div class="num">' + fish  + '</div><div class="lbl">fish</div></div>'
+        + '<div class="recap-stat"><div class="num">' + days  + '</div><div class="lbl">' + (days===1?'day out':'days out') + '</div></div>'
+        + '</div>';
+      if (topWater)     html += '<div class="recap-row"><span class="rk">🎣 Most-fished</span><span class="rv">' + esc(topWater[0]) + ' · ' + topWater[1] + '×</span></div>';
+      if (topSp.length) html += '<div class="recap-row"><span class="rk">🐟 Top species</span><span class="rv">' + topSp.map(esc).join(', ') + '</span></div>';
+      html += '<div class="recap-row"><span class="rk">🗺️ Waters explored</span><span class="rv">' + Object.keys(wc).length + '</span></div>';
+      if (best)         html += '<div class="recap-row"><span class="rk">🏆 Best day</span><span class="rv">' + (parseInt(best.count,10)) + ' fish · ' + esc(best.water) + '</span></div>';
+      body.innerHTML = html;
+    }
     function renderJournal() {
+      renderRecap();
       const list = loadEntries();
       const cont = document.getElementById('journalList');
       const empty = document.getElementById('journalEmpty');
