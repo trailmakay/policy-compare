@@ -2080,6 +2080,23 @@
       if (period === 'month') return d.slice(0,7) === now.toISOString().slice(0,7);
       return true;
     }
+    // Collapse free-text water names to a canonical form so "Mill Hollow", "mill hollow",
+    // and "Mill Hollow Reservoir" all count as one water. Matches against the app's water
+    // list (exact, then token-subset) and falls back to a normalized version of what you typed.
+    function canonWater(name){
+      const norm = s => (s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+      const n = norm(name); if (!n) return name;
+      let hit = DATA.find(f => norm(f.name) === n);            // exact normalized match
+      if (hit) return hit.name;
+      const nt = n.split(' ');
+      if (nt.length >= 2) {                                    // token-subset (handles word-order & suffixes)
+        hit = DATA.find(f => { const ft = norm(f.name).split(' ');
+          const [a,b] = nt.length <= ft.length ? [nt,ft] : [ft,nt];
+          return a.length && a.every(t => b.includes(t)); });
+        if (hit) return hit.name;
+      }
+      return n.replace(/\b\w/g, c => c.toUpperCase());          // Title-case fallback
+    }
     function renderRecap(){
       const wrap = document.getElementById('journalRecap'); if (!wrap) return;
       const list = loadEntries();
@@ -2095,9 +2112,9 @@
       const trips = inP.length;
       const fish  = inP.reduce((s,e) => s + (parseInt(e.count,10) || 0), 0);
       const days  = new Set(inP.map(e => e.date).filter(Boolean)).size;
-      // most-fished water
+      // most-fished water (canonicalised so spelling variants collapse to one)
       const wc = {};
-      inP.forEach(e => { const w = (e.water||'').trim(); if (w && w !== 'Untitled trip') wc[w] = (wc[w]||0) + 1; });
+      inP.forEach(e => { const raw = (e.water||'').trim(); if (raw && raw !== 'Untitled trip') { const w = canonWater(raw); wc[w] = (wc[w]||0) + 1; } });
       const topWater = Object.entries(wc).sort((a,b) => b[1]-a[1])[0];
       // species by number of trips they appear in
       const sc = {};
