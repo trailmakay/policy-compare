@@ -2472,12 +2472,13 @@ const HATCHED_DATA = [
   },
   {
     id: 'deep-creek', name: 'Deep Creek', state: 'Alaska', type: 'river',
-    waterType: 'Clear River', rank: 0, species: 'King · Silver · Steelhead · Dolly Varden',
+    waterType: 'Clear River', rank: 0, species: 'King · Silver · Pink · Steelhead · Dolly Varden',
     accolades: [ { icon: '🐟', text: 'Roadside kings & steelhead', source: 'Ninilchik area' } ],
     conditions: { temp: '46°F', flow: '200 CFS', flowLabel: 'CFS Flow', vis: 'Clear', best: 'All day' },
-    sections: ['Lower (highway)', 'Upper'],
+    sections: ['Lower (highway)', 'Middle', 'Upper'],
     hatches: [
       { name: 'King (Chinook) Run', months: [5,6], peak: [6], timing: 'All day' },
+      { name: 'Pink (Humpy) Run', months: [7,8], peak: [8], timing: 'All day' },
       { name: 'Silver (Coho) Run', months: [8,9], peak: [9], timing: 'All day' },
       { name: 'Steelhead', months: [9,10], peak: [10], timing: 'All day' }
     ],
@@ -12399,29 +12400,6 @@ const HATCHED_DATA = [
     note: 'A clear tributary of the Kasilof River on the Kenai Peninsula, with a popular hatchery king run, silver salmon, a fall steelhead run and resident Dolly Varden and rainbows. A well-known bank fishery near the Crooked Creek State Rec Site — drift beads and swing streamers through the runs.'
   },
   {
-    id: 'deep-creek-ak', name: 'Deep Creek', state: 'Alaska', type: 'river',
-    waterType: 'Salmon River', rank: 0, species: 'King Salmon · Coho Salmon · Steelhead · Pink Salmon · Dolly Varden',
-    accolades: [ { icon: '🐟', text: 'Southern Kenai salmon & steelhead creek', source: 'Near Ninilchik' } ],
-    conditions: { temp: '48°F', flow: '90 cfs', flowLabel: 'estimate', vis: 'Clear', best: 'Jun–Sep' },
-    sections: ['Lower', 'Middle', 'Upper'],
-    hatches: [
-      { name: 'King (Chinook) Run', months: [5,6], peak: [6], timing: '—' },
-      { name: 'Pink Run', months: [7,8], peak: [8], timing: '—' },
-      { name: 'Silver (Coho) Run', months: [8,9], peak: [8], timing: '—' },
-      { name: 'Steelhead', months: [9,10], peak: [10], timing: '—' },
-      { name: 'Dolly Varden', months: [6,7,8,9], peak: [8], timing: 'Resident' }
-    ],
-    flies: [
-      { name: 'Bead / Egg', type: 'nymph', size: '6–10', color: 'Pink, orange, chartreuse', conf: 5 },
-      { name: 'Flesh Fly', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
-      { name: 'Egg-Sucking Leech', type: 'streamer', size: '2–6', color: 'Black/pink, purple', conf: 4 },
-      { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
-      { name: 'Coho Streamer', type: 'streamer', size: '2–6', color: 'Chartreuse, pink, purple', conf: 4 }
-    ],
-    access: [ { type: '🚗', name: 'Deep Creek', desc: 'Public/road or fly-in access', lat: 60.03361, lng: -151.69694 } ],
-    note: 'A popular clear-water creek meeting Cook Inlet at Ninilchik on the southern Kenai Peninsula, with runs of king, pink and silver salmon, a fall steelhead run and resident Dolly Varden. Roadside access along the Sterling Highway makes it a favorite — drift beads and eggs for a shot at chrome in beautiful surroundings.'
-  },
-  {
     id: 'stariski-creek', name: 'Stariski Creek', state: 'Alaska', type: 'river',
     waterType: 'Salmon River', rank: 0, species: 'Coho Salmon · Steelhead · Pink Salmon · Dolly Varden',
     accolades: [ { icon: '🐟', text: 'Small southern Kenai steelhead creek', source: 'Near Anchor Point' } ],
@@ -16851,7 +16829,6 @@ const HATCHED_TOWNS = {
   'innoko-river':['Shageluk','McGrath'],
   'yukon-river':['Eagle','Galena','Fort Yukon'],
   'crooked-creek-ak':['Kasilof','Soldotna'],
-  'deep-creek-ak':['Ninilchik'],
   'stariski-creek':['Anchor Point'],
   'nenana-river':['Healy','Denali Park'],
   'jim-river':['Coldfoot','Bettles'],
