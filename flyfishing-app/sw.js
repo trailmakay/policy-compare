@@ -1,11 +1,11 @@
 /* Hatched service worker — offline support with fresh-when-online updates.
    Strategy: network-first for the app shell & data (so updates show immediately
    when online), falling back to cache when offline. */
-const CACHE = 'hatched-v227';
+const CACHE = 'hatched-v228';
 const ASSETS = [
   './',
   './index.html',
-  './data.js?v=194',
+  './data.js?v=195',
   './manifest.json',
   './privacy.html',
   './icon.png',
