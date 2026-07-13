@@ -3765,16 +3765,39 @@
       lines.forEach(l => { for (let i=0;i<l.length-1;i++){ const a=l[i], b=l[i+1];
         const mlon=(a[0]+b[0])/2, mlat=(a[1]+b[1])/2;
         const ag = _classifyLand(feats, mlon, mlat) || _nearestAgency(feats, mlon, mlat);
-        segs.push([[+a[1].toFixed(5),+a[0].toFixed(5)],[+b[1].toFixed(5),+b[0].toFixed(5)], (ag && LAND_PUBLIC.has(ag)) ? 1 : 0]); } });
+        const cat = (ag && LAND_PUBLIC.has(ag)) ? 0 : (ag === 'BIA' ? 2 : 1);   // 0 public · 1 private · 2 tribal
+        segs.push([[+a[1].toFixed(5),+a[0].toFixed(5)],[+b[1].toFixed(5),+b[0].toFixed(5)], cat]); } });
       return segs;
     }
-    function renderLandMap(wrap, coord, segs){
+    // State stream-access rule for PRIVATE-land water (researched per state). Colors the
+    // private segments and drives the legend/disclaimer so the map reflects real law.
+    function statePrivateRule(state){
+      const s = (state||'').toLowerCase();
+      if (s.includes('montana') || s.includes('idaho') || s.includes('alaska'))
+        return { color:'#2e9e5b', short:'wade &amp; fish OK', long:'you may wade and fish the water below the ordinary high-water mark' + (s.includes('idaho') ? ' (on navigable streams)' : '') + ' — but enter from a legal access point and don’t cross private land to get in.' };
+      if (s.includes('wyoming'))
+        return { color:'#f0b429', short:'float-through only', long:'you may float through, but must stay in your boat — no wading, bank-fishing, or anchoring without the landowner’s permission.' };
+      if (s.includes('colorado'))
+        return { color:'#f0b429', short:'float, don’t touch', long:'you may float through, but may NOT touch the bottom or banks (People v. Emmert) — no wading or fishing while standing.' };
+      if (s.includes('utah'))
+        return { color:'#ff3b30', short:'closed w/o permission', long:'you generally may not wade or fish without the landowner’s permission — Utah’s Public Waters Access Act, even though the water itself is public.' };
+      return { color:'#ff3b30', short:'restricted', long:'access may be restricted — check the landowner and local rules.' };
+    }
+    function renderLandMap(wrap, f, coord, segs){
+      const rule = statePrivateRule(f.state);
+      const hasTribal = segs.some(s => s[2] === 2);
+      const colorFor = c => c===0 ? '#2b8fff' : c===2 ? '#d13438' : rule.color;
+      const legend = '<span><i style="background:#2b8fff"></i>Public — fish freely</span>'
+        + '<span><i style="background:' + rule.color + '"></i>Private — ' + rule.short + '</span>'
+        + (hasTribal ? '<span><i style="background:#d13438"></i>Tribal — permit required</span>' : '');
       wrap.innerHTML = '<div id="landLeaflet" class="land-leaflet"></div>'
-        + '<div class="land-legend"><span><i style="background:#2b8fff"></i>Public land</span><span><i style="background:#ff3b30"></i>Private / unknown</span></div>';
+        + '<div class="land-legend">' + legend + '</div>'
+        + '<div class="land-disclaimer"><strong>' + esc(f.state.split('/')[0].trim()) + ':</strong> on private-land water, ' + rule.long
+        + ' Land data: BLM (public domain). Guidance, <strong>not legal advice</strong> — verify before you fish.</div>';
       const map = L.map('landLeaflet', { zoomControl:true, attributionControl:false });
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom:18 }).addTo(map);
       const pts = [];
-      segs.forEach(s => { L.polyline([s[0],s[1]], { color: s[2]?'#2b8fff':'#ff3b30', weight:4, opacity:.95 }).addTo(map); pts.push(s[0], s[1]); });
+      segs.forEach(s => { L.polyline([s[0],s[1]], { color: colorFor(s[2]), weight:4, opacity:.95 }).addTo(map); pts.push(s[0], s[1]); });
       if (pts.length) map.fitBounds(pts, { padding:[20,20] }); else map.setView(coord, 12);
       setTimeout(() => map.invalidateSize(), 150);
     }
@@ -3786,12 +3809,12 @@
       wrap.innerHTML = '<div class="land-msg">Loading land map… <span style="opacity:.7">(first time can take several seconds)</span></div>';
       const key = 'hatched_land_' + id;
       let segs = null;
-      try { const c = JSON.parse(localStorage.getItem(key)); if (c && c.v===1 && c.segs) segs = c.segs; } catch(e){}
+      try { const c = JSON.parse(localStorage.getItem(key)); if (c && c.v===2 && c.segs) segs = c.segs; } catch(e){}
       try {
         await lazyLeaflet();
-        if (!segs){ segs = await buildLandSegments(f, coord); if (segs && segs.length){ try { localStorage.setItem(key, JSON.stringify({v:1, segs})); } catch(e){} } }
+        if (!segs){ segs = await buildLandSegments(f, coord); if (segs && segs.length){ try { localStorage.setItem(key, JSON.stringify({v:2, segs})); } catch(e){} } }
         if (!segs || !segs.length){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load land data here — needs a connection, or this stretch isn\'t mapped. <span class="flow-link" onclick="showLandMap(\'' + id + '\')">Try again</span></div>'; return; }
-        renderLandMap(wrap, coord, segs);
+        renderLandMap(wrap, f, coord, segs);
       } catch(e){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load the land map — check your connection and <span class="flow-link" onclick="showLandMap(\'' + id + '\')">try again</span>.</div>'; }
     }
     function detailHTML(f, sectionIdx){
