@@ -759,6 +759,16 @@
     .recap-row .rk { color: var(--text-soft); white-space: nowrap; }
     .recap-row .rv { font-weight: 700; text-align: right; }
     .recap-empty { text-align: center; color: var(--text-soft); font-size: 13px; padding: 14px 0; }
+    /* Public/private land map */
+    .land-map-wrap { margin-bottom: 4px; }
+    .land-btn { width: 100%; padding: 11px; border: 1px solid var(--green); background: var(--green-pale); color: var(--green); font-weight: 700; border-radius: 10px; cursor: pointer; font-size: 14px; }
+    .land-btn:active { transform: scale(.98); }
+    .land-leaflet { height: 280px; border-radius: 12px; overflow: hidden; margin-bottom: 8px; background: #0e2620; }
+    .land-legend { display: flex; gap: 16px; font-size: 12px; color: var(--text-soft); margin-bottom: 2px; }
+    .land-legend i { display: inline-block; width: 16px; height: 5px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
+    .land-disclaimer { font-size: 11px; color: var(--text-soft); margin-top: 8px; line-height: 1.35; }
+    .land-msg { font-size: 13px; color: var(--text-soft); padding: 12px 0; text-align: center; }
+    .beta-tag { font-size: 10px; background: var(--tan); color: #fff; padding: 1px 6px; border-radius: 6px; vertical-align: middle; font-weight: 700; }
     .entry-card-top {
       display: flex;
       justify-content: space-between;
@@ -3698,6 +3708,92 @@
     }
 
     // Build the detail panel HTML for a fishery (works for river or lake)
+    // ═══════════ PUBLIC / PRIVATE LAND MAP (rivers) ═══════════
+    // River line from USGS NHD + surface ownership from BLM (both public-domain, CORS-OK).
+    // Uses BLM "identify" on sampled points (tiny responses) — mobile-friendly. Cached per river.
+    const LAND_PUBLIC = new Set(['BLM','USFS','NPS','FWS','BOR','USBR','RECL','ST','LG','DOD','TVA','USACE']);
+    let _leafletP = null;
+    function lazyLeaflet(){
+      if (window.L) return Promise.resolve();
+      if (_leafletP) return _leafletP;
+      _leafletP = new Promise((resolve, reject) => {
+        const css = document.createElement('link'); css.rel='stylesheet'; css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(css);
+        const js = document.createElement('script'); js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; js.onload=()=>resolve(); js.onerror=reject; document.head.appendChild(js);
+      });
+      return _leafletP;
+    }
+    // even-odd ray-cast across all rings of a feature (x=lon, y=lat)
+    function _inRings(rings, x, y){ let inside=false;
+      for (const ring of rings){ for (let i=0,j=ring.length-1;i<ring.length;j=i++){
+        const xi=ring[i][0], yi=ring[i][1], xj=ring[j][0], yj=ring[j][1];
+        if (((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/(yj-yi)+xi)) inside=!inside; }}
+      return inside; }
+    function _classifyLand(feats, lon, lat){ for (const f of feats){ if (_inRings(f.rings, lon, lat)) return f.agency; } return null; }
+    // river centerlines sit on water (often outside land polygons) — fall back to nearest bank parcel
+    function _nearestAgency(feats, lon, lat){ let best=null, bd=Infinity;
+      for (const f of feats){ for (const ring of f.rings){ for (let k=0;k<ring.length;k++){
+        const dx=ring[k][0]-lon, dy=ring[k][1]-lat, dd=dx*dx+dy*dy; if (dd<bd){ bd=dd; best=f.agency; } }}}
+      return best; }
+    async function _blmPolys(bbox){
+      const url = 'https://gis.blm.gov/arcgis/rest/services/lands/BLM_Natl_SMA_LimitedScale/MapServer/1/query?' + new URLSearchParams({
+        geometry: bbox, geometryType:'esriGeometryEnvelope', inSR:'4326', spatialRel:'esriSpatialRelIntersects',
+        outFields:'ADMIN_AGENCY_CODE', returnGeometry:'true', maxAllowableOffset:'0.006', geometryPrecision:'5', outSR:'4326', f:'json' });
+      const r = await fetch(url); const j = await r.json();
+      return (j.features||[]).filter(x => x.geometry && x.geometry.rings).map(x => ({ agency: x.attributes.ADMIN_AGENCY_CODE, rings: x.geometry.rings }));
+    }
+    async function _nhdLines(where, bbox, cap){
+      const url = 'https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/3/query?' + new URLSearchParams({
+        geometry: bbox, geometryType:'esriGeometryEnvelope', inSR:'4326', spatialRel:'esriSpatialRelIntersects',
+        where, outFields:'GNIS_Name', returnGeometry:'true', outSR:'4326', f:'geojson', maxAllowableOffset:'0.0003', resultRecordCount:String(cap) });
+      const r = await fetch(url); const j = await r.json();
+      const lines = [];
+      (j.features||[]).forEach(x => { if (!x.geometry) return;
+        if (x.geometry.type==='LineString') lines.push(x.geometry.coordinates);
+        else if (x.geometry.type==='MultiLineString') x.geometry.coordinates.forEach(c => lines.push(c)); });
+      return lines;
+    }
+    async function buildLandSegments(f, coord){
+      const [lat,lng] = coord, d = 0.07;
+      const bbox = [lng-d, lat-d, lng+d, lat+d].join(',');
+      const toks = f.name.replace(/\s*\([^)]*\)/g,' ').toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
+      let lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.join('%')}%'`, bbox, 300);
+      if (!lines.length){ const d2=0.03; lines = await _nhdLines('1=1', [lng-d2,lat-d2,lng+d2,lat+d2].join(','), 120); }
+      if (!lines.length) return [];
+      const feats = await _blmPolys(bbox);           // one request: land-ownership polygons
+      if (!feats.length) return [];
+      const segs = [];
+      lines.forEach(l => { for (let i=0;i<l.length-1;i++){ const a=l[i], b=l[i+1];
+        const mlon=(a[0]+b[0])/2, mlat=(a[1]+b[1])/2;
+        const ag = _classifyLand(feats, mlon, mlat) || _nearestAgency(feats, mlon, mlat);
+        segs.push([[+a[1].toFixed(5),+a[0].toFixed(5)],[+b[1].toFixed(5),+b[0].toFixed(5)], (ag && LAND_PUBLIC.has(ag)) ? 1 : 0]); } });
+      return segs;
+    }
+    function renderLandMap(wrap, coord, segs){
+      wrap.innerHTML = '<div id="landLeaflet" class="land-leaflet"></div>'
+        + '<div class="land-legend"><span><i style="background:#2b8fff"></i>Public land</span><span><i style="background:#ff3b30"></i>Private / unknown</span></div>';
+      const map = L.map('landLeaflet', { zoomControl:true, attributionControl:false });
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom:18 }).addTo(map);
+      const pts = [];
+      segs.forEach(s => { L.polyline([s[0],s[1]], { color: s[2]?'#2b8fff':'#ff3b30', weight:4, opacity:.95 }).addTo(map); pts.push(s[0], s[1]); });
+      if (pts.length) map.fitBounds(pts, { padding:[20,20] }); else map.setView(coord, 12);
+      setTimeout(() => map.invalidateSize(), 150);
+    }
+    async function showLandMap(id){
+      const wrap = document.getElementById('landMapWrap'); if (!wrap) return;
+      const f = fishById(id); if (!f) return;
+      const coord = fisheryCoords(f);
+      if (!coord){ wrap.innerHTML = '<div class="land-msg">No mapped location for this water yet.</div>'; return; }
+      wrap.innerHTML = '<div class="land-msg">Loading land map… <span style="opacity:.7">(first time can take several seconds)</span></div>';
+      const key = 'hatched_land_' + id;
+      let segs = null;
+      try { const c = JSON.parse(localStorage.getItem(key)); if (c && c.v===1 && c.segs) segs = c.segs; } catch(e){}
+      try {
+        await lazyLeaflet();
+        if (!segs){ segs = await buildLandSegments(f, coord); if (segs && segs.length){ try { localStorage.setItem(key, JSON.stringify({v:1, segs})); } catch(e){} } }
+        if (!segs || !segs.length){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load land data here — needs a connection, or this stretch isn\'t mapped. <span class="flow-link" onclick="showLandMap(\'' + id + '\')">Try again</span></div>'; return; }
+        renderLandMap(wrap, coord, segs);
+      } catch(e){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load the land map — check your connection and <span class="flow-link" onclick="showLandMap(\'' + id + '\')">try again</span>.</div>'; }
+    }
     function detailHTML(f, sectionIdx){
       sectionIdx = sectionIdx || 0;
       const isLake = f.type === 'lake';
@@ -3843,6 +3939,12 @@
           <div class="detail-section-title">Access Points</div>
           ${access}
         </div>
+        ${f.type==='river' ? `
+        <div class="detail-section">
+          <div class="detail-section-title">🗺️ Public / Private Land <span class="beta-tag">beta</span></div>
+          <div id="landMapWrap" class="land-map-wrap"><button class="land-btn" onclick="showLandMap('${f.id}')">Show public / private land along this river</button></div>
+          <div class="land-disclaimer">Land ownership from the BLM (public-domain data) — <strong>a guide, not legal stream-access</strong>, which varies by state. A red stretch isn't automatically off-limits and blue isn't automatically open; always check local rules. Boundaries aren't survey-precise. Needs a connection.</div>
+        </div>` : ''}
         ${licenseHTML(f)}
         <div class="detail-section">
           <div class="detail-section-title">Section Notes — ${esc(f.sections[sectionIdx])}</div>
