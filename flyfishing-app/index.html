@@ -3722,24 +3722,17 @@
       });
       return _leafletP;
     }
-    // even-odd ray-cast across all rings of a feature (x=lon, y=lat)
-    function _inRings(rings, x, y){ let inside=false;
-      for (const ring of rings){ for (let i=0,j=ring.length-1;i<ring.length;j=i++){
-        const xi=ring[i][0], yi=ring[i][1], xj=ring[j][0], yj=ring[j][1];
-        if (((yi>y)!==(yj>y)) && (x < (xj-xi)*(y-yi)/(yj-yi)+xi)) inside=!inside; }}
-      return inside; }
-    function _classifyLand(feats, lon, lat){ for (const f of feats){ if (_inRings(f.rings, lon, lat)) return f.agency; } return null; }
-    // river centerlines sit on water (often outside land polygons) — fall back to nearest bank parcel
-    function _nearestAgency(feats, lon, lat){ let best=null, bd=Infinity;
-      for (const f of feats){ for (const ring of f.rings){ for (let k=0;k<ring.length;k++){
-        const dx=ring[k][0]-lon, dy=ring[k][1]-lat, dd=dx*dx+dy*dy; if (dd<bd){ bd=dd; best=f.agency; } }}}
-      return best; }
-    async function _blmPolys(bbox){
+    // Lightweight per-point ownership lookup (~260 bytes/call, no big polygon download).
+    // Returns 0 = public · 1 = private · 2 = tribal · null = gap (smoothed later).
+    async function _blmPoint(lon, lat){
       const url = 'https://gis.blm.gov/arcgis/rest/services/lands/BLM_Natl_SMA_LimitedScale/MapServer/1/query?' + new URLSearchParams({
-        geometry: bbox, geometryType:'esriGeometryEnvelope', inSR:'4326', spatialRel:'esriSpatialRelIntersects',
-        outFields:'ADMIN_AGENCY_CODE', returnGeometry:'true', maxAllowableOffset:'0.006', geometryPrecision:'5', outSR:'4326', f:'json' });
+        geometry: JSON.stringify({x:lon,y:lat}), geometryType:'esriGeometryPoint', inSR:'4326',
+        spatialRel:'esriSpatialRelIntersects', outFields:'ADMIN_AGENCY_CODE', returnGeometry:'false', f:'json' });
       const r = await fetch(url); const j = await r.json();
-      return (j.features||[]).filter(x => x.geometry && x.geometry.rings).map(x => ({ agency: x.attributes.ADMIN_AGENCY_CODE, rings: x.geometry.rings }));
+      const feat = (j.features||[]).find(x => x.attributes && x.attributes.ADMIN_AGENCY_CODE);
+      if (!feat) return null;
+      const ag = feat.attributes.ADMIN_AGENCY_CODE;
+      return (ag && LAND_PUBLIC.has(ag)) ? 0 : (ag === 'BIA' ? 2 : 1);
     }
     async function _nhdLines(where, bbox, cap){
       const url = 'https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/3/query?' + new URLSearchParams({
@@ -3753,20 +3746,33 @@
       return lines;
     }
     async function buildLandSegments(f, coord){
-      const [lat,lng] = coord, d = 0.07;
+      const [lat,lng] = coord, d = 0.11;                         // ~16 mi of river shown
       const bbox = [lng-d, lat-d, lng+d, lat+d].join(',');
       const toks = f.name.replace(/\s*\([^)]*\)/g,' ').toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
-      let lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.join('%')}%'`, bbox, 300);
-      if (!lines.length){ const d2=0.03; lines = await _nhdLines('1=1', [lng-d2,lat-d2,lng+d2,lat+d2].join(','), 120); }
+      let lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.join('%')}%'`, bbox, 250);
+      if (!lines.length && toks.length > 2)                      // fork rivers: fall back to the base name (last 2 words)
+        lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.slice(-2).join('%')}%'`, bbox, 250);
       if (!lines.length) return [];
-      const feats = await _blmPolys(bbox);           // one request: land-ownership polygons
-      if (!feats.length) return [];
+      // sample ~16 points and look up ownership per point (tiny queries, not a multi-MB polygon download)
+      let all = []; lines.forEach(l => l.forEach(p => all.push(p)));
+      const cap = 16, step = Math.max(1, Math.floor(all.length/cap));
+      const samples = []; for (let i=0;i<all.length;i+=step) samples.push(all[i]);
+      const classed = [];
+      for (let i=0;i<samples.length;i+=6){
+        const batch = samples.slice(i, i+6);
+        const cats = await Promise.all(batch.map(p => _blmPoint(p[0], p[1]).catch(()=>null)));
+        cats.forEach((cat,k) => classed.push({ lon:batch[k][0], lat:batch[k][1], cat }));
+      }
+      const known = classed.filter(c => c.cat != null);
+      if (!known.length) return [];
+      const catAt = (lon,lat) => {                               // nearest sample; any gap inherits nearest known
+        let bd=Infinity, bs=null; for (const c of classed){ const dx=c.lon-lon, dy=c.lat-lat, dd=dx*dx+dy*dy; if (dd<bd){ bd=dd; bs=c; } }
+        if (bs && bs.cat != null) return bs.cat;
+        let kd=Infinity, kc=1; for (const c of known){ const dx=c.lon-lon, dy=c.lat-lat, dd=dx*dx+dy*dy; if (dd<kd){ kd=dd; kc=c.cat; } } return kc;
+      };
       const segs = [];
       lines.forEach(l => { for (let i=0;i<l.length-1;i++){ const a=l[i], b=l[i+1];
-        const mlon=(a[0]+b[0])/2, mlat=(a[1]+b[1])/2;
-        const ag = _classifyLand(feats, mlon, mlat) || _nearestAgency(feats, mlon, mlat);
-        const cat = (ag && LAND_PUBLIC.has(ag)) ? 0 : (ag === 'BIA' ? 2 : 1);   // 0 public · 1 private · 2 tribal
-        segs.push([[+a[1].toFixed(5),+a[0].toFixed(5)],[+b[1].toFixed(5),+b[0].toFixed(5)], cat]); } });
+        segs.push([[+a[1].toFixed(5),+a[0].toFixed(5)],[+b[1].toFixed(5),+b[0].toFixed(5)], catAt((a[0]+b[0])/2,(a[1]+b[1])/2)]); } });
       return segs;
     }
     // State stream-access rule for PRIVATE-land water (researched per state). Colors the
@@ -3809,10 +3815,10 @@
       wrap.innerHTML = '<div class="land-msg">Loading land map… <span style="opacity:.7">(first time can take several seconds)</span></div>';
       const key = 'hatched_land_' + id;
       let segs = null;
-      try { const c = JSON.parse(localStorage.getItem(key)); if (c && c.v===2 && c.segs) segs = c.segs; } catch(e){}
+      try { const c = JSON.parse(localStorage.getItem(key)); if (c && c.v===3 && c.segs) segs = c.segs; } catch(e){}
       try {
         await lazyLeaflet();
-        if (!segs){ segs = await buildLandSegments(f, coord); if (segs && segs.length){ try { localStorage.setItem(key, JSON.stringify({v:2, segs})); } catch(e){} } }
+        if (!segs){ segs = await buildLandSegments(f, coord); if (segs && segs.length){ try { localStorage.setItem(key, JSON.stringify({v:3, segs})); } catch(e){} } }
         if (!segs || !segs.length){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load land data here — needs a connection, or this stretch isn\'t mapped. <span class="flow-link" onclick="showLandMap(\'' + id + '\')">Try again</span></div>'; return; }
         renderLandMap(wrap, f, coord, segs);
       } catch(e){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load the land map — check your connection and <span class="flow-link" onclick="showLandMap(\'' + id + '\')">try again</span>.</div>'; }
