@@ -3734,24 +3734,35 @@
       const ag = feat.attributes.ADMIN_AGENCY_CODE;
       return (ag && LAND_PUBLIC.has(ag)) ? 0 : (ag === 'BIA' ? 2 : 1);
     }
-    async function _nhdLines(where, bbox, cap){
+    // lake/reservoir ids in the area — so we can drop river-lines that are actually the reservoir
+    async function _reservoirIds(bbox){
+      const url = 'https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/9/query?' + new URLSearchParams({
+        geometry: bbox, geometryType:'esriGeometryEnvelope', inSR:'4326', spatialRel:'esriSpatialRelIntersects',
+        where:'ftype IN (390,436)', outFields:'permanent_identifier', returnGeometry:'false', f:'json' });
+      try { const r = await fetch(url); const j = await r.json(); return new Set((j.features||[]).map(f => f.attributes.permanent_identifier)); }
+      catch(e){ return new Set(); }
+    }
+    async function _nhdLines(where, bbox, cap, resIds){
       const url = 'https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/3/query?' + new URLSearchParams({
         geometry: bbox, geometryType:'esriGeometryEnvelope', inSR:'4326', spatialRel:'esriSpatialRelIntersects',
-        where, outFields:'GNIS_Name', returnGeometry:'true', outSR:'4326', f:'geojson', maxAllowableOffset:'0.0003', resultRecordCount:String(cap) });
+        where, outFields:'wbarea_permanent_identifier', returnGeometry:'true', outSR:'4326', f:'geojson', maxAllowableOffset:'0.0003', resultRecordCount:String(cap) });
       const r = await fetch(url); const j = await r.json();
       const lines = [];
       (j.features||[]).forEach(x => { if (!x.geometry) return;
+        const wb = (x.properties||{}).wbarea_permanent_identifier;
+        if (resIds && wb && resIds.has(wb)) return;              // skip lines that are actually a reservoir/lake
         if (x.geometry.type==='LineString') lines.push(x.geometry.coordinates);
         else if (x.geometry.type==='MultiLineString') x.geometry.coordinates.forEach(c => lines.push(c)); });
       return lines;
     }
     async function buildLandSegments(f, coord){
-      const [lat,lng] = coord, d = 0.11;                         // ~16 mi of river shown
+      const [lat,lng] = coord, d = 0.16;                         // ~22 mi window
       const bbox = [lng-d, lat-d, lng+d, lat+d].join(',');
+      const resIds = await _reservoirIds(bbox);                  // exclude reservoir/lake "river" lines
       const toks = f.name.replace(/\s*\([^)]*\)/g,' ').toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
-      let lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.join('%')}%'`, bbox, 250);
+      let lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.join('%')}%'`, bbox, 250, resIds);
       if (!lines.length && toks.length > 2)                      // fork rivers: fall back to the base name (last 2 words)
-        lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.slice(-2).join('%')}%'`, bbox, 250);
+        lines = await _nhdLines(`UPPER(GNIS_Name) LIKE '%${toks.slice(-2).join('%')}%'`, bbox, 250, resIds);
       if (!lines.length) return [];
       // sample ~16 points and look up ownership per point (tiny queries, not a multi-MB polygon download)
       let all = []; lines.forEach(l => l.forEach(p => all.push(p)));
@@ -3815,10 +3826,10 @@
       wrap.innerHTML = '<div class="land-msg">Loading land map… <span style="opacity:.7">(first time can take several seconds)</span></div>';
       const key = 'hatched_land_' + id;
       let segs = null;
-      try { const c = JSON.parse(localStorage.getItem(key)); if (c && c.v===3 && c.segs) segs = c.segs; } catch(e){}
+      try { const c = JSON.parse(localStorage.getItem(key)); if (c && c.v===4 && c.segs) segs = c.segs; } catch(e){}
       try {
         await lazyLeaflet();
-        if (!segs){ segs = await buildLandSegments(f, coord); if (segs && segs.length){ try { localStorage.setItem(key, JSON.stringify({v:3, segs})); } catch(e){} } }
+        if (!segs){ segs = await buildLandSegments(f, coord); if (segs && segs.length){ try { localStorage.setItem(key, JSON.stringify({v:4, segs})); } catch(e){} } }
         if (!segs || !segs.length){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load land data here — needs a connection, or this stretch isn\'t mapped. <span class="flow-link" onclick="showLandMap(\'' + id + '\')">Try again</span></div>'; return; }
         renderLandMap(wrap, f, coord, segs);
       } catch(e){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load the land map — check your connection and <span class="flow-link" onclick="showLandMap(\'' + id + '\')">try again</span>.</div>'; }
