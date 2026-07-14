@@ -3775,12 +3775,12 @@
       const s = (state||'').toLowerCase();
       if (s.includes('montana') || s.includes('idaho') || s.includes('alaska'))
         return { color:'#2e9e5b', short:'wade &amp; fish OK', long:'you may wade and fish the water below the ordinary high-water mark' + (s.includes('idaho') ? ' (on navigable streams)' : '') + ' — but enter from a legal access point and don’t cross private land to get in.' };
+      if (s.includes('utah'))
+        return { color:'#f0b429', short:'float-through only', long:'you may float through — Utah’s Public Waters Access Act affirms the right to float public water — but you may NOT wade, stand, or fish while touching the bottom on private land.' };
       if (s.includes('wyoming'))
         return { color:'#f0b429', short:'float-through only', long:'you may float through, but must stay in your boat — no wading, bank-fishing, or anchoring without the landowner’s permission.' };
       if (s.includes('colorado'))
-        return { color:'#f0b429', short:'float, don’t touch', long:'you may float through, but may NOT touch the bottom or banks (People v. Emmert) — no wading or fishing while standing.' };
-      if (s.includes('utah'))
-        return { color:'#ff3b30', short:'closed w/o permission', long:'you generally may not wade or fish without the landowner’s permission — Utah’s Public Waters Access Act, even though the water itself is public.' };
+        return { color:'#ff3b30', short:'float is contested', long:'Colorado grants no clear right to float private water — floating can be treated as civil trespass, and you may NOT touch the bottom or banks (People v. Emmert). Get landowner permission to be safe.' };
       return { color:'#ff3b30', short:'restricted', long:'access may be restricted — check the landowner and local rules.' };
     }
     function renderLandMap(wrap, f, coord, segs){
