@@ -16235,7 +16235,14 @@ const HATCHED_SHOPS = {
     { name: 'Lost River Outfitters', town: 'Ketchum', phone: '(208) 726-1706' },
     { name: 'The Idaho Angler', town: 'Boise', phone: '(208) 389-9957' },
     { name: "Fly Fish Food Jimmy's", town: 'Idaho Falls', phone: '(208) 524-7160' },
-    { name: 'Castaway Fly Fishing Shop', town: "Coeur d'Alene", phone: '(208) 765-3133' }
+    { name: 'Castaway Fly Fishing Shop', town: "Coeur d'Alene", phone: '(208) 765-3133' },
+    { name: 'Picabo Angler', town: 'Picabo', phone: '(208) 788-3536' },
+    { name: 'Idaho Troutfitters', town: 'Twin Falls', phone: '(208) 933-2577' },
+    { name: 'Anglers Fly Shop', town: 'Boise', phone: '(208) 323-6768' },
+    { name: 'Three Rivers Ranch (TRR Outfitters)', town: 'Ashton', phone: '(208) 652-3008' },
+    { name: 'South Fork Lodge Fly Shop', town: 'Swan Valley', phone: '(208) 483-7052' },
+    { name: 'Swan Valley Fly Shop', town: 'Swan Valley', phone: '(208) 483-2727' },
+    { name: 'Sandpoint Fly Shop', town: 'Ponderay', phone: '(208) 666-0506' }
   ],
   'Colorado': [
     { name: 'Taylor Creek Fly Shop', town: 'Basalt', phone: '(970) 927-4374' },
