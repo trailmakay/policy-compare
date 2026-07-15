@@ -1827,8 +1827,8 @@ const HATCHED_DATA = [
       { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown/black', conf: 4 }
     ],
     access: [
+      { type: '🅿️', name: 'Byers Canyon pullouts', desc: 'US-40 roadside (pocket water)', lat: 40.05125, lng: -106.13173 },
       { type: '🚶', name: 'Kemp-Breeze SWA', desc: 'Gold Medal walk-in near Parshall', lat: 40.0589, lng: -106.1869 },
-      { type: '🅿️', name: 'Byers Canyon pullouts', desc: 'US-40 roadside (pocket water)' },
       { type: '🚶', name: 'Paul Gilbert SWA', desc: 'Walk-in, wild trout regs' }
     ],
     note: 'The Gold Medal stretch at Parshall (Kemp-Breeze/Paul Gilbert) is the headline — technical wild browns and rainbows. Byers Canyon offers pocketwater right off US-40. BWO and caddis are the staples; nymph rubber legs and PTs through the runs.'
