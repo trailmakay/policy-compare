@@ -29,8 +29,8 @@ const HATCHED_DATA = [
       { name: 'WD-40', type: 'emerger', size: '18–20', conf: 4 },
       { name: 'Sow Bug', type: 'nymph', size: '16–18', conf: 5 },
       { name: 'PMD Comparadun', type: 'dry', size: '16–18', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', conf: 3 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', conf: 3 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Riverbend Park', desc: 'Paved lot, walk-in, restrooms' },
       { type: '🅿️', name: 'Vivian Park', desc: 'Large lot, easy wading access' },
@@ -90,8 +90,11 @@ const HATCHED_DATA = [
       { name: 'Cicada pattern', type: 'dry', size: '8', conf: 5 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', conf: 4 },
       { name: 'Gray RS2', type: 'emerger', size: '18–20', conf: 4 },
-      { name: 'Streamer (Sculpin)', type: 'streamer', size: '4–6', conf: 3 }
-    ],
+      { name: 'Streamer (Sculpin)', type: 'streamer', size: '4–6', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Spillway boat ramp', desc: 'Top of A section, drift starts here' },
       { type: '🅿️', name: 'Little Hole', desc: 'Walk-in trail along entire A section' },
@@ -116,8 +119,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', conf: 4 },
       { name: 'Prince Nymph', type: 'nymph', size: '12–14', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', conf: 4 },
-      { name: 'PMD Sparkle Dun', type: 'dry', size: '16', conf: 3 }
-    ],
+      { name: 'PMD Sparkle Dun', type: 'dry', size: '16', conf: 3 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Rockport tailwater', desc: 'Below dam, public access' },
       { type: '🚶', name: 'Henefer pullouts', desc: 'Roadside, wade-in' }
@@ -141,8 +144,8 @@ const HATCHED_DATA = [
       { name: 'Chironomid (Black/Red)', type: 'chironomid', size: '12–16', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14', conf: 4 },
-      { name: 'Wooly Bugger (Olive)', type: 'streamer', size: '8–10', conf: 4 }
-    ],
+      { name: 'Wooly Bugger (Olive)', type: 'streamer', size: '8–10', conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Soldier Creek ramp', desc: 'Main boat launch', lat: 40.1553, lng: -111.0483 },
       { type: '🛶', name: 'Strawberry Bay marina', desc: 'Ramp, rentals, fee' },
@@ -164,8 +167,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Deer Creek State Park', desc: 'Ramp, fee, restrooms', lat: 40.41, lng: -111.5031 },
       { type: '🚶', name: 'Provo River inlet', desc: 'Shoreline, wade the inflow' }
@@ -197,8 +200,8 @@ const HATCHED_DATA = [
       { name: 'Salmonfly (Rogue Foam)', type: 'dry', size: '4–6', conf: 4 },
       { name: 'Yellow Stimulator', type: 'dry', size: '14–16', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: '$3 Bridge (Varney)', desc: 'Famous wade access, gravel lot' },
       { type: '🛶', name: 'Lyons Bridge', desc: 'Drift boat put-in' },
@@ -226,8 +229,8 @@ const HATCHED_DATA = [
       { name: 'Salmonfly (Chubby Chernobyl)', type: 'dry', size: '4–8', conf: 5 },
       { name: 'Golden Stone Nymph', type: 'nymph', size: '6–10', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', conf: 4 },
-      { name: 'Hopper (Morrish)', type: 'dry', size: '8–10', conf: 4 }
-    ],
+      { name: 'Hopper (Morrish)', type: 'dry', size: '8–10', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Carbella', desc: 'Put-in above Yankee Jim Canyon' },
       { type: '🅿️', name: 'Mallards Rest FAS', desc: 'Fishing access site, ramp' },
@@ -256,8 +259,9 @@ const HATCHED_DATA = [
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16–18', conf: 5 },
       { name: 'Trico Spinner', type: 'dry', size: '18–20', conf: 4 },
       { name: 'Pink Amex', type: 'nymph', size: '14–16', conf: 4 },
-      { name: 'Zebra Midge', type: 'nymph', size: '16–18', conf: 4 }
-    ],
+      { name: 'Zebra Midge', type: 'nymph', size: '16–18', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Wolf Creek Bridge', desc: 'Popular put-in' },
       { type: '🅿️', name: 'Craig FAS', desc: 'Town access, ramp, fly shops' },
@@ -284,8 +288,10 @@ const HATCHED_DATA = [
       { name: 'Sow Bug', type: 'nymph', size: '14–16', conf: 5 },
       { name: 'Ray Charles (Scud)', type: 'nymph', size: '16–18', conf: 5 },
       { name: 'PMD Cripple', type: 'emerger', size: '16–18', conf: 4 },
-      { name: 'Trico Spinner', type: 'dry', size: '18–20', conf: 4 }
-    ],
+      { name: 'Trico Spinner', type: 'dry', size: '18–20', conf: 4 },
+      { name: "BWO Parachute", type: 'dry', size: '18–22', color: "Olive/gray", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Afterbay ramp', desc: 'Top put-in below dam' },
       { type: '🅿️', name: '3 Mile FAS', desc: 'Ramp + wade access' },
@@ -311,8 +317,9 @@ const HATCHED_DATA = [
       { name: 'Salmonfly (Foam)', type: 'dry', size: '4–6', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', conf: 4 },
       { name: 'Prince Nymph', type: 'nymph', size: '12–14', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '8–10', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '8–10', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Trico Spinner", type: 'dry', size: '20–24', color: "Black/white", conf: 4 }],
     access: [
       { type: '🛶', name: 'Maidenrock', desc: 'Canyon float put-in' },
       { type: '🅿️', name: 'Melrose FAS', desc: 'Ramp + wade access' }
@@ -365,8 +372,13 @@ const HATCHED_DATA = [
       { name: 'Leech (Red)', type: 'streamer', size: '8–10', conf: 5 },
       { name: 'Scud', type: 'nymph', size: '14–16', conf: 5 },
       { name: 'Zebra Midge', type: 'nymph', size: '16–18', conf: 4 },
-      { name: 'Egg Pattern', type: 'nymph', size: '14', conf: 4 }
-    ],
+      { name: 'Egg Pattern', type: 'nymph', size: '14', conf: 4 },
+      { name: "BWO Parachute", type: 'dry', size: '18–22', color: "Olive/gray", conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Trico Spinner", type: 'dry', size: '20–24', color: "Black/white", conf: 4 }],
     access: [
       { type: '🛶', name: 'Grey Reef ramp', desc: 'Below dam, main put-in' },
       { type: '🅿️', name: 'Lusby access', desc: 'Wade + ramp' }
@@ -389,8 +401,8 @@ const HATCHED_DATA = [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–10', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12', conf: 3 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12', conf: 3 },
+      { name: "Gray Drake", type: 'dry', size: '10–12', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Deadmans Bar', desc: 'Grand Teton NP float put-in' },
       { type: '🛶', name: 'Moose Landing', desc: 'Popular takeout' }
@@ -424,8 +436,8 @@ const HATCHED_DATA = [
       { name: 'PMD Cripple', type: 'emerger', size: '16–18', conf: 5 },
       { name: 'CDC Comparadun', type: 'dry', size: '16–18', conf: 4 },
       { name: 'RS2', type: 'emerger', size: '18–20', conf: 4 },
-      { name: 'Trico Spinner', type: 'dry', size: '20', conf: 4 }
-    ],
+      { name: 'Trico Spinner', type: 'dry', size: '20', conf: 4 },
+      { name: "Chubby Chernobyl", type: 'dry', size: '4–8', color: "Orange/black", conf: 4 }],
     access: [
       { type: '🚶', name: 'Harriman State Park', desc: 'Walk-in to the Railroad Ranch flats' },
       { type: '🅿️', name: 'Last Chance', desc: 'Roadside access, fly shops' },
@@ -452,8 +464,8 @@ const HATCHED_DATA = [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', conf: 5 },
       { name: 'Salmonfly Foam', type: 'dry', size: '4–6', conf: 4 },
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16', conf: 4 },
-      { name: 'Pink Albert Cripple', type: 'emerger', size: '14–16', conf: 4 }
-    ],
+      { name: 'Pink Albert Cripple', type: 'emerger', size: '14–16', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Conant boat ramp', desc: 'Top of the canyon float' },
       { type: '🛶', name: 'Cottonwood', desc: 'Lower takeout' },
@@ -482,8 +494,8 @@ const HATCHED_DATA = [
       { name: 'PMD CDC Dun', type: 'dry', size: '18', conf: 5 },
       { name: 'Trico Spinner', type: 'dry', size: '20–22', conf: 5 },
       { name: 'Brown Drake Dun', type: 'dry', size: '10–12', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '18–20', conf: 3 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '18–20', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'TNC Preserve', desc: 'Walk-in, sign register, catch & release' },
       { type: '🚶', name: 'Kilpatrick Bridge', desc: 'Public access' }
@@ -569,8 +581,9 @@ const HATCHED_DATA = [
       { name: 'Black Beauty', type: 'nymph', size: '20–22', conf: 5 },
       { name: 'RS2', type: 'emerger', size: '18–22', conf: 5 },
       { name: 'Mercury Midge', type: 'nymph', size: '20–24', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '18–20', conf: 3 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '18–20', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 }],
     access: [
       { type: '🚶', name: 'Dream Stream', desc: 'Walk-in between Spinney & Eleven Mile' },
       { type: '🚶', name: 'Cheesman Canyon trail', desc: 'Hike-in, wild trout' },
@@ -596,8 +609,9 @@ const HATCHED_DATA = [
       { name: 'Green Drake Paradun', type: 'dry', size: '10–12', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16', conf: 4 },
-      { name: 'Hopper-Copper-Dropper', type: 'dry', size: '10', conf: 4 }
-    ],
+      { name: 'Hopper-Copper-Dropper', type: 'dry', size: '10', conf: 4 },
+      { name: "Chubby Chernobyl", type: 'dry', size: '4–8', color: "Orange/black", conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [
       { type: '🛶', name: 'Carbondale ramps', desc: 'Lower river float' },
       { type: '🚶', name: 'Rio Grande Trail', desc: 'Walk-in access along much of river' }
@@ -626,8 +640,8 @@ const HATCHED_DATA = [
       { name: 'Pat’s Rubber Legs', type: 'nymph', size: '6–10', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '16', conf: 4 },
-      { name: 'Copper John', type: 'nymph', size: '14–16', conf: 4 }
-    ],
+      { name: 'Copper John', type: 'nymph', size: '14–16', conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 }],
     access: [
       { type: '🚶', name: 'Black Canyon (SOB Draw)', desc: 'Steep hike-in, trophy water' },
       { type: '🛶', name: 'Gunnison Gorge', desc: 'Hike or raft, wilderness float' },
@@ -651,8 +665,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Mysis Shrimp', type: 'nymph', size: '16–18', conf: 5 },
       { name: 'Black Beauty Midge', type: 'nymph', size: '20–24', conf: 4 },
-      { name: 'RS2', type: 'emerger', size: '20', conf: 4 }
-    ],
+      { name: 'RS2', type: 'emerger', size: '20', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🚶', name: 'Below Dillon Dam', desc: 'Walk-in, runs through Silverthorne' },
       { type: '🚶', name: 'Outlet mall stretch', desc: 'Public access in town' }
@@ -679,8 +693,8 @@ const HATCHED_DATA = [
       { name: 'Streamer (Baitfish)', type: 'streamer', size: '2–6', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Cedar Springs Marina', desc: 'Ramp, rentals, fee' },
       { type: '🛶', name: 'Buckboard Marina', desc: 'WY side, full-service ramp', lat: 41.24687, lng: -109.59485 },
@@ -707,8 +721,8 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', conf: 5 },
       { name: 'Callibaetis Spinner', type: 'dry', size: '14', conf: 5 },
       { name: 'Zebra Midge', type: 'chironomid', size: '16–18', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', conf: 4 },
+      { name: "Trico Spinner", type: 'dry', size: '20–24', color: "Black/white", conf: 4 }],
     access: [
       { type: '🛶', name: 'Madison Arm Resort', desc: 'Ramp, camping' },
       { type: '🛶', name: 'Lonesomehurst', desc: 'USFS ramp, Grayling Arm' },
@@ -735,8 +749,8 @@ const HATCHED_DATA = [
       { name: 'Chironomid (Black)', type: 'chironomid', size: '14–18', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8', conf: 3 },
+      { name: "Trico Spinner", type: 'dry', size: '20–24', color: "Black/white", conf: 4 }],
     access: [
       { type: '🛶', name: 'Spinney boat ramp', desc: 'State park ramp, fee' },
       { type: '🚶', name: 'North shore', desc: 'Walk-in / tube access' }
@@ -764,8 +778,9 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan, olive', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock/brown', conf: 3 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock/brown', conf: 3 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Guinavah Campground', desc: 'Canyon access off US-89' },
       { type: '🚶', name: 'Highway pullouts', desc: 'Wade the canyon stretch' }
@@ -786,8 +801,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Hailstone ramp (State Park)', desc: 'Fee, full facilities', lat: 40.6215, lng: -111.4089 },
       { type: '🚶', name: 'Rock Cliff (Provo inlet)', desc: 'Nature area, shoreline/tube' }
@@ -808,8 +823,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '12–14', color: 'Black, red', conf: 4 },
-      { name: 'Streamer (Baitfish)', type: 'streamer', size: '4–6', color: 'White, gray', conf: 4 }
-    ],
+      { name: 'Streamer (Baitfish)', type: 'streamer', size: '4–6', color: 'White, gray', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Twin Creeks ramp', desc: 'Boat launch, lodge nearby' },
       { type: '🚶', name: 'Lakeside shoreline', desc: 'Walk-in / tube access' }
@@ -835,8 +850,9 @@ const HATCHED_DATA = [
       { name: 'Sow Bug', type: 'nymph', size: '14–16', color: 'Gray, tan', conf: 5 },
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16–18', color: 'Pale yellow-olive', conf: 4 },
       { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown, coffee/black', conf: 4 },
-      { name: 'Crane Fly Larva', type: 'nymph', size: '8', color: 'Tan', conf: 3 }
-    ],
+      { name: 'Crane Fly Larva', type: 'nymph', size: '8', color: 'Tan', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Clark Canyon Dam', desc: 'Top put-in, brushy banks' },
       { type: '🅿️', name: 'High Bridge FAS', desc: 'Ramp + wade access' }
@@ -866,8 +882,9 @@ const HATCHED_DATA = [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', color: 'Tan, gold', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 },
       { name: 'Spruce Moth', type: 'dry', size: '12–14', color: 'Tan', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '6–10', color: 'Brown/black', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '6–10', color: 'Brown/black', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Roundup', desc: 'Popular float put-in' },
       { type: '🅿️', name: 'Johnsrud Park', desc: 'Lower river, ramp + wade' }
@@ -895,8 +912,10 @@ const HATCHED_DATA = [
       { name: 'Salmonfly Foam', type: 'dry', size: '4–6', color: 'Orange/black', conf: 5 },
       { name: 'Yellow Stimulator', type: 'dry', size: '12–14', color: 'Yellow', conf: 4 },
       { name: 'Prince Nymph', type: 'nymph', size: '10–14', color: 'Peacock', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '8–10', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '8–10', color: 'Tan', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "BWO Parachute", type: 'dry', size: '18–22', color: "Olive/gray", conf: 4 }],
     access: [
       { type: '🚶', name: 'Rock Creek Road', desc: 'Gravel road follows entire creek', lat: 46.96742, lng: -114.22789 },
       { type: '🅿️', name: 'Valley of the Moon', desc: 'Lower access near I-90' }
@@ -943,8 +962,8 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural brown', conf: 5 },
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16', color: 'Pale yellow-olive', conf: 4 },
       { name: 'Zebra Midge', type: 'nymph', size: '16–18', color: 'Black/silver', conf: 4 },
-      { name: 'San Juan Worm', type: 'nymph', size: '12–14', color: 'Red', conf: 3 }
-    ],
+      { name: 'San Juan Worm', type: 'nymph', size: '12–14', color: 'Red', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Wedding of the Waters', desc: 'Canyon float put-in', lat: 43.58107, lng: -108.21372 },
       { type: '🅿️', name: 'Boysen tailwater', desc: 'Wade below the dam' }
@@ -965,8 +984,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'PMD Comparadun', type: 'dry', size: '16–18', color: 'Pale yellow-olive', conf: 5 },
       { name: 'Soft Hackle', type: 'emerger', size: '14–16', color: 'Partridge/olive', conf: 5 },
-      { name: 'BWO Sparkle Dun', type: 'dry', size: '18–20', color: 'Olive-gray', conf: 4 }
-    ],
+      { name: 'BWO Sparkle Dun', type: 'dry', size: '18–20', color: 'Olive-gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Firehole Lake Drive', desc: 'Walk-in among the geyser basins' },
       { type: '🅿️', name: 'Firehole Canyon Dr', desc: 'Canyon pullouts' }
@@ -988,8 +1007,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', color: 'Tan, gold', conf: 5 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 4 },
-      { name: 'Streamer (Sculpin)', type: 'streamer', size: '4–6', color: 'Olive, brown', conf: 4 }
-    ],
+      { name: 'Streamer (Sculpin)', type: 'streamer', size: '4–6', color: 'Olive, brown', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Fontenelle Dam', desc: 'Tailwater float put-in' },
       { type: '🅿️', name: 'Seedskadee NWR', desc: 'Walk-in refuge access' }
@@ -1018,8 +1037,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Green Drake Paradun', type: 'dry', size: '10–12', color: 'Olive-green', conf: 5 },
       { name: 'PMD Comparadun', type: 'dry', size: '16', color: 'Pale yellow-olive', conf: 4 },
-      { name: 'Chubby Chernobyl', type: 'dry', size: '10', color: 'Gold', conf: 4 }
-    ],
+      { name: 'Chubby Chernobyl', type: 'dry', size: '10', color: 'Gold', conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Harrops Bridge', desc: 'Upper meadow float' },
       { type: '🚶', name: 'Canyon trail', desc: 'Hike-in pocket water' }
@@ -1043,8 +1063,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Green Drake Paradun', type: 'dry', size: '10–12', color: 'Olive-green', conf: 5 },
       { name: 'PMD Cripple', type: 'emerger', size: '16–18', color: 'Pale olive', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚶', name: 'Bike path pullouts', desc: 'Walk-in through Ketchum/Hailey' },
       { type: '🅿️', name: 'Bellevue access', desc: 'Lower river' }
@@ -1066,8 +1087,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 5 },
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', color: 'Tan', conf: 5 },
-      { name: 'Parachute Adams', type: 'dry', size: '12–14', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '12–14', color: 'Adams gray', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'US-12 pullouts', desc: 'Highway follows the whole river' },
       { type: '🅿️', name: 'Wilderness Gateway', desc: 'Campground access' }
@@ -1147,8 +1169,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown/black', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 }],
     access: [
       { type: '🛶', name: 'Pumphouse', desc: 'BLM ramp, popular float' },
       { type: '🚶', name: 'Radium', desc: 'Walk-in + camping' }
@@ -1171,8 +1193,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Mysis Shrimp', type: 'nymph', size: '16–18', color: 'Clear/white', conf: 5 },
       { name: 'Black Beauty Midge', type: 'nymph', size: '20–24', color: 'Black/silver', conf: 4 },
-      { name: 'Green Drake Dun', type: 'dry', size: '12', color: 'Olive-green', conf: 4 }
-    ],
+      { name: 'Green Drake Dun', type: 'dry', size: '12', color: 'Olive-green', conf: 4 },
+      { name: "BWO Parachute", type: 'dry', size: '18–22', color: "Olive/gray", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Below Taylor Dam (Hog Trough)', desc: 'Walk-in, trophy C&R water' },
       { type: '🅿️', name: 'Lottis Creek', desc: 'Campground access' }
@@ -1196,8 +1219,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan, olive', conf: 5 },
       { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown/black', conf: 4 },
-      { name: 'Copper John', type: 'nymph', size: '14–16', color: 'Copper, red', conf: 4 }
-    ],
+      { name: 'Copper John', type: 'nymph', size: '14–16', color: 'Copper, red', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🛶', name: 'Edwards', desc: 'Float put-in' },
       { type: '🚶', name: 'Eagle/Gypsum pullouts', desc: 'Lower river walk-in' }
@@ -1223,8 +1246,11 @@ const HATCHED_DATA = [
     flies: [
       { name: 'RS2', type: 'emerger', size: '18–22', color: 'Gray, olive', conf: 5 },
       { name: 'Zebra Midge', type: 'nymph', size: '18–20', color: 'Black/silver', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🚶', name: 'Stagecoach tailwater', desc: 'Walk-in below the dam' },
       { type: '🚶', name: 'Steamboat town stretch', desc: 'Public access through town' }
@@ -1246,8 +1272,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '14–18', color: 'Black, olive', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 },
+      { name: "Trico Spinner", type: 'dry', size: '20–24', color: "Black/white", conf: 4 }],
     access: [
       { type: '🚤', name: 'Eleven Mile State Park', desc: 'Ramps, camping, fee' },
       { type: '🚶', name: 'North shore', desc: 'Walk-in / tube access' }
@@ -1391,8 +1417,8 @@ const HATCHED_DATA = [
       { name: 'Sow Bug', type: 'nymph', size: '16–18', color: 'Gray, tan', conf: 5 },
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16–18', color: 'Pale yellow-olive', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Zebra Midge', type: 'nymph', size: '18–20', color: 'Black/red', conf: 4 }
-    ],
+      { name: 'Zebra Midge', type: 'nymph', size: '18–20', color: 'Black/red', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Below Soldier Creek Dam', desc: 'Walk-in tailwater, wild trout rules' },
       { type: '🅿️', name: 'Strawberry River Rd', desc: 'Pullouts along the canyon' }
@@ -1437,8 +1463,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Tibble Fork day-use', desc: 'No-wake; tubes & small craft (fee area)', lat: 40.4822, lng: -111.6442 },
       { type: '🚶', name: 'Shoreline trail', desc: 'Walk the bank around the reservoir' }
@@ -1459,8 +1485,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚶', name: 'Dirt road above Tibble Fork', desc: 'High-clearance recommended; tube/shore', lat: 40.503, lng: -111.6571 }
     ],
@@ -1480,8 +1506,9 @@ const HATCHED_DATA = [
       { name: 'Carp Carrot / Backstabber', type: 'nymph', size: '6–10', color: 'Rust, olive, black', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Black, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–8', color: 'Chartreuse, white', conf: 3 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–8', color: 'Chartreuse, white', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Utah Lake State Park (Provo)', desc: 'Ramps, harbor (fee)' },
       { type: '🚶', name: 'Lincoln Beach', desc: 'Wade the flats — prime carp water' },
@@ -1503,8 +1530,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Payson Lakes Campground', desc: 'Nebo Loop Scenic Byway (fee)', lat: 39.9335, lng: -111.6343 },
       { type: '🚶', name: 'Shoreline trails', desc: 'Walk-in / float tube' }
@@ -1525,8 +1552,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Currant Creek ramp', desc: 'Boat launch + campground' },
       { type: '🚶', name: 'Shoreline', desc: 'Walk-in / tube access' }
@@ -1548,8 +1575,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '14–18', color: 'Black', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '14–18', color: 'Black', conf: 3 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Mirror Lake day-use', desc: 'SR-150, ~45 min from Kamas (fee)', lat: 40.7027, lng: -110.8862 },
       { type: '🚶', name: 'Highline trailhead', desc: 'Hike to dozens of nearby brookie lakes' }
@@ -1595,8 +1622,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Smith & Morehouse ramp', desc: 'Boat launch + campground (fee)', lat: 40.7559, lng: -111.103 },
       { type: '🚶', name: 'Shoreline / inlet', desc: 'Walk-in, fish the creek inlet' }
@@ -1619,8 +1646,8 @@ const HATCHED_DATA = [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Christmas Meadows', desc: 'Stillwater Fork campground & trailhead' },
       { type: '🚶', name: 'SR-150 pullouts', desc: 'Walk-in along the upper river' }
@@ -1641,8 +1668,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Whitney Reservoir Rd', desc: 'Dirt road off SR-150; tube/shore' }
     ],
@@ -1662,8 +1689,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 5 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'Grandview Trailhead', desc: '~3–4 mi hike into Grandaddy Basin', lat: 40.5672, lng: -110.8247 }
     ],
@@ -1683,8 +1711,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Moon Lake Resort', desc: 'Ramp, lodging, campground', lat: 40.5796, lng: -110.5048 },
       { type: '🚶', name: 'Shoreline', desc: 'Walk-in / tube; gateway to backcountry lakes' }
@@ -1711,8 +1739,10 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black, maroon', conf: 5 },
-      { name: 'Scud', type: 'nymph', size: '12–16', color: 'Olive, tan', conf: 4 }
-    ],
+      { name: 'Scud', type: 'nymph', size: '12–16', color: 'Olive, tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'SR-12 (Boulder Mountain)', desc: 'Pullouts to roadside lakes between Torrey & Boulder' },
       { type: '🥾', name: 'Forest roads & trails', desc: 'Hike/ATV to dozens of backcountry lakes' }
@@ -1733,8 +1763,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Donkey Reservoir Rd', desc: 'Short spur off SR-12; tube/shore', lat: 38.2041, lng: -111.4911 }
     ],
@@ -1754,8 +1784,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Bowns Rd (off SR-12)', desc: 'Rough dirt road; high-clearance advised', lat: 38.1077, lng: -111.2711 },
       { type: '🚶', name: 'Shoreline', desc: 'Walk-in / tube' }
@@ -1776,8 +1806,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'Blind Lake Trailhead', desc: 'Short-moderate hike from Fish Creek/SR-12 area', lat: 38.1893, lng: -111.4268 }
     ],
@@ -1799,8 +1830,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan, olive', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '16–18', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '16–18', color: 'Adams gray', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Mill Meadow tailwater', desc: 'Below the reservoir near Bicknell' },
       { type: '🚶', name: 'SR-24 pullouts (Torrey)', desc: 'Roadside access through the valley' }
@@ -1826,8 +1857,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan, olive', conf: 5 },
       { name: 'RS2', type: 'emerger', size: '18–22', color: 'Gray, olive', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown/black', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown/black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Byers Canyon pullouts', desc: 'US-40 roadside (pocket water)', lat: 40.05125, lng: -106.13173 },
       { type: '🚶', name: 'Kemp-Breeze SWA', desc: 'Gold Medal walk-in near Parshall', lat: 40.0589, lng: -106.1869 },
@@ -1875,8 +1906,8 @@ const HATCHED_DATA = [
       { name: 'RS2', type: 'emerger', size: '18–22', color: 'Gray, olive', conf: 5 },
       { name: 'Zebra Midge', type: 'nymph', size: '18–20', color: 'Black/silver', conf: 4 },
       { name: 'Egg Pattern', type: 'nymph', size: '14', color: 'Orange, peach', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Below Williams Fork Dam', desc: 'Walk-in tailwater (hike from gate)' },
       { type: '🅿️', name: 'Confluence access', desc: 'Near Parshall / US-40' }
@@ -1897,8 +1928,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '16–18', color: 'Adams gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Willow Creek Rd', desc: 'Below the reservoir near Granby' }
     ],
@@ -1918,8 +1949,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Fraser Experimental Forest', desc: 'Forest road access SW of Fraser' }
     ],
@@ -1960,8 +1991,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Royal Wulff', type: 'dry', size: '14–16', color: 'Red/white', conf: 4 },
-      { name: 'Black Ant', type: 'dry', size: '14–16', color: 'Black', conf: 4 }
-    ],
+      { name: 'Black Ant', type: 'dry', size: '14–16', color: 'Black', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Coyote Valley Trailhead', desc: 'RMNP, US-34 (park fee)', lat: 40.3447, lng: -105.8527 },
       { type: '🚶', name: 'Holzwarth Meadow', desc: 'Walk-in meadow water' }
@@ -1982,8 +2013,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Royal Wulff', type: 'dry', size: '14', color: 'Red/white', conf: 4 }
-    ],
+      { name: 'Royal Wulff', type: 'dry', size: '14', color: 'Red/white', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'North Inlet Trailhead', desc: 'RMNP trail from Grand Lake', lat: 40.2539, lng: -105.8203 }
     ],
@@ -2003,8 +2034,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 3 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🥾', name: 'East Inlet Trailhead', desc: 'RMNP trail from Grand Lake (Adams Falls)', lat: 40.2378, lng: -105.8027 }
     ],
@@ -2023,8 +2054,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'Monarch Lake Trailhead', desc: 'Hike above Monarch Lake (Arapaho NRA)', lat: 40.1111, lng: -105.7464 }
     ],
@@ -2045,8 +2076,9 @@ const HATCHED_DATA = [
       { name: 'Streamer (Baitfish)', type: 'streamer', size: '2–6', color: 'White, gray, olive', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Leech', type: 'streamer', size: '8–10', color: 'Maroon, black', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Grand Lake town ramp', desc: 'Public ramp & marina', lat: 40.2519, lng: -105.8233 },
       { type: '🚶', name: 'Town boardwalk shoreline', desc: 'Walk-in shoreline casting' }
@@ -2068,8 +2100,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 5 },
       { name: 'Streamer (Baitfish)', type: 'streamer', size: '2–6', color: 'White, gray', conf: 4 },
       { name: 'Leech', type: 'streamer', size: '8–10', color: 'Maroon, black', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Stillwater ramp', desc: 'Arapaho NRA boat launch (fee)', lat: 40.1801, lng: -105.8860 },
       { type: '🚶', name: 'Sunset Point', desc: 'Shoreline / tube access' }
@@ -2090,8 +2123,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Shadow Mountain ramp', desc: 'Arapaho NRA launch' },
       { type: '🚶', name: 'Grand Lake channel', desc: 'Wade/tube the connecting channel' }
@@ -2112,8 +2145,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Willow Creek ramp', desc: 'Boat launch + campground (no-wake)' },
       { type: '🚶', name: 'Shoreline', desc: 'Walk-in / tube access' }
@@ -2134,8 +2167,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Pike Streamer (Deceiver)', type: 'streamer', size: '1/0–4', color: 'Red/white, chartreuse', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Williams Fork ramp', desc: 'Boat launch near the dam' },
       { type: '🚶', name: 'Inlet flats', desc: 'Wade/tube for cruising pike & trout' }
@@ -2156,8 +2190,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 }
-    ],
+      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Monarch Lake Trailhead', desc: 'Short walk to the lake loop (Arapaho NRA)', lat: 40.1111, lng: -105.7464 }
     ],
@@ -2177,8 +2212,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Meadow Creek Rd', desc: 'Rough road above Tabernash; tube/shore' }
     ],
@@ -2198,8 +2233,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Wolford Mtn ramp', desc: 'Boat launch + campground (fee)' },
       { type: '🚶', name: 'Shoreline', desc: 'Walk-in / tube access' }
@@ -2240,8 +2275,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'Monarch Lake → Cascade Creek', desc: '~7 mi hike into Indian Peaks', lat: 40.1111, lng: -105.7464 }
     ],
@@ -2261,8 +2297,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'East Inlet Trail', desc: '~5.5 mi hike from Grand Lake (RMNP)', lat: 40.2378, lng: -105.8027 }
     ],
@@ -2282,8 +2319,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 4 },
-      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 }
-    ],
+      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'East Inlet Trail', desc: '~7 mi hike from Grand Lake (RMNP)', lat: 40.2378, lng: -105.8027 }
     ],
@@ -2302,8 +2340,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
-      { name: 'Black Ant', type: 'dry', size: '14–16', color: 'Black', conf: 4 }
-    ],
+      { name: 'Black Ant', type: 'dry', size: '14–16', color: 'Black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🥾', name: 'Roaring Fork Trailhead', desc: 'Steep hike from Arapaho NRA (Lake Granby)' }
     ],
@@ -2322,8 +2360,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '10–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'Junco/Caribou Trail', desc: 'Long hike above Monarch Lake (Indian Peaks)', lat: 40.1111, lng: -105.7464 }
     ],
@@ -2343,8 +2382,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'North Inlet Trail', desc: '~11 mi hike from Grand Lake (RMNP) — overnight', lat: 40.2539, lng: -105.8203 }
     ],
@@ -3216,8 +3256,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🛶', name: 'Mill Hollow Reservoir', desc: 'No-wake; tube/shore. Off UT-35 (Wolf Creek Byway), ~14 mi above Woodland', lat: 40.4898, lng: -111.1059 }
     ],
@@ -3240,8 +3280,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, brown', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
+      { name: "Chubby Chernobyl", type: 'dry', size: '4–8', color: "Orange/black", conf: 4 }],
     access: [
       { type: '🛶', name: 'Twin Bridges access', desc: 'FAS launch' },
       { type: '🅿️', name: 'Cardwell', desc: 'Highway access' }
@@ -3284,8 +3324,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Yellow Stimulator', type: 'dry', size: '12–14', color: 'Yellow', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Main Boulder Rd', desc: 'Forest access south of Big Timber' }
     ],
@@ -3335,8 +3375,9 @@ const HATCHED_DATA = [
       { name: 'Skwala Stone', type: 'dry', size: '8–10', color: 'Olive/tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Hopper (Morrish)', type: 'dry', size: '8–10', color: 'Tan', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '6–10', color: 'Brown/black', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '6–10', color: 'Brown/black', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Missoula-area FAS', desc: 'Multiple float accesses' }
     ],
@@ -3362,8 +3403,9 @@ const HATCHED_DATA = [
       { name: 'Skwala Stone', type: 'dry', size: '8–10', color: 'Olive/tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–10', color: 'Tan, pink', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–16', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–16', color: 'Natural brown', conf: 4 },
+      { name: "Chubby Chernobyl", type: 'dry', size: '4–8', color: "Orange/black", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Bitterroot FAS sites', desc: 'Many float accesses, Hamilton to Missoula' }
     ],
@@ -3404,8 +3446,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 },
-      { name: 'Royal Wulff', type: 'dry', size: '12–14', color: 'Red/white', conf: 4 }
-    ],
+      { name: 'Royal Wulff', type: 'dry', size: '12–14', color: 'Red/white', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Bear Creek / Moccasin', desc: 'Float access along US-2' },
       { type: '🚶', name: 'West Glacier', desc: 'Bank access near the park' }
@@ -3447,8 +3489,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'MT-83 pullouts', desc: 'Roadside access in the Swan Valley' }
     ],
@@ -3511,8 +3553,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Shields River Rd', desc: 'Mostly private — seek permission or use bridges' }
     ],
@@ -3532,8 +3574,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–10', color: 'Tan', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
+      { name: "BWO Parachute", type: 'dry', size: '18–22', color: "Olive/gray", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Upper Musselshell (Martinsdale)', desc: 'Best trout water up high' }
     ],
@@ -3554,8 +3596,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '16–18', color: 'Adams gray', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Bozeman-area access', desc: 'Walk-in spring-fed meadow water', lat: 45.6641, lng: -110.95272 }
     ],
@@ -3575,8 +3618,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Piney Campground ramp', desc: 'Boat launch (fee)' },
       { type: '🚶', name: 'Weed-bed shoreline', desc: 'Tube the drop-offs' }
@@ -3597,8 +3640,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Silos / Goose Bay ramps', desc: 'Multiple boat launches' }
     ],
@@ -3662,8 +3705,9 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Streamer (Baitfish)', type: 'streamer', size: '2–6', color: 'White, gray, olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Mysis Shrimp", type: 'nymph', size: '16–18', color: "White/clear", conf: 4 }],
     access: [
       { type: '🛶', name: 'Big Arm / Somers ramps', desc: 'State park boat launches' }
     ],
@@ -3683,8 +3727,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🚤', name: 'Clark Canyon ramps', desc: 'Boat launches near the dam (I-15)' }
     ],
@@ -3704,8 +3748,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚤', name: 'Ennis Lake / Valley Garden', desc: 'Boat & shoreline access' }
     ],
@@ -3746,8 +3790,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 3 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚤', name: 'Hyalite Reservoir', desc: 'Paved road up from Bozeman; tube/shore' }
     ],
@@ -3765,8 +3809,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Pike Streamer (Deceiver)', type: 'streamer', size: '1/0–4', color: 'Red/white, chartreuse', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Hell Creek State Park', desc: 'Ramp on the big water' }
     ],
@@ -3790,8 +3834,8 @@ const HATCHED_DATA = [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', color: 'Tan, gold', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '2–6', color: 'Black/pink', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '6–10', color: 'Brown/black', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '6–10', color: 'Brown/black', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Sawtooth Valley (Stanley)', desc: 'Upper river float & wade, ID-75' },
       { type: '🅿️', name: 'US-93 (Salmon)', desc: 'Highway access downstream' }
@@ -3812,8 +3856,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 5 },
       { name: 'Royal Wulff', type: 'dry', size: '10–14', color: 'Red/white', conf: 5 },
-      { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 }
-    ],
+      { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Boundary Creek (permit)', desc: 'Multi-day wilderness float — lottery permit' }
     ],
@@ -3833,8 +3877,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–14', color: 'Adams gray', conf: 4 },
-      { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Chubby Chernobyl', type: 'dry', size: '8–10', color: 'Tan', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Selway Falls Rd', desc: 'Lower-river road access (then wilderness)' }
     ],
@@ -3855,8 +3900,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Green Drake Paradun', type: 'dry', size: '10–12', color: 'Olive-green', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 5 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Chubby Chernobyl", type: 'dry', size: '4–8', color: "Orange/black", conf: 4 }],
     access: [
       { type: '🅿️', name: 'St. Joe River Rd (Avery)', desc: 'Road follows the river' }
     ],
@@ -3876,8 +3921,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 5 },
       { name: 'Green Drake Paradun', type: 'dry', size: '10–12', color: 'Olive-green', conf: 4 },
-      { name: 'Stimulator', type: 'dry', size: '10–12', color: 'Orange', conf: 4 }
-    ],
+      { name: 'Stimulator', type: 'dry', size: '10–12', color: 'Orange', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'North Fork Rd (Prichard)', desc: 'Road access in the Panhandle', lat: 47.55714, lng: -116.256 }
     ],
@@ -3896,8 +3941,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Intruder', type: 'streamer', size: '1/0–4', color: 'Black/blue, pink', conf: 5 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '2–6', color: 'Black/purple', conf: 4 },
-      { name: 'Skagit Streamer', type: 'streamer', size: '2–4', color: 'Purple, orange', conf: 4 }
-    ],
+      { name: 'Skagit Streamer', type: 'streamer', size: '2–4', color: 'Purple, orange', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Orofino-area access', desc: 'Big-water swing runs off US-12' }
     ],
@@ -3971,8 +4016,12 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Zebra Midge', type: 'nymph', size: '18–22', color: 'Black/red', conf: 5 },
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16–18', color: 'Pale yellow-olive', conf: 4 },
-      { name: 'BWO Sparkle Dun', type: 'dry', size: '18–20', color: 'Olive-gray', conf: 4 }
-    ],
+      { name: 'BWO Sparkle Dun', type: 'dry', size: '18–20', color: 'Olive-gray', conf: 4 },
+      { name: "Skwala Stone", type: 'dry', size: '8–10', color: "Olive/brown", conf: 4 },
+      { name: "Yellow Sally", type: 'dry', size: '12–16', color: "Yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 },
+      { name: "Crane Fly Larva", type: 'nymph', size: '8–12', color: "Tan", conf: 3 }],
     access: [
       { type: '🅿️', name: 'Below Owyhee Dam', desc: 'Desert canyon road access' }
     ],
@@ -4014,8 +4063,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16', color: 'Pale yellow-olive', conf: 4 },
-      { name: 'Trico Spinner', type: 'dry', size: '18–20', color: 'Black/white', conf: 4 }
-    ],
+      { name: 'Trico Spinner', type: 'dry', size: '18–20', color: 'Black/white', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Below Mackay Dam', desc: 'Tailwater access near Mackay' }
     ],
@@ -4099,8 +4148,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 5 },
       { name: 'Green Drake Paradun', type: 'dry', size: '10–12', color: 'Olive-green', conf: 5 },
-      { name: 'Stimulator', type: 'dry', size: '10–12', color: 'Orange, yellow', conf: 4 }
-    ],
+      { name: 'Stimulator', type: 'dry', size: '10–12', color: 'Orange, yellow', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🥾', name: 'Kelly Creek Trailhead', desc: 'Long drive + walk-in, Clearwater NF' }
     ],
@@ -4120,8 +4170,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Warm River Campground', desc: 'Easy access near Ashton (huge tame trout at the bridge)', lat: 44.11103, lng: -111.33356 }
     ],
@@ -4141,8 +4191,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🛶', name: 'Redfish Lake Lodge', desc: 'Ramp & shoreline, Stanley' }
     ],
@@ -4162,8 +4213,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Alturas Lake Rd', desc: 'Campground & ramp, Sawtooth Valley' }
     ],
@@ -4183,8 +4234,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🚤', name: 'Lake Cascade State Park', desc: 'Multiple ramps near Cascade' }
     ],
@@ -4203,8 +4254,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Streamer (Baitfish)', type: 'streamer', size: '2–6', color: 'White, gray', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'North Beach (Ponderosa SP)', desc: 'Ramp & inlet access, McCall' }
     ],
@@ -4222,8 +4273,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Streamer (Baitfish)', type: 'streamer', size: '2–6', color: 'White, olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚤', name: 'Priest Lake ramps', desc: 'State park launches, Panhandle' }
     ],
@@ -4242,8 +4293,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white, olive', conf: 4 },
       { name: 'Pike Streamer (Deceiver)', type: 'streamer', size: '1/0–4', color: 'Red/white, perch', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: "Coeur d'Alene ramps", desc: 'City & state park launches' }
     ],
@@ -4263,8 +4314,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Mackay Reservoir ramp', desc: 'Near Mackay, below the Lost River peaks' }
     ],
@@ -4284,8 +4335,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14', color: 'Gray-olive', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'West Magic / Moonstone', desc: 'Ramps near Sun Valley' }
     ],
@@ -4305,8 +4356,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, brown', conf: 5 },
       { name: 'Streamer (Sculpin)', type: 'streamer', size: '2–6', color: 'Olive, brown', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Snake River inlet ramps', desc: 'Near American Falls / Pocatello' }
     ],
@@ -4350,8 +4402,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Zebra Midge', type: 'nymph', size: '18–20', color: 'Black/silver', conf: 4 }
-    ],
+      { name: 'Zebra Midge', type: 'nymph', size: '18–20', color: 'Black/silver', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Idaho Falls Greenbelt', desc: 'Paved trail along the river downtown' }
     ],
@@ -4371,8 +4423,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🚤', name: 'Blowout / Calamity ramps', desc: 'Boat launches off US-26 near Irwin' }
     ],
@@ -4392,8 +4444,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Chartreuse/white', conf: 3 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Chartreuse/white', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Blacktail / Juniper ramps', desc: 'Boat launches near Idaho Falls' }
     ],
@@ -4413,8 +4466,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Chesterfield ramp', desc: 'Boat launch near Bancroft (SE Idaho)' }
     ],
@@ -4434,8 +4487,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 3 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 3 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Hwy 28 (Blue Dome / Kaufman)', desc: 'Roadside access on the way to Salmon' }
     ],
@@ -4476,8 +4529,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Warm River / Robinson Creek', desc: 'Forest access near Ashton / Island Park', lat: 44.28853, lng: -111.088 }
     ],
@@ -4544,8 +4597,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'SR-31 (Huntington Canyon)', desc: 'Roadside access in the canyon', lat: 39.14914, lng: -110.91294 }
     ],
@@ -4566,8 +4619,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 5 },
       { name: 'Sow Bug', type: 'nymph', size: '16–18', color: 'Gray, tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚶', name: 'Below Scofield Dam', desc: 'Walk-in tailwater access' }
     ],
@@ -4587,8 +4641,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '16–18', color: 'Adams gray', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8', color: 'Olive, black', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Jeremy Ranch / I-80', desc: 'Limited access — mind private land' }
     ],
@@ -4629,8 +4683,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'SR-153 (Beaver Canyon)', desc: 'Roadside access into the Tushars' }
     ],
@@ -4650,8 +4704,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 3 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Mammoth Creek Rd', desc: 'Access near Hatch / Duck Creek', lat: 37.62609, lng: -112.44549 }
     ],
@@ -4692,8 +4746,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '16', color: 'Adams gray', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 3 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16', color: 'Natural brown', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Chalk Creek Rd (Coalville)', desc: 'Mostly private — seek permission' }
     ],
@@ -4713,8 +4767,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Madsen Bay ramp', desc: 'State park launch (fee)' }
     ],
@@ -4734,8 +4788,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black, sculpin', conf: 5 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Joes Valley ramp', desc: 'Boat launch near Orangeville' }
     ],
@@ -4755,8 +4809,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Electric Lake (SR-31)', desc: 'Boat/tube access; no gas motors' }
     ],
@@ -4775,8 +4829,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Musky Streamer', type: 'streamer', size: '2/0–6', color: 'Perch, fire tiger, white', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Cemetery Point ramp', desc: 'State park launch, Ogden Valley' }
     ],
@@ -4819,8 +4873,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Chartreuse/white', conf: 3 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Chartreuse/white', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Rockport State Park', desc: 'Ramp near Wanship (fee)' }
     ],
@@ -4842,8 +4897,8 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 },
       { name: 'Damselfly Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4, months: [5,6,7] },
       { name: 'Balanced Leech', type: 'streamer', size: '10–12', color: 'Blood/black', conf: 4 },
-      { name: 'Callibaetis Cripple', type: 'dry', size: '14–16', color: 'Gray/tan', conf: 3, months: [5,6,7,8,9] }
-    ],
+      { name: 'Callibaetis Cripple', type: 'dry', size: '14–16', color: 'Gray/tan', conf: 3, months: [5,6,7,8,9] },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Echo State Park', desc: 'Ramp near Coalville' }
     ],
@@ -4887,8 +4942,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Panguitch Lake ramps', desc: 'Boat launches near Panguitch' }
     ],
@@ -4908,8 +4963,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🛶', name: 'Navajo Lake ramps', desc: 'Launches on the Markagunt Plateau' }
     ],
@@ -4929,8 +4984,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Otter Creek State Park', desc: 'Ramp near Antimony (fee)' }
     ],
@@ -4948,8 +5003,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white, perch', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Starvation State Park', desc: 'Ramp near Duchesne (fee)' }
     ],
@@ -4969,8 +5024,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 }
-    ],
+      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🛶', name: 'Tony Grove (Logan Canyon)', desc: 'Paved access up from US-89 (fee)' }
     ],
@@ -5009,8 +5065,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 5 },
       { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 5 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚤', name: 'Pelican Lake', desc: 'Ramps in the Uinta Basin near Vernal' }
     ],
@@ -5055,8 +5111,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '16–18', color: 'Adams gray', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown, black', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown, black', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Saratoga / Treasure Island', desc: 'Public floats & wade access' }
     ],
@@ -5076,8 +5132,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown, black', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown, black', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 }],
     access: [
       { type: '🚶', name: 'Encampment River Trail', desc: 'Hike-in wilderness canyon' }
     ],
@@ -5098,8 +5154,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 5 },
       { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown, black', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Gray Drake", type: 'dry', size: '10–12', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Warren Bridge (BLM)', desc: 'Float launch & campground above Pinedale' }
     ],
@@ -5120,8 +5177,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan, pink', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'New Fork (BLM floats)', desc: 'Public launches near Pinedale' }
     ],
@@ -5142,8 +5200,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Star Valley (public floats)', desc: 'Launches near Thayne & Etna' }
     ],
@@ -5164,8 +5222,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, royal', conf: 5 },
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚗', name: 'Greys River Road', desc: 'Long gravel road up the valley (FR-10138)' }
     ],
@@ -5186,8 +5245,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, royal', conf: 5 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan, pink', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'US-191 pullouts', desc: 'Roadside access up the canyon' }
     ],
@@ -5208,8 +5267,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, royal', conf: 5 },
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Gros Ventre Road', desc: 'Access above Kelly in Jackson Hole' }
     ],
@@ -5230,8 +5290,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan, pink', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Flying Ant', type: 'dry', size: '14–16', color: 'Black, cinnamon', conf: 4 }
-    ],
+      { name: 'Flying Ant', type: 'dry', size: '14–16', color: 'Black, cinnamon', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Northeast Entrance Rd', desc: 'Roadside pullouts through Lamar Valley' }
     ],
@@ -5252,8 +5312,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 5 },
       { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan, pink', conf: 5 },
-      { name: 'Flying Ant', type: 'dry', size: '14–16', color: 'Black, cinnamon', conf: 4 }
-    ],
+      { name: 'Flying Ant', type: 'dry', size: '14–16', color: 'Black, cinnamon', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🚶', name: 'Slough Creek Trail', desc: 'Hike to the meadows from the campground' }
     ],
@@ -5295,8 +5355,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 4 },
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'US-14/16/20 (Wapiti)', desc: 'Roadside access between Cody & Yellowstone' }
     ],
@@ -5317,8 +5378,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 5 },
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, royal', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Chief Joseph Hwy (WY-296)', desc: 'Access along the scenic byway' }
     ],
@@ -5338,8 +5399,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Tongue River Canyon (Dayton)', desc: 'Trailhead access into the canyon' }
     ],
@@ -5359,8 +5420,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'US-16 (Ten Sleep Canyon)', desc: 'Roadside pullouts in the canyon' }
     ],
@@ -5381,8 +5443,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 }
-    ],
+      { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'US-26/287 (Dubois)', desc: 'Public access near town; respect private land' }
     ],
@@ -5402,8 +5465,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'White, silver', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Fremont Lake (Pinedale)', desc: 'Ramp & beach, Bridger-Teton NF' }
     ],
@@ -5423,8 +5486,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'New Fork Lakes Campground', desc: 'Ramp north of Pinedale (Bridger-Teton NF)' }
     ],
@@ -5444,8 +5507,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray, olive', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Gull Point / West Thumb', desc: 'Shoreline access off Grand Loop Rd' }
     ],
@@ -5465,8 +5528,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White, silver', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Colter Bay Marina', desc: 'Ramp & shoreline, Grand Teton NP' }
     ],
@@ -5486,8 +5549,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'White, silver', conf: 3 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚶', name: 'Jenny Lake Trail', desc: 'Shoreline access from the loop trail' }
     ],
@@ -5505,8 +5568,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white, perch', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Boysen State Park', desc: 'Ramps near Shoshoni (fee)' }
     ],
@@ -5524,8 +5587,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver, perch', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Seminoe State Park', desc: 'Ramps north of Sinclair (fee)' }
     ],
@@ -5543,8 +5606,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver, perch', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Pathfinder (BLM)', desc: 'Ramps & shoreline access' }
     ],
@@ -5732,8 +5795,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16', color: 'Pale yellow-olive', conf: 5 },
       { name: 'Green Drake', type: 'dry', size: '10–12', color: 'Olive-green', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Buffalo Ford / Nez Perce', desc: 'Roadside pullouts along Grand Loop Rd' }
     ],
@@ -5755,8 +5818,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Green Drake', type: 'dry', size: '10–12', color: 'Olive-green', conf: 5 },
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16', color: 'Pale yellow-olive', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Bechler Ranger Station', desc: 'Hike-in from SW corner (Cave Falls Rd)' }
     ],
@@ -5802,8 +5865,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 4 },
       { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown, black', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 }],
     access: [
       { type: '🚶', name: 'Outlaw Cave (BLM)', desc: 'Rough road + steep hike into the canyon' }
     ],
@@ -5825,8 +5888,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'South Fork Rd (WY-291)', desc: 'Access SW of Cody toward the wilderness' }
     ],
@@ -5847,8 +5910,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "BWO Parachute", type: 'dry', size: '18–22', color: "Olive/gray", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Sweetwater Bridge (BLM)', desc: 'High-desert access near South Pass' }
     ],
@@ -5869,8 +5933,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Soda Lake (WGFD)', desc: 'Access NW of Pinedale; fly/lure, special regs' }
     ],
@@ -5890,8 +5955,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Half Moon Lake (Bridger-Teton NF)', desc: 'Ramp NE of Pinedale' }
     ],
@@ -5911,8 +5976,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🛶', name: 'Meadowlark Lake (US-16)', desc: 'Ramp & resort on the Cloud Peak Skyway' }
     ],
@@ -5932,8 +5997,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'White, silver', conf: 3 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚶', name: 'String Lake Trailhead', desc: 'Short walk/portage from String Lake, Grand Teton NP' }
     ],
@@ -5953,8 +6018,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
-      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 3 }
-    ],
+      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚤', name: 'Louis Lake (Shoshone NF)', desc: 'Access up Louis Lake Rd SW of Lander' }
     ],
@@ -5977,8 +6043,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, royal', conf: 4 },
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Turpin Meadows', desc: 'Access off Buffalo Valley Rd near Moran' }
     ],
@@ -5999,8 +6065,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 3 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Grand Loop Rd (Gibbon)', desc: 'Roadside meadow & canyon access' }
     ],
@@ -6020,8 +6086,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, brown', conf: 5 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/purple', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 3 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🚶', name: 'Lewis Channel (South Entrance Rd)', desc: 'Walk-in to the channel between the lakes' }
     ],
@@ -6043,8 +6109,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Below Buffalo Bill Dam', desc: 'Access west of Cody; DeMaris Springs warms winter flows' }
     ],
@@ -6068,8 +6135,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Meeteetse / Wood River Rd', desc: 'Access SW of Meeteetse toward the wilderness' }
     ],
@@ -6090,8 +6157,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Wood River Rd (Meeteetse)', desc: 'Gravel-road access SW of Meeteetse', lat: 44.11107, lng: -108.95791 }
     ],
@@ -6112,8 +6180,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Clear Creek Trail (Buffalo)', desc: 'Paved trail through town + canyon access above' }
     ],
@@ -6155,8 +6223,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Woods Landing / WY-230', desc: 'Public reaches SW of Laramie (mind private land)' }
     ],
@@ -6176,8 +6244,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 3 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Douglas Creek Rd (WY-11)', desc: 'Forest-road access in the Snowy Range' }
     ],
@@ -6201,8 +6270,10 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Hams Fork (near Kemmerer)', desc: 'Public reaches above town & below Viva Naughton' }
     ],
@@ -6266,8 +6337,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White, silver', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Lewis Lake (South Entrance Rd)', desc: 'Boat ramp & campground, Yellowstone NP' }
     ],
@@ -6287,8 +6358,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White, silver', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚶', name: 'Lewis Channel / DeLacy Trail', desc: 'Hike or paddle in — no roads; permit for camping' }
     ],
@@ -6308,8 +6379,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White, silver', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚶', name: 'Heart Lake Trail (South Entrance)', desc: '~8 mi hike in past Witch Creek geyser basin' }
     ],
@@ -6329,8 +6400,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'White, silver', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Bull Lake (Reservation)', desc: 'Tribal fishing permit required — near Crowheart' }
     ],
@@ -6350,8 +6421,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver, perch', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🚤', name: 'Lake DeSmet (Buffalo)', desc: 'Ramps just off I-90 north of Buffalo' }
     ],
@@ -6371,8 +6442,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Lake Hattie (WGFD)', desc: 'Access SW of Laramie' }
     ],
@@ -6392,8 +6463,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'White, silver', conf: 4 },
-      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 }
-    ],
+      { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🚤', name: 'Fontenelle Reservoir (BLM)', desc: 'Ramps off US-189 near La Barge' }
     ],
@@ -6411,8 +6482,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white, perch', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Glendo State Park', desc: 'Ramps off I-25 (fee)' }
     ],
@@ -6432,8 +6503,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Whiskey Basin (Dubois)', desc: 'Access up Trail Lake Rd SE of Dubois' }
     ],
@@ -6457,8 +6528,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 }
-    ],
+      { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Big Cottonwood Canyon (SR-190)', desc: 'Roadside pullouts SE of Salt Lake City', lat: 40.6805, lng: -111.91216 }
     ],
@@ -6480,8 +6552,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Adams gray', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Little Cottonwood Canyon (SR-210)', desc: 'Roadside pullouts below Snowbird/Alta', lat: 40.66578, lng: -111.90799 }
     ],
@@ -6499,8 +6572,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white, shad', conf: 5 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'White, olive', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'White, olive', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Willard Bay State Park', desc: 'North & South Marinas off I-15 (fee)' }
     ],
@@ -6520,8 +6593,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 4 }
-    ],
+      { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Hyrum State Park', desc: 'Ramp & beach south of Hyrum (fee)' }
     ],
@@ -6540,8 +6614,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🚤', name: 'Mantua Reservoir', desc: 'Ramps in Mantua, just off US-89/91' }
     ],
@@ -6561,8 +6635,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
-      { name: 'Pink/Orange Kokanee Fly', type: 'streamer', size: '8–10', color: 'Pink, orange, chartreuse', conf: 3 }
-    ],
+      { name: 'Pink/Orange Kokanee Fly', type: 'streamer', size: '8–10', color: 'Pink, orange, chartreuse', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Bead / Egg Pattern", type: 'nymph', size: '8–14', color: "Orange/pink", conf: 4 }],
     access: [
       { type: '🚤', name: 'Porcupine Reservoir', desc: 'Access up the Little Bear canyon near Avon' }
     ],
@@ -6582,8 +6657,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 }
-    ],
+      { name: 'Renegade', type: 'dry', size: '14–16', color: 'Black/white', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🛶', name: 'Washington Lake (SR-150)', desc: 'Campground & shoreline off Mirror Lake Hwy' }
     ],
@@ -6603,8 +6679,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 }
-    ],
+      { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Christmas Meadows (SR-150)', desc: 'Trailhead & meadow access off Mirror Lake Hwy' }
     ],
@@ -6625,8 +6701,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–14', color: 'Yellow, orange', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Rock Creek Campground (FR-134)', desc: 'Rock Creek Rd below Upper Stillwater Reservoir, NW of Mountain Home', lat: 40.529, lng: -110.613 }
     ],
@@ -6649,8 +6725,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
       { type: '🅿️', name: 'US-40 / Tabiona (public reaches)', desc: 'Access near Tabiona & Duchesne; mind private land' }
     ],
@@ -6670,8 +6746,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 4 }
-    ],
+      { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Steinaker State Park', desc: 'Ramp north of Vernal (fee)' }
     ],
@@ -6691,8 +6768,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Chartreuse/white, crawdad', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, brown', conf: 4 },
-      { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 4 }
-    ],
+      { name: 'Foam Spider / Popper', type: 'dry', size: '8–12', color: 'Black, chartreuse', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Red Fleet State Park', desc: 'Ramp NE of Vernal; famous dinosaur trackway nearby' }
     ],
@@ -6710,8 +6788,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '1/0–4', color: 'Perch, chartreuse/white', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, white', conf: 4 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, white', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Yuba State Park (Oasis)', desc: 'Ramps off I-15 near Levan (fee)' }
     ],
@@ -6732,8 +6810,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Ferron Canyon Rd', desc: 'Roadside access W of Ferron toward Skyline Dr' }
     ],
@@ -6754,8 +6832,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Minersville State Park', desc: 'Ramp SW of Beaver (fee); artificial-fly/lure, special regs' }
     ],
@@ -6775,8 +6854,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 5 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Kolob Reservoir (Kolob Terrace Rd)', desc: 'Access up from Virgin, above Zion' }
     ],
@@ -6795,8 +6874,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Shad, chartreuse/white', conf: 4 },
       { name: 'Popper', type: 'dry', size: '2–8', color: 'Chartreuse, black, frog', conf: 5 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Sand Hollow State Park', desc: 'Ramps E of St. George (fee)' }
     ],
@@ -6815,8 +6894,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Popper', type: 'dry', size: '2–8', color: 'Chartreuse, black, frog', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Shad, chartreuse/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Quail Creek State Park', desc: 'Ramp NE of St. George (fee)' }
     ],
@@ -6835,8 +6914,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Popper', type: 'dry', size: '2–8', color: 'Chartreuse, black, frog', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Shad, white', conf: 4 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Shad, white', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Gunlock State Park', desc: 'Ramp NW of St. George on the Santa Clara' }
     ],
@@ -6898,8 +6977,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Crawdad, white', conf: 3 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '4–6', color: 'Crawdad, white', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Piute State Park', desc: 'Ramp N of Junction on US-89 (fee)' }
     ],
@@ -6920,8 +7000,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🚤', name: 'Koosharem Reservoir', desc: 'Access in Grass Valley near Koosharem' }
     ],
@@ -6940,8 +7021,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Musky Streamer', type: 'streamer', size: '2/0–6', color: 'Perch, fire tiger, white', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Perch, chartreuse/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Johnson Valley Reservoir (SR-25)', desc: 'Access just N of Fish Lake' }
     ],
@@ -6961,8 +7042,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black/red', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 3 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🚤', name: 'Tropic Reservoir (King Creek)', desc: 'Access up the East Fork Sevier S of Bryce jct' }
     ],
@@ -6990,8 +7071,12 @@ const HATCHED_DATA = [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 4 },
       { name: "Pat's Rubber Legs", type: 'nymph', size: '8–10', color: 'Brown, black', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, sculpin', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, sculpin', conf: 4 },
+      { name: "BWO Parachute", type: 'dry', size: '18–22', color: "Olive/gray", conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Trico Spinner", type: 'dry', size: '20–24', color: "Black/white", conf: 4 },
+      { name: "Mahogany Dun", type: 'dry', size: '14–16', color: "Mahogany", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🅿️', name: 'St. Anthony (town access)', desc: 'Public access & parks along the river in St. Anthony' },
       { type: '🛶', name: 'Chester / Ashton Dam', desc: 'Float put-ins from the dam down through Chester' },
@@ -7017,8 +7102,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16–18', color: 'Pale yellow-olive', conf: 5 },
       { name: 'Sowbug', type: 'nymph', size: '16–18', color: 'Gray, tan', conf: 4 },
-      { name: 'Zebra Midge', type: 'nymph', size: '18–22', color: 'Black/silver', conf: 4 }
-    ],
+      { name: 'Zebra Midge', type: 'nymph', size: '18–22', color: 'Black/silver', conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🅿️', name: "Armstrong / O'Hair Ranch", desc: 'Private — rod fee & reservation required (S of Livingston)' }
     ],
@@ -7040,8 +7125,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'PMD Sparkle Dun', type: 'dry', size: '16–18', color: 'Pale yellow-olive', conf: 5 },
       { name: 'Sowbug', type: 'nymph', size: '16–18', color: 'Gray, tan', conf: 4 },
-      { name: "Griffith's Gnat", type: 'dry', size: '18–22', color: 'Peacock/grizzly', conf: 4 }
-    ],
+      { name: "Griffith's Gnat", type: 'dry', size: '18–22', color: 'Peacock/grizzly', conf: 4 },
+      { name: "Scud", type: 'nymph', size: '14–18', color: "Orange/gray", conf: 4 }],
     access: [
       { type: '🅿️', name: 'DePuy Spring Creek', desc: 'Private — rod fee & reservation required (S of Livingston)' }
     ],
@@ -7085,8 +7170,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 5 },
       { name: 'Royal Wulff', type: 'dry', size: '10–14', color: 'Red/white', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🚶', name: 'Meadow Creek Trailhead', desc: 'Pack/float trip into the Bob Marshall Wilderness' }
     ],
@@ -7107,8 +7193,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, brown', conf: 5 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Below Tiber Dam (BLM)', desc: 'Access below Tiber Dam N of Chester' }
     ],
@@ -7152,8 +7238,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [
       { type: '🅿️', name: 'Thompson River Rd', desc: 'Gravel-road access N of Thompson Falls' }
     ],
@@ -7174,8 +7260,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 }
-    ],
+      { name: 'Callibaetis Parachute', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Wade Lake (FS road)', desc: 'Access off US-287 W of Cameron; no-wake' }
     ],
@@ -7197,8 +7283,8 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 },
       { name: 'Damselfly Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4, months: [5,6,7] },
       { name: 'Balanced Leech', type: 'streamer', size: '10–12', color: 'Blood/black', conf: 4 },
-      { name: 'Callibaetis Cripple', type: 'dry', size: '14–16', color: 'Gray/tan', conf: 3, months: [5,6,7,8,9] }
-    ],
+      { name: 'Callibaetis Cripple', type: 'dry', size: '14–16', color: 'Gray/tan', conf: 3, months: [5,6,7,8,9] },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [
       { type: '🛶', name: 'Koocanusa (Rexford ramp)', desc: 'Ramps along MT-37 N of Libby' }
     ],
@@ -7218,8 +7304,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [
       { type: '🛶', name: 'Ruby Reservoir', desc: 'Access along MT-357 S of Alder' }
     ],
@@ -7237,8 +7323,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Perch, chartreuse/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [
       { type: '🛶', name: 'Ok-A-Beh Marina', desc: 'Ramp in Bighorn Canyon NRA near Fort Smith' }
     ],
@@ -8066,8 +8152,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Streamer (Lake Trout)', type: 'streamer', size: '2/0–4', color: 'White, silver, olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver', conf: 4 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Cedar Springs Marina', desc: 'Ramp near Dutch John (Utah side)' } ],
     note: 'A vast, deep reservoir straddling the Utah–Wyoming line, world-famous for trophy lake trout (mackinaw) that have topped 50 pounds, plus kokanee, hard-fighting smallmouth, and big browns. Strip streamers along the rocky shorelines and drop-offs, or troll the depths for lakers. It feeds the blue-ribbon Green River tailwater just below the dam.'
   },
@@ -8103,8 +8190,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Chironomid', type: 'chironomid', size: '12–16', color: 'Black/red', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–12', color: 'Olive', conf: 4 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 }],
     access: [ { type: '🛶', name: 'Millsite State Park', desc: 'Ramp at the mouth of Ferron Canyon' } ],
     note: 'A scenic reservoir at the mouth of Ferron Canyon at Millsite State Park — rainbows, cutthroat, colorful tiger trout, and splake, with some largemouth bass. Chironomids and buggers from a tube; it fishes well at ice-off and in fall. Feeds the tiger-trout water of Ferron Creek below. A quiet central-Utah stillwater.'
   },
@@ -8121,8 +8208,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive, brown', conf: 4 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White, chartreuse', conf: 3 },
-      { name: 'San Juan Worm', type: 'nymph', size: '10–14', color: 'Red, wine', conf: 3 }
-    ],
+      { name: 'San Juan Worm', type: 'nymph', size: '10–14', color: 'Red, wine', conf: 3 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Sand Island (Bluff)', desc: 'BLM boat launch near Bluff' } ],
     note: 'The San Juan winds through spectacular red-rock canyons past Bluff and Mexican Hat in southeast Utah — mostly a warmwater desert float river for channel catfish and native chub, with occasional trout in the cooler upper reaches. (Note: the famous San Juan trout tailwater is upstream below Navajo Dam in New Mexico.) A legendary multi-day rafting stretch with world-class scenery.'
   },
@@ -8139,8 +8226,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black, frog', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Perch, chartreuse/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Newton Reservoir', desc: 'Ramp N of Newton in Cache Valley' } ],
     note: 'A shallow, weedy Cache Valley reservoir with a strong largemouth bass and bluegill fishery, stocked rainbows, and toothy tiger muskie cruising the weed lines. Poppers for bass and bluegill in summer; strip Clousers and big flies for the muskie. A fun warmwater change of pace near Logan.'
   },
@@ -8159,8 +8246,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 }
-    ],
+      { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🅿️', name: 'Manti Canyon Rd', desc: 'Roadside access E of Manti toward Skyline Dr' } ],
     note: 'A small, pretty canyon stream climbing east of Manti into the Manti-La Sal high country toward the Skyline Drive — wild rainbows, browns, cutthroat, and colorful tiger trout on caddis and attractor dries. Easy roadside access and campgrounds nearby. A quiet, low-pressure central-Utah creek.'
   },
@@ -8179,8 +8266,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–14', color: 'Yellow, orange', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚶', name: 'Whiterocks Canyon (Ashley NF)', desc: 'Forest-road access N of Whiterocks' } ],
     note: 'A pretty south-slope Uinta freestone dropping out of the High Uintas near Whiterocks in the Uinta Basin — browns, rainbows, brookies, and cutthroat in clear canyon pocket water. Stoneflies and attractor dries in summer. Drivable access up the canyon with quiet, uncrowded fishing and a trailhead into the high lakes.'
   },
@@ -8199,8 +8286,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🅿️', name: 'Ashley Gorge (Red Cloud Loop)', desc: 'Canyon access N of Vernal' } ],
     note: 'A convenient Uinta Basin stream flowing out of the pretty Ashley Gorge north of Vernal — wild browns, rainbows, and cutthroat in a red-rock canyon, with easy access right through town too. Caddis and hoppers in summer, BWOs in fall. A handy, under-the-radar Vernal-area fishery.'
   },
@@ -8219,8 +8306,9 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–14', color: 'Yellow, orange', conf: 4 },
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red/white', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚶', name: 'Yellowstone Creek Rd (Altonah)', desc: 'Forest-road access N of Mountain Home' } ],
     note: 'Utah\'s own Yellowstone River — a pretty south-slope Uinta freestone (not the Montana one!) tumbling out of the High Uintas near Altonah and Mountain Home. Wild brookies, cutthroat, rainbows, and browns eager for attractor dries in clear canyon water. A gateway to the Yellowstone Creek drainage and the high lakes basin above.'
   },
@@ -8242,8 +8330,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 5 },
       { name: 'Green Drake', type: 'dry', size: '10–12', color: 'Olive-green', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Adams gray', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚶', name: 'NF Clearwater Rd (Bungalow)', desc: 'Gravel-road access into the wilderness above Dworshak' } ],
     note: 'A wild, clear river draining the Clearwater Mountains into Dworshak Reservoir — big, eager native westslope cutthroat that pounce on dry flies in gorgeous remote canyon and forest water. Protected bull trout too (release only). Long gravel-road access and real solitude; one of Idaho\'s great backcountry cutthroat rivers.'
   },
@@ -8262,8 +8350,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Stimulator', type: 'dry', size: '8–12', color: 'Orange, yellow', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🅿️', name: 'Pack River Rd (Sandpoint)', desc: 'Road access N of Sandpoint toward the Selkirks', lat: 48.28465, lng: -116.3738 } ],
     note: 'A pretty north Idaho freestone tumbling out of the Selkirk Mountains to Lake Pend Oreille near Sandpoint — westslope cutthroat, rainbows, and brookies on attractor dries, plus protected bull trout. Quiet, scenic, and lightly fished. A great walk-and-wade in gorgeous Panhandle country.'
   },
@@ -8282,8 +8370,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, sculpin', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', color: 'Natural brown', conf: 4 },
-      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🅿️', name: 'Bonners Ferry', desc: 'Public access & ramps through Bonners Ferry' } ],
     note: 'The big Idaho reach of the Kootenai below the Montana tailwater, sweeping through Bonners Ferry and the Kootenai Flats — strong rainbows, cutthroat, and whitefish in a broad, powerful river. Home to the endangered white sturgeon (fully protected) and bull trout. A larger, less-technical alternative to the Libby tailwater upstream.'
   },
@@ -8301,8 +8389,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Bruneau Canyon (BLM)', desc: 'Remote canyon float / rim access SW of Bruneau' } ],
     note: 'A wild desert river carving a spectacular slot canyon through the Owyhee country of southwest Idaho — native redband trout up high and smallmouth bass lower down, in stunning, remote red-rock scenery. A committing whitewater float or rugged rim-access hike. Solitude, redbands, and canyon walls a thousand feet deep.'
   },
@@ -8377,8 +8465,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Streamer (Kokanee/Baitfish)', type: 'streamer', size: '2/0–4', color: 'White, silver, olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver', conf: 4 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'White/silver', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚤', name: 'Sandpoint / Bayview ramps', desc: 'Ramps around the lake near Sandpoint' } ],
     note: 'Idaho\'s largest and deepest lake, a vast, stunning water in the Panhandle near Sandpoint — famous for giant Kamloops rainbow trout, huge lake trout (mackinaw), kokanee, and a strong smallmouth bass fishery, plus protected bull trout. Troll and strip big streamers for the trophies. Deep, cold, and scenic beneath the Selkirks and Cabinets.'
   },
@@ -8416,8 +8504,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Shad, chartreuse/white', conf: 4 },
       { name: 'Popper', type: 'dry', size: '2–8', color: 'Chartreuse, black', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚤', name: 'CJ Strike (Idaho Power)', desc: 'Ramps near Bruneau & Grand View' } ],
     note: 'A big Snake River reservoir in southwest Idaho near Bruneau and Grand View — an excellent warmwater fishery for smallmouth bass, crappie, catfish, and perch, plus stocked rainbows in the cool months. Poppers and Clousers along the rocky shorelines and in the Bruneau arm. A birdwatcher\'s paradise too.'
   },
@@ -8434,8 +8522,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Shad, chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive (crawdad)', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, white', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, white', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Woodhead Park', desc: 'Ramp on the Snake near Cambridge (Idaho/Oregon line)' } ],
     note: 'A big, warm Snake River reservoir at the top of Hells Canyon on the Idaho–Oregon line — one of the region\'s best crappie fisheries, plus loads of smallmouth and largemouth bass and catfish. Strip Clousers and crawdad buggers along the rocky arms; spring crappie fishing is legendary. Hot summers and great warmwater action.'
   },
@@ -8452,8 +8540,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Crawdad, chartreuse/white', conf: 5 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Brown, olive (crawdad)', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–8', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–8', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Dworshak (Big Eddy ramp)', desc: 'Ramps near Orofino / Ahsahka' } ],
     note: 'A deep, forested reservoir on the North Fork Clearwater near Orofino — one of the West\'s premier smallmouth bass fisheries, plus abundant kokanee and rainbows (and protected bull trout). Work crawdad and baitfish patterns along the steep rocky shorelines and points. Steep canyon walls, clear water, and hard-pulling bronzebacks.'
   },
@@ -8471,8 +8559,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '8–10', color: 'Olive, black', conf: 4 },
       { name: 'Chironomid', type: 'chironomid', size: '14–16', color: 'Black', conf: 4 },
-      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 }
-    ],
+      { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🛶', name: 'Stanley Lake (FS road)', desc: 'Campground & ramp NW of Stanley' } ],
     note: 'A jaw-dropping alpine lake in the Sawtooths just outside Stanley, set beneath the spire of McGown Peak — rainbows, brookies, cutthroat, and kokanee that rise to dries on calm evenings. Tube the shoreline with buggers and chironomids. One of Idaho\'s most photographed lakes, and an easy, family-friendly stillwater.'
   },
@@ -8488,8 +8576,8 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Perch, chartreuse/white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Salmon Falls Creek Reservoir', desc: 'Ramp S of Rogerson toward the Nevada line' } ],
     note: 'A big high-desert reservoir in far south Idaho near Rogerson — known for walleye and smallmouth bass, plus stocked rainbows and perch. Strip Clousers and buggers along the rocky points and shorelines. Open, windy sagebrush country; a warmwater destination close to the Nevada border.'
   },
@@ -8506,8 +8594,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black, frog', conf: 4 },
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, white', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Spirit Lake (town ramp)', desc: 'Ramp at Spirit Lake, N of Rathdrum' } ],
     note: 'A pretty Panhandle lake near Rathdrum with a fun mix — largemouth bass and bluegill in the weedy bays, kokanee and rainbows in the cooler depths, and toothy northern pike cruising the shallows. Poppers for bass, big flies for pike. A scenic, forested lake with a charming little town on its shore.'
   },
@@ -8529,8 +8617,8 @@ const HATCHED_DATA = [
       { name: 'Chubby Chernobyl', type: 'dry', size: '8–12', color: 'Tan, gold', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan, pink', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 },
+      { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [ { type: '🥾', name: 'Turpin Meadow Trailhead', desc: 'Pack in via Buffalo Fork trail, NE of Moran' } ],
     note: 'A remote tributary of the Buffalo Fork deep in the Teton Wilderness, reached only by trail or horseback. Willing native Snake River fine-spotted cutthroat sip attractor dries in beautiful meadow water. This is wilderness fishing — bring bear spray, and expect solitude and eager fish.'
   },
@@ -8550,8 +8638,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Shell Falls Interpretive Site', desc: 'US-14 pullouts through Shell Canyon' } ],
     note: 'A tumbling Bighorn Mountains creek that drops through spectacular Shell Canyon along US-14. Small, wild browns, brookies and cutthroat hold in the pocket water and plunge pools. A fun, scenic dry-fly stream — cast attractors and hoppers to the seams below Shell Falls.'
   },
@@ -8592,8 +8680,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '12–16', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Savery', desc: 'County roads off WY-70 — much water is private, ask permission' } ],
     note: 'A little-known freestone straddling the Wyoming–Colorado line near Baggs and Savery, holding wild browns and native Colorado River cutthroat in its headwaters. Much of the valley is private ranchland, so knock on doors or fish the public upper reaches. Lightly fished country for anglers who like solitude.'
   },
@@ -8613,8 +8701,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Royal Wulff', type: 'dry', size: '12–16', color: 'Red, white', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 }],
     access: [ { type: '🏕️', name: 'Fontenelle Creek Campground', desc: 'BLM campground off US-189 near the reservoir' } ],
     note: 'A small mountain tributary tumbling off the Wyoming Range into Fontenelle Reservoir and the Green River. Willing brookies and cutthroat fill the pocket water and beaver ponds up high — perfect for a light rod and a box of attractor dries. A quiet, pretty stream that sees little pressure.'
   },
@@ -8631,8 +8719,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚤', name: 'Keyhole State Park', desc: 'Multiple ramps in the park near Pine Haven / Moorcroft' } ],
     note: 'A sprawling warmwater reservoir on the Belle Fourche River in the northeast corner of the state, tucked below Devils Tower. Walleye are the headliner, but smallmouth, pike and perch keep a fly rod busy in the coves. Fish streamers along the weedlines early and late — this is prairie warmwater fishing, not trout country.'
   },
@@ -8650,8 +8738,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
-      { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White, olive', conf: 4 }
-    ],
+      { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White, olive', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🛶', name: 'Buffalo Bill State Park', desc: 'Boat ramps off US-14/16/20 west of Cody' } ],
     note: 'A big, wind-hammered reservoir west of Cody where the North and South Forks of the Shoshone come together below the Absaroka peaks. It grows fat cutthroat, rainbows, browns and lake trout, but it earns its reputation for wind — pick a calm morning and troll or cast streamers off the points. Stunning mountain scenery on the doorstep of Yellowstone.'
   },
@@ -8671,8 +8759,8 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Cripple', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
-      { name: 'Scud', type: 'nymph', size: '14–16', color: 'Olive, tan', conf: 4 }
-    ],
+      { name: 'Scud', type: 'nymph', size: '14–16', color: 'Olive, tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚤', name: 'Brooks Lake Campground', desc: 'FR-515 off US-26/287 NW of Dubois' } ],
     note: 'A stunning high lake ringed by the Pinnacle Buttes northwest of Dubois, on the way to Togwotee Pass. Cutthroat, rainbows, brookies and lake trout cruise the shallows and drop-offs — a float tube or pram and a Callibaetis or leech pattern is deadly. One of the most photogenic stillwaters in the state.'
   },
@@ -8690,8 +8778,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
-      { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 4 }
-    ],
+      { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚤', name: 'Boulder Lake Campground', desc: 'Boulder Lake Rd off US-191 SE of Pinedale' } ],
     note: 'A long glacial lake at the foot of the Wind River Range southeast of Pinedale, and a classic jumping-off point for backpackers heading into the high country. It holds lake trout, browns, rainbows and cutthroat — troll or cast streamers along the drop-offs, or fish Callibaetis on calm mornings. Big-mountain scenery and cold, clear water.'
   },
@@ -8728,8 +8816,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '4–8', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–10', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Saratoga Lake Campground', desc: 'Town ramp just NE of Saratoga off WY-130' } ],
     note: 'A town reservoir right beside the famous North Platte at Saratoga, best known for its walleye and its ice-fishing derby, with stocked rainbows and browns for the fly rodder. Strip streamers along the shorelines and drop-offs. A convenient stop to mix a little stillwater into a Platte river trip.'
   },
@@ -8773,8 +8861,8 @@ const HATCHED_DATA = [
       { name: 'RS2', type: 'nymph', size: '18–22', color: 'Gray, black', conf: 5 },
       { name: 'Zebra Midge', type: 'nymph', size: '18–22', color: 'Black, red', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–20', color: 'Natural', conf: 4 },
-      { name: 'Parachute BWO', type: 'dry', size: '18–22', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Parachute BWO', type: 'dry', size: '18–22', color: 'Olive', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🅿️', name: 'Ridgway State Park — Pa-Co-Chu-Puk', desc: 'Tailwater trails below Ridgway Reservoir off US-550' } ],
     note: 'A short but rich Gold Medal tailwater below Ridgway Reservoir — the Pa-Co-Chu-Puk reach — with easy trails and wild, well-fed browns and rainbows. Cold, stable flows keep it fishing all year on midges, BWOs and small nymphs. A convenient stop between Ridgway and Montrose in the shadow of the San Juans.'
   },
@@ -8836,8 +8924,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '16–20', color: 'Gray', conf: 4 },
       { name: 'Hares Ear', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '16–20', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '16–20', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🥾', name: 'Button Rock Preserve', desc: 'Below Ralph Price Reservoir near Lyons' } ],
     note: 'A pretty Front Range creek near Lyons with several distinct personalities — the wild-trout Button Rock reach below Ralph Price Reservoir, freestone pocket water in town, and native greenback cutthroat water up in Rocky Mountain National Park. A fun small-stream option close to Boulder and the northern metro.'
   },
@@ -8965,8 +9053,8 @@ const HATCHED_DATA = [
       { name: 'RS2', type: 'nymph', size: '18–22', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–20', color: 'Natural', conf: 4 },
-      { name: 'Parachute BWO', type: 'dry', size: '18–22', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Parachute BWO', type: 'dry', size: '18–22', color: 'Olive', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🅿️', name: 'Lower Dolores (below McPhee)', desc: 'Access off CO-145 near the town of Dolores' } ],
     note: 'A tailwater below McPhee Dam in the far southwest, the Dolores can be superb when dam releases cooperate — cold water and good bug life grow chunky browns and rainbows. Flows are release-dependent, so check the schedule, but in a good water year the reach below McPhee is one of the state’s hidden tailwater treasures.'
   },
@@ -8986,8 +9074,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 4 },
       { name: 'Green Drake', type: 'dry', size: '10–12', color: 'Olive', conf: 4 },
       { name: 'Stimulator', type: 'dry', size: '10–14', color: 'Yellow', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 }],
     access: [ { type: '🅿️', name: 'CR-8 above Meeker', desc: 'Public reaches heading toward the Flat Tops' } ],
     note: 'Flowing out of the Flat Tops Wilderness past Meeker, the White is a fine freestone of wild browns, rainbows and native Colorado River cutthroat, with mountain whitefish in the mix. The upper forks near Trappers Lake are pure cutthroat country. A quiet, scenic river in the northwest that sees a fraction of the Front Range crowds.'
   },
@@ -9028,8 +9116,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 4 },
       { name: 'Green Drake', type: 'dry', size: '10–12', color: 'Olive', conf: 4 },
       { name: 'Stimulator', type: 'dry', size: '10–14', color: 'Yellow', conf: 4 },
-      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 }
-    ],
+      { name: 'Prince Nymph', type: 'nymph', size: '12–16', color: 'Peacock', conf: 4 },
+      { name: "PMD Comparadun", type: 'dry', size: '16–18', color: "Pale yellow", conf: 4 }],
     access: [ { type: '🚗', name: 'CO-133 (Redstone)', desc: 'Pullouts between Carbondale and Marble' } ],
     note: 'A gorgeous free-flowing tributary of the Roaring Fork running down from Marble past the red cliffs of Redstone. Wild browns, rainbows and brookies fill the pocket water and the mountain scenery is spectacular. Freestone flows blow out in runoff, but from midsummer on it’s a delightful dry-fly stream close to Carbondale.'
   },
@@ -9047,8 +9135,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 },
-      { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 3 }
-    ],
+      { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🛶', name: 'Elk Creek Marina', desc: 'Curecanti NRA off US-50 W of Gunnison' } ],
     note: 'Colorado’s largest reservoir, the centerpiece of Curecanti National Recreation Area west of Gunnison. It’s the state’s premier kokanee salmon and trophy lake-trout (mackinaw) fishery — most fish come to gear, but fly anglers strip streamers along the coves and inlets. Big, open and often windy; pick a calm morning.'
   },
@@ -9069,8 +9157,8 @@ const HATCHED_DATA = [
       { name: 'RS2', type: 'nymph', size: '20–24', color: 'Gray, black', conf: 5 },
       { name: 'Zebra Midge', type: 'nymph', size: '20–24', color: 'Black, red', conf: 5 },
       { name: 'Mercury Midge', type: 'nymph', size: '20–24', color: 'Black', conf: 4 },
-      { name: 'Parachute BWO', type: 'dry', size: '20–24', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Parachute BWO', type: 'dry', size: '20–24', color: 'Olive', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🥾', name: 'Gill Trail', desc: 'Hike-in from Cheesman Reservoir / Deckers area' } ],
     note: 'One of the most famous — and most technical — tailwaters in America, the South Platte through Cheesman Canyon below Cheesman Reservoir. Gin-clear water, massive wild rainbows and browns, and tiny midges and BWOs demand long leaders, 6-7X and a perfect drift. Hike in on the Gill Trail. Humbling, legendary, and worth every minute.'
   },
@@ -9090,8 +9178,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🛶', name: 'Taylor Park Marina', desc: 'Ramp off FR-742 above the Taylor River' } ],
     note: 'A big high-country reservoir sitting above the famous Taylor River tailwater, ringed by the Collegiate and Elk peaks. It grows kokanee, rainbows, cutthroat, lake trout and even northern pike. Fly anglers do best casting Callibaetis and leeches from a tube along the inlet flats and drop-offs on calm mornings. Stunning alpine setting.'
   },
@@ -9109,8 +9197,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 4 },
       { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🛶', name: 'Twin Lakes ramp', desc: 'Off CO-82 SW of Leadville, below Mt. Elbert' } ],
     note: 'Two big glacial lakes at the foot of Mt. Elbert near Leadville, famous for trophy lake trout (mackinaw) and holding rainbows, browns, kokanee and splake. Most macks come to gear in the depths, but shoreline fly anglers pick up cruising trout on streamers early and late. Spectacular high-alpine scenery over 9,000 feet.'
   },
@@ -9147,8 +9235,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Zonker', type: 'streamer', size: '4–8', color: 'White', conf: 3 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚤', name: 'Heeney / Prairie Point', desc: 'Ramps off CO-9 N of Silverthorne' } ],
     note: 'A reservoir on the lower Blue River near Heeney, well known for its kokanee salmon and lake trout along with rainbows and browns. Fly anglers work the Blue River inlet and the shoreline drop-offs with streamers. Quieter than the nearby Dillon and Summit hotspots, with good early-and-late action from a boat or tube.'
   },
@@ -9168,8 +9256,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚤', name: 'Stagecoach State Park', desc: 'Ramps off CR-14 S of Steamboat Springs' } ],
     note: 'A productive reservoir on the Yampa south of Steamboat, known for chunky rainbows and browns plus a solid northern pike fishery in the weedy coves. The short Gold Medal tailwater below the dam is a bonus. Fish damsels and leeches along the shoreline weed lines, or throw big flies for pike. Scenic state-park setting.'
   },
@@ -9187,8 +9275,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Callibaetis Cripple', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚤', name: 'Steamboat Lake State Park', desc: 'Ramps off CR-129 near Hahns Peak' } ],
     note: 'A picture-postcard lake beneath Hahns Peak north of Steamboat Springs, well stocked with rainbows and cutthroat that grow fast on its rich Callibaetis and damsel hatches. A joy from a float tube on a calm morning — sight-fish cruisers with a Callibaetis dry or strip a leech. One of the prettiest stillwaters in northern Colorado.'
   },
@@ -9208,8 +9296,8 @@ const HATCHED_DATA = [
       { name: 'Callibaetis Cripple', type: 'dry', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Green Drake', type: 'dry', size: '10–12', color: 'Olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '6–10', color: 'Olive', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Trappers Lake Trailhead', desc: 'End of FR-205 in the Flat Tops, E of Meeker' } ],
     note: 'A hallowed high lake in the Flat Tops Wilderness — the “Cradle of the Wilderness” where the wilderness idea was born — and one of the largest self-sustaining populations of native Colorado River cutthroat anywhere. No motors, pure cutthroat, stunning cliffs. A float tube and a Callibaetis or drake pattern is heaven here. A bucket-list stillwater.'
   },
@@ -9229,8 +9317,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
       { name: 'Scud', type: 'nymph', size: '12–16', color: 'Olive, orange', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🛶', name: 'North Delaney (Delaney Buttes SWA)', desc: 'Off CR-18 W of Walden' } ],
     note: 'One of Colorado’s premier Gold Medal stillwaters, North Delaney is famous for trophy brown trout that cruise its weedy shallows in North Park near Walden. Strip a leech or fish a scud along the drop-offs — the browns run big and pull hard. It can howl with wind, so pick your day. A destination lake for trophy hunters.'
   },
@@ -9250,8 +9338,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
       { name: 'Scud', type: 'nymph', size: '12–16', color: 'Olive', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🛶', name: 'South Delaney (Delaney Buttes SWA)', desc: 'Off CR-18 W of Walden' } ],
     note: 'The rainbow-and-cutthroat counterpart to its trophy-brown neighbor, South Delaney rounds out the Delaney Buttes trio in North Park near Walden. Rich weed beds and abundant scuds and Callibaetis grow fat, hard-fighting trout. A classic Colorado stillwater — bring a float tube, a box of leeches and damsels, and a wind jacket.'
   },
@@ -9288,8 +9376,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
-      { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 }
-    ],
+      { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Bear Lake Trailhead', desc: '~1.1 mi hike from Bear Lake, RMNP (park pass)' } ],
     note: 'One of the most photographed spots in Rocky Mountain National Park, Dream Lake sits in a granite bowl below Hallett Peak, a short hike from Bear Lake. Small, wild greenback cutthroat and brookies sip dries along the shelves in the short high-country summer. Bring a park pass and light rod — this is scenery-first fishing, and the setting is unforgettable.'
   },
@@ -9307,8 +9395,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
-      { name: 'Ant', type: 'dry', size: '14–18', color: 'Black, red', conf: 3 }
-    ],
+      { name: 'Ant', type: 'dry', size: '14–18', color: 'Black, red', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Fern Lake Trailhead', desc: '~3.8 mi hike in RMNP (park pass)' } ],
     note: 'A quieter backcountry lake in Rocky Mountain National Park, reached by a beautiful hike up the Fern Lake Trail past The Pool and Fern Falls. Native greenback cutthroat and brookies rise readily to dries in the short summer window — the reward for the walk is solitude and eager high-country trout. A park pass is required.'
   },
@@ -9326,8 +9414,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚤', name: 'Horsetooth — Satanka / Inlet Bay', desc: 'Ramps off CR-38E W of Fort Collins' } ],
     note: 'A long, rocky reservoir tucked against the foothills just west of Fort Collins, and one of the Front Range’s best warmwater fly fisheries. Smallmouth prowl the rock walls, walleye and largemouth hold in the coves, and there are stocked trout in spring. Strip Clousers and crayfish along the steep east-shore ledges. A fun close-to-town change of pace.'
   },
@@ -9345,8 +9433,8 @@ const HATCHED_DATA = [
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 3 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Vallecito Reservoir ramps', desc: 'Off CR-501 NE of Bayfield / Durango' } ],
     note: 'A big, beautiful reservoir in the San Juans northeast of Durango, holding rainbows, browns, kokanee and cutthroat plus northern pike and smallmouth in the warmer bays. Fish the Pine River inlet and shoreline drop-offs with streamers, or throw big flies for pike. Surrounded by national forest, it’s a scenic all-around fishery near the Weminuche Wilderness.'
   },
@@ -9366,8 +9454,9 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Callibaetis Sparkle Dun", type: 'dry', size: '14–16', color: "Gray", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚤', name: 'McPhee / House Creek ramps', desc: 'Off CR-25 near Dolores' } ],
     note: 'A large reservoir on the Dolores River in the far southwest, and one of Colorado’s better multi-species fisheries — smallmouth bass, kokanee, rainbows, pike and crappie all share the water. Fly anglers do best on the smallmouth along the rocky points and the trout near the inlets. The reservoir also feeds the Dolores tailwater downstream. A warmwater-meets-trout change of pace.'
   },
@@ -9386,8 +9475,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Byers Peak / St. Louis Creek TH', desc: 'Hike-in from the Fraser Experimental Forest, SW of Fraser' } ],
     note: 'A remote alpine lake (also known as Lake Evelyn) tucked beneath the north face of Byers Peak in the Byers Peak Wilderness southwest of Fraser. Reached only by trail, it holds willing native Colorado River cutthroat and brook trout that rise to attractor dries in the short high-country summer. A quiet, scenic hike-in for anglers who like solitude above 11,000 feet — bring a light rod and a park map.'
   },
@@ -9408,8 +9497,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Mirror Lake Hwy (UT-150)', desc: 'Pullouts NE of Kamas along Beaver Creek', lat: 40.70245, lng: -111.34213 } ],
     note: 'A pretty little freestone paralleling the Mirror Lake Highway northeast of Kamas, tumbling out of the western Uintas. Wild browns, brookies and cutthroat fill the pockets and undercuts — a fun, low-pressure small stream for a light rod and a box of attractor dries.'
   },
@@ -9429,8 +9518,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Gooseberry Reservoir', desc: 'FR-640 off UT-10/US-50, N of Salina' } ],
     note: 'A small high-country reservoir in the Fishlake National Forest above Salina Canyon, stocked with hard-fighting tiger trout, rainbows and brookies. A quiet spot to fish leeches and Callibaetis from a tube — scenic aspen country that fishes well through the summer.'
   },
@@ -9450,8 +9539,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Cleveland Reservoir', desc: 'UT-31 in upper Huntington Canyon' } ],
     note: 'A pretty reservoir high in Huntington Canyon on the Skyline Drive plateau, holding tiger trout, rainbows, cutthroat and brookies. Cold and rich, it fishes well from shore or tube with leeches, damsels and Callibaetis. A classic central-Utah mountain stillwater.'
   },
@@ -9470,8 +9559,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Ferron Reservoir', desc: 'FR-022 (Skyline Dr) above Ferron Canyon' } ],
     note: 'A high alpine reservoir near 9,500 feet at the head of Ferron Canyon on the Skyline Drive, ringed by spruce and fir. Willing tiger trout, brookies, rainbows and splake rise to dries and chase leeches through the short summer. A gorgeous, cool escape when the valleys bake.'
   },
@@ -9491,8 +9580,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Mill Meadow Reservoir', desc: 'Off UT-72 between Fremont and Lyman' } ],
     note: 'A productive reservoir on the Fremont River drainage below Johnson and Fish Lake, holding rainbows, browns, tiger trout and splake. Fish streamers and leeches along the inlet and drop-offs — an under-the-radar central-Utah stillwater with easy access.'
   },
@@ -9511,8 +9600,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Upper Bowns Reservoir', desc: 'Rough road off UT-12 atop Boulder Mtn' } ],
     note: 'A quiet reservoir atop scenic Boulder Mountain, sister to Lower Bowns, holding tiger trout, brookies and cutthroat. The rough access keeps crowds away — bring a tube and fish leeches and damsels across the shallows in one of southern Utah\'s prettiest high-country settings.'
   },
@@ -9532,8 +9621,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Enterprise Reservoir', desc: 'FR off UT-18 SW of Enterprise' } ],
     note: 'A pair of reservoirs (Upper and Lower) on Shoal Creek in far southwest Utah, offering rainbows and browns plus a smallmouth bass fishery in the warmer months. A pleasant, lightly pressured desert-edge stillwater — strip streamers along the rocky shorelines.'
   },
@@ -9553,8 +9642,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Baker Reservoir', desc: 'Off UT-18 near Central' } ],
     note: 'A small, scenic reservoir on the Santa Clara River near Central in southwest Utah, stocked with rainbows and holding wild browns. An easy, family-friendly spot to strip a leech or fish a dry-dropper close to St. George. Red-rock and pine setting.'
   },
@@ -9574,8 +9663,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Forsyth Reservoir', desc: 'FR-36 off UT-72 N of Fremont' } ],
     note: 'A cold reservoir on the upper Fremont River drainage holding tiger trout, rainbows, splake and brookies. Quiet and scenic, it fishes well from a tube with leeches and Callibaetis. A good pairing with nearby Mill Meadow and Johnson on a Fishlake-country trip.'
   },
@@ -9595,8 +9684,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lost Creek State Park', desc: 'Off I-84 / UT-66 near Croydon' } ],
     note: 'A pretty reservoir in the hills near Croydon in northern Utah, stocked with rainbows and cutthroat with wild browns in the mix. A quiet state-park stillwater — strip streamers off the points and inlet, or fish a Callibaetis on calm summer mornings.'
   },
@@ -9616,8 +9705,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Lost Creek (above reservoir)', desc: 'FR up-canyon from Lost Creek Reservoir' } ],
     note: 'The small freestone feeding Lost Creek Reservoir near Croydon, holding wild browns, rainbows and native Bonneville cutthroat in its willow-lined pockets. Much of the lower creek is private ranchland, so fish the public reaches upstream — a quiet small-stream option in northern Utah.'
   },
@@ -9637,8 +9726,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Millcreek Canyon', desc: 'Pullouts along Millcreek Canyon Rd, SLC', lat: 40.70967, lng: -111.92355 } ],
     note: 'A tight little canyon stream right at Salt Lake City\'s back door in Millcreek Canyon, holding small wild browns and cutthroat in its plunge pools. It\'s tiny and technical, best with a short rod and a bushy dry — a fun after-work escape minutes from the valley.'
   },
@@ -9658,8 +9747,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Goose Creek (Raft River Mtns)', desc: 'Remote roads NW of Grouse Creek' } ],
     note: 'A remote creek draining the Raft River Mountains in Utah\'s far northwest corner near the Idaho/Nevada line, holding rainbows, brookies and native cutthroat. This is lonely, end-of-the-road country — a genuine off-the-map small stream for anglers who like solitude.'
   },
@@ -9678,8 +9767,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Huntington Reservoir', desc: 'UT-31 near Fairview Canyon summit' } ],
     note: 'A high reservoir (also called Mammoth) near the summit of the Skyline Drive above Huntington Canyon — famous as the spot where the Huntington mammoth was unearthed. Tiger trout, cutthroat and brookies cruise the shallows; fish leeches and Callibaetis on calm mornings at 9,000 feet.'
   },
@@ -9699,8 +9788,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Brush Creek (Red Cloud Loop)', desc: 'FR off US-191 N of Vernal' } ],
     note: 'A freestone draining the south slope of the Uintas near Vernal, holding wild browns, rainbows and mountain whitefish in its canyon reaches. The Red Cloud Loop offers pretty pocket water and easy access — a solid small-stream option in northeastern Utah.'
   },
@@ -9719,8 +9808,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'White Pine Lake Trailhead', desc: '~3.5 mi hike from Tony Grove, Logan Canyon' } ],
     note: 'A gorgeous hike-in cirque lake in the Bear River Range above Tony Grove in Logan Canyon, cradled beneath the Naomi Peak cliffs. Tiger trout, cutthroat and brookies rise to dries in the short high-country summer — a rewarding walk to some of northern Utah\'s prettiest alpine water.'
   },
@@ -9761,8 +9850,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Bear Creek Canyon (CO-74)', desc: 'Pullouts between Morrison and Evergreen' } ],
     note: 'A tumbling foothills creek running down Bear Creek Canyon from Evergreen to Morrison, holding wild and stocked browns, rainbows and brookies. Roadside pocket water along CO-74 makes it one of Denver\'s handiest quick-hit trout streams — bring a short rod and hit the plunge pools.'
   },
@@ -9781,8 +9870,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Mitchell Lake Trailhead', desc: '~2.5 mi hike from Brainard Lake, Indian Peaks' } ],
     note: 'A stunning alpine lake in the Indian Peaks Wilderness above Brainard Lake, cradled beneath Mount Toll. Native cutthroat and brookies cruise the icy shallows in the brief summer window. The scenery is the main event — a photogenic, high-country hike-in west of Boulder.'
   },
@@ -9801,8 +9890,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Hessie Trailhead', desc: '~1.5 mi hike from Hessie, W of Nederland' } ],
     note: 'A popular hike-in lake above the old Hessie townsite west of Nederland, ringed by forest and peaks. Small, eager brook trout and cutthroat rise readily to dries — an easy, family-friendly walk to pretty high-country water in the Indian Peaks foothills.'
   },
@@ -9822,8 +9911,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Ruedi Reservoir ramps', desc: 'Fryingpan Rd (CR-4) E of Basalt' } ],
     note: 'A long reservoir in the Fryingpan Valley above Basalt, holding lake trout, rainbows, browns and kokanee — and its cold bottom releases create the famous Fryingpan tailwater below. Troll or strip streamers along the drop-offs; the mysis shrimp that spill from the dam are why the Pan\'s trout grow so big.'
   },
@@ -9843,8 +9932,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Homestake Rd (FR-703)', desc: 'Off US-24 S of Red Cliff' } ],
     note: 'A pretty tributary of the Eagle River tumbling down from Homestake Reservoir near Red Cliff, thick with willing brookies, browns and cutthroat. Small, freestone and lightly fished — a fun dry-fly creek for a light rod off the beaten path near Leadville and Vail.'
   },
@@ -9864,8 +9953,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Brush Creek Rd', desc: 'Off US-6 / I-70 at Eagle' } ],
     note: 'A small freestone rising in the Sawatch and flowing down to the Eagle River at the town of Eagle. Wild browns, rainbows, brookies and cutthroat fill its upper pocket water. Much of the lower creek is private, so head up-canyon to the public reaches for a quiet small-stream afternoon.'
   },
@@ -9885,8 +9974,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'CO-135 (Crested Butte)', desc: 'Public reaches / Roaring Judy between CB and Almont' } ],
     note: 'A classic freestone flowing from Crested Butte down toward Almont and the Gunnison, running through the famous wildflower meadows of the East River valley. Wild browns, rainbows, cutthroat and whitefish rise to caddis and hoppers once runoff drops. Much is private ranch, so use the public and Roaring Judy access.'
   },
@@ -9906,8 +9995,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Slate River Rd (CR-734)', desc: 'NW of Crested Butte' } ],
     note: 'A pretty freestone winding down the valley northwest of Crested Butte, loaded with eager brookies plus browns, rainbows and cutthroat. Small, scenic and fun on dries through the summer — a delightful change of pace from the bigger Gunnison-country rivers, with wildflower meadows all around.'
   },
@@ -9927,8 +10016,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Cebolla Creek Rd (CR-27)', desc: 'Between Powderhorn and Slumgullion Pass' } ],
     note: 'A lovely, out-of-the-way freestone flowing through the Powderhorn country between Lake City and the Gunnison, holding wild browns, brookies, rainbows and cutthroat. Willow-lined meadow reaches and beaver ponds make for classic small-stream dry-fly fishing in lonely, beautiful country.'
   },
@@ -9948,8 +10037,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake John ramps', desc: 'CR-7A W of Walden, North Park' } ],
     note: 'A famous North Park stillwater near Walden, well known for fast growth and hefty rainbows and cutthroat fed by rich weed beds, scuds and Callibaetis. Strip a leech or fish a scud along the drop-offs — it can produce big fish and big numbers on the right day. Bring a tube and a wind jacket.'
   },
@@ -9968,8 +10057,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Joe Wright Reservoir', desc: 'CO-14 below Cameron Pass' } ],
     note: 'A high reservoir just below Cameron Pass on the Poudre highway, notable as one of Colorado\'s few Arctic grayling fisheries alongside cutthroat and brookies. Catch-and-release, gear restricted — fish small dries and nymphs for the sailfin grayling in a stunning subalpine basin above 10,000 feet.'
   },
@@ -9989,8 +10078,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'CO-14 (Chambers Lake area)', desc: 'Along the Poudre highway near Cameron Pass' } ],
     note: 'A small, cold headwater creek flowing from Joe Wright Reservoir into the upper Cache la Poudre near Cameron Pass. Eager brookies, cutthroat and rainbows fill its pocket water — a fun light-rod stop high on the Poudre highway amid the spruce and willow.'
   },
@@ -10010,8 +10099,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Rampart Reservoir', desc: 'Rampart Range Rd E of Woodland Park' } ],
     note: 'A scenic reservoir in the pines behind Pikes Peak near Woodland Park, holding rainbows, lake trout, browns and northern pike. A pleasant, easy-access mountain stillwater for the Colorado Springs area — strip streamers along the timbered shoreline or work the coves for pike.'
   },
@@ -10031,8 +10120,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'State Forest State Park', desc: 'Off CO-14 near Gould, North Park' } ],
     note: 'A willow-lined meadow stream draining the north side of Cameron Pass through State Forest State Park and North Park near Gould. Wild browns, brookies and cutthroat sip dries in the beaver-pond flats — pretty, intimate water with moose often browsing nearby.'
   },
@@ -10052,8 +10141,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'CR-2 (Troublesome)', desc: 'N of Kremmling off US-40' } ],
     note: 'A small Middle Park freestone flowing to the Colorado near Kremmling, holding wild browns, rainbows and brookies in its willow-lined meanders. Lightly fished and easy-going — a quiet small-stream option in the ranch country between Granby and Kremmling.'
   },
@@ -10073,8 +10162,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Muddy Creek (below Wolford)', desc: 'Off US-40 near Kremmling' } ],
     note: 'The tailwater below Wolford Mountain Reservoir near Kremmling, holding browns and rainbows plus the occasional pike that slips down from the reservoir. A short, accessible reach in Middle Park — nymph the runs or strip streamers close to the Colorado River confluence.'
   },
@@ -10094,8 +10183,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Henson Creek Rd (Alpine Loop)', desc: 'W of Lake City toward Engineer Pass' } ],
     note: 'A tumbling San Juan creek dropping down the Alpine Loop from Engineer Pass to the Lake Fork at Lake City. Eager brookies, browns and native cutthroat pack its pocket water and plunge pools — a fun, scenic light-rod stream in gorgeous high-country mining country.'
   },
@@ -10115,8 +10204,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Cimarron Rd (FR-858)', desc: 'S of US-50 at Cimarron toward Silver Jack' } ],
     note: 'A pretty freestone flowing north out of the Uncompahgre Wilderness past Silver Jack Reservoir to the Gunnison near Cimarron. Wild browns, rainbows, brookies and cutthroat fill the forks and the main stem. Scenic, lightly fished water beneath the dramatic Uncompahgre peaks.'
   },
@@ -10136,8 +10225,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Quartz Creek Rd (CR-76)', desc: 'Near Pitkin and Ohio City' } ],
     note: 'A small, tumbling creek in the old mining country near Pitkin and Ohio City in the upper Gunnison basin, packed with willing brookies plus browns, rainbows and cutthroat. Classic beaver-pond and pocket-water fishing on dries — a charming light-rod stream well off the tourist track.'
   },
@@ -10156,8 +10245,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake Agnes Trailhead', desc: '~1 mi hike, off CO-14 near Cameron Pass' } ],
     note: 'A jewel of an alpine lake beneath the jagged Nokhu Crags near Cameron Pass in State Forest State Park, a short but steep hike from the trailhead. Native cutthroat and brookies cruise the crystalline shallows against a spectacular backdrop — one of the prettiest easy-access alpine lakes in the state.'
   },
@@ -10176,8 +10265,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Ice Lake Basin Trailhead', desc: 'Steep ~3.5 mi hike from South Mineral, W of Silverton' } ],
     note: 'The famous, impossibly turquoise Ice Lake high in the San Juans above Silverton — one of Colorado\'s most photographed alpine basins. A strenuous hike gains a tundra bowl where small cutthroat and brookies hold in the icy water. Fishing is a bonus to the scenery; go for both, and start early.'
   },
@@ -10196,8 +10285,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Bear Lake Trailhead', desc: '~1.8 mi hike past Dream Lake, RMNP' } ],
     note: 'A dramatic cirque lake at the head of the Bear Lake corridor in Rocky Mountain National Park, tucked under Hallett Peak and Flattop Mountain just above Dream Lake. Small greenback cutthroat and brookies hold along its shelves — a scenery-first hike-in with a park pass required. Stunning and popular; go early.'
   },
@@ -10217,8 +10306,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Pine Creek (Fremont Lake)', desc: 'FR above Fremont Lake, N of Pinedale' } ],
     note: 'A tumbling Wind River Range creek feeding Fremont Lake above Pinedale, thick with eager brookies plus cutthroat and rainbows. Small, cold and scenic — a fun light-rod stream and a classic gateway into the high country of the Bridger Wilderness.'
   },
@@ -10238,8 +10327,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Horse Creek Rd', desc: 'NE of Daniel, upper Green drainage' } ],
     note: 'A willow-lined creek in the upper Green River country near Daniel, holding brookies, cutthroat and browns in its meadow bends and beaver ponds. Lightly fished ranch-and-forest water — a pretty small-stream detour on a Green River or Wind Rivers trip.'
   },
@@ -10280,8 +10369,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Muddy Creek (BLM)', desc: 'Roads S of Rawlins, Little Snake drainage' } ],
     note: 'A high-desert creek in the Little Snake drainage south of Rawlins, notable as important habitat for native Colorado River cutthroat along with browns and brookies. Remote sagebrush-and-willow country — a lonely small stream for anglers chasing native fish off the beaten path.'
   },
@@ -10301,8 +10390,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Rock Creek (Arlington)', desc: 'Off I-80 at Arlington, W of Laramie' } ],
     note: 'A pretty freestone tumbling out of the Snowy Range near Arlington west of Laramie, holding browns, brookies, rainbows and cutthroat. Easy interstate access to the lower creek and miles of forest pocket water upstream make it a handy small-stream stop in southeast Wyoming.'
   },
@@ -10322,8 +10411,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Goose Creek (Big Goose Canyon)', desc: 'W of Sheridan up Big Goose Rd', lat: 44.80414, lng: -106.95618 } ],
     note: 'The creek running through Sheridan and up into the eastern Bighorns via its Big and Little Goose forks, holding wild browns, rainbows, brookies and cutthroat. The town reach is fun and accessible; the canyon forks offer prettier pocket water. A convenient small stream on the Bighorn front.'
   },
@@ -10343,8 +10432,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Paint Rock Creek (Hyattville)', desc: 'Cold Springs Rd E of Hyattville' } ],
     note: 'A limestone-influenced creek draining the western Bighorns near Hyattville, holding chunky wild browns, rainbows and cutthroat in its meadow and canyon reaches. Much runs through private ranchland (some by permission or lease), so mind access — but the fish grow fat on its rich spring-fed water.'
   },
@@ -10364,8 +10453,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Crazy Woman Canyon Rd', desc: 'Off US-16 SW of Buffalo', lat: 44.0647, lng: -106.60088 } ],
     note: 'A tumbling creek dropping through dramatic Crazy Woman Canyon out of the Bighorns near Buffalo, packed with eager brookies plus browns, rainbows and cutthroat. The canyon road offers pretty pocket-water access — a fun light-rod stream with big scenery on the mountains\' eastern front.'
   },
@@ -10385,8 +10474,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Casper Mountain Rd', desc: 'S of Casper on Casper Mountain' } ],
     note: 'A small creek draining Casper Mountain just south of town, holding brookies, browns and stocked rainbows in its forested pockets. Tiny and intimate — a pleasant close-to-home light-rod escape for the Casper area, best fished with a short rod and small dries.'
   },
@@ -10450,8 +10539,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '16–20', color: 'Gray', conf: 4 },
       { name: 'RS2', type: 'nymph', size: '18–22', color: 'Gray', conf: 4 },
       { name: 'Trico Spinner', type: 'dry', size: '18–22', color: 'Black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Fish Creek (Wilson)', desc: 'Around Wilson, W of Jackson (much private)' } ],
     note: 'A pretty spring-fed creek meandering through Wilson in Jackson Hole, holding native cutthroat, browns and brookies in its clear, weedy channels. Much of it is private, so access is limited — but where you can reach it, the smooth spring-creek currents make for rewarding technical dry-fly fishing under the Tetons.'
   },
@@ -10471,8 +10560,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Curt Gowdy State Park', desc: 'Off WY-210 (Happy Jack Rd) W of Cheyenne' } ],
     note: 'A rocky reservoir in Curt Gowdy State Park in the granite hills between Cheyenne and Laramie, stocked with rainbows, browns, tiger trout and kokanee. Easy access and pretty scenery make it a popular southeast-Wyoming stillwater — strip leeches and streamers along the boulder-strewn shoreline.'
   },
@@ -10491,8 +10580,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Worthen Meadow Reservoir', desc: 'FR-302 off the Loop Rd SW of Lander' } ],
     note: 'A pretty forest-ringed reservoir in the Wind River Range southwest of Lander, a popular jumping-off point for the Sinks Canyon and Popo Agie backcountry. Brookies, rainbows, cutthroat and splake cruise the shallows — fish a leech or Callibaetis from a tube before heading up the trail.'
   },
@@ -10511,8 +10600,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Sibley Lake', desc: 'Off US-14 W of Burgess Junction, Bighorns' } ],
     note: 'A convenient, pretty lake right off the Bighorn Scenic Byway (US-14) west of Burgess Junction, stocked with rainbows, brookies and tiger trout. Forest campground on the shore and easy access make it a family favorite — fish leeches and small dries from shore or a tube in the cool mountain air.'
   },
@@ -10555,8 +10644,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Ashton Reservoir', desc: 'On the Henrys Fork at Ashton off US-20' } ],
     note: 'A shallow, weedy reservoir on the Henrys Fork at Ashton, holding rainbows, browns and cutthroat that grow fat on its rich insect life. Fish Callibaetis and leeches along the weed lines, or work the inlet where the river comes in. A pleasant, less-crowded stop on the famous Henrys Fork system.'
   },
@@ -10578,8 +10667,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–20', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Trico Spinner', type: 'dry', size: '18–22', color: 'Black', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'Lemhi River (US-28)', desc: 'Valley reaches along US-28 SE of Salmon' } ],
     note: 'A spring-influenced valley river flowing down the Lemhi Valley to the Salmon River near the town of Salmon, holding wild browns, rainbows, cutthroat and whitefish — plus runs of steelhead and chinook that push up in season. Much is private ranch water, so mind access; where open, it rewards with quality trout in a beautiful valley.'
   },
@@ -10622,8 +10711,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Rapid River (Riggins)', desc: 'Rapid River Rd SW of Riggins' } ],
     note: 'A clear, tumbling tributary of the Little Salmon near Riggins, famous for its wild chinook salmon and steelhead hatchery runs along with resident rainbows and cutthroat. The lower creek is a salmon sanctuary (check regulations), while the trout water above offers pretty freestone pocket fishing in a steep canyon.'
   },
@@ -10643,8 +10732,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Priest River (Dickensheet)', desc: 'Along ID-57 between Priest Lake and the town of Priest River' } ],
     note: 'The forested river connecting Priest Lake to the Pend Oreille in Idaho\'s far northern Panhandle, holding rainbows, cutthroat, brookies, browns and whitefish. Cool and clear through the timber, it offers pretty freestone runs and easy access along ID-57 — a scenic, low-pressure northern gem.'
   },
@@ -10664,8 +10753,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Moyie River (US-2)', desc: 'Pullouts along US-2 NE of Bonners Ferry' } ],
     note: 'A pretty freestone tumbling out of British Columbia through the Idaho Panhandle to the Kootenai near Bonners Ferry, holding rainbows, cutthroat, brookies and whitefish. Roadside pocket water along US-2 and a dramatic canyon and falls make it a scenic, uncrowded far-north stream.'
   },
@@ -10684,8 +10773,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Hayden Lake ramps', desc: 'E of Hayden, N of Coeur d\'Alene' } ],
     note: 'A deep, scenic Panhandle lake just north of Coeur d\'Alene, offering a rich mix — largemouth and smallmouth bass in the bays, kokanee and chinook in the depths, plus pike and stocked rainbows. Poppers for bass in the weedy shallows, big flies for pike. A pretty, forested lake with lots of variety.'
   },
@@ -10704,8 +10793,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Fernan Lake', desc: 'Fernan Lake Rd just E of Coeur d\'Alene' } ],
     note: 'A shallow, weedy lake right on the edge of Coeur d\'Alene, and a fun warmwater fly fishery — largemouth bass, bluegill, crappie and pike prowl the lily pads and shoreline cover, with stocked trout in the cool months. Poppers and streamers from a tube or the bank make for easy, close-to-town action.'
   },
@@ -10724,8 +10813,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Hauser Lake', desc: 'NW of Post Falls off ID-53' } ],
     note: 'A small, weedy Panhandle lake northwest of Post Falls, well known for its warmwater fishing — largemouth bass, bluegill and crappie in the pads, plus northern pike and stocked tiger muskie cruising the shallows. Great topwater and streamer water from a float tube. A fun, laid-back bass-and-toothy-critter lake.'
   },
@@ -10744,8 +10833,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Twin Lakes', desc: 'N of Rathdrum off ID-41' } ],
     note: 'A pair of connected Panhandle lakes near Rathdrum, offering largemouth bass and pike in the weedy bays, kokanee and rainbows in the cooler water, and perch throughout. Poppers along the pads and big flies for pike make for a fun day — a scenic, forested North Idaho lake close to Coeur d\'Alene.'
   },
@@ -10764,8 +10853,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Black Canyon Reservoir', desc: 'On the Payette River near Emmett' } ],
     note: 'A warm, productive reservoir on the Payette River near Emmett, offering smallmouth bass, crappie, perch and catfish along with stocked rainbows. Strip Clousers and crayfish along the rocky points for smallmouth, or work the coves for panfish. A handy warmwater fly fishery close to the Treasure Valley.'
   },
@@ -10785,8 +10874,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Anderson Ranch Reservoir', desc: 'Off US-20 near Pine and Fall Creek' } ],
     note: 'A big reservoir on the South Fork Boise River near Pine, best known for its trophy kokanee and its smallmouth bass along the rocky shorelines, with rainbows and cutthroat mixed in. Its cold tailwater below the dam creates the famous South Fork Boise fishery. Strip streamers for bass, or troll the coves for kokanee.'
   },
@@ -10806,8 +10895,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Arrowrock Reservoir', desc: 'On the Boise River NE of Boise via FR-268' } ],
     note: 'A long, steep-walled reservoir on the Boise River northeast of the city, holding rainbows, smallmouth bass and kokanee, with protected bull trout in the system. Drawn down hard by late summer, it fishes best earlier in the season — work the rocky shorelines with streamers for bass and cruising trout. A rugged, scenic close-to-Boise option.'
   },
@@ -10827,8 +10916,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Deadwood Reservoir', desc: 'Rough FR-555 NE of Lowman' } ],
     note: 'A remote, high mountain reservoir on the Deadwood River deep in the Boise National Forest, well worth the rough drive for its scrappy kokanee, rainbows and cutthroat (bull trout are protected). Cold, clear and lightly pressured — strip leeches and Callibaetis along the timbered shoreline in a beautiful backcountry setting.'
   },
@@ -10848,8 +10937,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Fish Creek Reservoir', desc: 'N of Fairfield off US-20' } ],
     note: 'A small reservoir tucked into the hills above the Camas Prairie near Fairfield, stocked with hard-fighting tiger trout, rainbows and brookies. A quiet, scenic stillwater — fish leeches and Callibaetis from a tube on calm mornings. A nice change of pace near Silver Creek and the Wood River country.'
   },
@@ -10870,8 +10959,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Yaak River Rd', desc: 'Along MT-508 N of Troy' } ],
     note: 'A wild, forested freestone tucked in Montana\'s far northwest corner near Troy, tumbling past Yaak Falls to the Kootenai. Willing westslope cutthroat, rainbows and brookies fill its pockets (bull trout are protected — release them). Lightly fished and deep in grizzly country — a genuine off-the-map dry-fly stream.'
   },
@@ -10891,8 +10980,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Gardner River (US-89)', desc: 'Along the road between Mammoth and Gardiner' } ],
     note: 'A tumbling river dropping from Yellowstone\'s high country down to the Yellowstone River at Gardiner, right on the Montana boundary. The lower canyon holds rainbows, browns and cutthroat, and a strong fall run of browns and rainbows pushes up from the Yellowstone. Steep pocket water, salmonflies in early summer, and Yellowstone Park regulations on the upper reaches.'
   },
@@ -10911,8 +11000,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Seeley Lake', desc: 'Off MT-83 at Seeley Lake' } ],
     note: 'A pretty forest-ringed lake in the Clearwater chain northeast of Missoula, offering a fun warmwater-and-trout mix — largemouth bass and northern pike in the weedy bays, kokanee and rainbows in the cooler water. Poppers along the pads and big flies for pike make for an easy, scenic day (bull trout are protected).'
   },
@@ -10931,8 +11020,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Whitefish Lake State Park', desc: 'NW of Whitefish off US-93' } ],
     note: 'A scenic lake on the edge of the resort town of Whitefish, in the shadow of Big Mountain and near Glacier National Park. Lake trout and whitefish hold in the depths while northern pike, perch and bass prowl the weedy shallows. Strip streamers along the drop-offs or throw big flies for pike in the bays.'
   },
@@ -10952,8 +11041,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Ashley Lake', desc: 'Ashley Lake Rd W of Kalispell off US-2' } ],
     note: 'A quiet lake in the timbered hills west of Kalispell, known for good rainbow trout fishing along with kokanee, perch and some bass. Cool and clear, it fishes well from a boat or tube with leeches and Callibaetis. A pleasant, less-crowded Flathead-country stillwater.'
   },
@@ -10972,8 +11061,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Tiber Reservoir (Lake Elwell)', desc: 'S of Chester off US-2' } ],
     note: 'A big prairie reservoir (Lake Elwell) on the Marias River along Montana\'s Hi-Line, and one of the state\'s better walleye and pike fisheries, with perch, rainbows, lake trout and smallmouth too. Wind-swept and wide open — strip Clousers along the rocky points and coves for pike and bass.'
   },
@@ -10992,8 +11081,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Dailey Lake', desc: 'SE of Emigrant off US-89 in Paradise Valley' } ],
     note: 'A windy lake tucked in the hills above the Paradise Valley near Emigrant, framed by the Absaroka peaks. It grows chunky rainbows and yellow perch, with walleye and burbot in the mix. A fun change of pace from the nearby Yellowstone River — fish leeches and streamers from a boat on a calm morning.'
   },
@@ -11012,8 +11101,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Bull Lake', desc: 'Along MT-56 S of Troy' } ],
     note: 'A scenic lake below the rugged Cabinet Mountains near Troy in northwest Montana, offering rainbows and kokanee in the cool water plus largemouth bass and perch in the weedy bays. A pretty, quiet lake for a mixed bag — poppers for bass, leeches for trout (bull trout are protected).'
   },
@@ -11032,8 +11121,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Nelson Reservoir', desc: 'NE of Malta off US-2' } ],
     note: 'A prairie reservoir along the Hi-Line northeast of Malta, and a well-known walleye and northern pike fishery with perch and smallmouth as well. Big, open water on the Milk River system — work streamers along the rocky shorelines and coves for pike and bass in the warmer months.'
   },
@@ -11052,8 +11141,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake Elmo State Park', desc: 'In Billings Heights off US-87' } ],
     note: 'A small, family-friendly lake right in Billings Heights, stocked with largemouth bass, bluegill, perch, crappie and put-and-take rainbows. An easy, close-to-town warmwater fly spot — throw poppers and small streamers from the bank or a tube. Perfect for a quick after-work session in the city.'
   },
@@ -11074,8 +11163,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Teton River', desc: 'Public access along the valley road' } ],
     note: 'A trout river running out of the Rocky Mountain Front near Choteau, holding rainbows, browns, brookies and whitefish in its upper canyon and meadow reaches before turning to warmwater on the plains. Pretty freestone water beneath the dramatic Front — mind the private ranchland and fish the public and forest reaches upstream.'
   },
@@ -11095,8 +11184,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Little Boulder River', desc: 'Public access along the valley road' } ],
     note: 'A small tributary of the main Boulder River south of Big Timber, tumbling out of the Absaroka-Beartooth high country. Willing rainbows, cutthroat and brookies fill its pocket water — a fun light-rod side trip on a Boulder River trip.'
   },
@@ -11116,8 +11205,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'South Boulder River', desc: 'Public access along the valley road', lat: 45.84326, lng: -111.9186 } ],
     note: 'A pretty freestone draining the Tobacco Root Mountains to the Jefferson near Cardwell, holding rainbows, browns, cutthroat and whitefish. The canyon reach offers classic pocket water; the lower river runs through ranchland. A quiet alternative to the busy Jefferson nearby.'
   },
@@ -11137,8 +11226,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'East Boulder River', desc: 'Public access along the valley road' } ],
     note: 'A clear tributary of the Boulder River flowing out of the Absaroka-Beartooth Wilderness south of Big Timber. Eager cutthroat, rainbows and brookies hold in its tumbling pockets — a scenic, lightly fished mountain stream.'
   },
@@ -11158,8 +11247,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'West Boulder River', desc: 'Public access along the valley road', lat: 45.66077, lng: -110.1013 } ],
     note: 'A gorgeous freestone dropping from the Absaroka-Beartooth country to the Yellowstone Valley, with a popular trailhead and campground. Wild rainbows, cutthroat and brookies fill the pocket water — a beautiful small river for dries and a hike into the wilderness above.'
   },
@@ -11179,8 +11268,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Little Prickly Pear Creek', desc: 'Public access along the valley road' } ],
     note: 'A productive little trout stream running through the canyon near Wolf Creek to the Missouri below Holter Dam. Wild browns, rainbows and whitefish hold in its riffles and undercuts, feeding many of the big fish that drop into the Missouri. Interstate access makes the lower creek easy to reach.'
   },
@@ -11200,8 +11289,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Prickly Pear Creek', desc: 'Public access along the valley road' } ],
     note: 'A small creek winding through the Helena valley, holding wild browns, rainbows and brookies in its willow-lined reaches. Restoration work has improved it in recent years — a handy close-to-town light-rod stream for the capital-city area.'
   },
@@ -11221,8 +11310,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Nevada Creek', desc: 'Public access along the valley road', lat: 46.89466, lng: -113.04395 } ],
     note: 'A meandering prairie-and-meadow creek in the Helmville country, a tributary of the Blackfoot, holding wild browns, rainbows and brookies. Much runs through ranchland, so mind access — but the beaver-pond flats and undercut banks reward careful dry-fly work.'
   },
@@ -11242,8 +11331,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Flint Creek', desc: 'Public access along the valley road' } ],
     note: 'A pretty valley creek flowing past Philipsburg to the Clark Fork at Drummond, holding rainbows, browns, brookies and cutthroat. Spring-influenced and rich, its meadow reaches can grow surprisingly good fish — a nice small-stream option in the Pintler country.'
   },
@@ -11263,8 +11352,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Rattlesnake Creek', desc: 'Public access along the valley road', lat: 46.8677, lng: -113.98511 } ],
     note: 'A cold, clear creek tumbling out of the Rattlesnake Wilderness right into Missoula, holding native westslope cutthroat, rainbows and brookies (bull trout are protected — release them). A beloved close-to-town escape, best fished up in the canyon away from the trailhead crowds.'
   },
@@ -11284,8 +11373,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Warm Springs Creek', desc: 'Public access along the valley road' } ],
     note: 'A trout creek flowing from the Pintler high country through the Anaconda area, holding wild browns, rainbows and brookies. The upper reaches offer pretty freestone pocket water — a quiet light-rod stream in the shadow of the Anaconda Range.'
   },
@@ -11305,8 +11394,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Deep Creek', desc: 'Public access along the valley road', lat: 46.28437, lng: -111.51136 } ],
     note: 'A small creek draining the Big Belt Mountains to the Missouri near Townsend, holding wild browns, rainbows, brookies and cutthroat. The canyon reach along the forest road offers fun pocket-water fishing — a peaceful side trip from the Canyon Ferry area.'
   },
@@ -11326,8 +11415,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Blacktail Deer Creek', desc: 'Public access along the valley road', lat: 45.23131, lng: -112.63391 } ],
     note: 'A meadow creek flowing into the Beaverhead at Dillon, holding wild browns, rainbows, brookies and a population of native Arctic grayling in its upper reaches — a rare treat. Much is private ranchland, so mind access, but the fluvial grayling make it special.'
   },
@@ -11347,8 +11436,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Basin Creek', desc: 'Public access along the valley road', lat: 45.98215, lng: -112.50391 } ],
     note: 'A small headwater creek in the mountains above Butte, part of the city\'s water supply country, holding eager brookies and native westslope cutthroat. Tiny, cold and scenic — a fun short-rod stream for the Butte area.'
   },
@@ -11368,8 +11457,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–18', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Hellroaring Creek', desc: 'Public access along the valley road' } ],
     note: 'A small, remote creek in the Centennial country often cited as the ultimate source of the Missouri River. Willing native westslope cutthroat and brookies fill its tumbling pockets — a genuine off-the-map headwater stream for anglers who like a story with their fish.'
   },
@@ -11391,8 +11480,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '16–20', color: 'Gray', conf: 4 },
       { name: 'RS2', type: 'nymph', size: '18–22', color: 'Gray', conf: 4 },
       { name: 'Trico Spinner', type: 'dry', size: '18–22', color: 'Black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'O’Dell Creek', desc: 'Public access along the valley road', lat: 45.36493, lng: -111.70692 } ],
     note: 'A rich spring creek meandering through the Madison Valley near Ennis, restored into a gem of technical dry-fly water. Wild browns and rainbows sip PMDs, tricos and midges over its weedy channels. Much is private (some access by arrangement) — smooth, clear currents that reward a careful presentation.'
   },
@@ -11414,8 +11503,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '16–20', color: 'Gray', conf: 4 },
       { name: 'RS2', type: 'nymph', size: '18–22', color: 'Gray', conf: 4 },
       { name: 'Trico Spinner', type: 'dry', size: '18–22', color: 'Black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Poindexter Slough', desc: 'Public access along the valley road', lat: 45.19659, lng: -112.67891 } ],
     note: 'A classic spring creek just outside Dillon, and a rare one that\'s open to the public. Wild browns and rainbows hold in its clear, weedy channels, feeding selectively on PMDs, tricos, BWOs and midges. Technical, rewarding dry-fly water — mind the fragile banks and fish light tippet.'
   },
@@ -11434,8 +11523,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Milk River', desc: 'Public access along the valley road' } ],
     note: 'A long prairie river winding across Montana\'s Hi-Line, and a genuine warmwater fly fishery — walleye, sauger, northern pike and channel catfish prowl its turbid pools, with smallmouth in the rockier reaches. Strip big streamers and Clousers through the deeper bends. A change of pace from the trout country to the west.'
   },
@@ -11454,8 +11543,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Tongue River', desc: 'Public access along the valley road' } ],
     note: 'The Montana Tongue below the reservoir near Ashland is a fun mixed fishery — smallmouth bass and browns in the upper reaches, walleye, sauger, pike and catfish as it flows toward Miles City and the Yellowstone. Strip crayfish and Clousers along the rocky banks for scrappy smallmouth. Big-sky prairie fishing.'
   },
@@ -11474,8 +11563,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Powder River', desc: 'Public access along the valley road' } ],
     note: 'A famously muddy, wild prairie river — "a mile wide and an inch deep" — flowing north through southeast Montana to the Yellowstone. It holds channel catfish, sauger, smallmouth and even shovelnose sturgeon. Not classic fly water, but a true off-the-beaten-path adventure for anglers who like empty country and warmwater surprises.'
   },
@@ -11494,8 +11583,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Noxon Reservoir', desc: 'Public access / boat ramp' } ],
     note: 'A long reservoir on the lower Clark Fork in far northwest Montana, and one of the state\'s best bass-and-pike waters — largemouth and smallmouth in the coves, big northern pike in the weeds. Throw poppers and big streamers along the timbered shorelines. A warmwater standout in trout country.'
   },
@@ -11514,8 +11603,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Echo Lake', desc: 'Public access / boat ramp' } ],
     note: 'A weedy, lily-padded lake near Bigfork in the Flathead, and a fun warmwater fly spot — largemouth bass, pike, perch and bluegill fill the shallow bays. Poppers along the pads at dawn and dusk make for easy topwater action. A relaxed change of pace near Flathead Lake.'
   },
@@ -11534,8 +11623,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Placid Lake', desc: 'Public access / boat ramp' } ],
     note: 'A forest-ringed lake in the Clearwater chain near Seeley Lake, with largemouth bass and pike in the weedy bays and kokanee in the cooler depths. A pretty, easygoing lake for poppers and streamers from a tube or boat.'
   },
@@ -11554,8 +11643,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Salmon Lake', desc: 'Public access / boat ramp' } ],
     note: 'Another gem in the Clearwater chain south of Seeley Lake, offering bass and pike in the shallows and kokanee down deep (bull trout are protected). Scenic and lightly pressured — work the weed lines with poppers and big flies for a fun mixed bag.'
   },
@@ -11574,8 +11663,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 }
-    ],
+      { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger', conf: 3 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Upsata Lake', desc: 'Public access / boat ramp' } ],
     note: 'A small, pretty lake in the Blackfoot country near Ovando, stocked with rainbows and holding bass and perch. A quiet, family-friendly stillwater — fish leeches and Callibaetis for trout or poppers along the shoreline for bass.'
   },
@@ -11595,8 +11684,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Nevada Lake', desc: 'Public access / boat ramp' } ],
     note: 'A reservoir on Nevada Creek in the Helmville valley, stocked with rainbows that grow fat on its rich water, along with perch. Windy and open — strip leeches and streamers from a boat or tube for chunky put-and-grow trout.'
   },
@@ -11616,8 +11705,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Hungry Horse Reservoir', desc: 'Public access / boat ramp' } ],
     note: 'A vast, deep reservoir on the South Fork Flathead in the shadow of Glacier and the Bob Marshall Wilderness. It holds native westslope cutthroat and whitefish (bull trout are protected — release them). Troll or strip streamers along the timbered shorelines and inlets in spectacular, remote scenery.'
   },
@@ -11637,8 +11726,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake Mary Ronan', desc: 'Public access / boat ramp' } ],
     note: 'A pretty lake in the hills west of Flathead Lake, famous for its kokanee salmon and rainbow trout, with largemouth bass and perch in the shallows. A productive, scenic stillwater — troll or strip flies for kokanee and rainbows, or work the bays for bass.'
   },
@@ -11658,8 +11747,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'McGregor Lake', desc: 'Public access / boat ramp' } ],
     note: 'A deep, clear lake right on US-2 west of Kalispell, known for its lake trout and rainbows plus pike and perch in the shallows. Cold and scenic, it fishes well for macks down deep and trout along the drop-offs — a convenient, pretty stop in the Flathead country.'
   },
@@ -11679,8 +11768,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lindbergh Lake', desc: 'Public access / boat ramp' } ],
     note: 'A stunning, forest-ringed lake at the foot of the Mission and Swan ranges in the Swan Valley, holding native westslope cutthroat, kokanee and whitefish (bull trout are protected). Quiet and clear beneath the peaks — a beautiful spot to fish leeches and Callibaetis from a canoe.'
   },
@@ -11700,8 +11789,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Rogers Lake', desc: 'Public access / boat ramp' } ],
     note: 'A quiet lake in the timber west of Kalispell, notable as an Arctic grayling brood source along with rainbows and westslope cutthroat. A rare chance at grayling on the fly in Montana — fish small dries and nymphs from a tube on a calm morning.'
   },
@@ -11721,8 +11810,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Saint Mary Lake', desc: 'Public access / boat ramp' } ],
     note: 'A breathtaking, wind-swept lake on Glacier\'s east side, framed by Wild Goose Island and towering peaks. It holds lake trout, whitefish, cutthroat and a few grayling. Fishing is free inside Glacier (no license needed) but check park rules — the scenery alone is worth the trip. Big water; watch the wind.'
   },
@@ -11742,8 +11831,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Bowman Lake', desc: 'Public access / boat ramp' } ],
     note: 'A long, quiet glacial lake in Glacier\'s remote North Fork country, reached by a rough road past Polebridge. Native westslope cutthroat and whitefish cruise the shallows (bull trout protected — release them). No license needed inside the park, but check regulations. Pristine, lightly visited wilderness water.'
   },
@@ -11763,8 +11852,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Kintla Lake', desc: 'Public access / boat ramp' } ],
     note: 'The most remote drive-to lake in Glacier, deep in the northwest corner past Polebridge, cradled by wilderness peaks. Native westslope cutthroat and whitefish hold along its shorelines (bull trout protected). Free fishing inside the park (check rules) — a pristine, end-of-the-road escape for those willing to make the drive.'
   },
@@ -11783,8 +11872,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Hidden Lake Trailhead', desc: '~3 mi hike from Logan Pass, GTNP' } ],
     note: 'A spectacular alpine lake below Bearhat Mountain, reached by the famous boardwalk-and-trail hike from Logan Pass in Glacier. Native westslope cutthroat cruise the icy shallows amid mountain goats and jaw-dropping scenery. Free fishing in the park — but the real reward is the walk. Check for seasonal trail closures for grizzly activity.'
   },
@@ -11803,8 +11892,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Avalanche Lake Trailhead', desc: '~2 mi hike from Trail of the Cedars, GTNP' } ],
     note: 'A classic Glacier day-hike destination, a jewel of a lake ringed by waterfalls streaming off the Sperry Glacier headwall. Native westslope cutthroat hold along the inlet and shoreline. Free fishing inside the park — a gorgeous, family-friendly hike with fish as a bonus to the scenery.'
   },
@@ -11823,8 +11912,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Two Medicine Lake', desc: 'End of Two Medicine Rd, SE Glacier' } ],
     note: 'A dramatic, wind-swept lake in the quieter southeast corner of Glacier, framed by Sinopah Mountain. It holds rainbows, brookies, whitefish and cutthroat along its shorelines and inlet. Free fishing in the park (check rules) — cast from shore or a canoe beneath some of the finest scenery in Montana.'
   },
@@ -11844,8 +11933,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Chena Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A popular recreation-area lake near North Pole outside Fairbanks, stocked with rainbows, Arctic char and grayling, with a coho run stocked in some years. Easy shore and small-boat access make it a favorite family and beginner fly spot in the Interior — strip leeches and buggers along the drop-offs.'
   },
@@ -11864,8 +11954,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Quartz Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'One of Alaska\'s most productive stocked lakes, near Delta Junction, famous for chunky rainbows and Arctic char plus a stocked coho fishery. Fish leeches and buggers on a sink-tip along the shelves — it consistently gives up big, fat trout for an Interior road-system lake.'
   },
@@ -11884,8 +11975,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Harding Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A big, deep natural lake south of Fairbanks off the Richardson Highway, holding lake trout, Arctic char, burbot, whitefish and northern pike. A popular state rec area — troll or jig deep for macks and char, or work the weedy bays for pike.'
   },
@@ -11904,8 +11996,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Fielding Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A scenic high lake in the Alaska Range off the Richardson Highway near Paxson, holding lake trout, Arctic grayling and burbot. Cold and clear beneath the peaks — fish for grayling near the inlets and troll deep for lakers. A beautiful, breezy alpine stillwater.'
   },
@@ -11924,8 +12017,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Summit Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A high, wind-swept lake straddling the Richardson Highway near Paxson in the Alaska Range, holding lake trout, grayling and burbot. Fish the inlets for grayling on dries and troll the deeper water for lakers — all beneath big alpine scenery.'
   },
@@ -11944,8 +12038,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Long Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A pretty roadside lake along the Glenn Highway near Sutton, holding Arctic grayling, lake trout and burbot. Easy pull-off access makes it a handy stop on the drive to the Matanuska country — fish small dries for grayling along the shoreline.'
   },
@@ -11964,8 +12059,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Hidden Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A clear lake on the Skilak Loop in the Kenai National Wildlife Refuge, unusual for holding kokanee and lake trout along with rainbows and Dolly Varden. A campground and ramp make it accessible — troll or strip flies along the drop-offs for a mixed bag in beautiful refuge country.'
   },
@@ -11984,8 +12080,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Stormy Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A stocked lake in Captain Cook State Recreation Area on the northern Kenai Peninsula, holding rainbows and Arctic char. A quiet, forest-ringed spot with a ramp and swimming beach — an easy fly outing for trout on the road system.'
   },
@@ -12004,8 +12101,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Scout Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A small, popular stocked lake near Sterling on the Kenai Peninsula, full of rainbows and Arctic char. A family-friendly state rec site — perfect for a quick, productive fly session close to the Kenai and Russian River fishing.'
   },
@@ -12024,8 +12122,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Rainbow Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A stocked lake on the Kenai Peninsula, true to its name loaded with rainbow trout plus Arctic char. Easy road access and reliable trout make it a good bet for beginners and a fun tube-fishing lake on a Kenai trip.'
   },
@@ -12044,8 +12143,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Nenana Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A stocked lake near the town of Nenana in the Interior, holding rainbows, Arctic char and grayling. A convenient road-system stillwater for the Parks Highway corridor — fish leeches and small nymphs from shore or a tube.'
   },
@@ -12064,8 +12164,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Lower Ohmer Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A small, quiet lake on the Skilak Loop Road in the Kenai refuge, stocked with rainbows and holding Arctic char. A peaceful campground lake — easy to fish from the bank or a float tube for willing trout in gorgeous refuge scenery.'
   },
@@ -12084,8 +12185,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Upper Ohmer Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'The upper of the two Ohmer lakes on the Kenai refuge Skilak Loop, stocked with rainbows and char. Small, calm and lightly fished — a relaxed spot to work a leech or dry-dropper for trout amid the spruce.'
   },
@@ -12104,8 +12206,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Toolik Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A remote tundra lake on the North Slope off the Dalton Highway, best known for the Toolik research station, holding lake trout, Arctic grayling, whitefish and burbot. Fishing is catch-and-release and lightly done — a true end-of-the-road Arctic experience beneath the Brooks Range.'
   },
@@ -12124,8 +12227,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Galbraith Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A stark, beautiful tundra lake just north of Atigun Pass off the Dalton Highway, holding lake trout, grayling and Arctic char. Remote and wind-scoured beneath the northern Brooks Range — a memorable Arctic stop for anglers making the haul-road journey.'
   },
@@ -12144,8 +12248,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Paxson Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A large lake on the upper Copper drainage off the Richardson Highway, holding trophy lake trout, grayling, burbot and whitefish, plus a sockeye run that draws dip-netters. A BLM campground and ramp provide access — troll deep for big lakers or fish the inlets for grayling.'
   },
@@ -12164,8 +12269,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Tangle Lakes', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A chain of connected lakes and channels along the Denali Highway, famous as one of Alaska\'s best road-accessible Arctic grayling fisheries, with lake trout and burbot too. Grayling rise eagerly to dries in the clear channels between the lakes — a gorgeous, tundra-ringed dry-fly paradise.'
   },
@@ -12184,8 +12290,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Eklutna Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A stunning glacier-fed lake in Chugach State Park just outside Anchorage, holding Dolly Varden and kokanee in its milky-blue water. The fishing is tough in the glacial silt, but the setting is spectacular — a scenic, easy day trip with fish as a bonus to the mountain views.'
   },
@@ -12204,8 +12311,8 @@ const HATCHED_DATA = [
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, red/white', conf: 5 },
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, black', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '2–6', color: 'Black, olive', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Nancy Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'The centerpiece of a canoe-trail state rec area in the Mat-Su near Willow, holding northern pike in the weedy bays plus stocked rainbows and char. Poppers and big streamers for pike make for fun topwater and chase action — a scenic, lily-padded lake system to paddle and fish.'
   },
@@ -12224,8 +12331,8 @@ const HATCHED_DATA = [
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, red/white', conf: 5 },
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, black', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '2–6', color: 'Black, olive', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Big Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A busy, popular lake in the Mat-Su Valley near Wasilla, holding northern pike, stocked rainbows and char, with a coho run in the connected creeks. Work the weed edges with big flies for pike or strip leeches for trout — a lively road-system lake close to Anchorage.'
   },
@@ -12244,8 +12351,8 @@ const HATCHED_DATA = [
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, red/white', conf: 5 },
       { name: 'Dolly Llama', type: 'streamer', size: '2–6', color: 'White, black', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '2–6', color: 'Black, olive', conf: 4 },
-      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 }
-    ],
+      { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Finger Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A small state-rec lake between Wasilla and Palmer, stocked with rainbows and char and holding some northern pike. Easy access and a ramp make it a convenient after-work fly spot in the Mat-Su — throw leeches for trout or streamers for pike.'
   },
@@ -12264,8 +12371,9 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, olive', conf: 5 },
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, purple', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/pink', conf: 4 },
-      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 }
-    ],
+      { name: 'Bead-Head Nymph', type: 'nymph', size: '12–16', color: 'Natural', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Mirror Lake', desc: 'Road-accessible; boat/shore fishing' } ],
     note: 'A pretty little lake right off the Glenn Highway at Chugiak north of Anchorage, stocked with rainbows and Arctic char. A popular local swimming and fishing spot with a beach and easy access — a quick, reliable trout outing close to town.'
   },
@@ -12440,8 +12548,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Griffith\'s Gnat', type: 'dry', size: '16–20', color: 'Peacock', conf: 4 },
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'Nenana River', desc: 'Remote; fly-in or Dalton Hwy access' } ],
     note: 'A glacial river paralleling the Parks Highway past Denali, silty in its main stem but holding Arctic grayling, whitefish and rainbows in its clearer tributaries and a chum run in the lower river. Fish the clearwater feeder streams for eager grayling — and take in some of the best roadside scenery in Alaska.'
   },
@@ -12462,8 +12570,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Griffith\'s Gnat', type: 'dry', size: '16–20', color: 'Peacock', conf: 4 },
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'Jim River', desc: 'Remote; fly-in or Dalton Hwy access' } ],
     note: 'A clear stream crossing the Dalton Highway in the southern Brooks Range foothills, offering excellent Arctic grayling fishing plus Dolly Varden and a chum run. One of the more accessible haul-road grayling streams — pull off, walk down, and cast small dries to willing sailfins in true wilderness.'
   },
@@ -12484,8 +12592,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Griffith\'s Gnat', type: 'dry', size: '16–20', color: 'Peacock', conf: 4 },
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'John River', desc: 'Remote; fly-in or Dalton Hwy access', lat: 66.91361, lng: -151.65361 } ],
     note: 'A wild, clear river flowing south from Anaktuvuk Pass through the heart of Gates of the Arctic National Park to the Koyukuk at Bettles. Superb Arctic grayling and char fishing, with chum and sheefish in the lower reaches. A fly-in float through some of the most remote wilderness in North America.'
   },
@@ -12506,8 +12614,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Griffith\'s Gnat', type: 'dry', size: '16–20', color: 'Peacock', conf: 4 },
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'Alatna River', desc: 'Remote; fly-in or Dalton Hwy access' } ],
     note: 'A pristine, clear river winding out of the Brooks Range through Gates of the Arctic, a classic wilderness float with excellent grayling and Arctic char fishing and chum and sheefish down low. Fly-in only — cast dries to grayling in gin-clear water surrounded by the Arrigetch Peaks and endless tundra.'
   },
@@ -12528,8 +12636,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Griffith\'s Gnat', type: 'dry', size: '16–20', color: 'Peacock', conf: 4 },
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'Chandalar River', desc: 'Remote; fly-in or Dalton Hwy access' } ],
     note: 'A remote river draining the southern Brooks Range to the Yukon flats, with strong Arctic grayling and char fishing and runs of chum salmon and sheefish. Fly-in wilderness water in the Yukon Flats country — grayling on dries in the clear upper forks, sheefish on streamers below.'
   },
@@ -12550,8 +12658,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Griffith\'s Gnat', type: 'dry', size: '16–20', color: 'Peacock', conf: 4 },
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'Ivishak River', desc: 'Remote; fly-in or Dalton Hwy access' } ],
     note: 'A clear Wild and Scenic tributary of the Sagavanirktok on the North Slope, spring-fed in places and famous for its Arctic char (Dolly Varden) that overwinter in its warm springs, plus grayling. A remote fly-in float on the tundra north of the Brooks Range — chrome char in crystalline water.'
   },
@@ -12572,8 +12680,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 4 },
       { name: 'Griffith\'s Gnat', type: 'dry', size: '16–20', color: 'Peacock', conf: 4 },
       { name: 'Bead Egg', type: 'nymph', size: '14–16', color: 'Pink, orange', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Black, flesh', conf: 4 },
+      { name: "Hopper", type: 'dry', size: '8–12', color: "Tan", conf: 4 }],
     access: [ { type: '🚗', name: 'Sagavanirktok River', desc: 'Remote; fly-in or Dalton Hwy access' } ],
     note: 'The "Sag" parallels the Dalton Highway across the North Slope tundra to the Arctic Ocean at Deadhorse, offering road-accessible Arctic grayling and sea-run Arctic char (Dolly Varden). Braided and cold, it fishes best in the clearer channels and spring areas — a genuine top-of-the-world fishery.'
   },
@@ -12805,8 +12913,9 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Zimmerman Lake Trailhead', desc: '~1 mi hike off CO-14 near Cameron Pass' } ],
     note: 'A gorgeous hike-in lake just below Cameron Pass on the Poudre highway, managed by Colorado Parks & Wildlife as a cutthroat brood water and stocked with Yellowstone cutthroat. It\'s catch-and-release with flies and lures only — protect the broodstock. A short, steep hike gains a scenic subalpine basin where willing cutthroat rise to dries. A favorite for Front Range anglers who love natives.'
   },
@@ -12826,8 +12935,9 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Parvin Lake State Wildlife Area', desc: 'Near Red Feather Lakes, NW of Fort Collins' } ],
     note: 'A pretty, productive lake in the Red Feather Lakes country northwest of Fort Collins, part of a state wildlife area and stocked with Yellowstone cutthroat along with rainbows and brookies. Note the special regulations — it\'s managed for youth, senior and mobility-impaired anglers on part of the water, so check the rules before you go. Rich, weedy water that grows chunky, willing trout on leeches and Callibaetis.'
   },
@@ -12848,8 +12958,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'South Fork Payette River', desc: 'Public access along the river road' } ],
     note: 'A beautiful freestone tumbling out of the Sawtooths through Lowman and Garden Valley, famous for whitewater and for wild rainbows, westslope cutthroat and whitefish (bull trout are protected). The canyon reaches offer classic pocket-water dry-fly fishing along the road — a scenic, uncrowded river close to Boise.'
   },
@@ -12869,8 +12979,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'North Fork Payette River', desc: 'Public access along the river road' } ],
     note: 'The North Fork above and below Cascade offers pretty trout water for rainbows and whitefish (the wild canyon between Cascade and Banks is legendary whitewater, not fishing). Fish the upper meadow reaches near McCall and the tailwater below Cascade Dam — accessible, scenic water in the heart of the Payette country.'
   },
@@ -12890,8 +13000,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 5 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Payette River', desc: 'Public access along the river road' } ],
     note: 'The main Payette below Banks, running past Horseshoe Bend toward Emmett, is an excellent and underrated smallmouth bass river with rainbows and whitefish mixed in. Strip crayfish and Clousers along the rocky banks and current seams for scrappy bronzebacks — a fun warmwater option a short drive from Boise.'
   },
@@ -12911,8 +13021,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 5 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Weiser River', desc: 'Public access along the river road' } ],
     note: 'A long river winding through west-central Idaho to the Snake at Weiser, with good smallmouth bass fishing in the warmer lower reaches and rainbows and whitefish up high. Lightly pressured and paralleled by a rail-trail — throw crayfish and streamers for bass in the rocky runs.'
   },
@@ -12932,8 +13042,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'North Fork Coeur d\'Alene River', desc: 'Public access along the river road' } ],
     note: 'One of Idaho\'s premier native cutthroat fisheries, the North Fork of the Coeur d\'Alene flows crystal-clear through the Panhandle forests. Catch-and-release, single-barbless regs protect its beautiful wild westslope cutthroat, which rise eagerly to dries all summer (bull trout are protected). A dry-fly angler\'s dream with easy road access.'
   },
@@ -12953,8 +13063,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'South Fork Clearwater River', desc: 'Public access along the river road' } ],
     note: 'The South Fork of the Clearwater carries strong runs of B-run steelhead and Chinook salmon along with resident rainbows and cutthroat. Road-accessible along US-14, it\'s a popular winter and spring steelhead fishery and a fun summer trout stream — swing flies for chrome or fish dries for trout in the canyon.'
   },
@@ -12974,8 +13084,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 5 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Potlatch River', desc: 'Public access along the river road' } ],
     note: 'A Palouse-country river flowing to the Clearwater near Juliaetta, with a wild steelhead run in spring plus smallmouth bass and trout in the lower reaches. Much runs through private farmland, so mind access — but it offers a quiet, off-the-radar shot at steelhead and bass in northern Idaho.'
   },
@@ -12995,8 +13105,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Willow Creek', desc: 'Public access along the river road' } ],
     note: 'A spring-influenced creek east of Idaho Falls, quietly famous for producing big, wary brown trout along with rainbows, Yellowstone cutthroat and whitefish. Much is private, so access takes homework, but the reward is trophy browns sipping on the surface. A hidden gem of the upper Snake country.'
   },
@@ -13016,8 +13126,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Bear River', desc: 'Public access along the river road' } ],
     note: 'The Idaho reaches of the Bear River, in the Bonneville basin near Montpelier and Grace, hold native Bonneville cutthroat along with browns, rainbows and whitefish. The Black Canyon and tailwater sections offer good trout water in a scenic corner of southeast Idaho — a chance at native cutthroat off the beaten path.'
   },
@@ -13037,8 +13147,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Yankee Fork', desc: 'Public access along the river road' } ],
     note: 'A clear tributary of the upper Salmon near Stanley, steeped in gold-dredge history, holding westslope cutthroat and rainbows with runs of Chinook salmon and steelhead pushing up to spawn. Restoration has revived its habitat — fish attractor dries for cutthroat amid the old mining relics and spectacular Sawtooth scenery.'
   },
@@ -13058,8 +13168,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'East Fork Salmon River', desc: 'Public access along the river road', lat: 44.26825, lng: -114.32673 } ],
     note: 'A pretty tributary of the main Salmon near Clayton, flowing out of the White Cloud peaks, with wild westslope cutthroat and rainbows and important Chinook and steelhead spawning runs. Scenic, lightly fished trout water — cast dries in the meadow and canyon reaches beneath the mountains.'
   },
@@ -13079,8 +13189,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Panther Creek', desc: 'Public access along the river road' } ],
     note: 'A long tributary of the main Salmon flowing through the rugged country west of the town of Salmon, holding westslope cutthroat, rainbows and steelhead (bull trout protected). Once impaired by mining and now much recovered, it offers quiet freestone fishing far from the crowds in classic central-Idaho wilderness.'
   },
@@ -13100,8 +13210,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Valley Creek', desc: 'Public access along the river road' } ],
     note: 'A gorgeous meadow creek meandering right past Stanley into the Salmon, with the Sawtooth peaks as a backdrop, holding wild westslope cutthroat and rainbows and Chinook spawning water. Sight-fish cutthroat to dries in the clear, willow-lined bends — one of the prettiest and most accessible small streams in Idaho.'
   },
@@ -13121,8 +13231,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Bear Valley Creek', desc: 'Public access along the river road' } ],
     note: 'A pristine meadow stream in the high country near Cape Horn, one of the primary headwaters of the Middle Fork of the Salmon and a critical Chinook and steelhead spawning stream. Wild westslope cutthroat rise freely to dries in its clear meanders (mind spawning-season closures). Remote, protected and beautiful.'
   },
@@ -13142,8 +13252,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Trail Creek', desc: 'Public access along the river road' } ],
     note: 'A small freestone tumbling down from Trail Creek Summit into Ketchum and Sun Valley, holding rainbows, brookies and cutthroat in its pocket water. A fun, scenic light-rod stream minutes from town — a nice change of pace from the technical spring-creek fishing on nearby Silver Creek and the Big Wood.'
   },
@@ -13163,8 +13273,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Cub River', desc: 'Public access along the river road' } ],
     note: 'A pretty canyon creek in the Bear River drainage near Franklin in Idaho\'s southeast corner, holding native Bonneville cutthroat along with browns, rainbows and brookies. The forest reaches above the valley offer fun pocket-water dry-fly fishing for wild trout in a quiet, seldom-visited corner of the state.'
   },
@@ -13184,8 +13294,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 5 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '6–10', color: 'Tan', conf: 4 },
+      { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [ { type: '🚗', name: 'St. Maries River', desc: 'Public access along the river road' } ],
     note: 'A slower Panhandle river flowing to the St. Joe at the town of St. Maries, with westslope cutthroat and rainbows in the upper reaches and smallmouth bass in the warmer lower water. A relaxed, lightly fished river — dries for cutthroat up high, streamers for bass down low.'
   },
@@ -13205,8 +13315,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Blackfoot Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A big, rich reservoir in the volcanic country near Soda Springs, famous for growing chunky Yellowstone cutthroat and rainbows in its fertile water. Wind-swept and open — strip leeches and buggers or fish Callibaetis on calm mornings for hard-pulling trout. One of southeast Idaho\'s best stillwaters.'
   },
@@ -13226,8 +13336,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Warm Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A pretty, forest-ringed natural lake east of Cascade in the mountains, holding lake trout (mackinaw), rainbows and kokanee (bull trout are protected). A scenic, easygoing lake with lodges and campgrounds — troll or strip flies along the drop-offs for lakers and rainbows.'
   },
@@ -13246,8 +13356,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Winchester Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A small, scenic lake in a state park on the Camas Prairie near Winchester, offering largemouth bass, bluegill and crappie in the weedy bays plus stocked rainbows. A relaxed, family-friendly fly spot — poppers for bass and panfish, leeches for trout, from a tube or the bank.'
   },
@@ -13266,8 +13376,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Mann Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A warmwater lake in the hills above Lewiston, offering largemouth bass, bluegill, crappie and catfish plus stocked rainbows in the cool months. A handy close-to-town spot for bass on poppers and panfish on small streamers — good year-round action in the low-elevation Lewiston climate.'
   },
@@ -13286,8 +13396,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake Walcott', desc: 'Boat ramp / shore access' } ],
     note: 'A Snake River reservoir behind Minidoka Dam, part of a national wildlife refuge, holding walleye, yellow perch, smallmouth bass and stocked rainbows. A state park provides access — strip Clousers along the rocky shorelines for smallmouth and walleye in a scenic high-desert setting.'
   },
@@ -13306,8 +13416,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Oakley Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A reservoir on Lower Goose Creek near the historic town of Oakley in south-central Idaho, holding rainbows and cutthroat along with smallmouth bass and perch. A quiet high-desert stillwater — fish leeches for trout and strip crayfish along the rocks for bass.'
   },
@@ -13327,8 +13437,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Pettit Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A stunning glacial lake at the foot of the Sawtooths in the Sawtooth Valley south of Stanley, holding rainbows and kokanee (bull trout protected) and serving as a trailhead into the high country. Cold, clear and gorgeous — fish from a canoe or the shoreline beneath the jagged peaks.'
   },
@@ -13347,8 +13457,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Iron Creek Trailhead', desc: '~5 mi hike from Iron Creek, NW of Stanley' } ],
     note: 'The largest and most iconic alpine lake in the Sawtooth Wilderness, a stunning hike beneath Mount Regan, holding rainbows and westslope cutthroat in its icy blue water. The scenery is world-class — a strenuous but rewarding hike-in where the fish are a bonus to one of Idaho\'s most photographed places.'
   },
@@ -13368,8 +13478,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Horsethief Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A pretty mountain reservoir east of Cascade, stocked with rainbows and hard-fighting tiger trout. A quiet, family-friendly stillwater with a campground — strip leeches and buggers from a tube or the bank for willing, scrappy trout in a scenic forest setting.'
   },
@@ -13389,8 +13499,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Little Wood Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A reservoir on the Little Wood River near Carey, at the edge of the Wood River country, stocked with rainbows and holding some browns. A convenient, lightly pressured stillwater near the famous Silver Creek and Big Wood — fish leeches and Callibaetis along the drop-offs.'
   },
@@ -13411,8 +13521,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Piedra River', desc: 'Public access along the river road', lat: 37.4375, lng: -107.1806 } ],
     note: 'A gorgeous, remote freestone north of Pagosa Springs, one of southwest Colorado\'s blue-ribbon rivers, cutting through a rugged wilderness box canyon. Wild browns, rainbows, brookies and native cutthroat rise to attractor dries in its pocket water. Little roadside access means a hike gets you solitude and eager fish in stunning country.'
   },
@@ -13432,8 +13542,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'San Miguel River', desc: 'Public access along the river road' } ],
     note: 'One of Colorado\'s last major free-flowing rivers, tumbling down from Telluride through a scenic valley to Placerville and beyond. Wild browns and rainbows fill its freestone pocket water, with brookies up high. Highway-51 access and beautiful San Juan scenery make it a fun, uncrowded dry-fly river.'
   },
@@ -13453,8 +13563,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake Fork of the Gunnison', desc: 'Public access along the river road' } ],
     note: 'A pretty river flowing through Lake City and down a dramatic canyon to Blue Mesa Reservoir, with wild browns, rainbows and brookies plus kokanee runs in the fall from the reservoir. The town water and the canyon below offer accessible pocket-water fishing in gorgeous high-San-Juan country.'
   },
@@ -13473,8 +13583,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Pueblo Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A huge reservoir on the Arkansas River west of Pueblo, and one of Colorado\'s top warmwater fisheries — walleye, smallmouth and largemouth bass, hard-fighting wipers, catfish and crappie, plus stocked trout in the cooler months. Strip Clousers and crayfish along the rocky points. Its cold releases also feed the famous Arkansas tailwater below.'
   },
@@ -13493,8 +13603,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Boyd Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A popular reservoir in a state park at Loveland, well known for walleye and hard-pulling wipers along with bass, perch and crappie. Easy Front Range access and a good ramp make it a favorite — strip baitfish and crayfish patterns along the shoreline and points for a warmwater mixed bag.'
   },
@@ -13514,8 +13624,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'East Fork Bitterroot River', desc: 'Public access along the river road', lat: 45.9402, lng: -114.12703 } ],
     note: 'The East Fork of the Bitterroot gathers in the mountains near Sula and joins the West Fork to form the main river above Darby. Wild rainbows, browns, cutthroat and brookies fill its freestone runs (bull trout protected). A pretty, less-crowded headwater alternative to the famous main stem, with classic Bitterroot dry-fly fishing.'
   },
@@ -13535,8 +13645,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'North Fork Blackfoot River', desc: 'Public access along the river road', lat: 46.98494, lng: -113.12895 } ],
     note: 'A beautiful tributary of the Blackfoot flowing out of the Scapegoat Wilderness near Ovando, with wild westslope cutthroat, rainbows, browns and whitefish (bull trout protected). Clear and lightly fished, it rewards a hike above the trailhead with eager trout on dries in true "A River Runs Through It" country.'
   },
@@ -13556,8 +13666,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Monture Creek', desc: 'Public access along the river road', lat: 47.16661, lng: -113.16061 } ],
     note: 'A clear, willow-lined tributary of the Blackfoot near Ovando, famous from Norman Maclean\'s writing, holding wild westslope cutthroat, rainbows and browns (bull trout protected). Intimate pocket water and meadow bends make for lovely small-stream dry-fly fishing amid the Blackfoot Valley\'s big scenery.'
   },
@@ -13577,8 +13687,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Belt Creek', desc: 'Public access along the river road' } ],
     note: 'A scenic creek tumbling out of the Little Belt Mountains through the dramatic Sluice Boxes canyon toward Great Falls, holding wild rainbows, browns, brookies and whitefish. The state-park canyon offers a beautiful walk-and-wade fishery, with limestone cliffs and pretty pocket water — a central-Montana gem near Great Falls.'
   },
@@ -13598,8 +13708,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Judith River', desc: 'Public access along the river road' } ],
     note: 'A pretty river gathering in the Little Belt and Big Snowy mountains and winding through the Judith Basin near Utica and Hobson. Wild rainbows, browns and brookies hold in its upper canyon and meadow reaches before it turns to prairie. Much is private ranchland, so mind access — a quiet central-Montana trout stream with plenty of history.'
   },
@@ -13619,8 +13729,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Clearwater River', desc: 'Public access along the river road', lat: 47.39021, lng: -113.56203 } ],
     note: 'The river linking the Clearwater chain of lakes in the Seeley-Swan valley, holding rainbows, browns and whitefish in the flowing reaches and northern pike where it slows through the lakes (bull trout protected). A fun, varied fishery — trout on dries in the river sections, big flies for pike near the lake mouths.'
   },
@@ -13640,8 +13750,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Medicine Bow River', desc: 'Public access along the river road' } ],
     note: 'A pretty river draining the west side of the Snowy Range, holding wild browns, rainbows and brookies in its upper forest and meadow reaches before it winds out onto the plains. Lightly fished and scenic — fun pocket-water and beaver-pond dry-fly fishing in the Medicine Bow country of south-central Wyoming.'
   },
@@ -13661,8 +13771,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Little Popo Agie River', desc: 'Public access along the river road', lat: 42.90552, lng: -108.589 } ],
     note: 'A tumbling little river dropping out of the Wind River Range south of Lander, holding wild browns, rainbows, brookies and cutthroat in its canyon pocket water. A fun, scenic light-rod stream close to town — a nice companion to the nearby Middle Popo Agie and Sinks Canyon.'
   },
@@ -13682,8 +13792,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Torrey Creek', desc: 'Public access along the river road', lat: 43.50357, lng: -109.54904 } ],
     note: 'A clear creek tumbling out of the Wind River Range near Dubois past the Trail Lakes, a popular gateway into the Fitzpatrick Wilderness and the Glacier Trail. Willing rainbows, brookies and cutthroat fill its pocket water — a fun light-rod stream and a beautiful jumping-off point for the high country.'
   },
@@ -13703,8 +13813,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Crystal Creek', desc: 'Public access along the river road', lat: 43.61161, lng: -110.43159 } ],
     note: 'A pretty tributary of the Gros Ventre River northeast of Jackson, holding native Snake River fine-spotted cutthroat and brookies. Willing wild trout rise to attractor dries in its meadow and canyon reaches — a quiet, scenic small stream in the beautiful Gros Ventre country (Wyoming license required).'
   },
@@ -13724,8 +13834,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Cliff Creek', desc: 'Public access along the river road', lat: 43.24854, lng: -110.49546 } ],
     note: 'A small tributary of the Hoback River near Bondurant, tumbling out of the Wyoming Range, full of eager native Snake River fine-spotted cutthroat and brookies. A fun, seldom-fished light-rod creek with a waterfall and pretty pocket water — attractor dries move fish all day in the Jackson-area backcountry.'
   },
@@ -13745,8 +13855,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Owl Creek', desc: 'Public access along the river road', lat: 43.72329, lng: -108.15871 } ],
     note: 'A foothills creek draining the Owl Creek Mountains toward Thermopolis in the Bighorn Basin, holding browns, rainbows and cutthroat in its canyon reaches. Part of the drainage borders the Wind River Reservation, so know your boundaries and permits. A quiet, scenic small stream in a lesser-known corner of Wyoming.'
   },
@@ -13766,8 +13876,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Smiths Fork', desc: 'Public access along the river road' } ],
     note: 'A pretty freestone in the Bear River drainage near Cokeville in far western Wyoming, one of the state\'s native Bonneville cutthroat streams along with browns, brookies and rainbows. Willow-lined and lightly fished, it offers fun dry-fly fishing for natives in the quiet, scenic Bear River country.'
   },
@@ -13787,8 +13897,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Sunlight Creek', desc: 'Public access along the river road' } ],
     note: 'A beautiful creek draining the Sunlight Basin northwest of Cody in the Clarks Fork country, spanned by Wyoming\'s highest bridge over its dramatic gorge. Native Yellowstone cutthroat, brookies and rainbows fill its pocket water. Scenic, remote and lightly fished — classic Absaroka-country dry-fly water near the Beartooth Highway.'
   },
@@ -13808,8 +13918,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'French Creek', desc: 'Public access along the river road', lat: 41.19108, lng: -106.54336 } ],
     note: 'A tumbling creek draining the Sierra Madre and Snowy Range near Encampment, holding wild browns, brookies and rainbows in its forest pocket water. A fun, scenic light-rod stream in the quiet Platte Valley country of south-central Wyoming — attractor dries and a short rod are all you need.'
   },
@@ -13829,8 +13939,8 @@ const HATCHED_DATA = [
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, red/white', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 }
-    ],
+      { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Redmond Lake', desc: 'Off US-89 near Redmond, N of Salina' } ],
     note: 'A shallow, weedy lake in the Sevier Valley near Redmond, one of central Utah\'s northern pike waters along with largemouth bass, perch and wiper. Throw big flies and pike streamers along the weed edges for toothy pike, or work poppers for bass. A fun warmwater change of pace in trout-dominated Utah.'
   },
@@ -13849,8 +13959,8 @@ const HATCHED_DATA = [
       { name: 'Pike Streamer', type: 'streamer', size: '2/0–4', color: 'Fire tiger, red/white', conf: 5 },
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
-      { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 }
-    ],
+      { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🛶', name: 'Gunnison Bend Reservoir', desc: 'Just W of Delta on the Sevier River' } ],
     note: 'A warmwater reservoir (also called DMAD) on the Sevier River just west of Delta, holding northern pike, walleye, largemouth bass, wiper and catfish. Pike have spread through the Sevier system into this reservoir — strip big streamers along the weedlines and rocky points for a genuine warmwater mixed bag in the west-central Utah desert.'
   },
@@ -13870,8 +13980,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Moosehorn Lake (UT-150)', desc: 'Roadside on the Mirror Lake Highway' } ],
     note: 'A pretty, easy-access lake right on the Mirror Lake Highway below Bald Mountain Pass, stocked with brookies, rainbows and tiger trout. A campground on the shore and drive-up access make it a family favorite — fish small dries and leeches from the bank or a tube in a classic high-Uinta setting.'
   },
@@ -13890,8 +14000,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Butterfly Lake (UT-150)', desc: 'Roadside campground on the Mirror Lake Highway' } ],
     note: 'A scenic drive-to lake on the Mirror Lake Highway with a lakeside campground, holding brookies, rainbows and Arctic grayling. An easy, productive stop for grayling on small dries — one of the more accessible places in Utah to catch the sail-finned natives of the north.'
   },
@@ -13910,8 +14020,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Ruth Lake Trailhead', desc: '~1 mi easy hike off UT-150' } ],
     note: 'A gorgeous, easy-to-reach lake a short mile from the Mirror Lake Highway, famous for its willing Arctic grayling and brook trout. The gentle trail makes it a favorite family hike, and the grayling rise readily to small dries against a stunning cirque backdrop — one of the best short-hike fisheries in the Uintas.'
   },
@@ -13930,8 +14040,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Cuberant Basin Trailhead', desc: '~2 mi hike off UT-150' } ],
     note: 'A quiet lake in a pretty basin a couple miles off the Mirror Lake Highway, holding brook trout and cutthroat. The moderate hike keeps crowds down — willing wild trout rise to attractor dries in a classic glacial cirque. A lovely half-day trip into the high Uintas.'
   },
@@ -13950,8 +14060,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crystal Lake Trailhead', desc: '~1.5 mi hike from Crystal Lake TH' } ],
     note: 'A popular lake with a distinctive rock dam a short hike from the Crystal Lake Trailhead, loaded with eager brook trout and rainbows. The easy access and pretty setting make it a busy but rewarding family destination — small dries and a light rod are all you need for fast action.'
   },
@@ -13970,8 +14080,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crystal Lake Trailhead', desc: '~2.5 mi hike, Clyde Lake loop' } ],
     note: 'A scenic lake on the popular Crystal Lake basin loop, holding brook trout and cutthroat amid a maze of high-country lakes. Willing wild fish and stunning scenery make the loop a Uinta classic — carry a light rod and fish your way from lake to lake.'
   },
@@ -13990,8 +14100,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crystal Lake Trailhead', desc: '~2 mi hike in the Crystal Lake basin' } ],
     note: 'A pretty lake in the Crystal Lake basin holding brook trout and Arctic grayling, a nice stop on the loop through this lake-studded high country. Grayling and brookies rise to small dries in the clear water — quiet, scenic fishing a moderate hike from the trailhead.'
   },
@@ -14010,8 +14120,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crystal Lake Trailhead', desc: '~1 mi hike from Crystal Lake TH' } ],
     note: 'A pair of connected lakes a short hike from the Crystal Lake Trailhead, holding brookies, rainbows and Arctic grayling. Easy access and reliable fishing make them a family favorite in the western Uintas — work small dries and leeches around the shorelines.'
   },
@@ -14030,8 +14140,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Fehr Lake Trailhead', desc: '~0.5 mi easy hike off UT-150' } ],
     note: 'A quick half-mile walk from the Mirror Lake Highway drops you at this pretty lake full of brook trout and Arctic grayling. The short, easy trail (continuing to Shepard and Hoover lakes) makes it perfect for families and for a fast grayling fix on small dries.'
   },
@@ -14050,8 +14160,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Fehr Lake Trailhead', desc: '~1.5 mi hike past Fehr Lake' } ],
     note: 'A quiet lake along the Fehr Lake trail, holding brook trout and cutthroat in a pretty forested basin. A pleasant, moderate hike past Fehr and Shepard lakes rewards you with willing wild trout and fewer people — a nice string of lakes to fish in a day.'
   },
@@ -14070,8 +14180,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Fehr Lake Trailhead', desc: '~1 mi hike past Fehr Lake' } ],
     note: 'A scenic lake on the Fehr Lake trail, stocked with brook trout and hard-fighting tiger trout. The short hike and pretty setting make it a fun, low-effort destination — cast small dries for brookies and strip leeches for the aggressive tigers.'
   },
@@ -14090,8 +14200,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Teapot Lake (UT-150)', desc: 'Short walk from the Mirror Lake Highway' } ],
     note: 'A small, pretty lake just off the Mirror Lake Highway near Trial Lake, holding brook trout and rainbows. An easy, quiet spot for a quick session — a light rod and a few small dries make for relaxed fishing amid the lodgepole pines.'
   },
@@ -14110,8 +14220,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lost Lake (UT-150)', desc: 'Short walk off the Mirror Lake Highway' } ],
     note: 'A pretty, easily reached lake near the Mirror Lake Highway, stocked with brook trout and rainbows. Quiet and scenic despite the easy access — fish the shoreline shelves with small dries and leeches for willing high-country trout.'
   },
@@ -14130,8 +14240,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Pass Lake (UT-150)', desc: 'Roadside on the Mirror Lake Highway' } ],
     note: 'A convenient drive-up lake on the Mirror Lake Highway near Trial Lake, holding brookies, rainbows and cutthroat. Easy shoreline access makes it a nice family stop — small dries, a dry-dropper, or a leech will all move fish here.'
   },
@@ -14150,8 +14260,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Highline Trailhead', desc: '~2 mi hike from the Highline TH' } ],
     note: 'A quiet lake in the headwaters country reached from the Highline Trailhead, holding brook trout and cutthroat. A moderate hike into pretty meadow-and-timber basins rewards you with willing wild fish and Uinta solitude — a fine day-hike destination.'
   },
@@ -14170,8 +14280,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Highline Trailhead', desc: '~2.5 mi hike from the Highline TH' } ],
     note: 'A pretty lake tucked in a high basin off the Highline Trail, holding brook trout and cutthroat. The moderate hike keeps it quiet — cast attractor dries to willing wild trout in a classic Uinta glacial setting, with more lakes to explore nearby.'
   },
@@ -14190,8 +14300,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Ruth Lake Trailhead', desc: '~2 mi hike beyond Ruth Lake' } ],
     note: 'A gorgeous lake in a rocky basin above Ruth Lake, holding brook trout and cutthroat beneath the peaks. A rewarding continuation of the popular Ruth Lake hike into quieter country — willing fish and stunning scenery make the extra miles worth it.'
   },
@@ -14210,8 +14320,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crystal Lake Trailhead', desc: '~3 mi hike in the Crystal Lake basin' } ],
     note: 'A scenic lake with its namesake island on the Crystal Lake basin loop, holding brook trout, cutthroat and Arctic grayling. A little deeper into the basin than the busiest lakes, it offers quiet water and a nice variety of fish to attractor dries and small leeches.'
   },
@@ -14230,8 +14340,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crystal Lake Trailhead', desc: '~1 mi hike from Crystal Lake TH' } ],
     note: 'A pretty lake a short hike from the Crystal Lake Trailhead, stocked with brook trout and tiger trout. Easy access and willing fish make it a good family or beginner destination — cast small dries for brookies and strip streamers for the aggressive tigers.'
   },
@@ -14250,8 +14360,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 5 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crystal Lake Trailhead', desc: '~4 mi hike over the Notch' } ],
     note: 'A beautiful lake below Notch Mountain, reached on the scenic hike over the Notch from the Crystal Lake basin, holding brook trout and cutthroat. The longer hike buys solitude and dramatic scenery — willing wild fish rise to dries in one of the prettier corners of the western Uintas.'
   },
@@ -14271,8 +14381,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Chatfield Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A big reservoir in a state park at the southwest edge of Denver, and a popular warmwater fishery — walleye, smallmouth and largemouth bass, pike, catfish and crappie, plus stocked rainbows. Easy metro access and lots of shoreline make it a go-to for Front Range fly anglers chasing bass and walleye on streamers.'
   },
@@ -14291,8 +14401,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Cherry Creek Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A busy reservoir in a state park in the heart of the Denver metro, offering walleye, bass, pike and perch plus stocked trout. Surrounded by the city but genuinely productive — strip Clousers and crayfish along the shorelines for a surprising warmwater fishery minutes from downtown.'
   },
@@ -14311,8 +14421,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Aurora Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A clear, deep reservoir on the southeast edge of Aurora with restricted motor use, holding rainbows, lake trout, walleye, smallmouth and hard-fighting wipers. The clean water and no-wake calm make it a favorite for fly rodders and float tubes — trout on leeches, wipers and walleye on streamers.'
   },
@@ -14331,8 +14441,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Carter Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A scenic foothills reservoir west of Loveland, holding a great mix — rainbows, lake trout and kokanee in the cool depths, plus walleye and smallmouth and largemouth bass along the rocky shorelines. A popular Front Range destination with good ramps and pretty red-rock scenery.'
   },
@@ -14351,8 +14461,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Sanchez Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A high-desert reservoir near San Luis in the far southern San Luis Valley, and one of Colorado\'s better northern pike fisheries along with walleye and perch. Big, wind-swept and lightly fished — throw large pike streamers along the weed edges for toothy fish in a stark, beautiful high-valley setting.'
   },
@@ -14371,8 +14481,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Trinidad Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A reservoir on the Purgatoire River in a state park west of Trinidad, offering walleye, bass, catfish and pike plus stocked rainbows. A pleasant, uncrowded southern-Colorado warmwater fishery — strip crayfish and streamers along the rocky points and coves.'
   },
@@ -14391,8 +14501,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Boulder Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A busy recreation reservoir north of Boulder, holding largemouth and smallmouth bass, walleye, hard-fighting wipers, crappie and stocked trout. A convenient after-work spot for Front Range anglers — poppers for bass in the coves and streamers for wipers chasing bait along the dam.'
   },
@@ -14412,8 +14522,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Turquoise Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A stunning high reservoir ringed by the Sawatch peaks west of Leadville, one of the highest lake-trout fisheries in the state, with rainbows, kokanee, browns and cutthroat too. Cold, clear and beautiful at nearly 10,000 feet — troll or strip streamers for macks and fish leeches for trout along the shoreline.'
   },
@@ -14433,8 +14543,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Vega Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A pretty reservoir on the flank of the Grand Mesa near Collbran, in a state park, stocked with rainbows and holding brookies and cutthroat. A quiet, scenic high-country stillwater — fish leeches and Callibaetis from a tube, and explore the hundreds of little trout lakes scattered across the Mesa above.'
   },
@@ -14454,8 +14564,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Tomichi Creek', desc: 'Public access along the valley' } ],
     note: 'A meandering meadow stream flowing down from Monarch Pass through the wide Tomichi valley to the Gunnison, holding wild browns, rainbows and brookies. Much is private ranchland, so mind access, but the willow-lined bends and beaver country offer classic small-stream dry-fly fishing east of Gunnison.'
   },
@@ -14475,8 +14585,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Grape Creek', desc: 'Public access along the valley' } ],
     note: 'A pretty creek flowing from DeWeese Reservoir through a rugged canyon between Westcliffe and Cañon City, holding wild browns and rainbows. The tailwater flows and canyon pocket water make for fun walk-and-wade fishing in a scenic, lightly pressured corner of the Wet Mountain country.'
   },
@@ -14496,8 +14606,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Plateau Creek', desc: 'Public access along the valley' } ],
     note: 'A freestone draining the north side of the Grand Mesa past Collbran to the Colorado near Palisade, holding wild browns, rainbows and brookies in its upper reaches. A quiet, accessible small stream — a nice option to pair with the trout lakes atop the Mesa above.'
   },
@@ -14517,8 +14627,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Green River Lakes', desc: 'Boat ramp / shore access' } ],
     note: 'A pair of stunning glacial lakes at the head of the Green River beneath the iconic Square Top Mountain, in the northern Wind River Range. They hold native Colorado River cutthroat, brookies, rainbows and lake trout. A gateway to the high country and one of the most photographed spots in Wyoming — fish the shorelines and inlet amid jaw-dropping scenery.'
   },
@@ -14538,8 +14648,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'LaBarge Creek', desc: 'Public access along the valley' } ],
     note: 'A pretty creek draining the Wyoming Range to the Green River near La Barge, famous as the site of a major native Colorado River cutthroat restoration project. Willing wild cutthroat and brookies fill its meadow and canyon reaches — a rewarding small stream for anglers who love natives and quiet country.'
   },
@@ -14559,8 +14669,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Savery Creek', desc: 'Public access along the valley', lat: 41.01024, lng: -107.44895 } ],
     note: 'A freestone draining the Sierra Madre to the Little Snake near Savery in south-central Wyoming, holding native Colorado River cutthroat along with browns and brookies. Much runs through ranchland, so mind access, but the forest reaches above offer fun dry-fly fishing for natives in lonely, scenic country.'
   },
@@ -14580,8 +14690,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Battle Creek', desc: 'Public access along the valley' } ],
     note: 'A tumbling creek draining the Sierra Madre in the Little Snake system near Encampment, holding native Colorado River cutthroat, brookies and browns. Remote and lightly fished, it offers pretty pocket-water dry-fly fishing for wild trout in the quiet forests of far south-central Wyoming.'
   },
@@ -14601,8 +14711,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Dinwoody Creek', desc: 'Public access along the valley' } ],
     note: 'A glacially-tinged creek pouring off the Dinwoody Glaciers on the east side of the Wind River Range near Crowheart, holding Yellowstone cutthroat, brookies and rainbows. Part of the drainage crosses the Wind River Reservation, so mind boundaries and permits. Wild, remote water beneath Gannett Peak, Wyoming\'s highest.'
   },
@@ -14622,8 +14732,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Bull Lake Creek', desc: 'Public access along the valley' } ],
     note: 'A freestone draining the Wind River Range through Bull Lake toward the Wind River near Crowheart, holding Yellowstone cutthroat, rainbows, brookies and whitefish. Part of the drainage is on the Wind River Reservation (tribal permit country) — a pretty, powerful mountain creek in the shadow of the range.'
   },
@@ -14643,8 +14753,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Spread Creek', desc: 'Public access along the valley', lat: 43.8105, lng: -110.54965 } ],
     note: 'A freestone tributary of the Snake flowing out of the Absaroka foothills to Grand Teton National Park near Moran, holding native Snake River fine-spotted cutthroat and whitefish. The lower reaches are roadside; upstream it turns wild. Classic cutthroat dry-fly water beneath the Tetons (Wyoming license required).'
   },
@@ -14664,8 +14774,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Blackrock Creek', desc: 'Public access along the valley' } ],
     note: 'A pretty meadow creek in the Buffalo Fork drainage below Togwotee Pass east of Moran, full of eager native Snake River fine-spotted cutthroat and brookies. Willing fish rise to attractor dries in its willow-lined bends — a fun, scenic small stream on the road between Jackson and Dubois.'
   },
@@ -14685,8 +14795,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'West Rosebud Creek', desc: 'Public access along the valley' } ],
     note: 'A clear creek pouring off the Beartooth Front near Fishtail, past Mystic Lake, holding rainbows, browns, brookies, cutthroat and whitefish. Pretty pocket water and dramatic mountain scenery make it a fun walk-and-wade stream — a scenic companion to the nearby Stillwater River south of Columbus.'
   },
@@ -14706,8 +14816,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'East Rosebud Creek', desc: 'Public access along the valley', lat: 45.48328, lng: -109.45683 } ],
     note: 'A beautiful freestone tumbling from East Rosebud Lake down the Beartooth Front near Roscoe, with wild rainbows, browns, brookies, cutthroat and whitefish. The canyon and meadow reaches offer classic pocket-water fishing beneath the towering Beartooth peaks — a scenic gem near Red Lodge.'
   },
@@ -14727,8 +14837,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Ninemile Creek', desc: 'Public access along the valley', lat: 47.02881, lng: -114.39373 } ],
     note: 'A restored tributary of the Clark Fork in the Ninemile valley northwest of Missoula, holding westslope cutthroat, rainbows, browns and brookies (bull trout protected). Once damaged by placer mining and now much recovered, it offers pretty small-stream dry-fly fishing close to town.'
   },
@@ -14748,8 +14858,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Prospect Creek', desc: 'Public access along the valley' } ],
     note: 'A forested tributary of the lower Clark Fork near Thompson Falls in northwest Montana, holding westslope cutthroat, rainbows and brookies (bull trout protected). Cool, clear and lightly fished, it offers quiet freestone pocket-water fishing in the timbered mountains of the Panhandle-adjacent Clark Fork country.'
   },
@@ -14771,8 +14881,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '16–20', color: 'Gray', conf: 4 },
       { name: 'RS2', type: 'nymph', size: '18–22', color: 'Gray', conf: 4 },
       { name: 'Trico Spinner', type: 'dry', size: '18–22', color: 'Black', conf: 4 },
-      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 }
-    ],
+      { name: 'Hopper', type: 'dry', size: '10–14', color: 'Tan', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Nevada Spring Creek', desc: 'Public access along the valley' } ],
     note: 'A celebrated spring-creek restoration in the Blackfoot drainage near Ovando, reborn from a mined-out stream into rich, clear trout water. Wild browns, rainbows and westslope cutthroat sip PMDs, tricos and midges over its weedy channels. Largely private (some access by arrangement) — a jewel of the Blackfoot Valley\'s conservation story.'
   },
@@ -14792,8 +14902,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Sixteenmile Creek', desc: 'Public access along the valley', lat: 46.2655, lng: -110.54131 } ],
     note: 'A meadow-and-canyon creek flowing from the Ringling country through a spectacular gorge to the Missouri near Toston, holding wild rainbows, browns and cutthroat. Most is private ranchland (the canyon is famously hard to access), but where you can reach it, it offers wild trout in stunning, rugged surroundings.'
   },
@@ -14813,8 +14923,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Middle Fork Payette River', desc: 'Public access along the valley' } ],
     note: 'A pretty freestone flowing down through Crouch and Garden Valley, dotted with natural hot springs, holding rainbows, westslope cutthroat and whitefish (bull trout protected). Accessible along the forest road with pocket water and pools — a fun, scenic river to fish and soak, a short drive from Boise.'
   },
@@ -14834,8 +14944,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Loon Creek', desc: 'Public access along the valley' } ],
     note: 'A wild, clear tributary of the Middle Fork Salmon deep in the Frank Church Wilderness, holding westslope cutthroat and important Chinook and steelhead spawning water (bull trout protected). Reached by trail, backcountry airstrip or raft, it offers pristine cutthroat dry-fly fishing and natural hot springs in true Idaho wilderness.'
   },
@@ -14855,8 +14965,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Marsh Creek', desc: 'Public access along the valley', lat: 44.32852, lng: -115.09204 } ],
     note: 'A meadow stream in the high country near Stanley, one of the primary headwaters of the Middle Fork Salmon and a critical Chinook and steelhead spawning stream. Wild westslope cutthroat rise to dries in its clear meanders (mind spawning-season closures). Remote, protected and beautiful Sawtooth-country water.'
   },
@@ -14876,8 +14986,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Big Creek (Salmon)', desc: 'Public access along the valley', lat: 45.06074, lng: -115.45178 } ],
     note: 'A large, remote tributary of the Middle Fork Salmon in the heart of the Frank Church Wilderness near the old mining town of Yellow Pine, holding wild westslope cutthroat and Chinook and steelhead spawning water (bull trout protected). Fly-in or a long backcountry drive — pristine cutthroat fishing in one of the wildest places in the Lower 48.'
   },
@@ -15093,8 +15203,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Oak Creek Reservoir', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15115,8 +15225,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Cook Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15137,8 +15247,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Miller Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15159,8 +15269,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Pear Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15181,8 +15291,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Round Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15203,8 +15313,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Crescent Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15225,8 +15335,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Beaver Dam Reservoir', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15247,8 +15357,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Green Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15269,8 +15379,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Blue Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15291,8 +15401,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Spectacle Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15313,8 +15423,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Coleman Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15335,8 +15445,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Pleasant Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15357,8 +15467,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Deer Creek Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15379,8 +15489,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Raft Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15401,8 +15511,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Long Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15423,8 +15533,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Rim Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15445,8 +15555,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Halfmoon Lake', desc: 'Hike/4WD off the Boulder Mtn plateau, near Torrey' } ],
     note: 'A pretty alpine lake on the Boulder Mountain plateau (the Aquarius) above Torrey, one of hundreds scattered across this high, spruce-and-meadow tableland. Willing brook trout, tiger trout and cutthroat rise to dries and chase leeches in the short mountain summer — cast a Callibaetis or a bugger from the shoreline or a tube. Classic southern-Utah high-lake fishing at 10,000+ feet.'
   },
@@ -15467,8 +15577,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 }
-    ],
+      { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Deep Creek Lake', desc: 'Atop Thousand Lake Mtn, N of Torrey' } ],
     note: 'A high, remote lake atop Thousand Lake Mountain north of Torrey — the quieter, higher plateau across the valley from Boulder Mountain. Brook trout, tiger trout and splake cruise its cold, clear water at nearly 11,000 feet. Rough access keeps it lonely; bring a tube and fish leeches and small dries in a spectacular alpine setting.'
   },
@@ -15489,8 +15599,9 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🥾', name: 'Neff Reservoir', desc: 'Atop Thousand Lake Mtn, W of Deep Creek Lake', lat: 38.44708, lng: -111.49339 } ],
     note: 'A small, remote reservoir atop Thousand Lake Mountain just west of Deep Creek Lake on the high plateau north of Torrey. Brook and tiger trout hold in its cold, clear water near 11,000 feet. Rough four-wheel-drive and hike-in access keep it quiet — bring a float tube and fish small dries, ants and a bugger in a spectacular alpine basin.'
   },
@@ -15511,8 +15622,9 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 4 },
       { name: 'Flying Ant', type: 'dry', size: '14–18', color: 'Black, cinnamon', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 4 },
-      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 }
-    ],
+      { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Tan/olive', conf: 4 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🥾', name: 'Snow Lake', desc: 'Atop Thousand Lake Mtn, next to Deep Creek Lake', lat: 38.4246, lng: -111.46069 } ],
     note: 'A small alpine lake atop Thousand Lake Mountain, tucked just south of Deep Creek Lake on the high plateau north of Torrey. Brook and tiger trout hold in its cold, clear water near 11,000 feet. Rough, remote access keeps it quiet — pack in a tube and fish small dries, ants and a bugger in a spectacular high-country setting.'
   },
@@ -15617,8 +15729,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Jarbidge River', desc: 'Public access along the river' } ],
     note: 'A wild, remote river carving through the Bruneau-Jarbidge canyonlands of southern Idaho, holding hardy redband trout and protected bull trout. Rugged, roadless and lightly fished — a true off-the-grid desert-canyon adventure for anglers who want solitude and native fish in dramatic country.'
   },
@@ -15638,8 +15750,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Little Lost River', desc: 'Public access along the river', lat: 43.8703, lng: -113.0881 } ],
     note: 'A quiet river running the remote Little Lost Valley between the Lost River and Lemhi ranges before it sinks into the desert. Wild rainbows, brookies, cutthroat and whitefish hold in its clear reaches. Much is private ranchland, so mind access — but it offers pretty, uncrowded small-river fishing in stark, beautiful high-desert-and-mountain country.'
   },
@@ -15659,8 +15771,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Medicine Lodge Creek', desc: 'Public access along the river', lat: 44.2592, lng: -112.4103 } ],
     note: 'A small creek draining the Beaverhead Mountains near Dubois in the lonely northeast corner of the Snake River plain, holding wild rainbows, brookies and Yellowstone cutthroat. Willow-lined and lightly fished — a quiet light-rod stream in ranch-and-sage country for anglers who like empty places.'
   },
@@ -15680,8 +15792,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Beaver Creek', lat: 44.5365, lng: -112.2968, desc: 'Public access along the river' } ],
     note: 'A pretty little creek in the Centennial Mountains country near Spencer, holding eager brookies, rainbows and Yellowstone cutthroat in its meadow bends and beaver ponds. Small, cold and quiet — classic light-rod dry-fly water in the high sage-and-timber country of northeast Idaho.'
   },
@@ -15701,8 +15813,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Cayuse Creek', desc: 'Public access along the river' } ],
     note: 'A wild, clear tributary of the North Fork Clearwater deep in the Bitterroot backcountry, one of Idaho\'s gems for native westslope cutthroat (bull trout protected — release them). Reached by rough forest roads, it rewards the effort with eager cutthroat on dries in pristine, lonely wilderness. Catch-and-release ethics keep it special.'
   },
@@ -15722,8 +15834,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Lolo Creek', desc: 'Public access along the river', lat: 46.3717, lng: -116.1625 } ],
     note: 'A Clearwater-country creek flowing through the timber near Kamiah, with a wild steelhead run in spring and resident westslope cutthroat and rainbows through the season. Historic Lewis-and-Clark country — swing flies for chrome in the cold months or fish dries for cutthroat in the pretty pocket water up high.'
   },
@@ -15743,8 +15855,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Rock Creek', desc: 'Public access along the river', lat: 42.5625, lng: -114.4947 } ],
     note: 'A spring-influenced creek tumbling out of the South Hills south of Twin Falls, holding wild rainbows, browns and brookies in its canyon reaches. A pleasant, close-to-town light-rod stream — the upper forest water offers fun pocket-water dry-fly fishing away from the desert heat below.'
   },
@@ -15764,8 +15876,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Salmon Falls Creek', desc: 'Public access along the river', lat: 42.6964, lng: -114.8553 } ],
     note: 'A desert canyon creek below Salmon Falls Creek Reservoir in far-south Idaho, holding hardy redband trout and browns in its tailwater and canyon reaches. Remote and lightly fished — a rugged high-desert stream for anglers who like solitude and wild fish in dramatic basalt-canyon country near the Nevada line.'
   },
@@ -15785,8 +15897,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Goose Creek', desc: 'Public access along the river', lat: 42.1261, lng: -113.9356 } ],
     note: 'A creek draining the South Hills and Albion Mountains toward Oakley, holding wild rainbows, redband trout and brookies in its upper forest reaches. A quiet light-rod stream in the pretty timbered high country of south-central Idaho — attractor dries move eager fish in the pocket water.'
   },
@@ -15806,8 +15918,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Barber Flat access', desc: 'Public access along the river', lat: 43.833, lng: -115.556 } ],
     note: 'A beautiful freestone flowing through the rugged Boise National Forest to Arrowrock Reservoir, holding wild rainbows, westslope cutthroat and whitefish (bull trout protected). Reached by forest roads above Idaho City, it offers pretty pocket-water and canyon fishing in remote, scenic country a couple hours from Boise.'
   },
@@ -15827,8 +15939,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Middle Fork Boise River', desc: 'Public access along the river', lat: 43.6681, lng: -115.7253 } ],
     note: 'A wild freestone winding up to the old mining town of Atlanta in the Boise National Forest, holding rainbows and whitefish with protected bull trout. Hot springs, granite peaks and pretty pocket water make the long drive worthwhile — a scenic, uncrowded river deep in the mountains above Boise.'
   },
@@ -15848,8 +15960,8 @@ const HATCHED_DATA = [
       { name: 'Elk Hair Caddis', type: 'dry', size: '12–16', color: 'Tan', conf: 5 },
       { name: 'Parachute Adams', type: 'dry', size: '12–18', color: 'Gray', conf: 4 },
       { name: 'Hopper', type: 'dry', size: '8–12', color: 'Tan', conf: 4 },
-      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 }
-    ],
+      { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
+      { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Mink Creek', lat: 42.7467, lng: -112.3946, desc: 'Public access along the river' } ],
     note: 'A small canyon creek right at Pocatello\'s back door in the Portneuf Range, holding native Yellowstone cutthroat, brookies and rainbows. A beloved close-to-town escape — fish attractor dries in the pretty pocket water and beaver ponds up the canyon, minutes from the city.'
   },
@@ -15868,8 +15980,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake Lowell', desc: 'Boat ramp / shore access' } ],
     note: 'A big, shallow irrigation lake in the Deer Flat National Wildlife Refuge near Nampa, and one of the Treasure Valley\'s best warmwater fisheries — largemouth and smallmouth bass, crappie, bluegill, perch and catfish fill its weedy bays. Poppers and streamers from a boat or the bank make for fun, easy action close to Boise.'
   },
@@ -15889,8 +16001,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Mormon Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A shallow, wind-swept reservoir on the Camas Prairie near Fairfield, stocked with rainbows and holding some browns that grow fat on its rich water. Big open water — strip leeches and buggers along the drop-offs on a calm morning for chunky put-and-grow trout in the pretty prairie-and-mountain country.'
   },
@@ -15910,8 +16022,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Little Camas Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A reservoir on the Camas Prairie between Fairfield and Mountain Home, stocked with rainbows and holding yellow perch. A quiet, easy-access stillwater — fish leeches and Callibaetis for trout or work the shallows for perch. A pleasant stop in the high prairie country near the Soldier Mountains.'
   },
@@ -15931,8 +16043,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Sagehen Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A pretty forest-ringed reservoir in the mountains near Council, stocked with rainbows, brookies and hard-fighting tiger trout. A quiet, family-friendly high-country lake with campgrounds — strip leeches and small buggers from a tube or the bank for willing, scrappy trout.'
   },
@@ -15951,8 +16063,8 @@ const HATCHED_DATA = [
       { name: 'Clouser Minnow', type: 'streamer', size: '2–6', color: 'Chartreuse/white', conf: 4 },
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Crayfish', type: 'streamer', size: '4–8', color: 'Brown, olive', conf: 4 },
-      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 }
-    ],
+      { name: 'Popper', type: 'dry', size: '4–10', color: 'Chartreuse, black', conf: 4 },
+      { name: "Damsel Nymph", type: 'nymph', size: '10–14', color: "Olive", conf: 4 }],
     access: [ { type: '🚗', name: 'Crane Creek Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A remote warmwater reservoir in the hills near Midvale in west-central Idaho, known for crappie and largemouth bass along with perch and stocked rainbows. Off the beaten path and lightly pressured — poppers and small streamers along the brushy shorelines produce fun panfish and bass action.'
   },
@@ -15972,8 +16084,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lost Valley Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A scenic reservoir in the mountains near New Meadows, stocked with rainbows and holding perch and brookies. A quiet, pretty high-country stillwater with a campground — fish leeches and Callibaetis from a boat or tube. A nice pairing with the nearby Weiser and Little Salmon rivers.'
   },
@@ -15992,8 +16104,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Lake Cleveland', desc: 'Boat ramp / shore access' } ],
     note: 'A gorgeous glacial lake high in the Albion Mountains below Mount Harrison near Albion, stocked with rainbows, brookies and tiger trout. Cool and clear in a granite cirque, it\'s a scenic drive-to alpine escape from the desert heat — fish small dries and leeches from the shoreline or a tube at 8,300 feet.'
   },
@@ -16013,8 +16125,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Bull Trout Lake', desc: 'Boat ramp / shore access' } ],
     note: 'A pretty, easily-reached lake right off the Ponderosa Pine Scenic Byway (Hwy 21) near Cape Horn, between Lowman and Stanley, stocked with rainbows and holding brookies. Campgrounds and gentle access make it a family favorite — fish leeches and small dries from the bank or a tube in the pretty lodgepole high country.'
   },
@@ -16033,8 +16145,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Tin Cup Trailhead', desc: '~6 mi hike from Pettit Lake, Sawtooth Wilderness' } ],
     note: 'A large, stunning alpine lake deep in the Sawtooth Wilderness on the popular Alice–Toxaway loop, holding westslope cutthroat and rainbows. A rewarding backpack past Pettit and Alice lakes gains a granite-ringed basin under the peaks — willing trout rise to dries against some of the finest scenery in Idaho.'
   },
@@ -16053,8 +16165,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Tin Cup Trailhead', desc: '~5.5 mi hike from Pettit Lake' } ],
     note: 'One of the most photographed lakes in the Sawtooths, cradled beneath the Twin Peaks a rewarding hike from Pettit Lake. Willing westslope cutthroat and rainbows cruise its turquoise shallows. The scenery is the main event — a bucket-list backpack where the fishing is a beautiful bonus.'
   },
@@ -16073,8 +16185,8 @@ const HATCHED_DATA = [
       { name: 'Parachute Adams', type: 'dry', size: '14–18', color: 'Gray', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan', conf: 3 },
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 3 },
-      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 }
-    ],
+      { name: 'Woolly Bugger', type: 'streamer', size: '8–12', color: 'Olive, black', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🥾', name: 'Hell Roaring Trailhead', desc: '~2.5 mi hike SW of Stanley' } ],
     note: 'A scenic Sawtooth lake beneath the striking Finger of Fate spire, reached by a moderate hike southwest of Stanley. Rainbows and westslope cutthroat hold along the shoreline and inlet. A gorgeous, accessible day-hike or overnighter — cast dries in the granite basin under the peaks.'
   },
@@ -16094,8 +16206,8 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Devil Creek Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A reservoir just off I-15 north of Malad in southeast Idaho, stocked with rainbows and holding smallmouth bass and perch. A handy, easy-access stillwater on the drive between Pocatello and the Utah line — strip leeches for trout or crayfish for bass along the rocky shoreline.'
   },
@@ -16115,96 +16227,96 @@ const HATCHED_DATA = [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black', conf: 4 },
       { name: 'Callibaetis Nymph', type: 'nymph', size: '14–16', color: 'Gray', conf: 4 },
       { name: 'Damsel Nymph', type: 'nymph', size: '10–14', color: 'Olive', conf: 4 },
-      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 }
-    ],
+      { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
+      { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Daniels Reservoir', desc: 'Boat ramp / shore access' } ],
     note: 'A reservoir in the hills near Holbrook west of Malad, well known for growing chunky rainbows and cutthroat in its rich water, along with perch. A quiet southeast-Idaho stillwater — strip leeches and Callibaetis from a tube for hard-fighting trout in the pretty sage-and-mountain country.'
   }
 ,
-  {"id":"gore-creek","name":"Gore Creek","state":"Colorado","type":"river","waterType":"Freestone","rank":0,"species":"Brown · Rainbow · Cutthroat · Brook","accolades":[{"icon":"⭐","text":"Gold Medal Water — Colorado Parks & Wildlife","source":"Trophy trout designation"}],"conditions":{"temp":"50°F","flow":"90 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["East Vail","Ford Park","Vail Village","West Vail","Dowd Junction"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[4,5,9,10],"peak":[4,10],"timing":"11am–3pm"},{"name":"Caddis","months":[5,6,7,8],"peak":[6],"timing":"Evening"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"10am–2pm"},{"name":"Green Drake","months":[7,8],"peak":[7],"timing":"Afternoon"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Morning"},{"name":"Midge","months":[1,2,3,11,12],"peak":[1,12],"timing":"Midday"}],"flies":[{"name":"Parachute Adams","type":"dry","size":"16–20","conf":5},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"8–12","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":5},{"name":"BWO Comparadun","type":"dry","size":"18–20","conf":4},{"name":"Green Drake","type":"dry","size":"12–14","conf":3}],"access":[{"type":"🅿️","name":"Ford Park (Vail)","desc":"Paved lot, bike-path access, restrooms","lat":39.6446,"lng":-106.3617},{"type":"🚶","name":"Gore Creek bike path","desc":"Walk-in along the creek through Vail"},{"type":"🅿️","name":"Dowd Junction","desc":"Confluence with the Eagle — bigger browns"},{"type":"🚶","name":"East Vail pullouts","desc":"Roadside pocket water above town"}],"note":"Gold Medal freestone tumbling right through Vail — pocket water, plunge pools, and undercut banks. Fish the bike-path stretches early before town wakes up; the Dowd Junction confluence holds the bigger browns."},
-  {"id":"south-platte-deckers","name":"South Platte (Deckers)","state":"Colorado","type":"river","waterType":"Tailwater","rank":0,"species":"Rainbow · Brown · Cutbow","accolades":[{"icon":"⭐","text":"Iconic Front Range tailwater","source":"Below Cheesman Reservoir"}],"conditions":{"temp":"48°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Deckers","Below Deckers","Nighthawk","Trumbull"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[3,4,5,9,10,11],"peak":[4,10],"timing":"11am–3pm"},{"name":"Midge","months":[1,2,3,11,12],"peak":[1,2],"timing":"All day"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"10am–2pm"},{"name":"Trico","months":[7,8,9],"peak":[8],"timing":"Morning"},{"name":"Caddis","months":[5,6,7,8],"peak":[5,6],"timing":"Evening"}],"flies":[{"name":"Zebra Midge","type":"nymph","size":"18–22","conf":5},{"name":"RS2","type":"emerger","size":"18–22","conf":5},{"name":"Black Beauty","type":"nymph","size":"20–24","conf":4},{"name":"Barr Emerger","type":"nymph","size":"18–22","conf":4},{"name":"Trico Spinner","type":"dry","size":"20–24","conf":3}],"access":[{"type":"🅿️","name":"Deckers bridge","desc":"Lots along CO-67, restrooms","lat":39.2661,"lng":-105.2222},{"type":"🚶","name":"CO-67 pullouts","desc":"Roadside walk-in, both banks"},{"type":"🚶","name":"Nighthawk","desc":"Downstream walk-and-wade"}],"note":"Colorado's most famous technical tailwater below Cheesman. Long leaders, 6–7X, and tiny midge/BWO emergers. Wild, wary rainbows — sight-fish the flats and expect company on weekends."},
-  {"id":"south-platte-eleven-mile","name":"South Platte (Eleven Mile Canyon)","state":"Colorado","type":"river","waterType":"Tailwater","rank":0,"species":"Rainbow · Brown · Cutthroat","accolades":[{"icon":"⭐","text":"Scenic granite-canyon tailwater","source":"Below Eleven Mile Reservoir"}],"conditions":{"temp":"47°F","flow":"110 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Below the dam","The Tunnels","Springer Gulch","Cove"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[4,5,9,10],"peak":[4,10],"timing":"11am–3pm"},{"name":"Midge","months":[1,2,3,11,12],"peak":[1,12],"timing":"All day"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8],"peak":[6],"timing":"Evening"},{"name":"Trico","months":[7,8,9],"peak":[8],"timing":"Morning"}],"flies":[{"name":"Zebra Midge","type":"nymph","size":"18–22","conf":5},{"name":"RS2","type":"emerger","size":"18–22","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":5},{"name":"Griffith's Gnat","type":"dry","size":"18–22","conf":3},{"name":"Stimulator","type":"dry","size":"12–16","conf":3}],"access":[{"type":"🅿️","name":"Eleven Mile Canyon Rd","desc":"Fee area, roadside pullouts & campgrounds","lat":38.9203,"lng":-105.5017},{"type":"🚶","name":"The Tunnels","desc":"Walk-in pocket water by the old railroad tunnels"}],"note":"A granite-walled tailwater below Eleven Mile Reservoir — plunge pools, pocket water, and forgiving wild trout. Fee area with easy roadside access; a dry-dropper paradise and great for kids and beginners."},
-  {"id":"navajo-reservoir-co","name":"Navajo Reservoir (Colorado)","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Smallmouth Bass · Northern Pike · Kokanee · Rainbow · Crappie","accolades":[{"icon":"🐟","text":"Multi-species reservoir","source":"CO/NM border on the San Juan"}],"conditions":{"temp":"60°F","elev":"6,085 ft","wind":"SW 8","best":"AM"},"sections":["Arboles","Sambrito Cove","Windsurf Beach","Main body"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":3}],"access":[{"type":"🚤","name":"Arboles / Navajo State Park","desc":"Boat ramp, marina, camping"},{"type":"🚶","name":"Sambrito Wetlands","desc":"Walk-in shoreline, pike"}],"note":"The Colorado end of a big San Juan-basin reservoir straddling the New Mexico line — smallmouth and pike along the rocky arms, kokanee and trout in the main body. Best from a boat; Navajo State Park has the ramp and marina."},
-  {"id":"john-martin-reservoir","name":"John Martin Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Saugeye · Wiper · Bass · Crappie · Catfish","accolades":[{"icon":"🐟","text":"Southeast Colorado warmwater","source":"\"Sapphire on the Plains\""}],"conditions":{"temp":"64°F","elev":"3,800 ft","wind":"S 12","best":"Evening"},"sections":["Lake Hasty","Dam","Inlet","Big Bend"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"1/0–4","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Game Changer","type":"streamer","size":"2–6","conf":3},{"name":"Crayfish Pattern","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🚤","name":"Lake Hasty / John Martin SP","desc":"Boat ramp, camping, restrooms"},{"type":"🚶","name":"Below the dam","desc":"Arkansas River tailwater, walk-in"}],"note":"Southeast Colorado's biggest plains reservoir — a warmwater mix of walleye, wipers, and bass with a productive Arkansas River tailwater below the dam. Fly anglers strip streamers along the points and the stilling basin."},
-  {"id":"barr-lake","name":"Barr Lake","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Walleye · Wiper · Rainbow · Carp","accolades":[{"icon":"🐦","text":"Denver-metro warmwater & wildlife refuge","source":"Barr Lake State Park"}],"conditions":{"temp":"62°F","elev":"5,100 ft","wind":"NW 12","best":"AM"},"sections":["Boat ramp","Niedrach","Pioneer","South shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Barr's Carp Carrot","type":"nymph","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Barr Lake State Park ramp","desc":"Electric-only boats, hand launch"},{"type":"🚶","name":"Perimeter trail","desc":"9-mile shoreline path, walk-in"}],"note":"A shallow prairie reservoir northeast of Denver inside a state park and bird refuge — wipers and bass in summer, stocked trout in cooler months, and big carp on the flats for the fly crowd. Electric motors only; the shoreline trail opens plenty of wading."},
-  {"id":"bighorn-thermopolis","name":"Bighorn River (Wedding of the Waters)","state":"Wyoming","type":"river","waterType":"Tailwater","rank":0,"species":"Brown · Rainbow · Cutthroat","accolades":[{"icon":"🐟","text":"Big-water browns & rainbows","source":"The Wind River becomes the Bighorn here"}],"conditions":{"temp":"50°F","flow":"1,800 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Wedding of the Waters","Wind River Canyon takeout","Thermopolis","Lucerne"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[4,5,9,10],"peak":[4,10],"timing":"Midday"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Trico","months":[8,9],"peak":[8],"timing":"Morning"},{"name":"Caddis","months":[6,7,8],"peak":[6],"timing":"Evening"},{"name":"Midge","months":[1,2,3,11,12],"peak":[12,1],"timing":"All day"}],"flies":[{"name":"Pheasant Tail","type":"nymph","size":"16–18","conf":5},{"name":"Pink Scud","type":"nymph","size":"14–18","conf":4},{"name":"PMD Sparkle Dun","type":"dry","size":"16–18","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–20","conf":4},{"name":"Parachute Adams","type":"dry","size":"16–20","conf":3}],"access":[{"type":"🅿️","name":"Wedding of the Waters","desc":"US-20 pullout & boat put-in south of Thermopolis","lat":43.6072,"lng":-108.1953},{"type":"🚤","name":"Thermopolis takeout","desc":"Float the upper tailwater section"},{"type":"🚶","name":"Hot Springs State Park","desc":"Walk-in access in town"}],"note":"Where the Wind River emerges from Wind River Canyon it changes names and becomes the Bighorn — a big, rich tailwater full of thick browns and rainbows. Drift boats fish the upper section best; wade the state-park water in town."},
-  {"id":"alcova-reservoir","name":"Alcova Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Walleye","accolades":[{"icon":"🐟","text":"North Platte canyon reservoir","source":"Just above Gray Reef"}],"conditions":{"temp":"58°F","elev":"5,500 ft","wind":"SW 14","best":"AM"},"sections":["Alcova Marina","Cottonwood","Fremont Canyon inlet","Dam"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Leech","type":"streamer","size":"6–10","conf":4}],"access":[{"type":"🚤","name":"Alcova Marina","desc":"Boat ramp, marina, camping"},{"type":"🚶","name":"Fremont Canyon","desc":"Walk-in cliffs above the inlet"}],"note":"A red-rock canyon reservoir on the North Platte just above the famous Gray Reef tailwater — rainbows, browns, and walleye. Most fishing is by boat; the Fremont Canyon narrows above hold surprising trout for the wading angler."},
-  {"id":"ocean-lake","name":"Ocean Lake","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Yellow Perch · Rainbow · Burbot","accolades":[{"icon":"🐟","text":"Wind River Basin warmwater","source":"Big walleye & jumbo perch"}],"conditions":{"temp":"60°F","elev":"5,270 ft","wind":"W 15","best":"AM"},"sections":["Mikesell-Potts","North Marsh","Long Point","Dickinson access"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Leech","type":"streamer","size":"6–10","conf":4}],"access":[{"type":"🚤","name":"Mikesell-Potts Rec Area","desc":"Boat ramp, WGFD access"},{"type":"🚶","name":"Marsh shoreline","desc":"Walk-in, weedy flats"}],"note":"A big, shallow, weedy lake in the Wind River Basin near Riverton — prime walleye and jumbo perch water with a strong spring rainbow bite. Wind rules the day; fish the leeward shorelines and the marsh edges."},
-  {"id":"fresno-reservoir","name":"Fresno Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Northern Pike · Yellow Perch · Smallmouth Bass","accolades":[{"icon":"🐟","text":"Hi-Line walleye factory","source":"Milk River reservoir near Havre"}],"conditions":{"temp":"62°F","elev":"2,575 ft","wind":"NW 14","best":"Evening"},"sections":["River Run","Kremlin Bay","Dam","North Shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"1/0–4","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Pike Bunny","type":"streamer","size":"2/0–2","conf":4},{"name":"Leech","type":"streamer","size":"6–10","conf":3}],"access":[{"type":"🚤","name":"River Run ramp","desc":"Boat ramp near the dam"},{"type":"🚶","name":"North shore bays","desc":"Walk-in, pike in the weeds"}],"note":"A sprawling Hi-Line reservoir on the Milk River west of Havre — one of Montana's top walleye and northern pike waters. Fly rodders throw big streamers for pike in the weedy bays; spring and fall fish best."},
-  {"id":"tongue-river-reservoir","name":"Tongue River Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Crappie · Smallmouth Bass · Walleye · Northern Pike · Catfish","accolades":[{"icon":"🐟","text":"Southeast Montana mixed bag","source":"Crappie & smallmouth hotspot"}],"conditions":{"temp":"64°F","elev":"3,440 ft","wind":"S 12","best":"Evening"},"sections":["Dam","Pee Wee Point","Willow","Red Shale"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Crappie Candy","type":"streamer","size":"8–12","conf":4},{"name":"Crayfish Pattern","type":"streamer","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Tongue River Reservoir SP","desc":"Boat ramps, camping"},{"type":"🚶","name":"Red Shale shoreline","desc":"Walk-in coves"}],"note":"A red-scoria-rimmed reservoir near Decker famous for slab crappie and hard-fighting smallmouth, plus walleye and pike. Fly anglers do best from a boat working the rocky points and submerged timber."},
-  {"id":"cooney-reservoir","name":"Cooney Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Walleye · Yellow Perch","accolades":[{"icon":"🐟","text":"Billings-area reservoir","source":"Popular trout & walleye water"}],"conditions":{"temp":"60°F","elev":"4,270 ft","wind":"SW 14","best":"AM"},"sections":["Marshall Cove","Willow Creek","Dam","North Shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":3}],"access":[{"type":"🚤","name":"Cooney State Park","desc":"Boat ramps, camping, restrooms"},{"type":"🚶","name":"Willow Creek shore","desc":"Walk-in inlet, spring rainbows"}],"note":"The go-to reservoir south of Billings — stocked rainbows and a strong walleye and perch fishery in a state park with good ramps. Wind can howl; fish the sheltered coves early or troll and strip leeches from a boat."},
-  {"id":"billingsley-creek","name":"Billingsley Creek","state":"Idaho","type":"river","waterType":"Spring Creek","rank":0,"species":"Rainbow · Brown","accolades":[{"icon":"💧","text":"Hagerman Valley spring creek","source":"Cold, constant spring flows"}],"conditions":{"temp":"52°F","flow":"60 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Morning"},"sections":["Billingsley Creek WMA","Vader Grade","Lower meadows"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[3,4,5,9,10,11],"peak":[4,10],"timing":"Midday"},{"name":"Pale Morning Dun (PMD)","months":[5,6,7],"peak":[6],"timing":"Midday"},{"name":"Midge","months":[1,2,12],"peak":[1],"timing":"All day"},{"name":"Caddis","months":[5,6,7,8],"peak":[6],"timing":"Evening"},{"name":"Trico","months":[7,8,9],"peak":[8],"timing":"Morning"}],"flies":[{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":5},{"name":"Zebra Midge","type":"nymph","size":"18–20","conf":4},{"name":"PMD Comparadun","type":"dry","size":"16–18","conf":4},{"name":"Griffith's Gnat","type":"dry","size":"18–22","conf":3},{"name":"Woolly Bugger","type":"streamer","size":"8–12","conf":4}],"access":[{"type":"🅿️","name":"Billingsley Creek WMA","desc":"IDFG access, walk-in meadows","lat":42.8113,"lng":-114.8977},{"type":"🚶","name":"Vader Grade","desc":"Roadside pullouts"}],"note":"A cold, weedy Hagerman-area spring creek that fishes technical and rewards a careful approach. Sight-fish the runs with small nymphs and BWO/PMD emergers — a quiet alternative to the crowded Snake nearby."},
-  {"id":"chatanika-river","name":"Chatanika River","state":"Alaska","type":"river","waterType":"Freestone","rank":0,"species":"Arctic Grayling · Whitefish · Northern Pike","accolades":[{"icon":"🎣","text":"Road-accessible grayling","source":"Steese & Elliott Highway access"}],"conditions":{"temp":"48°F","flow":"400 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Steese Hwy Mile 39","Chatanika River SRS","Elliott Hwy crossing","Long Creek"],"hatches":[{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7,8],"peak":[7],"timing":"Afternoon"},{"name":"Midge","months":[5,6,9],"peak":[6],"timing":"All day"},{"name":"Stonefly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Parachute Adams","type":"dry","size":"14–18","conf":5},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Black Gnat","type":"dry","size":"16–18","conf":4},{"name":"Hare's Ear","type":"nymph","size":"12–16","conf":4},{"name":"Egg Pattern","type":"nymph","size":"12–14","conf":3}],"access":[{"type":"🅿️","name":"Chatanika River SRS","desc":"State rec site on the Steese Highway","lat":65.1289,"lng":-147.4711},{"type":"🚶","name":"Steese Highway pullouts","desc":"Multiple crossings NE of Fairbanks"}],"note":"The go-to road-accessible grayling stream out of Fairbanks — clear, tannic water full of eager Arctic grayling that pound dry flies all summer. Fish the Steese Highway crossings; pike hold in the slow lower bends."},
-  {"id":"campbell-creek","name":"Campbell Creek","state":"Alaska","type":"river","waterType":"Urban Stream","rank":0,"species":"Coho (Silver) Salmon · King Salmon · Rainbow · Dolly Varden","accolades":[{"icon":"🏙️","text":"Urban salmon in Anchorage","source":"Stocked king & wild silver runs"}],"conditions":{"temp":"52°F","flow":"80 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Incoming tide"},"sections":["Campbell Creek Estuary","Taku Lake","C Street","Old Seward"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🅿️","name":"Taku Lake / Campbell Creek","desc":"Lot & bike-path access, stocked fishery","lat":61.1508,"lng":-149.8664},{"type":"🚶","name":"Campbell Creek Greenbelt","desc":"Walk-in along the paved bike path"}],"note":"Anchorage's in-town salmon creek — a stocked June/July king run and a strong August/September silver run right off the bike path. Fish incoming tides near the estuary with bright streamers; wild rainbows and Dollys hold year-round."},
-  {"id":"kens-lake","name":"Ken's Lake","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Largemouth Bass · Bluegill","accolades":[{"icon":"🎣","text":"Moab's local fishery","source":"Only reservoir near Moab"}],"conditions":{"temp":"60°F","elev":"4,700 ft","wind":"S 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","South shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"6–10","conf":3}],"access":[{"type":"🚤","name":"Ken's Lake Campground","desc":"BLM ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline trail","desc":"Walk-in around the lake"}],"note":"The only still water near Moab — a small BLM reservoir stocked with rainbows and holding bass and bluegill. A convenient family and float-tube fishery; fish mornings before the desert heat and wind pick up."},
-  {"id":"puffer-lake","name":"Puffer Lake","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook · Tiger Trout","accolades":[{"icon":"🏔️","text":"Tushar Mountains high lake","source":"Cool water through summer"}],"conditions":{"temp":"52°F","elev":"9,700 ft","wind":"W 8","best":"AM"},"sections":["Boat ramp","Lodge","Inlet","Dam"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":3},{"name":"Renegade","type":"dry","size":"12–16","conf":3}],"access":[{"type":"🚤","name":"Puffer Lake ramp","desc":"Small boat launch, private resort"},{"type":"🚶","name":"Shoreline","desc":"Walk-in, float tube"}],"note":"A high, cool lake in the Tushar Mountains above Beaver — stocked rainbows plus brook and hard-fighting tiger trout. Elevation keeps it fishing all summer; chironomids under an indicator and stripped leeches both produce."},
-  {"id":"big-sand-wash-reservoir","name":"Big Sand Wash Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Smallmouth Bass · Bluegill","accolades":[{"icon":"🎣","text":"Uinta Basin reservoir","source":"Trout & smallmouth near Upalco"}],"conditions":{"temp":"58°F","elev":"6,000 ft","wind":"SW 10","best":"AM"},"sections":["Boat ramp","Dam","North arm","Inlet"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Clouser Minnow","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🚤","name":"Big Sand Wash ramp","desc":"State ramp, restrooms"},{"type":"🚶","name":"Dam shoreline","desc":"Walk-in, smallmouth on the rocks"}],"note":"A Uinta Basin irrigation reservoir near Upalco stocked with rainbows and holding a solid smallmouth and bluegill population. Clear water rewards an early start; work the rocky dam face for bass and the flats for cruising trout."},
-  {"id":"matt-warner-reservoir","name":"Matt Warner Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Tiger Trout · Brook","accolades":[{"icon":"🏔️","text":"Diamond Mountain tiger-trout water","source":"Cool high-desert reservoir"}],"conditions":{"temp":"54°F","elev":"8,000 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Matt Warner ramp","desc":"Gravel ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A Diamond Mountain reservoir north of Vernal known for chunky tiger trout and rainbows. High and cool, it fishes well all summer — chironomids under an indicator and stripped leeches are the ticket."},
-  {"id":"crouse-reservoir","name":"Crouse Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook","accolades":[{"icon":"🎣","text":"Stocked mountain trout","source":"Uintah County"}],"conditions":{"temp":"54°F","elev":"7,300 ft","wind":"W 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Crouse Reservoir ramp","desc":"Small launch, primitive sites"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A quiet Diamond Mountain trout reservoir near Matt Warner — stocked rainbows plus brookies. A relaxed float-tube and small-boat fishery with generous limits."},
-  {"id":"recapture-reservoir","name":"Recapture Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Bluegill · Channel Catfish · Rainbow","accolades":[{"icon":"🐟","text":"Southeast Utah warmwater","source":"Bass & bluegill"}],"conditions":{"temp":"62°F","elev":"6,000 ft","wind":"S 8","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Recapture ramp","desc":"BLM ramp north of Blanding"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"San Juan County’s warmwater reservoir north of Blanding — largemouth, bluegill, and catfish, with stocked trout in the cool months. Fish poppers and streamers along the flooded brush."},
-  {"id":"palisade-reservoir","name":"Palisade Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Largemouth Bass · Bluegill","accolades":[{"icon":"⛳","text":"Palisade State Park","source":"Family stillwater"}],"conditions":{"temp":"60°F","elev":"5,900 ft","wind":"S 6","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Palisade State Park","desc":"No-wake ramp, camping, golf, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A small, no-wake reservoir in Palisade State Park near Sterling — stocked rainbows plus bass and bluegill. Family-friendly with easy shoreline and float-tube access; no gas motors."},
-  {"id":"vernon-reservoir","name":"Vernon Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Tiger Trout · Brook","accolades":[{"icon":"🏔️","text":"West Desert tiger trout","source":"Sheeprock Mountains"}],"conditions":{"temp":"56°F","elev":"5,500 ft","wind":"SW 10","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Vernon Reservoir ramp","desc":"Gravel launch, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A small West Desert trout reservoir (also called Vernon or Little Valley) in the Sheeprock Mountains south of Tooele — rainbows and hard-fighting tiger trout. A hidden-gem float-tube water."},
-  {"id":"settlement-canyon-reservoir","name":"Settlement Canyon Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Tiger Trout","accolades":[{"icon":"🎣","text":"Tooele community fishery","source":"No-wake trout water"}],"conditions":{"temp":"56°F","elev":"5,300 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Settlement Canyon","desc":"Day-use area, no-wake, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"Tooele’s in-town canyon reservoir — a no-wake, put-and-take rainbow fishery with tiger trout mixed in. Easy walk-in access and a good spot for a quick after-work session."},
-  {"id":"crawford-reservoir","name":"Crawford Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Crappie · Bluegill · Yellow Perch · Catfish","accolades":[{"icon":"🐟","text":"Western Slope warmwater","source":"Crawford State Park"}],"conditions":{"temp":"64°F","elev":"6,540 ft","wind":"S 10","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Crawford State Park","desc":"Two ramps, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warmwater state-park reservoir on the North Fork Gunnison near the West Elks — largemouth, slab crappie, and perch. Fly rodders strip streamers along the weed edges and flooded timber."},
-  {"id":"jackson-reservoir","name":"Jackson Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Wiper · Largemouth Bass · Crappie · Catfish","accolades":[{"icon":"🐟","text":"Northeast Colorado walleye","source":"Jackson Lake State Park"}],"conditions":{"temp":"66°F","elev":"4,430 ft","wind":"NW 12","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Jackson Lake State Park","desc":"Ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A plains reservoir northwest of Fort Morgan in Jackson Lake State Park — walleye, wipers, and bass in warm, fertile water. Best from a boat working the points; wipers boil on the surface in summer."},
-  {"id":"ridgway-reservoir","name":"Ridgway Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Kokanee · Yellow Perch","accolades":[{"icon":"🏔️","text":"San Juan foothills reservoir","source":"Ridgway State Park"}],"conditions":{"temp":"56°F","elev":"6,870 ft","wind":"SW 10","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Ridgway State Park","desc":"Ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A scenic Uncompahgre-valley reservoir in Ridgway State Park below the San Juans — rainbows, browns, and kokanee. Troll or strip leeches from a boat; the Uncompahgre tailwater below the dam is a bonus."},
-  {"id":"rifle-gap-reservoir","name":"Rifle Gap Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Smallmouth Bass · Northern Pike · Largemouth Bass · Rainbow","accolades":[{"icon":"🐟","text":"Western Slope multi-species","source":"Rifle Gap State Park"}],"conditions":{"temp":"62°F","elev":"6,000 ft","wind":"W 12","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Rifle Gap State Park","desc":"Ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A multi-species reservoir in Rifle Gap State Park north of Rifle — walleye, smallmouth, and pike plus stocked trout. Rocky structure holds bass; fish the shelf edges and the dam face."},
-  {"id":"sylvan-lake","name":"Sylvan Lake","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook · Brown","accolades":[{"icon":"🏔️","text":"Brush Creek high lake","source":"Sylvan Lake State Park"}],"conditions":{"temp":"52°F","elev":"8,500 ft","wind":"W 6","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Sylvan Lake State Park","desc":"No-wake ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A high, pretty no-wake lake in Sylvan Lake State Park south of Eagle — stocked rainbows plus brookies and browns. Cool water fishes all summer; ideal for float tubes and a family outing."},
-  {"id":"north-sterling-reservoir","name":"North Sterling Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Wiper · Crappie · Largemouth Bass · Catfish","accolades":[{"icon":"🐟","text":"Northeast Colorado walleye","source":"North Sterling State Park"}],"conditions":{"temp":"66°F","elev":"4,000 ft","wind":"NW 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"North Sterling State Park","desc":"Ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"Northeast Colorado’s big plains reservoir in North Sterling State Park — a strong walleye and wiper fishery with crappie and bass. Boat-fish the inlets and points; wipers chase shad on top in summer."},
-  {"id":"elkhead-reservoir","name":"Elkhead Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Smallmouth Bass · Northern Pike · Crappie · Largemouth Bass · Bluegill","accolades":[{"icon":"🐟","text":"Yampa-basin bass & pike","source":"Yampa River State Park"}],"conditions":{"temp":"62°F","elev":"6,400 ft","wind":"W 12","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Elkhead / Yampa State Park","desc":"Ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A bass-and-pike reservoir east of Craig managed as part of Yampa River State Park — quality smallmouth and northern pike. Fly anglers throw Clousers and big streamers along the rocky shorelines and coves."},
-  {"id":"big-sandy-reservoir","name":"Big Sandy Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Cutthroat","accolades":[{"icon":"🏔️","text":"Upper Green trout reservoir","source":"Below the Wind River Range"}],"conditions":{"temp":"56°F","elev":"6,700 ft","wind":"SW 16","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Big Sandy ramp","desc":"WGFD ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A trout reservoir on the Big Sandy River in the upper Green basin near Farson — rainbows, browns, and cutthroat in cold, clear water below the Winds. Wind rules the day; fish the leeward shore and the inlet."},
-  {"id":"meeks-cabin-reservoir","name":"Meeks Cabin Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Brook · Tiger Trout","accolades":[{"icon":"🏔️","text":"Uinta North Slope reservoir","source":"Blacks Fork drainage"}],"conditions":{"temp":"52°F","elev":"8,700 ft","wind":"W 10","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Meeks Cabin ramp","desc":"Forest Service ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A high Uinta-North-Slope reservoir on the Blacks Fork in southwest Wyoming — rainbows, browns, brookies, and tiger trout. Remote and cold; a fine backcountry stillwater and gateway to the Blacks Fork."},
-  {"id":"healy-reservoir","name":"Healy Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Rainbow · Largemouth Bass · Yellow Perch","accolades":[{"icon":"🐟","text":"Powder River Basin walleye","source":"Near Buffalo"}],"conditions":{"temp":"62°F","elev":"4,600 ft","wind":"W 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Healy Reservoir ramp","desc":"County ramp east of Buffalo"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warm, fertile reservoir just east of Buffalo on Clear Creek — walleye, bass, and perch with stocked trout. Low elevation means an early warm-water bite; strip streamers along the dam and flooded shoreline."},
-  {"id":"lake-viva-naughton","name":"Lake Viva Naughton","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Cutthroat · Brown · Tiger Trout","accolades":[{"icon":"🎣","text":"Hams Fork trout reservoir","source":"Near Kemmerer"}],"conditions":{"temp":"56°F","elev":"6,900 ft","wind":"SW 14","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Viva Naughton Marina","desc":"Ramp, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A popular trout reservoir on the Hams Fork north of Kemmerer — rainbows, cutthroat, browns, and tiger trout. A local favorite with a marina; troll or strip leeches, and fish the Hams Fork inlet in spring."},
-  {"id":"grayrocks-reservoir","name":"Grayrocks Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Crappie · Largemouth Bass · Yellow Perch · Catfish","accolades":[{"icon":"🐟","text":"Southeast Wyoming warmwater","source":"Laramie River reservoir"}],"conditions":{"temp":"66°F","elev":"4,500 ft","wind":"S 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Grayrocks ramp","desc":"WGFD ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warmwater reservoir on the Laramie River near Wheatland — one of southeast Wyoming’s best walleye, crappie, and bass waters. Fish the timber and points from a boat; big crappie in spring."},
-  {"id":"little-payette-lake","name":"Little Payette Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Smallmouth Bass · Yellow Perch · Rainbow","accolades":[{"icon":"🐟","text":"McCall-area bass water","source":"Valley County"}],"conditions":{"temp":"60°F","elev":"5,000 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Little Payette ramp","desc":"Boat ramp east of McCall"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A quieter alternative to big Payette Lake just southeast of McCall — smallmouth bass, perch, and stocked rainbows in warmer, weedier water. Work the rocky points and docks for bass."},
+  {"id":"gore-creek","name":"Gore Creek","state":"Colorado","type":"river","waterType":"Freestone","rank":0,"species":"Brown · Rainbow · Cutthroat · Brook","accolades":[{"icon":"⭐","text":"Gold Medal Water — Colorado Parks & Wildlife","source":"Trophy trout designation"}],"conditions":{"temp":"50°F","flow":"90 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["East Vail","Ford Park","Vail Village","West Vail","Dowd Junction"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[4,5,9,10],"peak":[4,10],"timing":"11am–3pm"},{"name":"Caddis","months":[5,6,7,8],"peak":[6],"timing":"Evening"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"10am–2pm"},{"name":"Green Drake","months":[7,8],"peak":[7],"timing":"Afternoon"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Morning"},{"name":"Midge","months":[1,2,3,11,12],"peak":[1,12],"timing":"Midday"}],"flies":[{"name":"Parachute Adams","type":"dry","size":"16–20","conf":5},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"8–12","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":5},{"name":"BWO Comparadun","type":"dry","size":"18–20","conf":4},{"name":"Green Drake","type":"dry","size":"12–14","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4}],"access":[{"type":"🅿️","name":"Ford Park (Vail)","desc":"Paved lot, bike-path access, restrooms","lat":39.6446,"lng":-106.3617},{"type":"🚶","name":"Gore Creek bike path","desc":"Walk-in along the creek through Vail"},{"type":"🅿️","name":"Dowd Junction","desc":"Confluence with the Eagle — bigger browns"},{"type":"🚶","name":"East Vail pullouts","desc":"Roadside pocket water above town"}],"note":"Gold Medal freestone tumbling right through Vail — pocket water, plunge pools, and undercut banks. Fish the bike-path stretches early before town wakes up; the Dowd Junction confluence holds the bigger browns."},
+  {"id":"south-platte-deckers","name":"South Platte (Deckers)","state":"Colorado","type":"river","waterType":"Tailwater","rank":0,"species":"Rainbow · Brown · Cutbow","accolades":[{"icon":"⭐","text":"Iconic Front Range tailwater","source":"Below Cheesman Reservoir"}],"conditions":{"temp":"48°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Deckers","Below Deckers","Nighthawk","Trumbull"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[3,4,5,9,10,11],"peak":[4,10],"timing":"11am–3pm"},{"name":"Midge","months":[1,2,3,11,12],"peak":[1,2],"timing":"All day"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"10am–2pm"},{"name":"Trico","months":[7,8,9],"peak":[8],"timing":"Morning"},{"name":"Caddis","months":[5,6,7,8],"peak":[5,6],"timing":"Evening"}],"flies":[{"name":"Zebra Midge","type":"nymph","size":"18–22","conf":5},{"name":"RS2","type":"emerger","size":"18–22","conf":5},{"name":"Black Beauty","type":"nymph","size":"20–24","conf":4},{"name":"Barr Emerger","type":"nymph","size":"18–22","conf":4},{"name":"Trico Spinner","type":"dry","size":"20–24","conf":3},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Deckers bridge","desc":"Lots along CO-67, restrooms","lat":39.2661,"lng":-105.2222},{"type":"🚶","name":"CO-67 pullouts","desc":"Roadside walk-in, both banks"},{"type":"🚶","name":"Nighthawk","desc":"Downstream walk-and-wade"}],"note":"Colorado's most famous technical tailwater below Cheesman. Long leaders, 6–7X, and tiny midge/BWO emergers. Wild, wary rainbows — sight-fish the flats and expect company on weekends."},
+  {"id":"south-platte-eleven-mile","name":"South Platte (Eleven Mile Canyon)","state":"Colorado","type":"river","waterType":"Tailwater","rank":0,"species":"Rainbow · Brown · Cutthroat","accolades":[{"icon":"⭐","text":"Scenic granite-canyon tailwater","source":"Below Eleven Mile Reservoir"}],"conditions":{"temp":"47°F","flow":"110 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Below the dam","The Tunnels","Springer Gulch","Cove"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[4,5,9,10],"peak":[4,10],"timing":"11am–3pm"},{"name":"Midge","months":[1,2,3,11,12],"peak":[1,12],"timing":"All day"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8],"peak":[6],"timing":"Evening"},{"name":"Trico","months":[7,8,9],"peak":[8],"timing":"Morning"}],"flies":[{"name":"Zebra Midge","type":"nymph","size":"18–22","conf":5},{"name":"RS2","type":"emerger","size":"18–22","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":5},{"name":"Griffith's Gnat","type":"dry","size":"18–22","conf":3},{"name":"Stimulator","type":"dry","size":"12–16","conf":3},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Eleven Mile Canyon Rd","desc":"Fee area, roadside pullouts & campgrounds","lat":38.9203,"lng":-105.5017},{"type":"🚶","name":"The Tunnels","desc":"Walk-in pocket water by the old railroad tunnels"}],"note":"A granite-walled tailwater below Eleven Mile Reservoir — plunge pools, pocket water, and forgiving wild trout. Fee area with easy roadside access; a dry-dropper paradise and great for kids and beginners."},
+  {"id":"navajo-reservoir-co","name":"Navajo Reservoir (Colorado)","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Smallmouth Bass · Northern Pike · Kokanee · Rainbow · Crappie","accolades":[{"icon":"🐟","text":"Multi-species reservoir","source":"CO/NM border on the San Juan"}],"conditions":{"temp":"60°F","elev":"6,085 ft","wind":"SW 8","best":"AM"},"sections":["Arboles","Sambrito Cove","Windsurf Beach","Main body"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Arboles / Navajo State Park","desc":"Boat ramp, marina, camping"},{"type":"🚶","name":"Sambrito Wetlands","desc":"Walk-in shoreline, pike"}],"note":"The Colorado end of a big San Juan-basin reservoir straddling the New Mexico line — smallmouth and pike along the rocky arms, kokanee and trout in the main body. Best from a boat; Navajo State Park has the ramp and marina."},
+  {"id":"john-martin-reservoir","name":"John Martin Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Saugeye · Wiper · Bass · Crappie · Catfish","accolades":[{"icon":"🐟","text":"Southeast Colorado warmwater","source":"\"Sapphire on the Plains\""}],"conditions":{"temp":"64°F","elev":"3,800 ft","wind":"S 12","best":"Evening"},"sections":["Lake Hasty","Dam","Inlet","Big Bend"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"1/0–4","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Game Changer","type":"streamer","size":"2–6","conf":3},{"name":"Crayfish Pattern","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Lake Hasty / John Martin SP","desc":"Boat ramp, camping, restrooms"},{"type":"🚶","name":"Below the dam","desc":"Arkansas River tailwater, walk-in"}],"note":"Southeast Colorado's biggest plains reservoir — a warmwater mix of walleye, wipers, and bass with a productive Arkansas River tailwater below the dam. Fly anglers strip streamers along the points and the stilling basin."},
+  {"id":"barr-lake","name":"Barr Lake","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Walleye · Wiper · Rainbow · Carp","accolades":[{"icon":"🐦","text":"Denver-metro warmwater & wildlife refuge","source":"Barr Lake State Park"}],"conditions":{"temp":"62°F","elev":"5,100 ft","wind":"NW 12","best":"AM"},"sections":["Boat ramp","Niedrach","Pioneer","South shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Barr's Carp Carrot","type":"nymph","size":"8–12","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Barr Lake State Park ramp","desc":"Electric-only boats, hand launch"},{"type":"🚶","name":"Perimeter trail","desc":"9-mile shoreline path, walk-in"}],"note":"A shallow prairie reservoir northeast of Denver inside a state park and bird refuge — wipers and bass in summer, stocked trout in cooler months, and big carp on the flats for the fly crowd. Electric motors only; the shoreline trail opens plenty of wading."},
+  {"id":"bighorn-thermopolis","name":"Bighorn River (Wedding of the Waters)","state":"Wyoming","type":"river","waterType":"Tailwater","rank":0,"species":"Brown · Rainbow · Cutthroat","accolades":[{"icon":"🐟","text":"Big-water browns & rainbows","source":"The Wind River becomes the Bighorn here"}],"conditions":{"temp":"50°F","flow":"1,800 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Wedding of the Waters","Wind River Canyon takeout","Thermopolis","Lucerne"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[4,5,9,10],"peak":[4,10],"timing":"Midday"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Trico","months":[8,9],"peak":[8],"timing":"Morning"},{"name":"Caddis","months":[6,7,8],"peak":[6],"timing":"Evening"},{"name":"Midge","months":[1,2,3,11,12],"peak":[12,1],"timing":"All day"}],"flies":[{"name":"Pheasant Tail","type":"nymph","size":"16–18","conf":5},{"name":"Pink Scud","type":"nymph","size":"14–18","conf":4},{"name":"PMD Sparkle Dun","type":"dry","size":"16–18","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–20","conf":4},{"name":"Parachute Adams","type":"dry","size":"16–20","conf":3},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Wedding of the Waters","desc":"US-20 pullout & boat put-in south of Thermopolis","lat":43.6072,"lng":-108.1953},{"type":"🚤","name":"Thermopolis takeout","desc":"Float the upper tailwater section"},{"type":"🚶","name":"Hot Springs State Park","desc":"Walk-in access in town"}],"note":"Where the Wind River emerges from Wind River Canyon it changes names and becomes the Bighorn — a big, rich tailwater full of thick browns and rainbows. Drift boats fish the upper section best; wade the state-park water in town."},
+  {"id":"alcova-reservoir","name":"Alcova Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Walleye","accolades":[{"icon":"🐟","text":"North Platte canyon reservoir","source":"Just above Gray Reef"}],"conditions":{"temp":"58°F","elev":"5,500 ft","wind":"SW 14","best":"AM"},"sections":["Alcova Marina","Cottonwood","Fremont Canyon inlet","Dam"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Leech","type":"streamer","size":"6–10","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Alcova Marina","desc":"Boat ramp, marina, camping"},{"type":"🚶","name":"Fremont Canyon","desc":"Walk-in cliffs above the inlet"}],"note":"A red-rock canyon reservoir on the North Platte just above the famous Gray Reef tailwater — rainbows, browns, and walleye. Most fishing is by boat; the Fremont Canyon narrows above hold surprising trout for the wading angler."},
+  {"id":"ocean-lake","name":"Ocean Lake","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Yellow Perch · Rainbow · Burbot","accolades":[{"icon":"🐟","text":"Wind River Basin warmwater","source":"Big walleye & jumbo perch"}],"conditions":{"temp":"60°F","elev":"5,270 ft","wind":"W 15","best":"AM"},"sections":["Mikesell-Potts","North Marsh","Long Point","Dickinson access"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Leech","type":"streamer","size":"6–10","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4}],"access":[{"type":"🚤","name":"Mikesell-Potts Rec Area","desc":"Boat ramp, WGFD access"},{"type":"🚶","name":"Marsh shoreline","desc":"Walk-in, weedy flats"}],"note":"A big, shallow, weedy lake in the Wind River Basin near Riverton — prime walleye and jumbo perch water with a strong spring rainbow bite. Wind rules the day; fish the leeward shorelines and the marsh edges."},
+  {"id":"fresno-reservoir","name":"Fresno Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Northern Pike · Yellow Perch · Smallmouth Bass","accolades":[{"icon":"🐟","text":"Hi-Line walleye factory","source":"Milk River reservoir near Havre"}],"conditions":{"temp":"62°F","elev":"2,575 ft","wind":"NW 14","best":"Evening"},"sections":["River Run","Kremlin Bay","Dam","North Shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"1/0–4","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Pike Bunny","type":"streamer","size":"2/0–2","conf":4},{"name":"Leech","type":"streamer","size":"6–10","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"River Run ramp","desc":"Boat ramp near the dam"},{"type":"🚶","name":"North shore bays","desc":"Walk-in, pike in the weeds"}],"note":"A sprawling Hi-Line reservoir on the Milk River west of Havre — one of Montana's top walleye and northern pike waters. Fly rodders throw big streamers for pike in the weedy bays; spring and fall fish best."},
+  {"id":"tongue-river-reservoir","name":"Tongue River Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Crappie · Smallmouth Bass · Walleye · Northern Pike · Catfish","accolades":[{"icon":"🐟","text":"Southeast Montana mixed bag","source":"Crappie & smallmouth hotspot"}],"conditions":{"temp":"64°F","elev":"3,440 ft","wind":"S 12","best":"Evening"},"sections":["Dam","Pee Wee Point","Willow","Red Shale"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Crappie Candy","type":"streamer","size":"8–12","conf":4},{"name":"Crayfish Pattern","type":"streamer","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Tongue River Reservoir SP","desc":"Boat ramps, camping"},{"type":"🚶","name":"Red Shale shoreline","desc":"Walk-in coves"}],"note":"A red-scoria-rimmed reservoir near Decker famous for slab crappie and hard-fighting smallmouth, plus walleye and pike. Fly anglers do best from a boat working the rocky points and submerged timber."},
+  {"id":"cooney-reservoir","name":"Cooney Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Walleye · Yellow Perch","accolades":[{"icon":"🐟","text":"Billings-area reservoir","source":"Popular trout & walleye water"}],"conditions":{"temp":"60°F","elev":"4,270 ft","wind":"SW 14","best":"AM"},"sections":["Marshall Cove","Willow Creek","Dam","North Shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Cooney State Park","desc":"Boat ramps, camping, restrooms"},{"type":"🚶","name":"Willow Creek shore","desc":"Walk-in inlet, spring rainbows"}],"note":"The go-to reservoir south of Billings — stocked rainbows and a strong walleye and perch fishery in a state park with good ramps. Wind can howl; fish the sheltered coves early or troll and strip leeches from a boat."},
+  {"id":"billingsley-creek","name":"Billingsley Creek","state":"Idaho","type":"river","waterType":"Spring Creek","rank":0,"species":"Rainbow · Brown","accolades":[{"icon":"💧","text":"Hagerman Valley spring creek","source":"Cold, constant spring flows"}],"conditions":{"temp":"52°F","flow":"60 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Morning"},"sections":["Billingsley Creek WMA","Vader Grade","Lower meadows"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[3,4,5,9,10,11],"peak":[4,10],"timing":"Midday"},{"name":"Pale Morning Dun (PMD)","months":[5,6,7],"peak":[6],"timing":"Midday"},{"name":"Midge","months":[1,2,12],"peak":[1],"timing":"All day"},{"name":"Caddis","months":[5,6,7,8],"peak":[6],"timing":"Evening"},{"name":"Trico","months":[7,8,9],"peak":[8],"timing":"Morning"}],"flies":[{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":5},{"name":"Zebra Midge","type":"nymph","size":"18–20","conf":4},{"name":"PMD Comparadun","type":"dry","size":"16–18","conf":4},{"name":"Griffith's Gnat","type":"dry","size":"18–22","conf":3},{"name":"Woolly Bugger","type":"streamer","size":"8–12","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Billingsley Creek WMA","desc":"IDFG access, walk-in meadows","lat":42.8113,"lng":-114.8977},{"type":"🚶","name":"Vader Grade","desc":"Roadside pullouts"}],"note":"A cold, weedy Hagerman-area spring creek that fishes technical and rewards a careful approach. Sight-fish the runs with small nymphs and BWO/PMD emergers — a quiet alternative to the crowded Snake nearby."},
+  {"id":"chatanika-river","name":"Chatanika River","state":"Alaska","type":"river","waterType":"Freestone","rank":0,"species":"Arctic Grayling · Whitefish · Northern Pike","accolades":[{"icon":"🎣","text":"Road-accessible grayling","source":"Steese & Elliott Highway access"}],"conditions":{"temp":"48°F","flow":"400 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Steese Hwy Mile 39","Chatanika River SRS","Elliott Hwy crossing","Long Creek"],"hatches":[{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7,8],"peak":[7],"timing":"Afternoon"},{"name":"Midge","months":[5,6,9],"peak":[6],"timing":"All day"},{"name":"Stonefly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Parachute Adams","type":"dry","size":"14–18","conf":5},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Black Gnat","type":"dry","size":"16–18","conf":4},{"name":"Hare's Ear","type":"nymph","size":"12–16","conf":4},{"name":"Egg Pattern","type":"nymph","size":"12–14","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"6–10","color":"Brown/black","conf":4}],"access":[{"type":"🅿️","name":"Chatanika River SRS","desc":"State rec site on the Steese Highway","lat":65.1289,"lng":-147.4711},{"type":"🚶","name":"Steese Highway pullouts","desc":"Multiple crossings NE of Fairbanks"}],"note":"The go-to road-accessible grayling stream out of Fairbanks — clear, tannic water full of eager Arctic grayling that pound dry flies all summer. Fish the Steese Highway crossings; pike hold in the slow lower bends."},
+  {"id":"campbell-creek","name":"Campbell Creek","state":"Alaska","type":"river","waterType":"Urban Stream","rank":0,"species":"Coho (Silver) Salmon · King Salmon · Rainbow · Dolly Varden","accolades":[{"icon":"🏙️","text":"Urban salmon in Anchorage","source":"Stocked king & wild silver runs"}],"conditions":{"temp":"52°F","flow":"80 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Incoming tide"},"sections":["Campbell Creek Estuary","Taku Lake","C Street","Old Seward"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Taku Lake / Campbell Creek","desc":"Lot & bike-path access, stocked fishery","lat":61.1508,"lng":-149.8664},{"type":"🚶","name":"Campbell Creek Greenbelt","desc":"Walk-in along the paved bike path"}],"note":"Anchorage's in-town salmon creek — a stocked June/July king run and a strong August/September silver run right off the bike path. Fish incoming tides near the estuary with bright streamers; wild rainbows and Dollys hold year-round."},
+  {"id":"kens-lake","name":"Ken's Lake","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Largemouth Bass · Bluegill","accolades":[{"icon":"🎣","text":"Moab's local fishery","source":"Only reservoir near Moab"}],"conditions":{"temp":"60°F","elev":"4,700 ft","wind":"S 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","South shore"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"6–10","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Ken's Lake Campground","desc":"BLM ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline trail","desc":"Walk-in around the lake"}],"note":"The only still water near Moab — a small BLM reservoir stocked with rainbows and holding bass and bluegill. A convenient family and float-tube fishery; fish mornings before the desert heat and wind pick up."},
+  {"id":"puffer-lake","name":"Puffer Lake","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook · Tiger Trout","accolades":[{"icon":"🏔️","text":"Tushar Mountains high lake","source":"Cool water through summer"}],"conditions":{"temp":"52°F","elev":"9,700 ft","wind":"W 8","best":"AM"},"sections":["Boat ramp","Lodge","Inlet","Dam"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":3},{"name":"Renegade","type":"dry","size":"12–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚤","name":"Puffer Lake ramp","desc":"Small boat launch, private resort"},{"type":"🚶","name":"Shoreline","desc":"Walk-in, float tube"}],"note":"A high, cool lake in the Tushar Mountains above Beaver — stocked rainbows plus brook and hard-fighting tiger trout. Elevation keeps it fishing all summer; chironomids under an indicator and stripped leeches both produce."},
+  {"id":"big-sand-wash-reservoir","name":"Big Sand Wash Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Smallmouth Bass · Bluegill","accolades":[{"icon":"🎣","text":"Uinta Basin reservoir","source":"Trout & smallmouth near Upalco"}],"conditions":{"temp":"58°F","elev":"6,000 ft","wind":"SW 10","best":"AM"},"sections":["Boat ramp","Dam","North arm","Inlet"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Clouser Minnow","type":"streamer","size":"4–8","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Big Sand Wash ramp","desc":"State ramp, restrooms"},{"type":"🚶","name":"Dam shoreline","desc":"Walk-in, smallmouth on the rocks"}],"note":"A Uinta Basin irrigation reservoir near Upalco stocked with rainbows and holding a solid smallmouth and bluegill population. Clear water rewards an early start; work the rocky dam face for bass and the flats for cruising trout."},
+  {"id":"matt-warner-reservoir","name":"Matt Warner Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Tiger Trout · Brook","accolades":[{"icon":"🏔️","text":"Diamond Mountain tiger-trout water","source":"Cool high-desert reservoir"}],"conditions":{"temp":"54°F","elev":"8,000 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Matt Warner ramp","desc":"Gravel ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A Diamond Mountain reservoir north of Vernal known for chunky tiger trout and rainbows. High and cool, it fishes well all summer — chironomids under an indicator and stripped leeches are the ticket."},
+  {"id":"crouse-reservoir","name":"Crouse Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook","accolades":[{"icon":"🎣","text":"Stocked mountain trout","source":"Uintah County"}],"conditions":{"temp":"54°F","elev":"7,300 ft","wind":"W 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Crouse Reservoir ramp","desc":"Small launch, primitive sites"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A quiet Diamond Mountain trout reservoir near Matt Warner — stocked rainbows plus brookies. A relaxed float-tube and small-boat fishery with generous limits."},
+  {"id":"recapture-reservoir","name":"Recapture Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Bluegill · Channel Catfish · Rainbow","accolades":[{"icon":"🐟","text":"Southeast Utah warmwater","source":"Bass & bluegill"}],"conditions":{"temp":"62°F","elev":"6,000 ft","wind":"S 8","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Recapture ramp","desc":"BLM ramp north of Blanding"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"San Juan County’s warmwater reservoir north of Blanding — largemouth, bluegill, and catfish, with stocked trout in the cool months. Fish poppers and streamers along the flooded brush."},
+  {"id":"palisade-reservoir","name":"Palisade Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Largemouth Bass · Bluegill","accolades":[{"icon":"⛳","text":"Palisade State Park","source":"Family stillwater"}],"conditions":{"temp":"60°F","elev":"5,900 ft","wind":"S 6","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Palisade State Park","desc":"No-wake ramp, camping, golf, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A small, no-wake reservoir in Palisade State Park near Sterling — stocked rainbows plus bass and bluegill. Family-friendly with easy shoreline and float-tube access; no gas motors."},
+  {"id":"vernon-reservoir","name":"Vernon Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Tiger Trout · Brook","accolades":[{"icon":"🏔️","text":"West Desert tiger trout","source":"Sheeprock Mountains"}],"conditions":{"temp":"56°F","elev":"5,500 ft","wind":"SW 10","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Vernon Reservoir ramp","desc":"Gravel launch, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A small West Desert trout reservoir (also called Vernon or Little Valley) in the Sheeprock Mountains south of Tooele — rainbows and hard-fighting tiger trout. A hidden-gem float-tube water."},
+  {"id":"settlement-canyon-reservoir","name":"Settlement Canyon Reservoir","state":"Utah","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Tiger Trout","accolades":[{"icon":"🎣","text":"Tooele community fishery","source":"No-wake trout water"}],"conditions":{"temp":"56°F","elev":"5,300 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Settlement Canyon","desc":"Day-use area, no-wake, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"Tooele’s in-town canyon reservoir — a no-wake, put-and-take rainbow fishery with tiger trout mixed in. Easy walk-in access and a good spot for a quick after-work session."},
+  {"id":"crawford-reservoir","name":"Crawford Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Crappie · Bluegill · Yellow Perch · Catfish","accolades":[{"icon":"🐟","text":"Western Slope warmwater","source":"Crawford State Park"}],"conditions":{"temp":"64°F","elev":"6,540 ft","wind":"S 10","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Crawford State Park","desc":"Two ramps, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warmwater state-park reservoir on the North Fork Gunnison near the West Elks — largemouth, slab crappie, and perch. Fly rodders strip streamers along the weed edges and flooded timber."},
+  {"id":"jackson-reservoir","name":"Jackson Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Wiper · Largemouth Bass · Crappie · Catfish","accolades":[{"icon":"🐟","text":"Northeast Colorado walleye","source":"Jackson Lake State Park"}],"conditions":{"temp":"66°F","elev":"4,430 ft","wind":"NW 12","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Jackson Lake State Park","desc":"Ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A plains reservoir northwest of Fort Morgan in Jackson Lake State Park — walleye, wipers, and bass in warm, fertile water. Best from a boat working the points; wipers boil on the surface in summer."},
+  {"id":"ridgway-reservoir","name":"Ridgway Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Kokanee · Yellow Perch","accolades":[{"icon":"🏔️","text":"San Juan foothills reservoir","source":"Ridgway State Park"}],"conditions":{"temp":"56°F","elev":"6,870 ft","wind":"SW 10","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Ridgway State Park","desc":"Ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A scenic Uncompahgre-valley reservoir in Ridgway State Park below the San Juans — rainbows, browns, and kokanee. Troll or strip leeches from a boat; the Uncompahgre tailwater below the dam is a bonus."},
+  {"id":"rifle-gap-reservoir","name":"Rifle Gap Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Smallmouth Bass · Northern Pike · Largemouth Bass · Rainbow","accolades":[{"icon":"🐟","text":"Western Slope multi-species","source":"Rifle Gap State Park"}],"conditions":{"temp":"62°F","elev":"6,000 ft","wind":"W 12","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Rifle Gap State Park","desc":"Ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A multi-species reservoir in Rifle Gap State Park north of Rifle — walleye, smallmouth, and pike plus stocked trout. Rocky structure holds bass; fish the shelf edges and the dam face."},
+  {"id":"sylvan-lake","name":"Sylvan Lake","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook · Brown","accolades":[{"icon":"🏔️","text":"Brush Creek high lake","source":"Sylvan Lake State Park"}],"conditions":{"temp":"52°F","elev":"8,500 ft","wind":"W 6","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Sylvan Lake State Park","desc":"No-wake ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A high, pretty no-wake lake in Sylvan Lake State Park south of Eagle — stocked rainbows plus brookies and browns. Cool water fishes all summer; ideal for float tubes and a family outing."},
+  {"id":"north-sterling-reservoir","name":"North Sterling Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Wiper · Crappie · Largemouth Bass · Catfish","accolades":[{"icon":"🐟","text":"Northeast Colorado walleye","source":"North Sterling State Park"}],"conditions":{"temp":"66°F","elev":"4,000 ft","wind":"NW 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"North Sterling State Park","desc":"Ramps, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"Northeast Colorado’s big plains reservoir in North Sterling State Park — a strong walleye and wiper fishery with crappie and bass. Boat-fish the inlets and points; wipers chase shad on top in summer."},
+  {"id":"elkhead-reservoir","name":"Elkhead Reservoir","state":"Colorado","type":"lake","waterType":"Stillwater","rank":0,"species":"Smallmouth Bass · Northern Pike · Crappie · Largemouth Bass · Bluegill","accolades":[{"icon":"🐟","text":"Yampa-basin bass & pike","source":"Yampa River State Park"}],"conditions":{"temp":"62°F","elev":"6,400 ft","wind":"W 12","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Elkhead / Yampa State Park","desc":"Ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A bass-and-pike reservoir east of Craig managed as part of Yampa River State Park — quality smallmouth and northern pike. Fly anglers throw Clousers and big streamers along the rocky shorelines and coves."},
+  {"id":"big-sandy-reservoir","name":"Big Sandy Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Cutthroat","accolades":[{"icon":"🏔️","text":"Upper Green trout reservoir","source":"Below the Wind River Range"}],"conditions":{"temp":"56°F","elev":"6,700 ft","wind":"SW 16","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Big Sandy ramp","desc":"WGFD ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A trout reservoir on the Big Sandy River in the upper Green basin near Farson — rainbows, browns, and cutthroat in cold, clear water below the Winds. Wind rules the day; fish the leeward shore and the inlet."},
+  {"id":"meeks-cabin-reservoir","name":"Meeks Cabin Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Brook · Tiger Trout","accolades":[{"icon":"🏔️","text":"Uinta North Slope reservoir","source":"Blacks Fork drainage"}],"conditions":{"temp":"52°F","elev":"8,700 ft","wind":"W 10","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Meeks Cabin ramp","desc":"Forest Service ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A high Uinta-North-Slope reservoir on the Blacks Fork in southwest Wyoming — rainbows, browns, brookies, and tiger trout. Remote and cold; a fine backcountry stillwater and gateway to the Blacks Fork."},
+  {"id":"healy-reservoir","name":"Healy Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Rainbow · Largemouth Bass · Yellow Perch","accolades":[{"icon":"🐟","text":"Powder River Basin walleye","source":"Near Buffalo"}],"conditions":{"temp":"62°F","elev":"4,600 ft","wind":"W 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Healy Reservoir ramp","desc":"County ramp east of Buffalo"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warm, fertile reservoir just east of Buffalo on Clear Creek — walleye, bass, and perch with stocked trout. Low elevation means an early warm-water bite; strip streamers along the dam and flooded shoreline."},
+  {"id":"lake-viva-naughton","name":"Lake Viva Naughton","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Cutthroat · Brown · Tiger Trout","accolades":[{"icon":"🎣","text":"Hams Fork trout reservoir","source":"Near Kemmerer"}],"conditions":{"temp":"56°F","elev":"6,900 ft","wind":"SW 14","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Viva Naughton Marina","desc":"Ramp, marina, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A popular trout reservoir on the Hams Fork north of Kemmerer — rainbows, cutthroat, browns, and tiger trout. A local favorite with a marina; troll or strip leeches, and fish the Hams Fork inlet in spring."},
+  {"id":"grayrocks-reservoir","name":"Grayrocks Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Walleye · Crappie · Largemouth Bass · Yellow Perch · Catfish","accolades":[{"icon":"🐟","text":"Southeast Wyoming warmwater","source":"Laramie River reservoir"}],"conditions":{"temp":"66°F","elev":"4,500 ft","wind":"S 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Grayrocks ramp","desc":"WGFD ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warmwater reservoir on the Laramie River near Wheatland — one of southeast Wyoming’s best walleye, crappie, and bass waters. Fish the timber and points from a boat; big crappie in spring."},
+  {"id":"little-payette-lake","name":"Little Payette Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Smallmouth Bass · Yellow Perch · Rainbow","accolades":[{"icon":"🐟","text":"McCall-area bass water","source":"Valley County"}],"conditions":{"temp":"60°F","elev":"5,000 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Little Payette ramp","desc":"Boat ramp east of McCall"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A quieter alternative to big Payette Lake just southeast of McCall — smallmouth bass, perch, and stocked rainbows in warmer, weedier water. Work the rocky points and docks for bass."},
   {"id":"snake-river-niagara-springs","name":"Snake River (Niagara Springs)","state":"Idaho","type":"river","waterType":"Tailwater","rank":0,"species":"Rainbow · Brown · Smallmouth Bass","accolades":[{"icon":"💧","text":"Thousand Springs trophy reach","source":"Spring-fed Snake River canyon"}],"conditions":{"temp":"54°F","flow":"4,500 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Niagara Springs","Crystal Springs","Bell Rapids"],"hatches":[{"name":"Blue Wing Olive (BWO)","months":[3,4,5,9,10,11],"peak":[4,10],"timing":"11am–3pm"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[5,6,7,8],"peak":[6],"timing":"Evening"},{"name":"Midge","months":[1,2,3,11,12],"peak":[1,12],"timing":"All day"},{"name":"Trico","months":[7,8,9],"peak":[8],"timing":"Morning"}],"flies":[{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":5},{"name":"Zebra Midge","type":"nymph","size":"18–22","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Parachute Adams","type":"dry","size":"16–20","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Niagara Springs WMA","desc":"Steep road to the canyon floor, boat & bank access","lat":42.6657,"lng":-114.6742},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A spring-fed canyon reach of the Snake below Thousand Springs near Wendell — big rainbows and browns fed by cold, constant spring inflows, plus smallmouth in the slack water. Sight-fish the spring channels or drift the main river."},
-  {"id":"crane-falls-lake","name":"Crane Falls Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Bluegill · Crappie · Rainbow","accolades":[{"icon":"🐟","text":"Owyhee-country warmwater","source":"Near CJ Strike"}],"conditions":{"temp":"64°F","elev":"2,500 ft","wind":"S 8","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Crane Falls ramp","desc":"Access near CJ Strike"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warm, weedy lake above the Snake near CJ Strike Reservoir — largemouth, bluegill, and crappie with winter trout. Poppers and small streamers along the tules produce all summer."},
-  {"id":"ackley-lake","name":"Ackley Lake","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Walleye · Yellow Perch","accolades":[{"icon":"🎣","text":"Judith Basin reservoir","source":"Ackley Lake State Park"}],"conditions":{"temp":"58°F","elev":"4,300 ft","wind":"SW 12","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Ackley Lake State Park","desc":"Ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A small prairie reservoir in Ackley Lake State Park southwest of Lewistown — stocked rainbows plus walleye and perch. An easygoing family and float-tube fishery in central Montana’s Judith Basin."},
-  {"id":"deadmans-basin-reservoir","name":"Deadman's Basin Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Walleye · Yellow Perch · Kokanee","accolades":[{"icon":"🐟","text":"Central Montana mixed bag","source":"Musselshell country"}],"conditions":{"temp":"58°F","elev":"4,200 ft","wind":"SW 14","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Deadman’s Basin ramp","desc":"FWP ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A large off-stream reservoir east of Harlowton — a mixed bag of stocked rainbows and browns with walleye, perch, and kokanee. Big and open; troll or strip from a boat and mind the wind."},
-  {"id":"duck-lake-mt","name":"Duck Lake","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow","accolades":[{"icon":"🏆","text":"Trophy rainbow water","source":"Blackfeet Reservation"}],"conditions":{"temp":"54°F","elev":"4,500 ft","wind":"W 16","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Duck Lake access","desc":"Blackfeet tribal ramp (permit required)"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A legendary trophy-rainbow lake on the Blackfeet Reservation northwest of Browning — fertile water that grows rainbows to trophy size. Requires a Blackfeet fishing permit; chironomids and leeches under an indicator rule."},
-  {"id":"lake-frances","name":"Lake Frances","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Walleye · Yellow Perch · Northern Pike","accolades":[{"icon":"🐟","text":"Rocky Mountain Front reservoir","source":"Valier"}],"conditions":{"temp":"60°F","elev":"3,900 ft","wind":"SW 16","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Valier / Lake Frances ramp","desc":"Town ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A big reservoir at Valier on the Rocky Mountain Front — stocked rainbows plus walleye, perch, and pike. Open and windy; fish the shelves and inlet, and expect a strong spring walleye bite."},
-  {"id":"martinsdale-reservoir","name":"Martinsdale Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Yellow Perch · Burbot","accolades":[{"icon":"🎣","text":"Musselshell trout reservoir","source":"Wheatland County"}],"conditions":{"temp":"56°F","elev":"4,800 ft","wind":"SW 14","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Martinsdale ramp","desc":"FWP ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"An off-stream reservoir near Martinsdale fed by the Musselshell — quality stocked rainbows and browns with perch. Clear water and consistent trout make it a reliable stillwater; troll or fish chironomids."},
-  {"id":"pishkun-reservoir","name":"Pishkun Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Northern Pike · Rainbow · Yellow Perch · Walleye","accolades":[{"icon":"🐟","text":"Rocky Mountain Front pike","source":"Sun River project"}],"conditions":{"temp":"60°F","elev":"4,300 ft","wind":"SW 16","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Pishkun ramp","desc":"FWP ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A large irrigation reservoir on the Rocky Mountain Front near Choteau — northern pike, perch, and stocked rainbows. Throw big streamers for pike in the weedy bays; the Front’s wind is a constant companion."},
-  {"id":"swanson-river","name":"Swanson River","state":"Alaska","type":"river","waterType":"Freestone","rank":0,"species":"Rainbow · Dolly Varden · Coho (Silver) Salmon","accolades":[{"icon":"🛶","text":"Kenai canoe-trail river","source":"Kenai NWR"}],"conditions":{"temp":"52°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Tea-stained","best":"Midday"},"sections":["Canoe route","Swanson River Rd","Lower river"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🅿️","name":"Swanson River Rd crossing","desc":"Bridge & canoe-trail access on the Kenai NWR","lat":60.8003,"lng":-151.0231},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A slow, tea-colored canoe-trail river winding across the Kenai lowlands — resident rainbows and Dolly Varden all season and a silver salmon run in late summer. Best explored by canoe between the lakes."},
-  {"id":"twentymile-river","name":"Twentymile River","state":"Alaska","type":"river","waterType":"Tidal River","rank":0,"species":"Coho (Silver) Salmon · Hooligan (Eulachon) · Dolly Varden","accolades":[{"icon":"🎣","text":"Turnagain Arm salmon","source":"Near Portage"}],"conditions":{"temp":"48°F","flow":"600 CFS","flowLabel":"CFS Flow","vis":"Glacial","best":"Incoming tide"},"sections":["Tidewater","Highway bridge","Upper forks"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🅿️","name":"Seward Hwy bridge","desc":"Boat launch at the highway crossing near Portage","lat":60.8456,"lng":-148.9836},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A glacial tidewater river at the head of Turnagain Arm near Portage — a spring hooligan dipnet run and a strong August silver salmon fishery. Fish incoming tides from a boat or the banks near the bridge."},
-  {"id":"sixmile-creek-ak","name":"Sixmile Creek","state":"Alaska","type":"river","waterType":"Freestone","rank":0,"species":"Coho (Silver) Salmon · Pink Salmon · Dolly Varden","accolades":[{"icon":"🎣","text":"Hope-area salmon","source":"Turnagain Arm"}],"conditions":{"temp":"46°F","flow":"300 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Lower creek","Canyon","Hope"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🅿️","name":"Hope Hwy pullouts","desc":"Roadside access near Hope; whitewater canyon below","lat":60.905,"lng":-149.4272},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A clear, fast creek tumbling to Turnagain Arm near Hope — silver and pink salmon in late summer plus Dolly Varden. Fish the lower accessible water; the canyon above is famous whitewater, not wadeable."},
-  {"id":"jim-creek-ak","name":"Jim Creek","state":"Alaska","type":"river","waterType":"Tidal River","rank":0,"species":"Coho (Silver) Salmon · Rainbow · Dolly Varden","accolades":[{"icon":"🎣","text":"Mat-Su silver run","source":"Knik River drainage"}],"conditions":{"temp":"50°F","flow":"150 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Incoming tide"},"sections":["Knik confluence","Middle creek","Upper"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🅿️","name":"Jim Creek access (Butte)","desc":"Gravel access & parking near Palmer/Butte","lat":61.5189,"lng":-148.9689},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A popular Mat-Su silver-salmon creek draining to the Knik River near Butte — strong August/September coho run with resident rainbows and Dollys. Fish incoming tides with bright streamers; it gets busy on weekends."},
-  {"id":"cottonwood-creek-ak","name":"Cottonwood Creek","state":"Alaska","type":"river","waterType":"Urban Stream","rank":0,"species":"Coho (Silver) Salmon · Rainbow","accolades":[{"icon":"🏙️","text":"Wasilla-area silvers","source":"Palmer Hay Flats"}],"conditions":{"temp":"50°F","flow":"80 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Incoming tide"},"sections":["Hay Flats","Wasilla","Cottonwood Lake"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🅿️","name":"Palmer Hay Flats access","desc":"Walk-in near the mouth at Rabbit Slough","lat":61.4942,"lng":-149.5928},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A Wasilla-area creek flowing through the Palmer Hay Flats to Cook Inlet — a good in-town silver salmon run in late summer plus resident rainbows. Fish the lower creek and slough on incoming tides."},
-  {"id":"eklutna-tailrace","name":"Eklutna Tailrace","state":"Alaska","type":"river","waterType":"Tailrace","rank":0,"species":"Coho (Silver) Salmon · King Salmon · Pink Salmon","accolades":[{"icon":"🎣","text":"Stocked king & silver run","source":"Old Glenn Highway"}],"conditions":{"temp":"48°F","flow":"200 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Tailrace mouth","Knik confluence","Ponds"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4}],"access":[{"type":"🅿️","name":"Eklutna Tailrace access","desc":"Parking off the Old Glenn Hwy near Knik River","lat":61.4581,"lng":-149.4189},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A power-plant tailrace on the Old Glenn Highway near the Knik River — a stocked king salmon run in June/July and wild silvers and pinks later. Easy road access makes it a popular, productive Anchorage-area salmon spot."},
-  {"id":"mud-lake","name":"Mud Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Yellow Perch · Rainbow · Largemouth Bass","accolades":[{"icon":"🐟","text":"Eastern Idaho perch & trout water","source":"Mud Lake WMA near Terreton"}],"conditions":{"temp":"62°F","elev":"4,780 ft","wind":"SW 12","best":"AM"},"sections":["Boat ramp","WMA shore","Dam","Inlet"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3}],"access":[{"type":"🚤","name":"Mud Lake WMA ramp","desc":"Boat ramp & parking off the WMA road","lat":43.8871,"lng":-112.3996},{"type":"🚶","name":"WMA shoreline","desc":"Walk-in banks & flats"}],"note":"A large, shallow, fertile reservoir on the WMA near Terreton, about 35 miles west of Rexburg — best known for jumbo yellow perch and stocked rainbows, with largemouth in the weedy bays. Windy and open; fish the leeward shore and troll or strip from a boat."},
-  {"id":"egin-lakes","name":"Egin Lakes","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Largemouth Bass · Yellow Perch","accolades":[{"icon":"🏜️","text":"St. Anthony Sand Dunes lakes","source":"Stocked rec-area water"}],"conditions":{"temp":"60°F","elev":"4,950 ft","wind":"W 10","best":"AM"},"sections":["Swim beach","Dunes side","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Egin Lakes Rec Area","desc":"BLM day-use & camping at the sand dunes","lat":43.9605,"lng":-111.8573},{"type":"🚶","name":"Shoreline","desc":"Walk-in around the lakes"}],"note":"Stocked lakes at the edge of the St. Anthony Sand Dunes, about 15 miles north of Rexburg — put-and-take rainbows plus bass and perch in a fun family and float-tube setting. A relaxed after-work or weekend spot with easy access and camping."},
-  {"id":"jefferson-county-lake","name":"Jefferson County Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Bluegill · Largemouth Bass","accolades":[{"icon":"🎣","text":"Rigby-area community fishery","source":"Stocked put-and-take"}],"conditions":{"temp":"60°F","elev":"4,850 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Beach","Dam","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Jefferson County Lake","desc":"County park, ramp, beach, restrooms","lat":43.69966,"lng":-111.90234},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank access"}],"note":"A stocked county-park lake just north of Rigby, about 15 miles southwest of Rexburg — heavily planted rainbows in spring and fall plus bluegill and bass through summer. An easy, family-friendly still water; no-wake and great from the bank or a float tube."},
-  {"id":"sand-creek-ponds","name":"Sand Creek Ponds","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook Trout","accolades":[{"icon":"🎣","text":"Sand Creek WMA stocked ponds","source":"Crown jewel of a 34,000-acre WMA"}],"conditions":{"temp":"58°F","elev":"4,950 ft","wind":"W 8","best":"AM"},"sections":["Pond 1","Pond 4","Blue Creek Reservoir","Docks"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Sand Creek Ponds ramp","desc":"Non-motorized boat ramp, docks & camping","lat":44.2243,"lng":-111.6111},{"type":"🚶","name":"Pond 1 docks","desc":"Five fishing docks, walk-in"}],"note":"Stocked trout ponds and Blue Creek Reservoir deep in the Sand Creek WMA, about 18 miles north of St. Anthony on gravel road — rainbows and brookies with fishing docks on Pond 1 and Pond 4. Non-motorized only; a quiet, scenic destination in the dunes-and-timber country with first-come camping."},
-  {"id":"blue-creek-reservoir","name":"Blue Creek Reservoir","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook Trout","accolades":[{"icon":"🏔️","text":"Largest of the Sand Creek waters","source":"Sand Creek WMA, north of St. Anthony"}],"conditions":{"temp":"56°F","elev":"4,980 ft","wind":"W 10","best":"AM"},"sections":["Dam","Inlet","West shore","Ramp"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Blue Creek Reservoir ramp","desc":"Non-motorized ramp in the Sand Creek WMA","lat":44.2243,"lng":-111.6111},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"The largest reservoir in the Sand Creek Ponds complex, deep in the Sand Creek WMA about 18 miles north of St. Anthony — stocked rainbows plus brook trout, and its extra depth carries fish over winter for slightly bigger holdovers. Non-motorized only; fish chironomids under an indicator or strip leeches along the drop-offs."},
-  {"id":"grassy-lake-reservoir","name":"Grassy Lake Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Cutthroat · Rainbow · Lake Trout","accolades":[{"icon":"🏔️","text":"Remote reservoir on the Ashton–Flagg Ranch road","source":"Between Yellowstone & Grand Teton"}],"conditions":{"temp":"52°F","elev":"7,200 ft","wind":"W 10","best":"AM"},"sections":["Dam","Fall River inlet","Coves","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3}],"access":[{"type":"🚤","name":"Grassy Lake Reservoir","desc":"Below the dam off the Ashton–Flagg Ranch Rd (opens ~June 1)","lat":44.1272,"lng":-110.8071},{"type":"🚶","name":"Fall River inlet","desc":"Hike to the upper reaches above the reservoir"}],"note":"A remote high reservoir on the Wyoming–Idaho border between Yellowstone and Grand Teton, reached by the 36-mile Ashton–Flagg Ranch (Grassy Lake) gravel road that opens around June 1 — cutthroat, rainbows, and lake trout. Fish from a float tube or small boat and explore the Fall River inlet above; a high-clearance vehicle helps on the washboard road."},
-  {"id":"bitch-creek","name":"Bitch Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat","accolades":[{"icon":"🐟","text":"Pure wild Yellowstone cutthroat","source":"Unaltered flows keep rainbows out"}],"conditions":{"temp":"54°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["ID-32 crossing","Upper canyon","Lower canyon","Teton River confluence"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"8–12","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":4},{"name":"Prince Nymph","type":"nymph","size":"12–16","conf":3}],"access":[{"type":"🅿️","name":"Idaho Hwy 32 crossing","desc":"Public canyon access off ID-32 between Ashton & Tetonia","lat":43.93325,"lng":-111.18489},{"type":"🚶","name":"Canyon","desc":"Steep hike-in to remote water"}],"note":"A remote freestone tributary of the Teton River tumbling out of the peaks — home to a pure, wild Yellowstone cutthroat population that its unaltered flows protect from rainbow invasion. Access is limited and the canyon is rugged, but the reward is quiet, undisturbed cutthroat eager for big attractor dries. On the Fremont/Teton county line between Ashton and Tetonia."},
-  {"id":"conant-creek","name":"Conant Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat · Rainbow · Brook Trout","accolades":[{"icon":"💧","text":"Fall River tributary from the Tetons","source":"Cutthroat, rainbows & brookies"}],"conditions":{"temp":"54°F","flow":"90 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Forest crossings","Upper canyon","Conant Valley","Fall River confluence"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"8–12","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":4},{"name":"Prince Nymph","type":"nymph","size":"12–16","conf":3}],"access":[{"type":"🅿️","name":"Cave Falls Rd crossing","desc":"Caribou-Targhee National Forest access","lat":44.01831,"lng":-111.02206},{"type":"🚶","name":"Canyon","desc":"Walk-in along the creek"}],"note":"A Fall River tributary running out of the Grand Tetons roughly halfway between Ashton and Driggs — cutthroat, rainbows, and brookies in cold freestone water. Best access is up on the Caribou-Targhee National Forest; the lower reaches cross private ranch land. A quiet cutthroat stream made for hoppers and attractor dries in summer."},
-  {"id":"upper-priest-lake","name":"Upper Priest Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Cutthroat · Lake Trout · Kokanee · Bull Trout","accolades":[{"icon":"🏔️","text":"Wild, roadless twin of Priest Lake","source":"Reached by the Thorofare or trail"}],"conditions":{"temp":"58°F","elev":"2,438 ft","wind":"W 6","best":"AM"},"sections":["Navigation","Thorofare","Plowboy","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3}],"access":[{"type":"🚤","name":"Via the Thorofare","desc":"Boat up the channel from Priest Lake (no road)"},{"type":"🚶","name":"Navigation/Beaver Creek trail","desc":"Hike-in from the north end"}],"note":"The wild, undeveloped upper lake, joined to Priest Lake by the 2-mile Thorofare and ringed by the Selkirks — cutthroat, kokanee, mackinaw, and bull trout in gin-clear water. No road access, which keeps it quiet. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
-  {"id":"hunt-lake-priest","name":"Hunt Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Backcountry Selkirk cutthroat lake","source":"Hike-in above Priest Lake"}],"conditions":{"temp":"52°F","elev":"6,200 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3}],"access":[{"type":"🚶","name":"Hunt Lake trail","desc":"Steep hike-in from the Priest Lake side"}],"note":"A small, cold cirque lake high in the Selkirk Crest east of Priest Lake — wild westslope cutthroat that rise freely to dries. A rewarding hike-in; chironomids and a Parachute Adams do the job."},
-  {"id":"two-mouth-lakes","name":"Two Mouth Lakes","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Twin Selkirk cutthroat lakes","source":"Trail #268 from Lion Creek"}],"conditions":{"temp":"52°F","elev":"5,900 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3}],"access":[{"type":"🚶","name":"Two Mouth Lakes trail","desc":"Hike-in from the Lion Creek road (Trail #268)"}],"note":"A pair of granite-rimmed cutthroat lakes below Two Mouth Peak in the Selkirks — eager westslope cutthroat and mountain-goat country. Fish a hopper-dropper along the drop-offs; the walk keeps the crowds away."},
-  {"id":"bottleneck-lake","name":"Bottleneck Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Remote Selkirk cutthroat lake","source":"Hike-in near the crest"}],"conditions":{"temp":"52°F","elev":"5,800 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3}],"access":[{"type":"🚶","name":"Bottleneck Lake trail","desc":"Backcountry hike-in in the Selkirk Crest"}],"note":"A quiet high lake tucked into the Selkirk Crest, holding willing westslope cutthroat — clear, cold, and rimmed by granite. A long hike, but the cutthroat come readily to attractor dries."},
-  {"id":"fault-lake","name":"Fault Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Alpine Selkirk cutthroat lake","source":"Hike-in near Chimney Rock"}],"conditions":{"temp":"52°F","elev":"6,000 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3}],"access":[{"type":"🚶","name":"Fault Lake trail","desc":"Hike-in below Chimney Rock in the Selkirks"}],"note":"A high cirque lake beneath the spires near Chimney Rock, with wild westslope cutthroat in stunning granite country. A stout hike; small dries and a chironomid under an indicator produce."},
-  {"id":"upper-priest-river","name":"Upper Priest River","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Bull Trout","accolades":[{"icon":"💧","text":"Wild roadless cutthroat river","source":"Feeds Upper Priest Lake"}],"conditions":{"temp":"50°F","flow":"80 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Headwaters","Cedar groves","Upper Priest Lake inlet"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Upper Priest River trail","desc":"Hike-in along the river above Upper Priest Lake","lat":48.7988,"lng":-116.9119},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A pristine, roadless river tumbling out of the Selkirks through ancient cedar groves into Upper Priest Lake — wild westslope cutthroat and a protected bull trout stronghold. Small attractor dries fool the cutthroat in the pocket water. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
-  {"id":"kalispell-creek","name":"Kalispell Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brook Trout","accolades":[{"icon":"🎣","text":"West-side Priest Lake tributary","source":"Cutthroat & brook trout"}],"conditions":{"temp":"52°F","flow":"40 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Kalispell Creek Rd","desc":"Forest road access on the west side of Priest Lake","lat":48.5674,"lng":-116.9216},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A pretty forest creek entering Priest Lake at Kalispell Bay — small westslope cutthroat and brook trout in cold pocket water. Fish attractor dries up the road crossings. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
-  {"id":"lion-creek-priest","name":"Lion Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🎣","text":"East-side Priest Lake tributary","source":"Gateway to Two Mouth Lakes"}],"conditions":{"temp":"50°F","flow":"45 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Lion Creek Rd","desc":"Forest road on the east side; trailhead to Two Mouth Lakes","lat":48.7358,"lng":-116.8319},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A tumbling east-side tributary of Priest Lake and the trail corridor up to Two Mouth Lakes — wild westslope cutthroat in the plunge pools. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
-  {"id":"granite-creek-priest","name":"Granite Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🎣","text":"East-side Priest Lake tributary","source":"Granite Falls & Roosevelt Grove nearby"}],"conditions":{"temp":"50°F","flow":"50 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Granite Creek Rd","desc":"Forest road access near Granite Falls","lat":48.6391,"lng":-116.8647},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A cold, boulder-strewn creek entering Priest Lake near Granite Falls and the Roosevelt Grove of ancient cedars — wild westslope cutthroat in the pockets. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
-  {"id":"reeder-creek","name":"Reeder Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brook Trout","accolades":[{"icon":"🎣","text":"Priest Lake tributary","source":"Small, wadeable cutthroat water"}],"conditions":{"temp":"52°F","flow":"25 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Reeder Creek crossing","desc":"Road crossing near Reeder Bay","lat":48.6219,"lng":-116.8963},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A small, easily-waded creek near Reeder Bay on Priest Lake — cutthroat and brook trout in a quiet setting, good for a relaxed afternoon with a dry-dropper. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
-  {"id":"west-fork-bitterroot","name":"West Fork Bitterroot River","state":"Montana","type":"river","waterType":"Tailwater / Freestone","rank":0,"species":"Westslope Cutthroat · Rainbow · Brown · Bull Trout · Mountain Whitefish","accolades":[{"icon":"💧","text":"Painted Rocks tailwater","source":"Dam releases cool summer flows"}],"conditions":{"temp":"52°F","flow":"450 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Below Painted Rocks Dam","Trapper Creek","Conner (East Fork confluence)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Hannon Memorial FAS","desc":"Access at the West/East Fork confluence near Conner","lat":45.9402,"lng":-114.1273},{"type":"🚶","name":"US-93 pullouts","desc":"Roadside access up the West Fork toward Painted Rocks"}],"note":"The West Fork joins the East Fork at Conner to form the Bitterroot. Cold-water releases from Painted Rocks Dam keep the West Fork fishing through hot summers, when the main Bitterroot warms. Westslope cutthroat and rainbows eat attractor dries; bull trout are present and ESA-protected — release them unharmed."},
-  {"id":"mill-creek-mt","name":"Mill Creek (Paradise Valley)","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat · Rainbow · Brook · Mountain Whitefish","accolades":[{"icon":"🏔️","text":"Absaroka pocket water","source":"Wild Yellowstone cutthroat"}],"conditions":{"temp":"50°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Yellowstone confluence (Pray)","Snowbank","Upper canyon"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3}],"access":[{"type":"🅿️","name":"Mill Creek Rd","desc":"Forest road up the canyon from Pray; national-forest access above the private lower reach","lat":45.416,"lng":-110.6544},{"type":"🚶","name":"Snowbank Campground","desc":"Walk-in pocket water"}],"note":"A tumbling Absaroka tributary of the Yellowstone near Pray. The lower creek crosses private land, but the Forest Service road opens miles of pocket water full of wild Yellowstone cutthroat and brookies. A classic dry-dropper stream in July–September."},
-  {"id":"pine-creek-mt","name":"Pine Creek (Paradise Valley)","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat · Rainbow · Brook","accolades":[{"icon":"🥾","text":"Falls & alpine-lake trail","source":"Small wild-trout creek"}],"conditions":{"temp":"50°F","flow":"60 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Yellowstone confluence","Pine Creek Campground","Pine Creek Falls"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3}],"access":[{"type":"🅿️","name":"Pine Creek Trailhead","desc":"Campground & trailhead to Pine Creek Falls/Lake, east of Livingston","lat":45.5097,"lng":-110.5805},{"type":"🚶","name":"Lower crossings","desc":"Small water near the East River Rd"}],"note":"A small, steep Absaroka creek dropping past Pine Creek Falls to the Yellowstone near Livingston. Tight quarters and eager wild cutthroat and brook trout — a fun rod for a summer afternoon, with the popular hike to Pine Creek Lake above."},
-  {"id":"little-blackfoot-river","name":"Little Blackfoot River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Brown · Rainbow · Westslope Cutthroat · Brook · Mountain Whitefish","accolades":[{"icon":"🎣","text":"Overlooked brown-trout water","source":"Quiet valley freestone"}],"conditions":{"temp":"54°F","flow":"150 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Garrison confluence","Avon","Elliston (headwaters)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"US-12 access","desc":"Highway parallels the river between Elliston and Garrison","lat":46.5149,"lng":-112.7978},{"type":"🚶","name":"Kohrs Bend / bridges","desc":"Walk-in near the Clark Fork confluence"}],"note":"A quiet valley freestone paralleling US-12 from Elliston down to the Clark Fork at Garrison. Modest flows hold surprisingly good brown trout plus rainbows and cutthroat. Best in early summer and again in fall; watch for low, warm water in late July."},
-  {"id":"lolo-creek-mt","name":"Lolo Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brown · Rainbow · Brook · Bull Trout","accolades":[{"icon":"🌲","text":"Lewis & Clark corridor","source":"Wild cutthroat freestone"}],"conditions":{"temp":"53°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Bitterroot confluence","Lolo","Lolo Pass (headwaters)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"US-12 pullouts","desc":"Highway follows the creek west of Lolo toward the pass","lat":46.743,"lng":-114.0618},{"type":"🚶","name":"Lee Creek / FS access","desc":"National-forest water up the canyon"}],"note":"The creek Lewis & Clark followed over Lolo Pass, tumbling to the Bitterroot near Lolo. The upper national-forest reaches hold wild westslope cutthroat and brookies; browns push up from the Bitterroot lower down. Bull trout are present and ESA-protected — release them unharmed."},
-  {"id":"fish-creek-mt","name":"Fish Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Rainbow · Brown · Bull Trout · Mountain Whitefish","accolades":[{"icon":"🐟","text":"Bull-trout stronghold","source":"Wild Clark Fork tributary"}],"conditions":{"temp":"52°F","flow":"160 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Clark Fork confluence (Tarkio)","Lower canyon","North/South Fork"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Fish Creek Rd (Tarkio/Alberton)","desc":"Exit off I-90 west of Alberton; road follows the creek","lat":47.0033,"lng":-114.7001},{"type":"🚶","name":"FS campgrounds","desc":"Walk-in wade access up the drainage"}],"note":"A wild Clark Fork tributary near Alberton and the Tarkio exit, running through a scenic forested canyon. Westslope cutthroat and rainbows fill the pocket water, and it is an important bull-trout stronghold — bull trout are ESA-protected, so release them unharmed."},
-  {"id":"st-regis-river","name":"Saint Regis River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Rainbow · Brown · Brook · Mountain Whitefish","accolades":[{"icon":"🎣","text":"Roadside tributary trout","source":"Easy I-90 access"}],"conditions":{"temp":"54°F","flow":"130 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Clark Fork confluence (St. Regis)","Along I-90","Headwaters (Lookout Pass)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"I-90 frontage","desc":"Interstate frontage roads follow the river from St. Regis toward Lookout Pass","lat":47.2966,"lng":-115.0904},{"type":"🚶","name":"Frontage-road pullouts","desc":"Easy walk-in access"}],"note":"An easily-reached freestone shadowing I-90 between St. Regis and Lookout Pass. Cutthroat, rainbows, brookies and a few browns in a small, wadeable river — a great stop for a quick session off the interstate in summer."},
-  {"id":"grayling-creek","name":"Grayling Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Rainbow · Brown · Brook · Westslope Cutthroat","accolades":[{"icon":"🍂","text":"Fall run from Hebgen","source":"Migratory browns in autumn"}],"conditions":{"temp":"50°F","flow":"70 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Hebgen inlet","US-191 canyon","Yellowstone Park boundary"],"hatches":[{"name":"Pale Morning Dun (PMD)","months":[6,7],"peak":[7],"timing":"Late morning"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"},{"name":"Brown Trout Spawn (streamers)","months":[10,11],"peak":[10],"timing":"Fall run from Hebgen"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":5},{"name":"Sculpzilla / Sculpin","type":"streamer","size":"4–8","conf":4},{"name":"Parachute Adams","type":"dry","size":"14–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":3}],"access":[{"type":"🅿️","name":"US-191 pullouts","desc":"Highway crosses the creek NW of West Yellowstone","lat":44.7866,"lng":-111.1633},{"type":"🚶","name":"Hebgen inlet","desc":"Fall run of browns from Hebgen Lake"}],"note":"A pretty freestone crossing US-191 as it flows out of Yellowstone Park into Hebgen Lake. Small resident rainbows and brookies all summer, then a fall push of migratory brown trout from Hebgen makes the lower creek a streamer destination in October."},
-  {"id":"duck-creek-mt","name":"Duck Creek","state":"Montana","type":"river","waterType":"Spring Creek / Meadow","rank":0,"species":"Rainbow · Brown · Brook","accolades":[{"icon":"🍂","text":"Hebgen fall-run browns","source":"Meadow spring creek"}],"conditions":{"temp":"52°F","flow":"40 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Hebgen inlet","Meadow reach","Upper springs"],"hatches":[{"name":"Pale Morning Dun (PMD)","months":[6,7],"peak":[7],"timing":"Late morning"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"},{"name":"Brown Trout Spawn (streamers)","months":[10,11],"peak":[10],"timing":"Fall run from Hebgen"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":5},{"name":"Sculpzilla / Sculpin","type":"streamer","size":"4–8","conf":4},{"name":"Parachute Adams","type":"dry","size":"14–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":3}],"access":[{"type":"🅿️","name":"Duck Creek Rd","desc":"Access off US-191 north of West Yellowstone toward Hebgen","lat":44.7774,"lng":-111.1499},{"type":"🚶","name":"Meadow banks","desc":"Sight-fishing to cruisers; fall run from Hebgen"}],"note":"A slow, weedy meadow creek entering Hebgen Lake near West Yellowstone. Technical sight-fishing to resident trout in summer, but the real draw is autumn, when big brown trout run up from Hebgen to spawn. Tread lightly and protect spawning fish."},
-  {"id":"south-fork-madison","name":"South Fork Madison River","state":"Montana","type":"river","waterType":"Freestone / Meadow","rank":0,"species":"Rainbow · Brown · Brook · Westslope Cutthroat","accolades":[{"icon":"🍂","text":"Migratory run water","source":"Feeds the Madison Arm of Hebgen"}],"conditions":{"temp":"52°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Hebgen inlet (Madison Arm)","Meadow reach","Upper freestone"],"hatches":[{"name":"Pale Morning Dun (PMD)","months":[6,7],"peak":[7],"timing":"Late morning"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"},{"name":"Brown Trout Spawn (streamers)","months":[10,11],"peak":[10],"timing":"Fall run from Hebgen"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":5},{"name":"Sculpzilla / Sculpin","type":"streamer","size":"4–8","conf":4},{"name":"Parachute Adams","type":"dry","size":"14–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":3}],"access":[{"type":"🅿️","name":"S Fork Rd / Madison Arm","desc":"Access SW of West Yellowstone to the Madison Arm of Hebgen","lat":44.7424,"lng":-111.2324},{"type":"🚶","name":"Meadow banks","desc":"Undercut banks & beaver water; fall run from Hebgen"}],"note":"The South Fork winds through willow meadows into the Madison Arm of Hebgen Lake. Resident rainbows and browns hold along undercut banks, and fall brings a spawning run of browns out of Hebgen — a quieter alternative to the crowded main Madison nearby."},
-  {"id":"cherry-creek-mt","name":"Cherry Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🌱","text":"Native cutthroat restoration","source":"Westslope reintroduction (Flying D)"}],"conditions":{"temp":"52°F","flow":"60 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Madison confluence","Flying D Ranch (private)","Headwaters"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3}],"access":[{"type":"🅿️","name":"Madison confluence","desc":"Public access limited to the mouth area on the Madison; upstream is private","lat":45.6227,"lng":-111.5497},{"type":"🚶","name":"Flying D Ranch","desc":"Mostly private — no public wade access upstream"}],"note":"A landmark native westslope-cutthroat restoration stream on the Turner Flying D Ranch, tributary to the Madison. Note: nearly the entire creek is private with no public wade access — it is included for its conservation significance, not as an open fishery. Fish the public Madison at the confluence instead."},
-  {"id":"skalkaho-creek","name":"Skalkaho Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brook · Rainbow · Brown","accolades":[{"icon":"🌲","text":"Scenic canyon creek","source":"Bitterroot tributary"}],"conditions":{"temp":"52°F","flow":"70 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Bitterroot confluence (Grantsdale)","Skalkaho Hwy canyon","Skalkaho Falls"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3}],"access":[{"type":"🅿️","name":"MT-38 (Skalkaho Hwy)","desc":"Gravel highway follows the creek east of Hamilton toward the falls","lat":46.2196,"lng":-114.1634},{"type":"🚶","name":"Canyon pullouts","desc":"Walk-in pocket water below the falls"}],"note":"A small, scenic Bitterroot tributary climbing the Skalkaho Highway past its namesake falls east of Hamilton. Wild westslope cutthroat and brook trout hold in the pocket water and plunge pools — a peaceful small-stream escape from the busy main Bitterroot."},
-  {"id":"north-fork-musselshell","name":"North Fork Musselshell River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Rainbow · Brown · Brook · Mountain Whitefish","accolades":[{"icon":"🎣","text":"Little Belt foothills trout","source":"Upper Musselshell"}],"conditions":{"temp":"54°F","flow":"90 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Two Forks (Martinsdale)","Checkerboard","Little Belt headwaters"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"US-12 access","desc":"Highway follows the North Fork west of Martinsdale","lat":46.4797,"lng":-110.2724},{"type":"🚶","name":"Bridge pullouts","desc":"Small-stream wade access"}],"note":"The North Fork gathers in the Little Belt foothills and joins the South Fork near Martinsdale to form the Musselshell. A modest, willow-lined trout stream with rainbows and browns — pleasant, uncrowded water best fished before midsummer irrigation draws it down."},
-  {"id":"tenmile-creek-mt","name":"Tenmile Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Brown · Rainbow · Brook · Westslope Cutthroat","accolades":[{"icon":"🚰","text":"Helena’s home creek","source":"Restored headwater trout"}],"conditions":{"temp":"53°F","flow":"40 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Helena valley","Rimini canyon","Headwaters (restored)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3}],"access":[{"type":"🅿️","name":"Rimini Rd","desc":"Forest road up the canyon SW of Helena","lat":46.6735,"lng":-111.9758},{"type":"🚶","name":"Canyon access","desc":"Walk-in small-stream pockets"}],"note":"Helena’s water-supply creek, tumbling out of the mountains southwest of town through Rimini. The upper canyon holds wild browns, brookies and cutthroat in tight pocket water, and reclamation work has steadily improved it — an easy after-work small-stream option."},
-  {"id":"wise-river","name":"Wise River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Arctic Grayling · Westslope Cutthroat · Rainbow · Brown · Brook · Mountain Whitefish","accolades":[{"icon":"🐟","text":"Fluvial Arctic grayling","source":"Big Hole tributary"}],"conditions":{"temp":"50°F","flow":"110 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Big Hole confluence (Wise River)","Pioneer Mtns canyon","Headwaters"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3}],"access":[{"type":"🅿️","name":"Pioneer Scenic Byway","desc":"Road follows the river up into the Pioneer Mountains from Wise River town","lat":45.7988,"lng":-112.9464},{"type":"🚶","name":"FS campgrounds","desc":"Walk-in wade access up the canyon"}],"note":"A clear Pioneer Mountains freestone joining the Big Hole at Wise River town. One of the few streams still holding native fluvial Arctic grayling alongside brookies and cutthroat. The Pioneer Scenic Byway opens miles of wade water — handle any grayling gently and release them."},
+  {"id":"crane-falls-lake","name":"Crane Falls Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Largemouth Bass · Bluegill · Crappie · Rainbow","accolades":[{"icon":"🐟","text":"Owyhee-country warmwater","source":"Near CJ Strike"}],"conditions":{"temp":"64°F","elev":"2,500 ft","wind":"S 8","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Crane Falls ramp","desc":"Access near CJ Strike"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A warm, weedy lake above the Snake near CJ Strike Reservoir — largemouth, bluegill, and crappie with winter trout. Poppers and small streamers along the tules produce all summer."},
+  {"id":"ackley-lake","name":"Ackley Lake","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Walleye · Yellow Perch","accolades":[{"icon":"🎣","text":"Judith Basin reservoir","source":"Ackley Lake State Park"}],"conditions":{"temp":"58°F","elev":"4,300 ft","wind":"SW 12","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Ackley Lake State Park","desc":"Ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A small prairie reservoir in Ackley Lake State Park southwest of Lewistown — stocked rainbows plus walleye and perch. An easygoing family and float-tube fishery in central Montana’s Judith Basin."},
+  {"id":"deadmans-basin-reservoir","name":"Deadman's Basin Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Walleye · Yellow Perch · Kokanee","accolades":[{"icon":"🐟","text":"Central Montana mixed bag","source":"Musselshell country"}],"conditions":{"temp":"58°F","elev":"4,200 ft","wind":"SW 14","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Deadman’s Basin ramp","desc":"FWP ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A large off-stream reservoir east of Harlowton — a mixed bag of stocked rainbows and browns with walleye, perch, and kokanee. Big and open; troll or strip from a boat and mind the wind."},
+  {"id":"duck-lake-mt","name":"Duck Lake","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow","accolades":[{"icon":"🏆","text":"Trophy rainbow water","source":"Blackfeet Reservation"}],"conditions":{"temp":"54°F","elev":"4,500 ft","wind":"W 16","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Duck Lake access","desc":"Blackfeet tribal ramp (permit required)"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A legendary trophy-rainbow lake on the Blackfeet Reservation northwest of Browning — fertile water that grows rainbows to trophy size. Requires a Blackfeet fishing permit; chironomids and leeches under an indicator rule."},
+  {"id":"lake-frances","name":"Lake Frances","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Walleye · Yellow Perch · Northern Pike","accolades":[{"icon":"🐟","text":"Rocky Mountain Front reservoir","source":"Valier"}],"conditions":{"temp":"60°F","elev":"3,900 ft","wind":"SW 16","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Valier / Lake Frances ramp","desc":"Town ramp, camping, restrooms"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A big reservoir at Valier on the Rocky Mountain Front — stocked rainbows plus walleye, perch, and pike. Open and windy; fish the shelves and inlet, and expect a strong spring walleye bite."},
+  {"id":"martinsdale-reservoir","name":"Martinsdale Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Yellow Perch · Burbot","accolades":[{"icon":"🎣","text":"Musselshell trout reservoir","source":"Wheatland County"}],"conditions":{"temp":"56°F","elev":"4,800 ft","wind":"SW 14","best":"AM"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Martinsdale ramp","desc":"FWP ramp, camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"An off-stream reservoir near Martinsdale fed by the Musselshell — quality stocked rainbows and browns with perch. Clear water and consistent trout make it a reliable stillwater; troll or fish chironomids."},
+  {"id":"pishkun-reservoir","name":"Pishkun Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Northern Pike · Rainbow · Yellow Perch · Walleye","accolades":[{"icon":"🐟","text":"Rocky Mountain Front pike","source":"Sun River project"}],"conditions":{"temp":"60°F","elev":"4,300 ft","wind":"SW 16","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Pishkun ramp","desc":"FWP ramp, primitive camping"},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A large irrigation reservoir on the Rocky Mountain Front near Choteau — northern pike, perch, and stocked rainbows. Throw big streamers for pike in the weedy bays; the Front’s wind is a constant companion."},
+  {"id":"swanson-river","name":"Swanson River","state":"Alaska","type":"river","waterType":"Freestone","rank":0,"species":"Rainbow · Dolly Varden · Coho (Silver) Salmon","accolades":[{"icon":"🛶","text":"Kenai canoe-trail river","source":"Kenai NWR"}],"conditions":{"temp":"52°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Tea-stained","best":"Midday"},"sections":["Canoe route","Swanson River Rd","Lower river"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Swanson River Rd crossing","desc":"Bridge & canoe-trail access on the Kenai NWR","lat":60.8003,"lng":-151.0231},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A slow, tea-colored canoe-trail river winding across the Kenai lowlands — resident rainbows and Dolly Varden all season and a silver salmon run in late summer. Best explored by canoe between the lakes."},
+  {"id":"twentymile-river","name":"Twentymile River","state":"Alaska","type":"river","waterType":"Tidal River","rank":0,"species":"Coho (Silver) Salmon · Hooligan (Eulachon) · Dolly Varden","accolades":[{"icon":"🎣","text":"Turnagain Arm salmon","source":"Near Portage"}],"conditions":{"temp":"48°F","flow":"600 CFS","flowLabel":"CFS Flow","vis":"Glacial","best":"Incoming tide"},"sections":["Tidewater","Highway bridge","Upper forks"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Seward Hwy bridge","desc":"Boat launch at the highway crossing near Portage","lat":60.8456,"lng":-148.9836},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A glacial tidewater river at the head of Turnagain Arm near Portage — a spring hooligan dipnet run and a strong August silver salmon fishery. Fish incoming tides from a boat or the banks near the bridge."},
+  {"id":"sixmile-creek-ak","name":"Sixmile Creek","state":"Alaska","type":"river","waterType":"Freestone","rank":0,"species":"Coho (Silver) Salmon · Pink Salmon · Dolly Varden","accolades":[{"icon":"🎣","text":"Hope-area salmon","source":"Turnagain Arm"}],"conditions":{"temp":"46°F","flow":"300 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Lower creek","Canyon","Hope"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Hope Hwy pullouts","desc":"Roadside access near Hope; whitewater canyon below","lat":60.905,"lng":-149.4272},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A clear, fast creek tumbling to Turnagain Arm near Hope — silver and pink salmon in late summer plus Dolly Varden. Fish the lower accessible water; the canyon above is famous whitewater, not wadeable."},
+  {"id":"jim-creek-ak","name":"Jim Creek","state":"Alaska","type":"river","waterType":"Tidal River","rank":0,"species":"Coho (Silver) Salmon · Rainbow · Dolly Varden","accolades":[{"icon":"🎣","text":"Mat-Su silver run","source":"Knik River drainage"}],"conditions":{"temp":"50°F","flow":"150 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Incoming tide"},"sections":["Knik confluence","Middle creek","Upper"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Jim Creek access (Butte)","desc":"Gravel access & parking near Palmer/Butte","lat":61.5189,"lng":-148.9689},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A popular Mat-Su silver-salmon creek draining to the Knik River near Butte — strong August/September coho run with resident rainbows and Dollys. Fish incoming tides with bright streamers; it gets busy on weekends."},
+  {"id":"cottonwood-creek-ak","name":"Cottonwood Creek","state":"Alaska","type":"river","waterType":"Urban Stream","rank":0,"species":"Coho (Silver) Salmon · Rainbow","accolades":[{"icon":"🏙️","text":"Wasilla-area silvers","source":"Palmer Hay Flats"}],"conditions":{"temp":"50°F","flow":"80 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Incoming tide"},"sections":["Hay Flats","Wasilla","Cottonwood Lake"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Palmer Hay Flats access","desc":"Walk-in near the mouth at Rabbit Slough","lat":61.4942,"lng":-149.5928},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A Wasilla-area creek flowing through the Palmer Hay Flats to Cook Inlet — a good in-town silver salmon run in late summer plus resident rainbows. Fish the lower creek and slough on incoming tides."},
+  {"id":"eklutna-tailrace","name":"Eklutna Tailrace","state":"Alaska","type":"river","waterType":"Tailrace","rank":0,"species":"Coho (Silver) Salmon · King Salmon · Pink Salmon","accolades":[{"icon":"🎣","text":"Stocked king & silver run","source":"Old Glenn Highway"}],"conditions":{"temp":"48°F","flow":"200 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Tailrace mouth","Knik confluence","Ponds"],"hatches":[{"name":"Midge","months":[5,6,7],"peak":[6],"timing":"All day"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Mayfly","months":[6,7],"peak":[7],"timing":"Afternoon"}],"flies":[{"name":"Egg-Sucking Leech","type":"streamer","size":"2–6","conf":5},{"name":"Coho Fly (pink/chartreuse)","type":"streamer","size":"2–6","conf":5},{"name":"Flesh Fly","type":"streamer","size":"2–6","conf":4},{"name":"Bead Egg","type":"nymph","size":"8–12","conf":4},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","color":"Tan/olive","conf":4}],"access":[{"type":"🅿️","name":"Eklutna Tailrace access","desc":"Parking off the Old Glenn Hwy near Knik River","lat":61.4581,"lng":-149.4189},{"type":"🚶","name":"Bank access","desc":"Walk-in along the water"}],"note":"A power-plant tailrace on the Old Glenn Highway near the Knik River — a stocked king salmon run in June/July and wild silvers and pinks later. Easy road access makes it a popular, productive Anchorage-area salmon spot."},
+  {"id":"mud-lake","name":"Mud Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Yellow Perch · Rainbow · Largemouth Bass","accolades":[{"icon":"🐟","text":"Eastern Idaho perch & trout water","source":"Mud Lake WMA near Terreton"}],"conditions":{"temp":"62°F","elev":"4,780 ft","wind":"SW 12","best":"AM"},"sections":["Boat ramp","WMA shore","Dam","Inlet"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Mud Lake WMA ramp","desc":"Boat ramp & parking off the WMA road","lat":43.8871,"lng":-112.3996},{"type":"🚶","name":"WMA shoreline","desc":"Walk-in banks & flats"}],"note":"A large, shallow, fertile reservoir on the WMA near Terreton, about 35 miles west of Rexburg — best known for jumbo yellow perch and stocked rainbows, with largemouth in the weedy bays. Windy and open; fish the leeward shore and troll or strip from a boat."},
+  {"id":"egin-lakes","name":"Egin Lakes","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Largemouth Bass · Yellow Perch","accolades":[{"icon":"🏜️","text":"St. Anthony Sand Dunes lakes","source":"Stocked rec-area water"}],"conditions":{"temp":"60°F","elev":"4,950 ft","wind":"W 10","best":"AM"},"sections":["Swim beach","Dunes side","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🅿️","name":"Egin Lakes Rec Area","desc":"BLM day-use & camping at the sand dunes","lat":43.9605,"lng":-111.8573},{"type":"🚶","name":"Shoreline","desc":"Walk-in around the lakes"}],"note":"Stocked lakes at the edge of the St. Anthony Sand Dunes, about 15 miles north of Rexburg — put-and-take rainbows plus bass and perch in a fun family and float-tube setting. A relaxed after-work or weekend spot with easy access and camping."},
+  {"id":"jefferson-county-lake","name":"Jefferson County Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Bluegill · Largemouth Bass","accolades":[{"icon":"🎣","text":"Rigby-area community fishery","source":"Stocked put-and-take"}],"conditions":{"temp":"60°F","elev":"4,850 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Beach","Dam","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🅿️","name":"Jefferson County Lake","desc":"County park, ramp, beach, restrooms","lat":43.69966,"lng":-111.90234},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank access"}],"note":"A stocked county-park lake just north of Rigby, about 15 miles southwest of Rexburg — heavily planted rainbows in spring and fall plus bluegill and bass through summer. An easy, family-friendly still water; no-wake and great from the bank or a float tube."},
+  {"id":"sand-creek-ponds","name":"Sand Creek Ponds","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook Trout","accolades":[{"icon":"🎣","text":"Sand Creek WMA stocked ponds","source":"Crown jewel of a 34,000-acre WMA"}],"conditions":{"temp":"58°F","elev":"4,950 ft","wind":"W 8","best":"AM"},"sections":["Pond 1","Pond 4","Blue Creek Reservoir","Docks"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Sand Creek Ponds ramp","desc":"Non-motorized boat ramp, docks & camping","lat":44.2243,"lng":-111.6111},{"type":"🚶","name":"Pond 1 docks","desc":"Five fishing docks, walk-in"}],"note":"Stocked trout ponds and Blue Creek Reservoir deep in the Sand Creek WMA, about 18 miles north of St. Anthony on gravel road — rainbows and brookies with fishing docks on Pond 1 and Pond 4. Non-motorized only; a quiet, scenic destination in the dunes-and-timber country with first-come camping."},
+  {"id":"blue-creek-reservoir","name":"Blue Creek Reservoir","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook Trout","accolades":[{"icon":"🏔️","text":"Largest of the Sand Creek waters","source":"Sand Creek WMA, north of St. Anthony"}],"conditions":{"temp":"56°F","elev":"4,980 ft","wind":"W 10","best":"AM"},"sections":["Dam","Inlet","West shore","Ramp"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Blue Creek Reservoir ramp","desc":"Non-motorized ramp in the Sand Creek WMA","lat":44.2243,"lng":-111.6111},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"The largest reservoir in the Sand Creek Ponds complex, deep in the Sand Creek WMA about 18 miles north of St. Anthony — stocked rainbows plus brook trout, and its extra depth carries fish over winter for slightly bigger holdovers. Non-motorized only; fish chironomids under an indicator or strip leeches along the drop-offs."},
+  {"id":"grassy-lake-reservoir","name":"Grassy Lake Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Cutthroat · Rainbow · Lake Trout","accolades":[{"icon":"🏔️","text":"Remote reservoir on the Ashton–Flagg Ranch road","source":"Between Yellowstone & Grand Teton"}],"conditions":{"temp":"52°F","elev":"7,200 ft","wind":"W 10","best":"AM"},"sections":["Dam","Fall River inlet","Coves","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚤","name":"Grassy Lake Reservoir","desc":"Below the dam off the Ashton–Flagg Ranch Rd (opens ~June 1)","lat":44.1272,"lng":-110.8071},{"type":"🚶","name":"Fall River inlet","desc":"Hike to the upper reaches above the reservoir"}],"note":"A remote high reservoir on the Wyoming–Idaho border between Yellowstone and Grand Teton, reached by the 36-mile Ashton–Flagg Ranch (Grassy Lake) gravel road that opens around June 1 — cutthroat, rainbows, and lake trout. Fish from a float tube or small boat and explore the Fall River inlet above; a high-clearance vehicle helps on the washboard road."},
+  {"id":"bitch-creek","name":"Bitch Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat","accolades":[{"icon":"🐟","text":"Pure wild Yellowstone cutthroat","source":"Unaltered flows keep rainbows out"}],"conditions":{"temp":"54°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["ID-32 crossing","Upper canyon","Lower canyon","Teton River confluence"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"8–12","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":4},{"name":"Prince Nymph","type":"nymph","size":"12–16","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Idaho Hwy 32 crossing","desc":"Public canyon access off ID-32 between Ashton & Tetonia","lat":43.93325,"lng":-111.18489},{"type":"🚶","name":"Canyon","desc":"Steep hike-in to remote water"}],"note":"A remote freestone tributary of the Teton River tumbling out of the peaks — home to a pure, wild Yellowstone cutthroat population that its unaltered flows protect from rainbow invasion. Access is limited and the canyon is rugged, but the reward is quiet, undisturbed cutthroat eager for big attractor dries. On the Fremont/Teton county line between Ashton and Tetonia."},
+  {"id":"conant-creek","name":"Conant Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat · Rainbow · Brook Trout","accolades":[{"icon":"💧","text":"Fall River tributary from the Tetons","source":"Cutthroat, rainbows & brookies"}],"conditions":{"temp":"54°F","flow":"90 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Forest crossings","Upper canyon","Conant Valley","Fall River confluence"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"8–12","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":4},{"name":"Prince Nymph","type":"nymph","size":"12–16","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Cave Falls Rd crossing","desc":"Caribou-Targhee National Forest access","lat":44.01831,"lng":-111.02206},{"type":"🚶","name":"Canyon","desc":"Walk-in along the creek"}],"note":"A Fall River tributary running out of the Grand Tetons roughly halfway between Ashton and Driggs — cutthroat, rainbows, and brookies in cold freestone water. Best access is up on the Caribou-Targhee National Forest; the lower reaches cross private ranch land. A quiet cutthroat stream made for hoppers and attractor dries in summer."},
+  {"id":"upper-priest-lake","name":"Upper Priest Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Cutthroat · Lake Trout · Kokanee · Bull Trout","accolades":[{"icon":"🏔️","text":"Wild, roadless twin of Priest Lake","source":"Reached by the Thorofare or trail"}],"conditions":{"temp":"58°F","elev":"2,438 ft","wind":"W 6","best":"AM"},"sections":["Navigation","Thorofare","Plowboy","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚤","name":"Via the Thorofare","desc":"Boat up the channel from Priest Lake (no road)"},{"type":"🚶","name":"Navigation/Beaver Creek trail","desc":"Hike-in from the north end"}],"note":"The wild, undeveloped upper lake, joined to Priest Lake by the 2-mile Thorofare and ringed by the Selkirks — cutthroat, kokanee, mackinaw, and bull trout in gin-clear water. No road access, which keeps it quiet. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
+  {"id":"hunt-lake-priest","name":"Hunt Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Backcountry Selkirk cutthroat lake","source":"Hike-in above Priest Lake"}],"conditions":{"temp":"52°F","elev":"6,200 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚶","name":"Hunt Lake trail","desc":"Steep hike-in from the Priest Lake side"}],"note":"A small, cold cirque lake high in the Selkirk Crest east of Priest Lake — wild westslope cutthroat that rise freely to dries. A rewarding hike-in; chironomids and a Parachute Adams do the job."},
+  {"id":"two-mouth-lakes","name":"Two Mouth Lakes","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Twin Selkirk cutthroat lakes","source":"Trail #268 from Lion Creek"}],"conditions":{"temp":"52°F","elev":"5,900 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚶","name":"Two Mouth Lakes trail","desc":"Hike-in from the Lion Creek road (Trail #268)"}],"note":"A pair of granite-rimmed cutthroat lakes below Two Mouth Peak in the Selkirks — eager westslope cutthroat and mountain-goat country. Fish a hopper-dropper along the drop-offs; the walk keeps the crowds away."},
+  {"id":"bottleneck-lake","name":"Bottleneck Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Remote Selkirk cutthroat lake","source":"Hike-in near the crest"}],"conditions":{"temp":"52°F","elev":"5,800 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚶","name":"Bottleneck Lake trail","desc":"Backcountry hike-in in the Selkirk Crest"}],"note":"A quiet high lake tucked into the Selkirk Crest, holding willing westslope cutthroat — clear, cold, and rimmed by granite. A long hike, but the cutthroat come readily to attractor dries."},
+  {"id":"fault-lake","name":"Fault Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🥾","text":"Alpine Selkirk cutthroat lake","source":"Hike-in near Chimney Rock"}],"conditions":{"temp":"52°F","elev":"6,000 ft","wind":"W 6","best":"AM"},"sections":["Shoreline","Inlet","Outlet","Dropoff"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Renegade","type":"dry","size":"12–16","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚶","name":"Fault Lake trail","desc":"Hike-in below Chimney Rock in the Selkirks"}],"note":"A high cirque lake beneath the spires near Chimney Rock, with wild westslope cutthroat in stunning granite country. A stout hike; small dries and a chironomid under an indicator produce."},
+  {"id":"upper-priest-river","name":"Upper Priest River","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Bull Trout","accolades":[{"icon":"💧","text":"Wild roadless cutthroat river","source":"Feeds Upper Priest Lake"}],"conditions":{"temp":"50°F","flow":"80 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Headwaters","Cedar groves","Upper Priest Lake inlet"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Upper Priest River trail","desc":"Hike-in along the river above Upper Priest Lake","lat":48.7988,"lng":-116.9119},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A pristine, roadless river tumbling out of the Selkirks through ancient cedar groves into Upper Priest Lake — wild westslope cutthroat and a protected bull trout stronghold. Small attractor dries fool the cutthroat in the pocket water. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
+  {"id":"kalispell-creek","name":"Kalispell Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brook Trout","accolades":[{"icon":"🎣","text":"West-side Priest Lake tributary","source":"Cutthroat & brook trout"}],"conditions":{"temp":"52°F","flow":"40 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Kalispell Creek Rd","desc":"Forest road access on the west side of Priest Lake","lat":48.5674,"lng":-116.9216},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A pretty forest creek entering Priest Lake at Kalispell Bay — small westslope cutthroat and brook trout in cold pocket water. Fish attractor dries up the road crossings. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
+  {"id":"lion-creek-priest","name":"Lion Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🎣","text":"East-side Priest Lake tributary","source":"Gateway to Two Mouth Lakes"}],"conditions":{"temp":"50°F","flow":"45 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Lion Creek Rd","desc":"Forest road on the east side; trailhead to Two Mouth Lakes","lat":48.7358,"lng":-116.8319},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A tumbling east-side tributary of Priest Lake and the trail corridor up to Two Mouth Lakes — wild westslope cutthroat in the plunge pools. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
+  {"id":"granite-creek-priest","name":"Granite Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🎣","text":"East-side Priest Lake tributary","source":"Granite Falls & Roosevelt Grove nearby"}],"conditions":{"temp":"50°F","flow":"50 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Granite Creek Rd","desc":"Forest road access near Granite Falls","lat":48.6391,"lng":-116.8647},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A cold, boulder-strewn creek entering Priest Lake near Granite Falls and the Roosevelt Grove of ancient cedars — wild westslope cutthroat in the pockets. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
+  {"id":"reeder-creek","name":"Reeder Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brook Trout","accolades":[{"icon":"🎣","text":"Priest Lake tributary","source":"Small, wadeable cutthroat water"}],"conditions":{"temp":"52°F","flow":"25 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["Upper","Middle","Mouth"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"16–20","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Reeder Creek crossing","desc":"Road crossing near Reeder Bay","lat":48.6219,"lng":-116.8963},{"type":"🚶","name":"Trail / bank","desc":"Walk-in along the creek"}],"note":"A small, easily-waded creek near Reeder Bay on Priest Lake — cutthroat and brook trout in a quiet setting, good for a relaxed afternoon with a dry-dropper. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho."},
+  {"id":"west-fork-bitterroot","name":"West Fork Bitterroot River","state":"Montana","type":"river","waterType":"Tailwater / Freestone","rank":0,"species":"Westslope Cutthroat · Rainbow · Brown · Bull Trout · Mountain Whitefish","accolades":[{"icon":"💧","text":"Painted Rocks tailwater","source":"Dam releases cool summer flows"}],"conditions":{"temp":"52°F","flow":"450 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Below Painted Rocks Dam","Trapper Creek","Conner (East Fork confluence)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Yellow Sally","type":"dry","size":"12–16","color":"Yellow","conf":4}],"access":[{"type":"🅿️","name":"Hannon Memorial FAS","desc":"Access at the West/East Fork confluence near Conner","lat":45.9402,"lng":-114.1273},{"type":"🚶","name":"US-93 pullouts","desc":"Roadside access up the West Fork toward Painted Rocks"}],"note":"The West Fork joins the East Fork at Conner to form the Bitterroot. Cold-water releases from Painted Rocks Dam keep the West Fork fishing through hot summers, when the main Bitterroot warms. Westslope cutthroat and rainbows eat attractor dries; bull trout are present and ESA-protected — release them unharmed."},
+  {"id":"mill-creek-mt","name":"Mill Creek (Paradise Valley)","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat · Rainbow · Brook · Mountain Whitefish","accolades":[{"icon":"🏔️","text":"Absaroka pocket water","source":"Wild Yellowstone cutthroat"}],"conditions":{"temp":"50°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Yellowstone confluence (Pray)","Snowbank","Upper canyon"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3},{"name":"Yellow Stimulator","type":"dry","size":"8–12","color":"Yellow/orange","conf":4},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Mill Creek Rd","desc":"Forest road up the canyon from Pray; national-forest access above the private lower reach","lat":45.416,"lng":-110.6544},{"type":"🚶","name":"Snowbank Campground","desc":"Walk-in pocket water"}],"note":"A tumbling Absaroka tributary of the Yellowstone near Pray. The lower creek crosses private land, but the Forest Service road opens miles of pocket water full of wild Yellowstone cutthroat and brookies. A classic dry-dropper stream in July–September."},
+  {"id":"pine-creek-mt","name":"Pine Creek (Paradise Valley)","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat · Rainbow · Brook","accolades":[{"icon":"🥾","text":"Falls & alpine-lake trail","source":"Small wild-trout creek"}],"conditions":{"temp":"50°F","flow":"60 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Yellowstone confluence","Pine Creek Campground","Pine Creek Falls"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3},{"name":"Yellow Stimulator","type":"dry","size":"8–12","color":"Yellow/orange","conf":4},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Pine Creek Trailhead","desc":"Campground & trailhead to Pine Creek Falls/Lake, east of Livingston","lat":45.5097,"lng":-110.5805},{"type":"🚶","name":"Lower crossings","desc":"Small water near the East River Rd"}],"note":"A small, steep Absaroka creek dropping past Pine Creek Falls to the Yellowstone near Livingston. Tight quarters and eager wild cutthroat and brook trout — a fun rod for a summer afternoon, with the popular hike to Pine Creek Lake above."},
+  {"id":"little-blackfoot-river","name":"Little Blackfoot River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Brown · Rainbow · Westslope Cutthroat · Brook · Mountain Whitefish","accolades":[{"icon":"🎣","text":"Overlooked brown-trout water","source":"Quiet valley freestone"}],"conditions":{"temp":"54°F","flow":"150 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Garrison confluence","Avon","Elliston (headwaters)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Yellow Sally","type":"dry","size":"12–16","color":"Yellow","conf":4}],"access":[{"type":"🅿️","name":"US-12 access","desc":"Highway parallels the river between Elliston and Garrison","lat":46.5149,"lng":-112.7978},{"type":"🚶","name":"Kohrs Bend / bridges","desc":"Walk-in near the Clark Fork confluence"}],"note":"A quiet valley freestone paralleling US-12 from Elliston down to the Clark Fork at Garrison. Modest flows hold surprisingly good brown trout plus rainbows and cutthroat. Best in early summer and again in fall; watch for low, warm water in late July."},
+  {"id":"lolo-creek-mt","name":"Lolo Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brown · Rainbow · Brook · Bull Trout","accolades":[{"icon":"🌲","text":"Lewis & Clark corridor","source":"Wild cutthroat freestone"}],"conditions":{"temp":"53°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Bitterroot confluence","Lolo","Lolo Pass (headwaters)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Yellow Sally","type":"dry","size":"12–16","color":"Yellow","conf":4}],"access":[{"type":"🅿️","name":"US-12 pullouts","desc":"Highway follows the creek west of Lolo toward the pass","lat":46.743,"lng":-114.0618},{"type":"🚶","name":"Lee Creek / FS access","desc":"National-forest water up the canyon"}],"note":"The creek Lewis & Clark followed over Lolo Pass, tumbling to the Bitterroot near Lolo. The upper national-forest reaches hold wild westslope cutthroat and brookies; browns push up from the Bitterroot lower down. Bull trout are present and ESA-protected — release them unharmed."},
+  {"id":"fish-creek-mt","name":"Fish Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Rainbow · Brown · Bull Trout · Mountain Whitefish","accolades":[{"icon":"🐟","text":"Bull-trout stronghold","source":"Wild Clark Fork tributary"}],"conditions":{"temp":"52°F","flow":"160 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Clark Fork confluence (Tarkio)","Lower canyon","North/South Fork"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Yellow Sally","type":"dry","size":"12–16","color":"Yellow","conf":4}],"access":[{"type":"🅿️","name":"Fish Creek Rd (Tarkio/Alberton)","desc":"Exit off I-90 west of Alberton; road follows the creek","lat":47.0033,"lng":-114.7001},{"type":"🚶","name":"FS campgrounds","desc":"Walk-in wade access up the drainage"}],"note":"A wild Clark Fork tributary near Alberton and the Tarkio exit, running through a scenic forested canyon. Westslope cutthroat and rainbows fill the pocket water, and it is an important bull-trout stronghold — bull trout are ESA-protected, so release them unharmed."},
+  {"id":"st-regis-river","name":"Saint Regis River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Rainbow · Brown · Brook · Mountain Whitefish","accolades":[{"icon":"🎣","text":"Roadside tributary trout","source":"Easy I-90 access"}],"conditions":{"temp":"54°F","flow":"130 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Clark Fork confluence (St. Regis)","Along I-90","Headwaters (Lookout Pass)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Yellow Sally","type":"dry","size":"12–16","color":"Yellow","conf":4}],"access":[{"type":"🅿️","name":"I-90 frontage","desc":"Interstate frontage roads follow the river from St. Regis toward Lookout Pass","lat":47.2966,"lng":-115.0904},{"type":"🚶","name":"Frontage-road pullouts","desc":"Easy walk-in access"}],"note":"An easily-reached freestone shadowing I-90 between St. Regis and Lookout Pass. Cutthroat, rainbows, brookies and a few browns in a small, wadeable river — a great stop for a quick session off the interstate in summer."},
+  {"id":"grayling-creek","name":"Grayling Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Rainbow · Brown · Brook · Westslope Cutthroat","accolades":[{"icon":"🍂","text":"Fall run from Hebgen","source":"Migratory browns in autumn"}],"conditions":{"temp":"50°F","flow":"70 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Hebgen inlet","US-191 canyon","Yellowstone Park boundary"],"hatches":[{"name":"Pale Morning Dun (PMD)","months":[6,7],"peak":[7],"timing":"Late morning"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"},{"name":"Brown Trout Spawn (streamers)","months":[10,11],"peak":[10],"timing":"Fall run from Hebgen"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":5},{"name":"Sculpzilla / Sculpin","type":"streamer","size":"4–8","conf":4},{"name":"Parachute Adams","type":"dry","size":"14–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":3},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4},{"name":"Bead / Egg Pattern","type":"nymph","size":"8–14","color":"Orange/pink","conf":4}],"access":[{"type":"🅿️","name":"US-191 pullouts","desc":"Highway crosses the creek NW of West Yellowstone","lat":44.7866,"lng":-111.1633},{"type":"🚶","name":"Hebgen inlet","desc":"Fall run of browns from Hebgen Lake"}],"note":"A pretty freestone crossing US-191 as it flows out of Yellowstone Park into Hebgen Lake. Small resident rainbows and brookies all summer, then a fall push of migratory brown trout from Hebgen makes the lower creek a streamer destination in October."},
+  {"id":"duck-creek-mt","name":"Duck Creek","state":"Montana","type":"river","waterType":"Spring Creek / Meadow","rank":0,"species":"Rainbow · Brown · Brook","accolades":[{"icon":"🍂","text":"Hebgen fall-run browns","source":"Meadow spring creek"}],"conditions":{"temp":"52°F","flow":"40 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Hebgen inlet","Meadow reach","Upper springs"],"hatches":[{"name":"Pale Morning Dun (PMD)","months":[6,7],"peak":[7],"timing":"Late morning"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"},{"name":"Brown Trout Spawn (streamers)","months":[10,11],"peak":[10],"timing":"Fall run from Hebgen"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":5},{"name":"Sculpzilla / Sculpin","type":"streamer","size":"4–8","conf":4},{"name":"Parachute Adams","type":"dry","size":"14–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":3},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4},{"name":"Bead / Egg Pattern","type":"nymph","size":"8–14","color":"Orange/pink","conf":4}],"access":[{"type":"🅿️","name":"Duck Creek Rd","desc":"Access off US-191 north of West Yellowstone toward Hebgen","lat":44.7774,"lng":-111.1499},{"type":"🚶","name":"Meadow banks","desc":"Sight-fishing to cruisers; fall run from Hebgen"}],"note":"A slow, weedy meadow creek entering Hebgen Lake near West Yellowstone. Technical sight-fishing to resident trout in summer, but the real draw is autumn, when big brown trout run up from Hebgen to spawn. Tread lightly and protect spawning fish."},
+  {"id":"south-fork-madison","name":"South Fork Madison River","state":"Montana","type":"river","waterType":"Freestone / Meadow","rank":0,"species":"Rainbow · Brown · Brook · Westslope Cutthroat","accolades":[{"icon":"🍂","text":"Migratory run water","source":"Feeds the Madison Arm of Hebgen"}],"conditions":{"temp":"52°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Hebgen inlet (Madison Arm)","Meadow reach","Upper freestone"],"hatches":[{"name":"Pale Morning Dun (PMD)","months":[6,7],"peak":[7],"timing":"Late morning"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"},{"name":"Brown Trout Spawn (streamers)","months":[10,11],"peak":[10],"timing":"Fall run from Hebgen"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":5},{"name":"Sculpzilla / Sculpin","type":"streamer","size":"4–8","conf":4},{"name":"Parachute Adams","type":"dry","size":"14–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":3},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4},{"name":"Bead / Egg Pattern","type":"nymph","size":"8–14","color":"Orange/pink","conf":4}],"access":[{"type":"🅿️","name":"S Fork Rd / Madison Arm","desc":"Access SW of West Yellowstone to the Madison Arm of Hebgen","lat":44.7424,"lng":-111.2324},{"type":"🚶","name":"Meadow banks","desc":"Undercut banks & beaver water; fall run from Hebgen"}],"note":"The South Fork winds through willow meadows into the Madison Arm of Hebgen Lake. Resident rainbows and browns hold along undercut banks, and fall brings a spawning run of browns out of Hebgen — a quieter alternative to the crowded main Madison nearby."},
+  {"id":"cherry-creek-mt","name":"Cherry Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat","accolades":[{"icon":"🌱","text":"Native cutthroat restoration","source":"Westslope reintroduction (Flying D)"}],"conditions":{"temp":"52°F","flow":"60 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Madison confluence","Flying D Ranch (private)","Headwaters"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3},{"name":"Yellow Stimulator","type":"dry","size":"8–12","color":"Yellow/orange","conf":4},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Madison confluence","desc":"Public access limited to the mouth area on the Madison; upstream is private","lat":45.6227,"lng":-111.5497},{"type":"🚶","name":"Flying D Ranch","desc":"Mostly private — no public wade access upstream"}],"note":"A landmark native westslope-cutthroat restoration stream on the Turner Flying D Ranch, tributary to the Madison. Note: nearly the entire creek is private with no public wade access — it is included for its conservation significance, not as an open fishery. Fish the public Madison at the confluence instead."},
+  {"id":"skalkaho-creek","name":"Skalkaho Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Westslope Cutthroat · Brook · Rainbow · Brown","accolades":[{"icon":"🌲","text":"Scenic canyon creek","source":"Bitterroot tributary"}],"conditions":{"temp":"52°F","flow":"70 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Bitterroot confluence (Grantsdale)","Skalkaho Hwy canyon","Skalkaho Falls"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3},{"name":"Yellow Stimulator","type":"dry","size":"8–12","color":"Yellow/orange","conf":4},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"MT-38 (Skalkaho Hwy)","desc":"Gravel highway follows the creek east of Hamilton toward the falls","lat":46.2196,"lng":-114.1634},{"type":"🚶","name":"Canyon pullouts","desc":"Walk-in pocket water below the falls"}],"note":"A small, scenic Bitterroot tributary climbing the Skalkaho Highway past its namesake falls east of Hamilton. Wild westslope cutthroat and brook trout hold in the pocket water and plunge pools — a peaceful small-stream escape from the busy main Bitterroot."},
+  {"id":"north-fork-musselshell","name":"North Fork Musselshell River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Rainbow · Brown · Brook · Mountain Whitefish","accolades":[{"icon":"🎣","text":"Little Belt foothills trout","source":"Upper Musselshell"}],"conditions":{"temp":"54°F","flow":"90 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Two Forks (Martinsdale)","Checkerboard","Little Belt headwaters"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Yellow Sally","type":"dry","size":"12–16","color":"Yellow","conf":4}],"access":[{"type":"🅿️","name":"US-12 access","desc":"Highway follows the North Fork west of Martinsdale","lat":46.4797,"lng":-110.2724},{"type":"🚶","name":"Bridge pullouts","desc":"Small-stream wade access"}],"note":"The North Fork gathers in the Little Belt foothills and joins the South Fork near Martinsdale to form the Musselshell. A modest, willow-lined trout stream with rainbows and browns — pleasant, uncrowded water best fished before midsummer irrigation draws it down."},
+  {"id":"tenmile-creek-mt","name":"Tenmile Creek","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Brown · Rainbow · Brook · Westslope Cutthroat","accolades":[{"icon":"🚰","text":"Helena’s home creek","source":"Restored headwater trout"}],"conditions":{"temp":"53°F","flow":"40 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Helena valley","Rimini canyon","Headwaters (restored)"],"hatches":[{"name":"Skwala Stonefly","months":[3,4],"peak":[4],"timing":"Afternoon"},{"name":"Salmonfly","months":[6],"peak":[6],"timing":"Daytime"},{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[6,7,8],"peak":[7],"timing":"Late morning"},{"name":"Yellow Sally","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Caddis","months":[6,7,8],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[4,9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Pat’s Rubber Legs","type":"nymph","size":"6–10","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":3},{"name":"Yellow Sally","type":"dry","size":"12–16","color":"Yellow","conf":4}],"access":[{"type":"🅿️","name":"Rimini Rd","desc":"Forest road up the canyon SW of Helena","lat":46.6735,"lng":-111.9758},{"type":"🚶","name":"Canyon access","desc":"Walk-in small-stream pockets"}],"note":"Helena’s water-supply creek, tumbling out of the mountains southwest of town through Rimini. The upper canyon holds wild browns, brookies and cutthroat in tight pocket water, and reclamation work has steadily improved it — an easy after-work small-stream option."},
+  {"id":"wise-river","name":"Wise River","state":"Montana","type":"river","waterType":"Freestone","rank":0,"species":"Arctic Grayling · Westslope Cutthroat · Rainbow · Brown · Brook · Mountain Whitefish","accolades":[{"icon":"🐟","text":"Fluvial Arctic grayling","source":"Big Hole tributary"}],"conditions":{"temp":"50°F","flow":"110 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Afternoon"},"sections":["Big Hole confluence (Wise River)","Pioneer Mtns canyon","Headwaters"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[7],"timing":"Daytime"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Late morning"},{"name":"Green Drake","months":[7],"peak":[7],"timing":"Afternoon"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Purple Haze","type":"dry","size":"12–16","conf":5},{"name":"Parachute Adams","type":"dry","size":"12–18","conf":4},{"name":"Elk Hair Caddis","type":"dry","size":"14–16","conf":4},{"name":"Pheasant Tail","type":"nymph","size":"14–18","conf":4},{"name":"Hopper","type":"dry","size":"10–14","conf":3},{"name":"Griffith’s Gnat","type":"dry","size":"18–20","conf":3},{"name":"Yellow Stimulator","type":"dry","size":"8–12","color":"Yellow/orange","conf":4},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Pioneer Scenic Byway","desc":"Road follows the river up into the Pioneer Mountains from Wise River town","lat":45.7988,"lng":-112.9464},{"type":"🚶","name":"FS campgrounds","desc":"Walk-in wade access up the canyon"}],"note":"A clear Pioneer Mountains freestone joining the Big Hole at Wise River town. One of the few streams still holding native fluvial Arctic grayling alongside brookies and cutthroat. The Pioneer Scenic Byway opens miles of wade water — handle any grayling gently and release them."},
   {"id":"gibson-reservoir","name":"Gibson Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Westslope Cutthroat · Arctic Grayling · Brook · Brown · Mountain Whitefish","accolades":[{"icon":"🏔️","text":"Bob Marshall gateway","source":"Sun River Canyon reservoir"}],"conditions":{"temp":"58°F","elev":"4,700 ft","wind":"W 12","best":"Evening"},"sections":["Boat ramp","Dam","Sun River inlet","North Fork"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":4},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Gibson Dam ramp","desc":"FS boat launch below the Sun River Canyon road","lat":47.6033,"lng":-112.7609},{"type":"🚶","name":"Shoreline / inlet trail","desc":"Hike-in bank access toward the Bob Marshall"}],"note":"A deep, dramatic reservoir walled by the Sun River Canyon cliffs on the doorstep of the Bob Marshall Wilderness. Rainbows, westslope cutthroat and whitefish cruise the inlets — troll or cast streamers near the Sun River and North Fork inlets. Wind funnels hard through the canyon."},
   {"id":"harrison-lake","name":"Harrison Lake (Willow Creek Reservoir)","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Kokanee · Westslope Cutthroat · Yellow Perch","accolades":[{"icon":"🎣","text":"Trophy rainbows","source":"Rich weedy reservoir"}],"conditions":{"temp":"62°F","elev":"4,750 ft","wind":"SW 15","best":"Evening"},"sections":["Boat ramp","Dam","Willow Creek inlet","Weed flats"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":4},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Harrison Lake ramp","desc":"FWP ramp on Willow Creek Reservoir near Harrison/Pony","lat":45.6938,"lng":-111.7046},{"type":"🚶","name":"Shoreline flats","desc":"Walk-in bank & weed edges"}],"note":"A rich, weedy reservoir on Willow Creek near Harrison that grows big, hard-fighting rainbows plus browns and perch. Fish chironomids and Callibaetis over the weed flats or strip leeches from a float tube. Notoriously windy — pick calm mornings and evenings."},
   {"id":"painted-rocks-reservoir","name":"Painted Rocks Lake","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Westslope Cutthroat · Brook · Bull Trout · Mountain Whitefish","accolades":[{"icon":"🏞️","text":"West Fork headwater lake","source":"Feeds Bitterroot summer flows"}],"conditions":{"temp":"58°F","elev":"4,700 ft","wind":"W 10","best":"Evening"},"sections":["Boat ramp","Dam","West Fork inlet","Coves"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":4},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Painted Rocks SP ramp","desc":"State-park launch on the West Fork Bitterroot","lat":45.7007,"lng":-114.2938},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank near the campground"}],"note":"A scenic reservoir on the West Fork Bitterroot whose releases keep the river cold all summer. Rainbows and westslope cutthroat take flies near the inlet and drop-offs; bull trout are present and ESA-protected — release them. Late-summer irrigation draws the lake down significantly."},
@@ -16214,7 +16326,7 @@ const HATCHED_DATA = [
   {"id":"east-rosebud-lake","name":"East Rosebud Lake","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook · Yellowstone Cutthroat · Mountain Whitefish","accolades":[{"icon":"🏔️","text":"Road-accessible Beartooth lake","source":"Gateway to the high lakes"}],"conditions":{"temp":"56°F","elev":"6,200 ft","wind":"SW 10","best":"Evening"},"sections":["Boat area","Inlet","Alpine Cabins shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":4},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"East Rosebud Lake","desc":"Road-accessible lake & campground SW of Roscoe/Fishtail","lat":45.1958,"lng":-109.6433},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank; trailhead to the Beartooth high country"}],"note":"A gorgeous, road-accessible lake at the foot of the Beartooths southwest of Roscoe, lined with cabins and a campground and the trailhead into the high country. Rainbows, brookies and browns take flies along the shoreline and inlet — an easy alpine-lake experience without the hike."},
   {"id":"silver-lake-mt","name":"Silver Lake","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Kokanee · Lake Trout · Westslope Cutthroat · Bull Trout","accolades":[{"icon":"🎣","text":"Anaconda chain lake","source":"Rainbows & kokanee"}],"conditions":{"temp":"60°F","elev":"5,300 ft","wind":"W 14","best":"Evening"},"sections":["Boat ramp","Dam","Weedy bays"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":4},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Silver Lake ramp","desc":"Access west of Anaconda in the Georgetown chain","lat":46.1674,"lng":-113.2173},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & bays"}],"note":"Part of the Anaconda–Georgetown chain of lakes west of town, Silver Lake holds rainbows, kokanee and brookies. Troll or strip leeches and Callibaetis nymphs over the weedy bays and drop-offs. Winds off the Pintler crest can build fast in the afternoon. Bull trout are present and ESA-protected — release them unharmed."},
   {"id":"nilan-reservoir","name":"Nilan Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brown · Brook","accolades":[{"icon":"🎣","text":"Front-range trout reservoir","source":"Rainbows & holdover browns"}],"conditions":{"temp":"62°F","elev":"4,300 ft","wind":"W 14","best":"Evening"},"sections":["Boat ramp","Dam","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":4},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3}],"access":[{"type":"🚤","name":"Nilan Reservoir ramp","desc":"FWP ramp west of Augusta on the Rocky Mountain Front","lat":47.4787,"lng":-112.5358},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"A productive irrigation reservoir west of Augusta on the Rocky Mountain Front. Stocked rainbows grow fast on its rich water, with holdover browns and perch mixed in. Chironomids and leeches from a float tube shine in spring and fall; the Front’s wind is a constant."},
-  {"id":"bynum-reservoir","name":"Bynum Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Northern Pike · Rainbow · Yellow Perch · Walleye · Brown","accolades":[{"icon":"🐟","text":"Rocky Mountain Front pike","source":"Pike, perch & rainbows"}],"conditions":{"temp":"64°F","elev":"3,900 ft","wind":"SW 16","best":"Evening"},"sections":["Boat ramp","Dam","Weedy bays","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"2–6","conf":4},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":3},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3}],"access":[{"type":"🚤","name":"Bynum Reservoir ramp","desc":"FWP ramp NW of Choteau on the Rocky Mountain Front","lat":47.946,"lng":-112.4345},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & weed edges for pike"}],"note":"A big irrigation reservoir on the Rocky Mountain Front near Choteau holding northern pike, yellow perch and stocked rainbows. Throw big streamers on wire or heavy leader to the weedy bays for pike; the wind here is relentless, so plan around calm windows. Note: Bynum was drawn down to dead storage in the 2024 drought and the fishery is being restocked — check current Montana FWP status before making a dedicated trip."}
+  {"id":"bynum-reservoir","name":"Bynum Reservoir","state":"Montana","type":"lake","waterType":"Stillwater","rank":0,"species":"Northern Pike · Rainbow · Yellow Perch · Walleye · Brown","accolades":[{"icon":"🐟","text":"Rocky Mountain Front pike","source":"Pike, perch & rainbows"}],"conditions":{"temp":"64°F","elev":"3,900 ft","wind":"SW 16","best":"Evening"},"sections":["Boat ramp","Dam","Weedy bays","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"2–6","conf":4},{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":4},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"12–16","conf":3},{"name":"Balanced Leech","type":"nymph","size":"10–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Bynum Reservoir ramp","desc":"FWP ramp NW of Choteau on the Rocky Mountain Front","lat":47.946,"lng":-112.4345},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & weed edges for pike"}],"note":"A big irrigation reservoir on the Rocky Mountain Front near Choteau holding northern pike, yellow perch and stocked rainbows. Throw big streamers on wire or heavy leader to the weedy bays for pike; the wind here is relentless, so plan around calm windows. Note: Bynum was drawn down to dead storage in the 2024 drought and the fishery is being restocked — check current Montana FWP status before making a dedicated trip."}
 ];
 
 /* ===================================================================
