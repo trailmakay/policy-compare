@@ -2739,6 +2739,37 @@
 
     /* ─── Live wind for lakes (Open-Meteo, free, no key) ─── */
     const LAKE_COORDS = window.HATCHED_LAKE_COORDS || {};
+    // River access coordinates (GNIS-derived, town-disambiguated) for waters that had no
+    // gauge/ramp/access pin — enables directions and the land map for them.
+    const RIVER_COORDS = {
+      'alagnak-river':[59.00472,-156.86028], 'alatna-river':[67.105,-152.74028], 'american-creek':[58.80972,-155.66028],
+      'andreafsky-river':[62.05722,-163.11222], 'aniak-river':[61.57444,-159.4875], 'armstrong-spring-creek':[45.68882,-110.66604],
+      'arolik-river':[59.695,-161.88389], 'ayakulik-river':[57.1989,-154.5361], 'battle-creek-wy':[41.08385,-107.17311],
+      'bear-river-id':[42.57,-111.73], 'bear-valley-creek':[44.22491,-114.92814], 'bechler-river':[44.14826,-110.99688],
+      'brooks-river':[58.54722,-155.79611], 'brush-creek-co':[39.5411,-106.75559], 'canning-river':[70.07833,-145.56556],
+      'casper-creek':[42.8433,-106.35919], 'cayuse-creek':[46.71186,-115.02068], 'cebolla-creek':[37.93333,-107.24722],
+      'chandalar-river':[67.10167,-147.23861], 'chilikadrotna-river':[60.66611,-154.04472], 'christmas-meadows':[40.71495,-110.81461],
+      'chulitna-river':[62.33556,-150.15028], 'cottonwood-creek-wy':[43.66854,-110.70576], 'cowee-creek':[58.57806,-134.79389],
+      'cub-river':[42.055,-111.755], 'delta-clearwater':[64.15528,-145.85972], 'depuy-spring-creek':[45.68882,-110.66604],
+      'douglas-creek':[41.22861,-107.13861], 'eagle-river-ak':[58.52694,-134.82167], 'goodnews-river':[59.1108,-161.5814],
+      'goose-creek-ut':[41.98,-114.05], 'granite-creek-wy':[43.5791,-110.80743], 'greybull-river':[43.87996,-109.34237],
+      'hellroaring-creek':[45.1,-110.4], 'henrys-lake-outlet':[44.4927,-111.28273], 'herbert-river':[58.53,-134.72167],
+      'horse-creek-wy':[42.87244,-110.04099], 'innoko-river':[62.19583,-159.72083], 'ivishak-river':[69.4986,-148.5061],
+      'jarbidge-river':[42.32907,-115.65258], 'jim-river':[66.79,-151.20222], 'kanektok-river':[59.74611,-161.93139],
+      'kanuti-river':[66.52,-150.07278], 'karluk-river':[57.5717,-154.4622], 'karta-river':[55.56111,-132.61028],
+      'kelly-creek-id':[46.71575,-115.25763], 'kisaralik-river':[60.85806,-161.2375], 'labarge-creek':[42.42521,-110.56101],
+      'lake-creek-ak':[62.09528,-151.24222], 'lewis-river':[44.14216,-110.66354], 'little-boulder-river':[45.85272,-109.92352],
+      'little-susitna':[61.85861,-149.06333], 'loon-creek':[44.45046,-114.93926], 'middle-fork-popo-agie':[42.735,-108.812],
+      'middle-fork-salmon':[44.44907,-115.23094], 'moraine-creek':[59.18889,-155.18194], 'muddy-creek-wy':[41.04024,-107.65201],
+      'mulchatna-river':[59.6444,-157.1153], 'nenana-river':[63.49528,-147.80028], 'nevada-spring-creek':[46.8941,-112.99061],
+      'north-platte-miracle-mile':[42.075,-106.945], 'nushagak-river':[58.79944,-158.6325], 'oak-creek-bm':[38.07387,-111.36878],
+      'paintrock-creek':[44.19663,-107.72231], 'provo-lower':[40.335,-111.595], 'quartz-creek':[60.47667,-149.72472],
+      'quartz-creek-co':[38.61166,-106.50003], 'rapid-river':[45.37378,-116.35652], 'rock-creek-wy':[41.48886,-106.20251],
+      'sevenmile-creek':[37.62555,-110.5682], 'slough-creek':[45.19752,-110.11168], 'soda-fork':[43.90661,-110.20019],
+      'south-platte':[38.98,-105.63], 'steep-creek':[58.39278,-134.50889], 'sunlight-creek':[44.78634,-109.39294],
+      'talachulitna-river':[62.33556,-150.15028], 'ten-sleep-creek':[44.03052,-107.46202], 'tikchik-river':[59.9833,-158.3411],
+      'togiak-river':[59.07306,-160.33472]
+    };
     // Boat-ramp coordinates (OpenStreetMap slipway/marina, distance-verified) — the
     // drivable launch, used as the destination instead of a lake’s center point.
     const RAMP_COORDS = {
@@ -3057,6 +3088,7 @@
       if(RAMP_COORDS[f.id]) return RAMP_COORDS[f.id];   // boat ramp = the drivable destination
       if(LAKE_COORDS[f.id]) return LAKE_COORDS[f.id];
       if(GAUGE_COORDS[f.id]) return GAUGE_COORDS[f.id];
+      if(RIVER_COORDS[f.id]) return RIVER_COORDS[f.id];
       return null;
     }
     // Broader coord for distance filtering: pin → lake center → nearest town.
