@@ -1839,7 +1839,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=203"></script>
+  <script src="data.js?v=204"></script>
   <script>
     let keepNearbyState = false;   // set true when returning to Nearby from a detail page (don't reset)
     function showTab(name) {
@@ -2236,6 +2236,11 @@
        Verified gauge IDs → real-time flow (CFS) + water temp. `normal` = typical
        summer flow, used to classify High/Normal/Low against the live reading. */
     const GAUGES = {
+      // MT +25 waters gauge pass (verified active, current flow checked live 2026)
+      'west-fork-bitterroot':{site:'12342500',normal:220},   // W Fk Bitterroot nr Conner
+      'little-blackfoot-river':{site:'12324590',normal:125},  // Little Blackfoot R nr Garrison
+      'st-regis-river':{site:'12354000',normal:300},          // St. Regis R nr St. Regis
+      'tenmile-creek-mt':{site:'06062500',normal:12},         // Tenmile Ck nr Rimini
       // Coverage-audit additions — verified active USGS gauges (current flow checked live)
       'gore-creek':{site:'09066510',normal:65},              // Gore Ck at mouth nr Minturn
       'south-platte-deckers':{site:'06701900',normal:250},   // S Platte blw Brush Ck nr Trumbull (Deckers reach)
