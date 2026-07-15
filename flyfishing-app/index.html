@@ -1840,7 +1840,6 @@
   </div>
 
   <script src="data.js?v=198"></script>
-  <script src="land-precomputed.js?v=1"></script>
   <script>
     let keepNearbyState = false;   // set true when returning to Nearby from a detail page (don't reset)
     function showTab(name) {
@@ -3835,10 +3834,18 @@
       if (pts.length) map.fitBounds(pts, { padding:[26,26] }); else map.setView(coord, 12);
       setTimeout(() => map.invalidateSize(), 150);
     }
+    let _landDataP = null;
+    function lazyLandData(){
+      if (window.HATCHED_LAND) return Promise.resolve();
+      if (_landDataP) return _landDataP;
+      _landDataP = fetch('land-precomputed.js?v=2').then(r => r.ok ? r.text() : '').then(t => { if (t) (0,eval)(t); }).catch(()=>{});
+      return _landDataP;
+    }
     async function showLandMap(id){
       const wrap = document.getElementById('landMapWrap'); if (!wrap) return;
       const f = fishById(id); if (!f) return;
       wrap.innerHTML = '<div class="land-msg">Loading land map…</div>';
+      await lazyLandData();
       // 1) Pre-computed marquee rivers — instant, verified, whole fishable reach, zero data
       const pre = (window.HATCHED_LAND || {})[id];
       if (pre && pre.strokes && pre.strokes.length){
