@@ -48,12 +48,13 @@ const HATCHED_DATA = [
     hatches: [
       { name: 'Pale Morning Dun (PMD)', months: [6,7,8], peak: [6,7], timing: '9am–2pm' },
       { name: 'Caddis', months: [5,6,7,8,9,10], peak: [5,6], timing: 'Evening' },
-      { name: 'Green Drake', months: [6], peak: [6], timing: 'Midday' },
+      { name: 'Green Drake', months: [6,7], peak: [6,7], timing: 'Midday' },
       { name: 'Blue Wing Olive (BWO)', months: [3,4,5,9,10], peak: [4,10], timing: 'Midday' },
       { name: 'Terrestrials (Hopper/Beetle)', months: [7,8,9], peak: [8], timing: 'Afternoon' }
     ],
     flies: [
       { name: 'PMD Comparadun', type: 'dry', size: '16–18', conf: 5 },
+      { name: 'Green Drake', type: 'dry', size: '10–12', color: 'Olive/green', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '16–18', conf: 4 },
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', conf: 4 },
       { name: 'Hopper (Morrish)', type: 'dry', size: '10–12', conf: 3 }
@@ -1336,10 +1337,11 @@ const HATCHED_DATA = [
       { name: 'Blue Wing Olive (BWO)', months: [4,5,9,10], peak: [5,10], timing: 'Midday' },
       { name: 'Caddis', months: [6,7,8], peak: [7], timing: 'Evening' },
       { name: 'Pale Morning Dun (PMD)', months: [6,7], peak: [7], timing: 'Late morning' },
-      { name: 'Stonefly', months: [6,7], peak: [6], timing: 'Daytime' }
+      { name: 'Golden Stonefly', months: [6,7], peak: [6], timing: 'Daytime' }
     ],
     flies: [
       { name: 'Elk Hair Caddis', type: 'dry', size: '14–16', color: 'Tan, olive', conf: 5 },
+      { name: 'Yellow Stimulator', type: 'dry', size: '8–12', color: 'Yellow/orange', conf: 4 },
       { name: 'Prince Nymph', type: 'nymph', size: '12–14', color: 'Peacock', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 4 },
       { name: 'Pat\'s Rubber Legs', type: 'nymph', size: '8–10', color: 'Brown/black', conf: 3 }
