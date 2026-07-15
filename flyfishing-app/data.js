@@ -16202,7 +16202,10 @@ const HATCHED_SHOPS = {
     { name: 'Trout Creek Flies', town: 'Dutch John', phone: '(435) 885-3355' },
     { name: 'Fish Heads Fly Shop', town: 'Heber City', phone: '(435) 657-2010' },
     { name: "Scott's Fly Shoppe", town: 'Spanish Fork', phone: '(801) 709-3271' },
-    { name: 'Fremont River Guides Fly Shop', town: 'Torrey', phone: '(435) 425-3999' }
+    { name: 'Fremont River Guides Fly Shop', town: 'Torrey', phone: '(435) 425-3999' },
+    { name: 'Anglers Den', town: 'Roy', phone: '(801) 773-1166' },
+    { name: 'RoundRocks Flies', town: 'Hyrum', phone: '(435) 752-0714' },
+    { name: 'The Quiet Fly Fisher', town: 'Loa', phone: '(435) 616-2319' }
   ],
   'Montana': [
     { name: 'Blue Ribbon Flies', town: 'West Yellowstone', phone: '(406) 646-7642' },
@@ -16214,7 +16217,15 @@ const HATCHED_SHOPS = {
     { name: 'Wolf Creek Angler', town: 'Wolf Creek', phone: '(406) 235-4350' },
     { name: 'Missoulian Angler', town: 'Missoula', phone: '(406) 728-7766' },
     { name: 'Frontier Anglers', town: 'Dillon', phone: '(406) 683-5276' },
-    { name: 'Lakestream Fly Shop', town: 'Whitefish', phone: '(406) 862-1298' }
+    { name: 'Lakestream Fly Shop', town: 'Whitefish', phone: '(406) 862-1298' },
+    { name: 'Headhunters Fly Shop', town: 'Craig', phone: '(406) 235-3447' },
+    { name: 'The Trout Shop', town: 'Craig', phone: '(406) 235-4474' },
+    { name: 'CrossCurrents Fly Shop', town: 'Helena', phone: '(406) 449-2292' },
+    { name: 'Four Rivers Fishing Co.', town: 'Twin Bridges', phone: '(406) 684-5651' },
+    { name: 'Grizzly Hackle Fly Shop', town: 'Missoula', phone: '(406) 721-8996' },
+    { name: 'Yellowstone Fly Goods', town: 'Billings', phone: '(406) 256-0799' },
+    { name: 'East Rosebud Fly & Tackle', town: 'Billings', phone: '(406) 839-9397' },
+    { name: 'Osprey Outfitters Fly Shop', town: 'Hamilton', phone: '(406) 363-1000' }
   ],
   'Wyoming': [
     { name: 'JD High Country Outfitters', town: 'Jackson', phone: '(307) 733-3270' },
@@ -16225,7 +16236,11 @@ const HATCHED_SHOPS = {
     { name: 'North Fork Anglers', town: 'Cody', phone: '(307) 527-7274' },
     { name: 'Fly Shop of the Bighorns', town: 'Sheridan', phone: '(307) 672-5866' },
     { name: "Hack's Tackle & Outfitter", town: 'Saratoga', phone: '(307) 326-9823' },
-    { name: 'Altitude Outdoors', town: 'Afton', phone: '(307) 885-8008' }
+    { name: 'Altitude Outdoors', town: 'Afton', phone: '(307) 885-8008' },
+    { name: 'Wind River Flyfitter', town: 'Dubois', phone: '(307) 206-5808' },
+    { name: 'Wind River Outdoor Company', town: 'Lander', phone: '(307) 332-7864' },
+    { name: 'Platte River Fly Shop', town: 'Casper', phone: '(307) 237-5997' },
+    { name: 'Wyoming Wings and Waters', town: 'Cody', phone: '(307) 388-8672' }
   ],
   'Idaho': [
     { name: 'TroutHunter', town: 'Last Chance', phone: '(208) 558-9900' },
@@ -16260,13 +16275,25 @@ const HATCHED_SHOPS = {
     { name: 'Vail Valley Anglers', town: 'Edwards', phone: '(970) 926-0900' },
     { name: 'Granby Bait and Tackle', town: 'Granby', phone: '(970) 557-3023' },
     { name: "Kirk's Fly Shop", town: 'Grand Lake', phone: '(970) 627-5021' },
-    { name: "Mo Henry's Trout Shop", town: 'Winter Park', phone: '(970) 531-8213' }
+    { name: "Mo Henry's Trout Shop", town: 'Winter Park', phone: '(970) 531-8213' },
+    { name: 'Duranglers Flies & Supplies', town: 'Durango', phone: '(970) 385-4081' },
+    { name: 'The San Juan Angler', town: 'Durango', phone: '(970) 382-9978' },
+    { name: 'Gunnison River Fly Shop', town: 'Gunnison', phone: '(970) 641-2930' },
+    { name: "St. Peter's Fly Shop", town: 'Fort Collins', phone: '(970) 498-8968' },
+    { name: 'Estes Angler', town: 'Estes Park', phone: '(970) 586-2110' },
+    { name: 'RIGS Fly Shop', town: 'Ridgway', phone: '(970) 626-4460' },
+    { name: 'Front Range Anglers', town: 'Boulder', phone: '(303) 494-1375' },
+    { name: 'Trouts Fly Fishing', town: 'Frisco', phone: '(970) 668-2583' }
   ],
   'Alaska': [
     { name: "Mossy's Fly Shop", town: 'Anchorage', phone: '(907) 770-2666' },
     { name: 'Alaska Troutfitters', town: 'Cooper Landing', phone: '(907) 595-1212' },
     { name: 'Wilderness Way', town: 'Soldotna', phone: '(907) 262-3880' },
-    { name: 'Alaska Fly Fishing Goods', town: 'Juneau', phone: '(907) 586-1550' }
+    { name: 'Alaska Fly Fishing Goods', town: 'Juneau', phone: '(907) 586-1550' },
+    { name: 'Three Rivers Fly & Tackle', town: 'Wasilla', phone: '(907) 373-5434' },
+    { name: 'Kenai Cache Outfitters', town: 'Cooper Landing', phone: '(907) 595-1401' },
+    { name: 'B&J Sporting Goods', town: 'Anchorage', phone: '(907) 274-6113' },
+    { name: 'The Fly Box Tackle Shop', town: 'Anchor Point', phone: '(907) 299-7121' }
   ]
 };
 
