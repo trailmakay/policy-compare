@@ -1374,7 +1374,7 @@
     </div>
     <div class="search-bar">
       <span class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
-      <input type="text" id="searchInput" placeholder="Try “Yellowstone cutthroat in Utah”, a water, city, or fly…" oninput="runSearch(this.value)" onfocus="showTab('rivers')" enterkeyhint="search" onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}">
+      <input type="text" id="searchInput" placeholder="Try “fly shops in Utah”, a water, fish, city, or fly…" oninput="runSearch(this.value)" onfocus="showTab('rivers')" enterkeyhint="search" onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}">
     </div>
     <div class="species-lookup" id="speciesLookup">
       <span class="sl-label"><svg class="lbl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c2-3.4 5.8-5.3 9.5-5.3 1.4 0 2.8.3 4 .9-.9 1.2-.9 2.9-.9 4.4s0 3.2.9 4.4c-1.2.6-2.6.9-4 .9-3.7 0-7.5-1.9-9.5-5.3Z"/><path d="M6.5 12L2.5 8.5v7L6.5 12Z"/><circle cx="15.5" cy="10.5" r=".8" fill="currentColor" stroke="none"/></svg>Find a fish:</span>
@@ -4539,11 +4539,6 @@
       detailWrap.style.display='none';
       box.style.display='block';
 
-      // 1) Fly shop matches (by shop name or town)
-      const shopMatches = ALL_SHOPS.filter(s =>
-        s.name.toLowerCase().includes(q) || s.town.toLowerCase().includes(q)
-      );
-
       // Compound query parse: "yellowstone cutthroat in utah", "brown trout montana", etc.
       // Only when the whole query isn't itself a water name (so "Montana Creek" still works),
       // and only when removing the state leaves a real search term.
@@ -4559,6 +4554,29 @@
             break;
           }
         }
+      }
+
+      // 1) Fly shop matches. Understands "fly shops in utah", "montana fly shops",
+      //    "shops near ennis", a bare state ("utah"), or a shop/town name.
+      const shopIntent = /\bshops?\b/.test(q);                 // mentions "shop"/"shops"
+      let shopState = '';
+      for (const st of STATE_NAMES){ if (new RegExp('\\b'+st+'\\b').test(q)) { shopState = st; break; } }
+      // free text left after stripping "fly", "shop(s)", "in/near", and the state word
+      const shopTerm = q.replace(/\bfly\b/g,'').replace(/\bshops?\b/g,'')
+                        .replace(/\b(in|near)\b/g,'')
+                        .replace(new RegExp('\\b('+STATE_NAMES.join('|')+')\\b','g'),'')
+                        .replace(/\s+/g,' ').trim();
+      let shopMatches;
+      if (shopIntent){
+        shopMatches = ALL_SHOPS.filter(s =>
+          (!shopState || s.state.toLowerCase() === shopState) &&
+          (!shopTerm  || s.name.toLowerCase().includes(shopTerm) || s.town.toLowerCase().includes(shopTerm))
+        );
+      } else {
+        shopMatches = ALL_SHOPS.filter(s =>
+          s.name.toLowerCase().includes(q) || s.town.toLowerCase().includes(q) ||
+          (STATE_NAMES.includes(q) && s.state.toLowerCase() === q)
+        );
       }
 
       // Native-fish lookup: "native fish in utah", "native trout", "native fish"
