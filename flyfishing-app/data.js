@@ -5315,7 +5315,7 @@ const HATCHED_DATA = [
       { name: 'Flying Ant', type: 'dry', size: '14–16', color: 'Black, cinnamon', conf: 4 },
       { name: "Green Drake", type: 'dry', size: '10–12', color: "Olive/green", conf: 4 }],
     access: [
-      { type: '🚶', name: 'Slough Creek Trail', desc: 'Hike to the meadows from the campground' }
+      { type: '🚶', name: 'Slough Creek Trail', desc: 'Hike to the meadows from the campground', lat: 44.9358, lng: -110.308 }
     ],
     note: 'A bucket-list cutthroat stream — gin-clear meadow pools where big natives sip dries you sight-cast to. The walk to the upper meadows thins the crowds. Technical, rewarding, and worth every step. Bear country; go prepared.'
   },
@@ -7632,7 +7632,7 @@ const HATCHED_DATA = [
       { name: 'Flesh Fly', type: 'streamer', size: '2–6', color: 'White, pink', conf: 4 },
       { name: 'Egg-Sucking Leech', type: 'streamer', size: '2–6', color: 'Black/purple', conf: 4 }
     ],
-    access: [ { type: '🛶', name: 'Battle Creek (fly-out)', desc: 'Day fly-out from Bristol Bay lodges; bear country' } ],
+    access: [ { type: '🛶', name: 'Battle Creek (fly-out)', desc: 'Day fly-out from Bristol Bay lodges to the Battle Lake outlet; bear country', lat: 59.04, lng: -154.86 } ],
     note: 'A gin-clear sister stream to Moraine Creek in Katmai country — trophy leopard rainbows stacked behind spawning sockeye in shockingly clear water, plus char and grayling. Loaded with brown bears; go with a guide. A classic fly-out day-trip from the Iliamna/Bristol Bay lodges.'
   },
   {
@@ -8020,7 +8020,7 @@ const HATCHED_DATA = [
       { name: 'Glo-Bug (Egg)', type: 'nymph', size: '6–10', color: 'Orange, cerise', conf: 4 },
       { name: 'Dolly Llama', type: 'streamer', size: '2–4', color: 'White, pink', conf: 3 }
     ],
-    access: [ { type: '🅿️', name: 'Klukshu (Haines Hwy)', desc: 'Access off the Haines Highway near the Yukon border' } ],
+    access: [ { type: '🅿️', name: 'Klukshu (Haines Hwy)', desc: 'Access off the Haines Highway at Klukshu, YT (transboundary Alsek fishery)', lat: 60.1319, lng: -137.0333 } ],
     note: 'A small, clear salmon stream in the Alsek/Tatshenshini system near the Haines Highway and Yukon border — sockeye and kings in summer, a strong fall silver run, and Dolly Varden on beads behind the salmon. A historic First Nations fishing site in gorgeous, bear-rich country. Clear water and accessible off the highway.'
   },
   {
@@ -12750,7 +12750,7 @@ const HATCHED_DATA = [
     note: 'A tiny tributary of George Creek high in the Raft River Mountains, holding a pure conservation population of native Yellowstone cutthroat. This is intimate, brushy headwater fishing for jewel-like wild trout — genuine off-the-map water in Utah\'s remote northwest, best treated gently and released carefully.'
   },
   {
-    id: 'trapper-creek-ut', name: 'Trapper Creek', state: 'Utah', type: 'river',
+    id: 'trapper-creek-ut', name: 'Trapper Creek', state: 'Idaho', type: 'river',
     waterType: 'Headwater Creek', rank: 0, species: 'Yellowstone Cutthroat · Brook',
     accolades: [ { icon: '🏔️', text: 'Native Yellowstone cutthroat stream', source: 'Raft River Mtns (Snake drainage)' } ],
     conditions: { temp: '53°F', flow: '12 cfs', flowLabel: 'estimate', vis: 'Clear', best: 'Jul–Sep' },
@@ -12767,8 +12767,8 @@ const HATCHED_DATA = [
       { name: 'Ant', type: 'dry', size: '14–18', color: 'Black', conf: 4 },
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
-    access: [ { type: '🥾', name: 'Trapper Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access SW of Grouse Creek', lat: 42.183, lng: -113.9417 } ],
-    note: 'A small freestone in the Raft River Mountains of northwest Utah, part of the Snake River drainage and home to native Yellowstone cutthroat. Willing wild trout fill its pockets and undercut banks — a quiet, scenic little creek for anglers chasing Utah\'s only true Yellowstone cutthroat country.'
+    access: [ { type: '🥾', name: 'Trapper Creek (Raft River Mtns)', desc: 'Sawtooth NF (Raft River Div) — FR access along the Idaho–Utah line', lat: 42.183, lng: -113.9417 } ],
+    note: 'A small freestone in the Raft River Mountains along the Idaho–Utah border (Cassia County, Idaho), part of the Snake River drainage and home to native Yellowstone cutthroat. Willing wild trout fill its pockets and undercut banks — a quiet, scenic little creek in a remote corner of Yellowstone-cutthroat country.'
   },
   {
     id: 'clear-creek-ut', name: 'Clear Creek', state: 'Utah', type: 'river',
@@ -12876,7 +12876,7 @@ const HATCHED_DATA = [
     note: 'A tiny, out-of-the-way creek in the Raft River Mountains of northwest Utah, holding native Yellowstone cutthroat thanks to its Snake River drainage. Cold, clear and seldom fished — a genuine backcountry small stream for anglers who love wild natives and solitude.'
   },
   {
-    id: 'cassia-creek', name: 'Cassia Creek', state: 'Utah', type: 'river',
+    id: 'cassia-creek', name: 'Cassia Creek', state: 'Idaho', type: 'river',
     waterType: 'Headwater Creek', rank: 0, species: 'Yellowstone Cutthroat · Brook',
     accolades: [ { icon: '🏔️', text: 'Native Yellowstone cutthroat stream', source: 'Raft River Mtns (Snake drainage)' } ],
     conditions: { temp: '53°F', flow: '20 cfs', flowLabel: 'estimate', vis: 'Clear', best: 'Jul–Sep' },
@@ -12894,7 +12894,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '14–18', color: 'Natural', conf: 4 }
     ],
     access: [ { type: '🥾', name: 'Cassia Creek (Raft River drainage)', desc: 'Near Elba / City of Rocks, Raft River drainage', lat: 42.3477, lng: -113.355 } ],
-    note: 'A native-trout creek in the Raft River drainage on the Utah–Idaho border country near the City of Rocks, holding Yellowstone cutthroat that belong to the Snake River lineage. A pretty high-desert-and-mountain stream — willing wild cutthroat on attractor dries in a scenic, lightly pressured corner.'
+    note: 'A native-trout creek in the Raft River drainage of southern Idaho near Elba and the City of Rocks (Cassia County), holding Yellowstone cutthroat that belong to the Snake River lineage. A pretty high-desert-and-mountain stream — willing wild cutthroat on attractor dries in a scenic, lightly pressured corner.'
   },
 
   {
