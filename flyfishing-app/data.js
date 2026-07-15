@@ -16242,7 +16242,11 @@ const HATCHED_SHOPS = {
     { name: 'Three Rivers Ranch (TRR Outfitters)', town: 'Ashton', phone: '(208) 652-3008' },
     { name: 'South Fork Lodge Fly Shop', town: 'Swan Valley', phone: '(208) 483-7052' },
     { name: 'Swan Valley Fly Shop', town: 'Swan Valley', phone: '(208) 483-2727' },
-    { name: 'Sandpoint Fly Shop', town: 'Ponderay', phone: '(208) 666-0506' }
+    { name: 'Sandpoint Fly Shop', town: 'Ponderay', phone: '(208) 666-0506' },
+    { name: 'Snake River Fly', town: 'Pocatello', phone: '(208) 904-3900' },
+    { name: 'Eco Lounge', town: 'Boise', phone: '(208) 429-8855' },
+    { name: 'Superfly Tackle', town: 'Sandpoint', phone: '(208) 610-9280' },
+    { name: 'Fly on the Wall Fly Shop', town: 'Boise' }
   ],
   'Colorado': [
     { name: 'Taylor Creek Fly Shop', town: 'Basalt', phone: '(970) 927-4374' },
