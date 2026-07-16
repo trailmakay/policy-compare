@@ -563,6 +563,9 @@
       cursor: pointer;
     }
     .species-chip:active { background: var(--green); color: #fff; }
+    .fish-size { margin-top: 11px; display: flex; align-items: flex-start; gap: 7px; font-size: 13px; line-height: 1.45; color: var(--text-soft); }
+    .fish-size .fs-ico { font-size: 14px; line-height: 1.3; }
+    .fish-size b { color: var(--text); font-weight: 700; }
 
     /* Fish-by-species chips */
     .fish-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
@@ -3907,6 +3910,114 @@
         renderLandMap(wrap, f, coord, segsToStrokes(segs), { mi: Math.round(mi), pub: mi ? Math.round(100*pubMi/mi) : 0 });
       } catch(e){ wrap.innerHTML = '<div class="land-msg">Couldn\'t load the land map — check your connection and <span class="flow-link" onclick="showLandMap(\'' + id + '\')">try again</span>.</div>'; }
     }
+    // Typical caught-size estimate: hand-verified for marquee waters, otherwise
+    // derived from species + water character (tailwaters/reservoirs grow bigger fish,
+    // alpine lakes & headwater creeks smaller). Framed as an estimate in the UI.
+    const FISH_SIZE_OVERRIDE = {
+      'green-gorge':'Rainbows & browns 15–19″, plenty to 20″+',
+      'bighorn':'Rainbows & browns 15–18″, some to 20″+',
+      'grey-reef':'Rainbows & browns 18–22″, trophies to 24″+',
+      'north-platte-miracle-mile':'Browns & rainbows 16–20″, some to 24″+',
+      'north-platte-saratoga':'Browns & rainbows 14–18″, some to 20″+',
+      'missouri':'Rainbows & browns 15–18″, some to 20″+',
+      'madison':'Rainbows & browns 12–16″',
+      'beaverhead':'Browns & rainbows 14–18″, some to 22″+',
+      'big-hole':'Browns, rainbows & brookies 10–15″; grayling present',
+      'smith':'Browns & rainbows 12–16″',
+      'henrys-fork':'Rainbows 14–18″, some to 20″+',
+      'south-fork-snake':'Cutthroat, browns & rainbows 13–18″, some to 20″+',
+      'silver-creek':'Rainbows & browns 14–18″, wild and wary',
+      'big-wood':'Rainbows & browns 11–15″',
+      'frying-pan':'Rainbows & browns 14–18″; big fish below the dam to 24″+',
+      'roaring-fork':'Rainbows, browns & cutthroat 12–16″, some to 20″',
+      'taylor-river':'Rainbows & browns 12–16″; C&R giants to 25″+ in the Hog Trough',
+      'gunnison':'Rainbows & browns 14–18″, some to 22″+',
+      'arkansas':'Browns & rainbows 11–15″, some to 18″+',
+      'blue-river':'Rainbows & browns 12–17″; big below Dillon to 20″+',
+      'south-platte':'Rainbows & browns 14–18″, some to 20″+ (Dream Stream)',
+      'cheesman-canyon':'Rainbows & browns 13–18″, wild and selective',
+      'san-juan-utah':'Rainbows & browns 16–20″',
+      'provo-lower':'Browns & rainbows 13–17″, some to 20″',
+      'provo-middle':'Browns & rainbows 13–17″, some to 20″',
+      'green-river-seedskadee':'Browns & rainbows 14–18″, some to 20″+',
+      'snake-wy':'Snake River cutthroat 12–16″, some to 18″+',
+      'kenai-river':'Rainbows 16–26″ · kings to 40+ lb · sockeye 6–9 lb · silvers 8–12 lb',
+      'naknek-river':'Trophy rainbows 18–28″ · kings 20–40+ lb',
+      'kvichak-river':'Trophy rainbows 20–30″ · sockeye 6–9 lb',
+      'alagnak-river':'Rainbows 18–26″ · char 18–24″ · all five salmon',
+      'lower-talarik-creek':'Trophy rainbows 20–30″',
+      'moraine-creek':'Trophy rainbows 20–28″',
+      'brooks-river':'Rainbows 16–24″ · sockeye 5–8 lb',
+      'nushagak-river':'Kings 20–40+ lb · rainbows 16–22″',
+      'kanektok-river':'Rainbows, char & all five salmon · silvers 8–12 lb',
+      'goodnews-river':'Char 18–24″ · kings, silvers, chums & rainbows',
+      'situk-river':'Steelhead 24–34″ · silvers 8–12 lb',
+      'wulik-river':'Trophy Dolly Varden 20–30″',
+      'russian-river':'Sockeye 5–8 lb · rainbows & Dolly Varden 12–18″',
+      'grande-ronde':'Steelhead 24–34″',
+      'yellowstone':'Cutthroat & rainbows 13–18″',
+      'lamar-river':'Yellowstone cutthroat 12–17″',
+      'slough-creek':'Yellowstone cutthroat 14–18″, some to 20″+'
+    };
+    const _SZ_BASE={brook:[7,10,12],cutthroat:[9,13,16],rainbow:[10,14,18],brown:[11,15,20],golden:[8,10,12],tiger:[12,16,22],splake:[14,18,24],grayling:[10,14,17],whitefish:[10,13,16],laketrout:[20,28,40],kokanee:[10,13,15],bull:[16,22,30]};
+    const _SZ_DELTA={tailwater:[4,4,5],spring:[3,4,5],trophy:[5,5,7],bigriver:[1,2,3],reservoir:[3,4,6],lake:[1,2,3],alpine:[-2,-3,-2],creek:[-1,-2,-2],freestone:[0,0,0]};
+    const _SZ_LABEL={brook:'Brookies',cutthroat:'Cutthroat',rainbow:'Rainbows',brown:'Browns',golden:'Golden trout',tiger:'Tiger trout',splake:'Splake',grayling:'Grayling',whitefish:'Whitefish',laketrout:'Lake trout',kokanee:'Kokanee',bull:'Bull trout'};
+    const _SZ_KEY=[['bull','bull trout'],['laketrout','lake trout'],['tiger','tiger trout'],['splake','splake'],['golden','golden trout'],['cutthroat','cutthroat'],['rainbow','rainbow'],['rainbow','redband'],['brown','brown'],['brook','brook'],['grayling','grayling'],['whitefish','whitefish'],['kokanee','kokanee']];
+    const _SZ_OTHER=[['tiger muskie','tiger muskie to 40″+'],['northern pike','pike 24–34″'],['walleye','walleye 15–22″'],['smallmouth','smallmouth 10–15″'],['largemouth','bass 10–16″'],['channel catfish','catfish 15–24″'],['burbot','burbot 18–26″'],['crappie','crappie 8–11″'],['yellow perch','perch 7–11″'],['bluegill','panfish 6–9″']];
+    const _SZ_AK=[['king salmon','kings 15–40+ lb'],['chinook','kings 15–40+ lb'],['king','kings 15–40+ lb'],['silver','silvers 8–12 lb'],['red salmon','sockeye 5–8 lb'],['silver salmon','silvers 8–12 lb'],['coho','silvers 8–12 lb'],['sockeye','sockeye 5–8 lb'],['chum salmon','chums 8–12 lb'],['pink salmon','pinks 3–5 lb'],['steelhead','steelhead 24–34″'],['sheefish','sheefish 8–20 lb'],['dolly varden','Dolly Varden 14–22″'],['arctic char','char 16–24″']];
+    function fishSize(f){
+      if (FISH_SIZE_OVERRIDE[f.id]) return FISH_SIZE_OVERRIDE[f.id];
+      const sp=(f.species||'').toLowerCase(), wt=(f.waterType||'').toLowerCase(), note=(f.note||'').toLowerCase(), nm=(f.name||'').toLowerCase();
+      const has=k=>sp.includes(k);
+      // tier
+      let tier;
+      if (f.type==='lake'){
+        if (has('golden trout') || /alpine|hike-in|hike in|backcountry|high lake|wilderness|tundra|granite basin|beneath the peak/.test(note)) tier='alpine';
+        else if (/reservoir/.test(nm) || /reservoir/.test(wt) || has('lake trout')||has('kokanee')||has('walleye')||has('pike')||has('bass')) tier='reservoir';
+        else tier='lake';
+      } else {
+        if (/tailwater/.test(wt)) tier='tailwater';
+        else if (/spring/.test(wt)) tier='spring';
+        else if (/creek|fork|slough|brook/.test(nm)) tier='creek';
+        else if (/desert/.test(wt)) tier='creek';
+        else tier='freestone';
+      }
+      if ((f.rank||0)>0 && f.rank<=25) tier='trophy';
+      // Alaska anadromous / char / grayling emphasis
+      if (f.state==='Alaska'){
+        const seen=new Set(); const parts=[];
+        for (const [k,ph] of _SZ_AK){ if (has(k) && !seen.has(ph)){ seen.add(ph); parts.push(ph); } }
+        if (has('rainbow')){ const r=_szRange(['rainbow'],tier); parts.unshift('rainbows '+r); }
+        else if (has('arctic grayling') && !parts.some(p=>/char|Dolly/.test(p))){ }
+        if (has('arctic grayling') && !sp.includes('dolly')){ parts.push('grayling 12–16″'); }
+        if (parts.length) return _cap(parts.slice(0,4).join(' · '));
+      }
+      // trout-style range from present species
+      const present=[]; for (const [key,needle] of _SZ_KEY){ if (has(needle) && !present.includes(key)) present.push(key); }
+      if (present.length){
+        const use=present.slice(0,3);
+        const r=_szRange(use,tier);
+        const labels=use.map(k=>_SZ_LABEL[k]);
+        let lbl = labels.length<=1?labels[0]:labels.length===2?labels[0]+' & '+labels[1]:labels[0]+', '+labels[1]+' & '+labels[2];
+        let out = lbl+' '+r;
+        // append one notable non-trout species if present
+        for (const [k,ph] of _SZ_OTHER){ if (has(k)){ out += ' · '+ph; break; } }
+        return _cap(out);
+      }
+      // warmwater / other-only
+      const parts=[]; for (const [k,ph] of _SZ_OTHER){ if (has(k)){ parts.push(ph); if(parts.length>=2)break; } }
+      if (parts.length) return _cap(parts.join(' · '));
+      return '';
+    }
+    function _szRange(keys,tier){
+      const d=_SZ_DELTA[tier]||[0,0,0];
+      let lo=Infinity,hi=0,tr=0;
+      keys.forEach(k=>{const b=_SZ_BASE[k];lo=Math.min(lo,Math.max(5,b[0]+d[0]));hi=Math.max(hi,Math.max(7,b[1]+d[1]));tr=Math.max(tr,b[2]+d[2]);});
+      hi=Math.min(28,Math.max(hi,lo+2)); tr=Math.min(40,Math.max(tr,hi+2));
+      return (tr>hi+1 && tr>=16) ? (lo+'–'+hi+'″, some to '+tr+'″') : (lo+'–'+hi+'″');
+    }
+    function _cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+
     function detailHTML(f, sectionIdx){
       sectionIdx = sectionIdx || 0;
       const isLake = f.type === 'lake';
@@ -4034,6 +4145,7 @@
         <div class="detail-section">
           <div class="detail-section-title">${ICO.fish} Fish Species</div>
           <div class="species-chips">${f.species.split(' · ').map(s => `<span class="species-chip" onclick="searchFish(this.textContent)">${esc(s.trim())}</span>`).join('')}</div>
+          ${fishSize(f) ? `<div class="fish-size"><span class="fs-ico">\ud83d\udccf</span><span><b>Typical catch:</b> ${esc(fishSize(f))} <span style="opacity:.7">· est.</span></span></div>` : ''}
         </div>
         <div class="detail-section">
           <div class="detail-section-title">${isLake?'Lake Zone':'River Section'}</div>
