@@ -6085,7 +6085,7 @@ const HATCHED_DATA = [
     ],
     flies: [
       { name: 'Woolly Bugger', type: 'streamer', size: '4–8', color: 'Olive, black, brown', conf: 5 },
-      { name: 'Egg-Sucking Leech', type: 'streamer', size: '4–8', color: 'Black/purple', conf: 4 },
+      { name: 'Sculpin / Bunny Leech', type: 'streamer', size: '2–6', color: 'Olive/black', conf: 4 },
       { name: 'Parachute Adams', type: 'dry', size: '14–16', color: 'Adams gray', conf: 3 },
       { name: "Elk Hair Caddis", type: 'dry', size: '14–16', color: "Tan/olive", conf: 4 }],
     access: [
