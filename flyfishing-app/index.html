@@ -2494,7 +2494,7 @@
       if (p.p25 != null && flow <= p.p25) return { icon:'🔽', color:'#a06a1f', bg:'var(--tan-light)', label:'Low &amp; Clear',
         tip: ctx + 'Below the seasonal median — clear water and wary fish. Lighten your tippet, lengthen the leader, and fish the low-light hours.' };
       return { icon:'✅', color:'var(--green)', bg:'var(--green-pale)', label:'In Shape — Near Seasonal Normal',
-        tip: ctx + 'Right around the median for this date — prime, fishable water with good clarity. Fish are holding where you’d expect: riffles, seams, and runs. Standard presentations should produce.' };
+        tip: ctx + 'Within the normal range for this date — prime, fishable water with good clarity. Fish are holding where you’d expect: riffles, seams, and runs. Standard presentations should produce.' };
     }
     function cachedGauge(site){ try { return JSON.parse(localStorage.getItem('hatched_gauge_'+site)); } catch(e){ return null; } }
     // ===== Colorado DWR gauges (state network; fills rivers USGS no longer gauges) =====
