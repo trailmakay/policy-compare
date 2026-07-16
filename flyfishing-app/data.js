@@ -920,7 +920,7 @@ const HATCHED_DATA = [
       { type: '🚶', name: 'Rock Creek Road', desc: 'Gravel road follows entire creek', lat: 46.96742, lng: -114.22789 },
       { type: '🅿️', name: 'Valley of the Moon', desc: 'Lower access near I-90' }
     ],
-    note: 'A blue-ribbon freestone gem near Missoula. The salmonfly hatch in late May–June is the marquee event. The long gravel road gives wade access to the whole creek.'
+    note: 'A blue-ribbon freestone gem near Missoula. The salmonfly hatch in late May–June is the marquee event. The long gravel road gives wade access to the whole creek. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Montana.'
   },
   {
     id: 'smith', name: 'Smith River', state: 'Montana', type: 'river',
@@ -3430,7 +3430,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🛶', name: 'Below Libby Dam', desc: 'Boat ramp, big water' }
     ],
-    note: 'A huge, clear tailwater in the far northwest corner — big rainbows in big water best fished from a boat. Caddis and PMDs in summer; streamers anytime. Flows swing with dam releases, so check the schedule.'
+    note: 'A huge, clear tailwater in the far northwest corner — big rainbows in big water best fished from a boat. Caddis and PMDs in summer; streamers anytime. Flows swing with dam releases, so check the schedule. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Montana.'
   },
   {
     id: 'flathead-mf', name: 'Middle Fork Flathead River', state: 'Montana', type: 'river',
@@ -3473,7 +3473,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🛶', name: 'Polebridge', desc: 'Gravel-road float access' }
     ],
-    note: 'Wild, remote, and beautiful along Glacier\'s western boundary — westslope cutthroat eager for big dries. Rough roads and few people. Best mid-summer through early fall after runoff.'
+    note: 'Wild, remote, and beautiful along Glacier\'s western boundary — westslope cutthroat eager for big dries. Rough roads and few people. Best mid-summer through early fall after runoff. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Montana.'
   },
   {
     id: 'swan-river', name: 'Swan River', state: 'Montana', type: 'river',
@@ -3840,7 +3840,7 @@ const HATCHED_DATA = [
       { type: '🛶', name: 'Sawtooth Valley (Stanley)', desc: 'Upper river float & wade, ID-75' },
       { type: '🅿️', name: 'US-93 (Salmon)', desc: 'Highway access downstream' }
     ],
-    note: 'A legendary wild river from the Sawtooths near Stanley down through Salmon. Cutthroat on attractor dries in summer; swing for sea-run steelhead in spring and fall on the lower reaches. Huge, scenic, and storied.'
+    note: 'A legendary wild river from the Sawtooths near Stanley down through Salmon. Cutthroat on attractor dries in summer; swing for sea-run steelhead in spring and fall on the lower reaches. Huge, scenic, and storied. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'middle-fork-salmon', name: 'Middle Fork of the Salmon', state: 'Idaho', type: 'river',
@@ -3861,7 +3861,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🛶', name: 'Boundary Creek (permit)', desc: 'Multi-day wilderness float — lottery permit' }
     ],
-    note: 'One of the great wilderness float trips on earth — 100 miles of gin-clear water through the Frank Church with endless eager westslope cutthroat that eat big dries all day. Permit lottery and a multi-day raft trip; the fishing is almost an afterthought to the experience (but it is superb).'
+    note: 'One of the great wilderness float trips on earth — 100 miles of gin-clear water through the Frank Church with endless eager westslope cutthroat that eat big dries all day. Permit lottery and a multi-day raft trip; the fishing is almost an afterthought to the experience (but it is superb). Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'selway-river', name: 'Selway River', state: 'Idaho', type: 'river',
@@ -3883,7 +3883,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🅿️', name: 'Selway Falls Rd', desc: 'Lower-river road access (then wilderness)' }
     ],
-    note: 'A wild-and-scenic gem in the Selway-Bitterroot — eager westslope cutthroat in crystal water, fishable by road on the lower reach or by permit float above. Best mid-summer after runoff. Remote and uncrowded.'
+    note: 'A wild-and-scenic gem in the Selway-Bitterroot — eager westslope cutthroat in crystal water, fishable by road on the lower reach or by permit float above. Best mid-summer after runoff. Remote and uncrowded. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'st-joe-river', name: 'St. Joe River', state: 'Idaho', type: 'river',
@@ -3905,7 +3905,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🅿️', name: 'St. Joe River Rd (Avery)', desc: 'Road follows the river' }
     ],
-    note: 'One of the finest cutthroat dry-fly rivers anywhere — beautiful water in the Idaho Panhandle with a road alongside for easy access. The upper catch-and-release water holds the biggest cutts. Dry-fly fishing peaks July–August.'
+    note: 'One of the finest cutthroat dry-fly rivers anywhere — beautiful water in the Idaho Panhandle with a road alongside for easy access. The upper catch-and-release water holds the biggest cutts. Dry-fly fishing peaks July–August. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'coeur-dalene-river', name: "Coeur d'Alene River", state: 'Idaho', type: 'river',
@@ -4197,7 +4197,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🛶', name: 'Redfish Lake Lodge', desc: 'Ramp & shoreline, Stanley' }
     ],
-    note: 'A jaw-dropping lake beneath the Sawtooth peaks near Stanley. Fish the inlet and shoreline for rainbows; the scenery alone is worth it. A great base for the area\'s alpine lakes and the upper Salmon River nearby.'
+    note: 'A jaw-dropping lake beneath the Sawtooth peaks near Stanley. Fish the inlet and shoreline for rainbows; the scenery alone is worth it. A great base for the area\'s alpine lakes and the upper Salmon River nearby. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'alturas-lake', name: 'Alturas Lake', state: 'Idaho', type: 'lake',
@@ -4278,7 +4278,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🚤', name: 'Priest Lake ramps', desc: 'State park launches, Panhandle' }
     ],
-    note: 'A deep, pristine Panhandle lake mainly known for lake trout (deep, mostly gear). Fly anglers chase cutthroat at the tributary mouths and the scenic Thorofare connecting to Upper Priest. Beautiful, forested, and quiet.'
+    note: 'A deep, pristine Panhandle lake mainly known for lake trout (deep, mostly gear). Fly anglers chase cutthroat at the tributary mouths and the scenic Thorofare connecting to Upper Priest. Beautiful, forested, and quiet. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'coeur-dalene-lake', name: "Lake Coeur d'Alene", state: 'Idaho', type: 'lake',
@@ -6297,7 +6297,7 @@ const HATCHED_DATA = [
       { name: 'Hopper', type: 'dry', size: '10–12', color: 'Tan', conf: 4 }
     ],
     access: [
-      { type: '🅿️', name: 'Bear River SP (Evanston)', desc: 'Greenway access in Evanston + upstream reaches' }
+      { type: '🅿️', name: 'Bear River SP (Evanston)', desc: 'Greenway access in Evanston + upstream reaches', lat: 41.3841, lng: -111.0263 }
     ],
     note: 'The upper Bear near Evanston holds native Bonneville cutthroat along with browns and rainbows — a pretty freestone with easy greenway access in town and quieter water upstream. Caddis and hoppers in summer, BWOs in fall. A convenient, under-the-radar southwest Wyoming option.'
   },
@@ -7243,7 +7243,7 @@ const HATCHED_DATA = [
     access: [
       { type: '🅿️', name: 'Thompson River Rd', desc: 'Gravel-road access N of Thompson Falls' }
     ],
-    note: 'A pretty, lightly-fished freestone flowing out of the Thompson Chain of Lakes to the Clark Fork near Thompson Falls — westslope cutthroat, rainbows, and browns in a quiet forested canyon. Big stoneflies in June and hoppers late summer. Drivable gravel access and real solitude in northwest Montana.'
+    note: 'A pretty, lightly-fished freestone flowing out of the Thompson Chain of Lakes to the Clark Fork near Thompson Falls — westslope cutthroat, rainbows, and browns in a quiet forested canyon. Big stoneflies in June and hoppers late summer. Drivable gravel access and real solitude in northwest Montana. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Montana.'
   },
   {
     id: 'wade-lake', name: "Wade & Cliff Lakes", state: 'Montana', type: 'lake',
@@ -12982,7 +12982,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
       { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'North Fork Payette River', desc: 'Public access along the river road' } ],
-    note: 'The North Fork above and below Cascade offers pretty trout water for rainbows and whitefish (the wild canyon between Cascade and Banks is legendary whitewater, not fishing). Fish the upper meadow reaches near McCall and the tailwater below Cascade Dam — accessible, scenic water in the heart of the Payette country.'
+    note: 'The North Fork above and below Cascade offers pretty trout water for rainbows and whitefish (the wild canyon between Cascade and Banks is legendary whitewater, not fishing). Fish the upper meadow reaches near McCall and the tailwater below Cascade Dam — accessible, scenic water in the heart of the Payette country. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'payette-river', name: 'Payette River', state: 'Idaho', type: 'river',
@@ -13150,7 +13150,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
       { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Yankee Fork', desc: 'Public access along the river road' } ],
-    note: 'A clear tributary of the upper Salmon near Stanley, steeped in gold-dredge history, holding westslope cutthroat and rainbows with runs of Chinook salmon and steelhead pushing up to spawn. Restoration has revived its habitat — fish attractor dries for cutthroat amid the old mining relics and spectacular Sawtooth scenery.'
+    note: 'A clear tributary of the upper Salmon near Stanley, steeped in gold-dredge history, holding westslope cutthroat and rainbows with runs of Chinook salmon and steelhead pushing up to spawn. Restoration has revived its habitat — fish attractor dries for cutthroat amid the old mining relics and spectacular Sawtooth scenery. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'east-fork-salmon', name: 'East Fork Salmon River', state: 'Idaho', type: 'river',
@@ -13171,7 +13171,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
       { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'East Fork Salmon River', desc: 'Public access along the river road', lat: 44.26825, lng: -114.32673 } ],
-    note: 'A pretty tributary of the main Salmon near Clayton, flowing out of the White Cloud peaks, with wild westslope cutthroat and rainbows and important Chinook and steelhead spawning runs. Scenic, lightly fished trout water — cast dries in the meadow and canyon reaches beneath the mountains.'
+    note: 'A pretty tributary of the main Salmon near Clayton, flowing out of the White Cloud peaks, with wild westslope cutthroat and rainbows and important Chinook and steelhead spawning runs. Scenic, lightly fished trout water — cast dries in the meadow and canyon reaches beneath the mountains. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'panther-creek', name: 'Panther Creek', state: 'Idaho', type: 'river',
@@ -13213,7 +13213,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
       { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Valley Creek', desc: 'Public access along the river road' } ],
-    note: 'A gorgeous meadow creek meandering right past Stanley into the Salmon, with the Sawtooth peaks as a backdrop, holding wild westslope cutthroat and rainbows and Chinook spawning water. Sight-fish cutthroat to dries in the clear, willow-lined bends — one of the prettiest and most accessible small streams in Idaho.'
+    note: 'A gorgeous meadow creek meandering right past Stanley into the Salmon, with the Sawtooth peaks as a backdrop, holding wild westslope cutthroat and rainbows and Chinook spawning water. Sight-fish cutthroat to dries in the clear, willow-lined bends — one of the prettiest and most accessible small streams in Idaho. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'bear-valley-creek', name: 'Bear Valley Creek', state: 'Idaho', type: 'river',
@@ -13234,7 +13234,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
       { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Bear Valley Creek', desc: 'Public access along the river road' } ],
-    note: 'A pristine meadow stream in the high country near Cape Horn, one of the primary headwaters of the Middle Fork of the Salmon and a critical Chinook and steelhead spawning stream. Wild westslope cutthroat rise freely to dries in its clear meanders (mind spawning-season closures). Remote, protected and beautiful.'
+    note: 'A pristine meadow stream in the high country near Cape Horn, one of the primary headwaters of the Middle Fork of the Salmon and a critical Chinook and steelhead spawning stream. Wild westslope cutthroat rise freely to dries in its clear meanders (mind spawning-season closures). Remote, protected and beautiful. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'trail-creek-id', name: 'Trail Creek', state: 'Idaho', type: 'river',
@@ -14968,7 +14968,7 @@ const HATCHED_DATA = [
       { name: 'Pheasant Tail', type: 'nymph', size: '12–18', color: 'Natural', conf: 4 },
       { name: "Yellow Stimulator", type: 'dry', size: '8–12', color: "Yellow/orange", conf: 4 }],
     access: [ { type: '🚗', name: 'Marsh Creek', desc: 'Public access along the valley', lat: 44.32852, lng: -115.09204 } ],
-    note: 'A meadow stream in the high country near Stanley, one of the primary headwaters of the Middle Fork Salmon and a critical Chinook and steelhead spawning stream. Wild westslope cutthroat rise to dries in its clear meanders (mind spawning-season closures). Remote, protected and beautiful Sawtooth-country water.'
+    note: 'A meadow stream in the high country near Stanley, one of the primary headwaters of the Middle Fork Salmon and a critical Chinook and steelhead spawning stream. Wild westslope cutthroat rise to dries in its clear meanders (mind spawning-season closures). Remote, protected and beautiful Sawtooth-country water. Bull trout are present and ESA-protected — release them unharmed; it is illegal to target or keep bull trout in Idaho.'
   },
   {
     id: 'big-creek-salmon', name: 'Big Creek (Salmon)', state: 'Idaho', type: 'river',
@@ -16287,7 +16287,7 @@ const HATCHED_DATA = [
   {"id":"mud-lake","name":"Mud Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Yellow Perch · Rainbow · Largemouth Bass","accolades":[{"icon":"🐟","text":"Eastern Idaho perch & trout water","source":"Mud Lake WMA near Terreton"}],"conditions":{"temp":"62°F","elev":"4,780 ft","wind":"SW 12","best":"AM"},"sections":["Boat ramp","WMA shore","Dam","Inlet"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,9],"peak":[5],"timing":"All day"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"}],"flies":[{"name":"Clouser Minnow","type":"streamer","size":"2–6","conf":5},{"name":"Woolly Bugger","type":"streamer","size":"4–8","conf":4},{"name":"Damsel Nymph","type":"nymph","size":"10–14","conf":3},{"name":"Popper","type":"dry","size":"4–8","conf":3},{"name":"Zebra Midge","type":"nymph","size":"18–22","color":"Black/red","conf":4},{"name":"Callibaetis Sparkle Dun","type":"dry","size":"14–16","color":"Gray","conf":4}],"access":[{"type":"🚤","name":"Mud Lake WMA ramp","desc":"Boat ramp & parking off the WMA road","lat":43.8871,"lng":-112.3996},{"type":"🚶","name":"WMA shoreline","desc":"Walk-in banks & flats"}],"note":"A large, shallow, fertile reservoir on the WMA near Terreton, about 35 miles west of Rexburg — best known for jumbo yellow perch and stocked rainbows, with largemouth in the weedy bays. Windy and open; fish the leeward shore and troll or strip from a boat."},
   {"id":"egin-lakes","name":"Egin Lakes","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Largemouth Bass · Yellow Perch","accolades":[{"icon":"🏜️","text":"St. Anthony Sand Dunes lakes","source":"Stocked rec-area water"}],"conditions":{"temp":"60°F","elev":"4,950 ft","wind":"W 10","best":"AM"},"sections":["Swim beach","Dunes side","Inlet","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🅿️","name":"Egin Lakes Rec Area","desc":"BLM day-use & camping at the sand dunes","lat":43.9605,"lng":-111.8573},{"type":"🚶","name":"Shoreline","desc":"Walk-in around the lakes"}],"note":"Stocked lakes at the edge of the St. Anthony Sand Dunes, about 15 miles north of Rexburg — put-and-take rainbows plus bass and perch in a fun family and float-tube setting. A relaxed after-work or weekend spot with easy access and camping."},
   {"id":"jefferson-county-lake","name":"Jefferson County Lake","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Bluegill · Largemouth Bass","accolades":[{"icon":"🎣","text":"Rigby-area community fishery","source":"Stocked put-and-take"}],"conditions":{"temp":"60°F","elev":"4,850 ft","wind":"SW 8","best":"AM"},"sections":["Boat ramp","Beach","Dam","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🅿️","name":"Jefferson County Lake","desc":"County park, ramp, beach, restrooms","lat":43.69966,"lng":-111.90234},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank access"}],"note":"A stocked county-park lake just north of Rigby, about 15 miles southwest of Rexburg — heavily planted rainbows in spring and fall plus bluegill and bass through summer. An easy, family-friendly still water; no-wake and great from the bank or a float tube."},
-  {"id":"sand-creek-ponds","name":"Sand Creek Ponds","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook Trout","accolades":[{"icon":"🎣","text":"Sand Creek WMA stocked ponds","source":"Crown jewel of a 34,000-acre WMA"}],"conditions":{"temp":"58°F","elev":"4,950 ft","wind":"W 8","best":"AM"},"sections":["Pond 1","Pond 4","Blue Creek Reservoir","Docks"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Sand Creek Ponds ramp","desc":"Non-motorized boat ramp, docks & camping","lat":44.2243,"lng":-111.6111},{"type":"🚶","name":"Pond 1 docks","desc":"Five fishing docks, walk-in"}],"note":"Stocked trout ponds and Blue Creek Reservoir deep in the Sand Creek WMA, about 18 miles north of St. Anthony on gravel road — rainbows and brookies with fishing docks on Pond 1 and Pond 4. Non-motorized only; a quiet, scenic destination in the dunes-and-timber country with first-come camping."},
+  {"id":"sand-creek-ponds","name":"Sand Creek Ponds","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook Trout","accolades":[{"icon":"🎣","text":"Sand Creek WMA stocked ponds","source":"Crown jewel of a 34,000-acre WMA"}],"conditions":{"temp":"58°F","elev":"4,950 ft","wind":"W 8","best":"AM"},"sections":["Pond 1","Pond 4","Blue Creek Reservoir","Docks"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Sand Creek Ponds ramp","desc":"Non-motorized boat ramp, docks & camping","lat":44.2044,"lng":-111.622},{"type":"🚶","name":"Pond 1 docks","desc":"Five fishing docks, walk-in"}],"note":"Stocked trout ponds and Blue Creek Reservoir deep in the Sand Creek WMA, about 18 miles north of St. Anthony on gravel road — rainbows and brookies with fishing docks on Pond 1 and Pond 4. Non-motorized only; a quiet, scenic destination in the dunes-and-timber country with first-come camping."},
   {"id":"blue-creek-reservoir","name":"Blue Creek Reservoir","state":"Idaho","type":"lake","waterType":"Stillwater","rank":0,"species":"Rainbow · Brook Trout","accolades":[{"icon":"🏔️","text":"Largest of the Sand Creek waters","source":"Sand Creek WMA, north of St. Anthony"}],"conditions":{"temp":"56°F","elev":"4,980 ft","wind":"W 10","best":"AM"},"sections":["Dam","Inlet","West shore","Ramp"],"hatches":[{"name":"Chironomid (Midge)","months":[4,5,6,7,8,9],"peak":[5,6],"timing":"All day"},{"name":"Callibaetis","months":[6,7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[6,7],"peak":[6],"timing":"Midday"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4}],"access":[{"type":"🚤","name":"Blue Creek Reservoir ramp","desc":"Non-motorized ramp in the Sand Creek WMA","lat":44.2243,"lng":-111.6111},{"type":"🚶","name":"Shoreline","desc":"Walk-in bank & flats"}],"note":"The largest reservoir in the Sand Creek Ponds complex, deep in the Sand Creek WMA about 18 miles north of St. Anthony — stocked rainbows plus brook trout, and its extra depth carries fish over winter for slightly bigger holdovers. Non-motorized only; fish chironomids under an indicator or strip leeches along the drop-offs."},
   {"id":"grassy-lake-reservoir","name":"Grassy Lake Reservoir","state":"Wyoming","type":"lake","waterType":"Stillwater","rank":0,"species":"Cutthroat · Rainbow · Lake Trout","accolades":[{"icon":"🏔️","text":"Remote reservoir on the Ashton–Flagg Ranch road","source":"Between Yellowstone & Grand Teton"}],"conditions":{"temp":"52°F","elev":"7,200 ft","wind":"W 10","best":"AM"},"sections":["Dam","Fall River inlet","Coves","Shoreline"],"hatches":[{"name":"Chironomid (Midge)","months":[6,7,8,9],"peak":[6,7],"timing":"All day"},{"name":"Callibaetis","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Damselfly","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Flying Ant","months":[8,9],"peak":[8],"timing":"Afternoon"}],"flies":[{"name":"Woolly Bugger","type":"streamer","size":"6–10","conf":5},{"name":"Chironomid","type":"nymph","size":"12–16","conf":4},{"name":"Callibaetis Nymph","type":"nymph","size":"14–16","conf":4},{"name":"Balanced Leech","type":"streamer","size":"8–12","conf":3},{"name":"Damsel Nymph","type":"nymph","size":"10–14","color":"Olive","conf":4},{"name":"Hopper","type":"dry","size":"8–12","color":"Tan","conf":4}],"access":[{"type":"🚤","name":"Grassy Lake Reservoir","desc":"Below the dam off the Ashton–Flagg Ranch Rd (opens ~June 1)","lat":44.1272,"lng":-110.8071},{"type":"🚶","name":"Fall River inlet","desc":"Hike to the upper reaches above the reservoir"}],"note":"A remote high reservoir on the Wyoming–Idaho border between Yellowstone and Grand Teton, reached by the 36-mile Ashton–Flagg Ranch (Grassy Lake) gravel road that opens around June 1 — cutthroat, rainbows, and lake trout. Fish from a float tube or small boat and explore the Fall River inlet above; a high-clearance vehicle helps on the washboard road."},
   {"id":"bitch-creek","name":"Bitch Creek","state":"Idaho","type":"river","waterType":"Freestone","rank":0,"species":"Yellowstone Cutthroat","accolades":[{"icon":"🐟","text":"Pure wild Yellowstone cutthroat","source":"Unaltered flows keep rainbows out"}],"conditions":{"temp":"54°F","flow":"120 CFS","flowLabel":"CFS Flow","vis":"Clear","best":"Midday"},"sections":["ID-32 crossing","Upper canyon","Lower canyon","Teton River confluence"],"hatches":[{"name":"Golden Stonefly","months":[6,7],"peak":[6],"timing":"Midday"},{"name":"Green Drake","months":[6,7],"peak":[6],"timing":"Afternoon"},{"name":"Pale Morning Dun (PMD)","months":[7,8],"peak":[7],"timing":"Midday"},{"name":"Caddis","months":[6,7,8,9],"peak":[7],"timing":"Evening"},{"name":"Terrestrials (Hopper/Ant)","months":[7,8,9],"peak":[8],"timing":"Afternoon"},{"name":"Blue Wing Olive (BWO)","months":[9,10],"peak":[10],"timing":"Midday"}],"flies":[{"name":"Chubby Chernobyl","type":"dry","size":"8–12","conf":5},{"name":"Stimulator","type":"dry","size":"10–14","conf":4},{"name":"Pat's Rubber Legs","type":"nymph","size":"8–12","conf":4},{"name":"Parachute Adams","type":"dry","size":"12–16","conf":4},{"name":"Hopper","type":"dry","size":"8–12","conf":4},{"name":"Prince Nymph","type":"nymph","size":"12–16","conf":3},{"name":"Green Drake","type":"dry","size":"10–12","color":"Olive/green","conf":4}],"access":[{"type":"🅿️","name":"Idaho Hwy 32 crossing","desc":"Public canyon access off ID-32 between Ashton & Tetonia","lat":43.93325,"lng":-111.18489},{"type":"🚶","name":"Canyon","desc":"Steep hike-in to remote water"}],"note":"A remote freestone tributary of the Teton River tumbling out of the peaks — home to a pure, wild Yellowstone cutthroat population that its unaltered flows protect from rainbow invasion. Access is limited and the canyon is rugged, but the reward is quiet, undisturbed cutthroat eager for big attractor dries. On the Fremont/Teton county line between Ashton and Tetonia."},
