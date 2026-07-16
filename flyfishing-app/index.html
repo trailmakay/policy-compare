@@ -1983,13 +1983,19 @@
       el.textContent = s || 'Select species…';
       el.classList.toggle('placeholder', !s);
     }
+    // Local calendar date as YYYY-MM-DD. (toISOString() is UTC, which rolls to
+    // "tomorrow" on evenings in US time zones — that would pre-fill the wrong day.)
+    function todayLocal() {
+      const d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    }
     function openEntryForm() {
       // new entry
       editingId = null;
       document.getElementById('modalTitle').textContent = 'New Trip Entry';
       document.getElementById('entrySaveBtn').textContent = 'Save Trip';
       ENTRY_FIELDS.forEach(id => document.getElementById(id).value = '');
-      document.getElementById('f_date').value = new Date().toISOString().slice(0,10);
+      document.getElementById('f_date').value = todayLocal();
       renderJSpeciesChips([]);
       document.getElementById('f_species_dd').open = false;
       pendingPhotos = [];
@@ -2002,7 +2008,7 @@
       editingId = id;
       document.getElementById('modalTitle').textContent = 'Edit Entry';
       document.getElementById('entrySaveBtn').textContent = 'Update Entry';
-      document.getElementById('f_date').value = e.date || new Date().toISOString().slice(0,10);
+      document.getElementById('f_date').value = e.date || todayLocal();
       document.getElementById('f_timeofday').value = e.timeofday || '';
       document.getElementById('f_water').value = e.water || '';
       document.getElementById('f_section').value = e.section || '';
