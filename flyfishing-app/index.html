@@ -736,6 +736,22 @@
       font-weight: 700;
       cursor: pointer;
     }
+    .journal-backup {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      background: var(--green-pale); border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 12px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .journal-backup .jb-text { font-size: 12px; color: var(--text-soft); line-height: 1.4; flex: 1; min-width: 150px; }
+    .journal-backup .jb-text b { color: var(--text); }
+    .journal-backup .jb-btns { display: flex; gap: 6px; }
+    .jb-btn {
+      background: var(--white); color: var(--green); border: 1px solid var(--green);
+      padding: 7px 12px; border-radius: 16px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap;
+    }
+    .jb-btn.primary { background: var(--green); color: #fff; border-color: var(--green); }
+    #backupMsg { font-size: 12px; margin-top: -8px; margin-bottom: 14px; padding: 0 2px; line-height: 1.4; }
+    #backupMsg.ok { color: var(--green); }
+    #backupMsg.err { color: #c0392b; }
     .journal-empty {
       text-align: center;
       padding: 50px 20px;
@@ -1668,6 +1684,16 @@
         <button class="journal-new-btn" onclick="openEntryForm()">+ New Entry</button>
       </div>
 
+      <div class="journal-backup">
+        <div class="jb-text">💾 <b>Back up your log.</b> Your entries live only on this phone — save a backup so a lost or reset phone can’t erase them.</div>
+        <div class="jb-btns">
+          <button class="jb-btn primary" onclick="exportBackup()">Back up</button>
+          <button class="jb-btn" onclick="document.getElementById('restoreFile').click()">Restore</button>
+          <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="importBackup(this)">
+        </div>
+      </div>
+      <div id="backupMsg"></div>
+
       <!-- Season recap -->
       <div id="journalRecap" class="recap-card" style="display:none;">
         <div class="recap-tabs">
@@ -1876,6 +1902,60 @@
 
     /* ─── Journal (localStorage) ─── */
     const STORE_KEY = 'hatched_journal';
+    // ---- Journal backup / restore (device-local safety net until cloud login exists) ----
+    function _bkKeys(){ return { journal:'hatched_journal', favorites:'hatched_favorites', trips:'hatched_trips', homeConditions:'hatched_home_conditions' }; }
+    function _bkGet(k, dflt){ try { const v=localStorage.getItem(k); return v==null?dflt:JSON.parse(v); } catch(e){ return dflt; } }
+    function backupMsg(text, isErr){
+      const el=document.getElementById('backupMsg'); if(!el) return;
+      el.textContent=text; el.className=isErr?'err':'ok';
+      clearTimeout(window._bkMsgT); window._bkMsgT=setTimeout(()=>{ el.textContent=''; el.className=''; }, 9000);
+    }
+    function exportBackup(){
+      const K=_bkKeys();
+      const data={ app:'hatched', kind:'backup', version:1, exportedAt:new Date().toISOString(),
+        journal:_bkGet(K.journal,[]), favorites:_bkGet(K.favorites,[]), trips:_bkGet(K.trips,[]), homeConditions:_bkGet(K.homeConditions,null) };
+      try{
+        const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+        const url=URL.createObjectURL(blob);
+        const a=document.createElement('a');
+        a.href=url; a.download='hatched-backup-'+new Date().toISOString().slice(0,10)+'.json';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(()=>URL.revokeObjectURL(url), 1500);
+        const n=data.journal.length;
+        backupMsg('Backed up '+n+' journal '+(n===1?'entry':'entries')+', '+data.favorites.length+' favorites and '+data.trips.length+' saved trips. Keep this file safe — email it to yourself or drop it in iCloud/Google Drive.');
+      }catch(e){ backupMsg('Couldn’t create the backup file on this device. Try again, or use a different browser.', true); }
+    }
+    function importBackup(input){
+      const file=input && input.files && input.files[0]; if(input) input.value='';
+      if(!file) return;
+      const reader=new FileReader();
+      reader.onload=function(){
+        try{
+          const data=JSON.parse(reader.result);
+          if(!data || data.app!=='hatched' || !Array.isArray(data.journal)) throw new Error('not a hatched backup');
+          const K=_bkKeys();
+          // journal: merge by id, incoming wins on conflict, existing kept (never delete)
+          const jById={}; _bkGet(K.journal,[]).forEach(e=>{ if(e&&e.id!=null) jById[e.id]=e; });
+          let added=0; data.journal.forEach(e=>{ if(e&&e.id!=null){ if(!(e.id in jById)) added++; jById[e.id]=e; } });
+          const merged=Object.values(jById);
+          localStorage.setItem(K.journal, JSON.stringify(merged));
+          // favorites: union
+          const favSet=new Set([..._bkGet(K.favorites,[]), ...((data.favorites)||[])]);
+          localStorage.setItem(K.favorites, JSON.stringify([...favSet]));
+          // trips: merge by id
+          const tById={}; _bkGet(K.trips,[]).forEach(t=>{ if(t&&t.id!=null) tById[t.id]=t; });
+          ((data.trips)||[]).forEach(t=>{ if(t&&t.id!=null) tById[t.id]=t; });
+          localStorage.setItem(K.trips, JSON.stringify(Object.values(tById)));
+          // re-render whatever's on screen
+          try{ if(typeof renderJournal==='function') renderJournal(); }catch(e){}
+          try{ if(typeof renderFavorites==='function') renderFavorites(); }catch(e){}
+          try{ if(typeof renderSavedTrips==='function') renderSavedTrips(); }catch(e){}
+          backupMsg('Restored — you now have '+merged.length+' journal '+(merged.length===1?'entry':'entries')+' ('+added+' new). Nothing was deleted; entries were merged with what was already here.');
+        }catch(e){ backupMsg('That file doesn’t look like a Hatched backup, so nothing was changed. Pick a hatched-backup-*.json file.', true); }
+      };
+      reader.onerror=function(){ backupMsg('Couldn’t read that file. Try again.', true); };
+      reader.readAsText(file);
+    }
     function loadEntries() {
       try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; }
       catch (e) { return []; }
