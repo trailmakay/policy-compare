@@ -10940,7 +10940,7 @@ const HATCHED_DATA = [
       { name: 'Leech', type: 'streamer', size: '6–10', color: 'Black, maroon', conf: 3 },
       { name: "Zebra Midge", type: 'nymph', size: '18–22', color: "Black/red", conf: 4 }],
     access: [ { type: '🚗', name: 'Fish Creek Reservoir', desc: 'N of Fairfield off US-20' } ],
-    note: 'A small reservoir tucked into the hills above the Camas Prairie near Fairfield, stocked with hard-fighting tiger trout, rainbows and brookies. A quiet, scenic stillwater — fish leeches and Callibaetis from a tube on calm mornings. A nice change of pace near Silver Creek and the Wood River country.'
+    note: 'A small reservoir tucked into the hills near Carey, at the eastern edge of the Wood River country, stocked with hard-fighting tiger trout, rainbows and brookies. A quiet, scenic stillwater — fish leeches and Callibaetis from a tube on calm mornings. A nice change of pace near Silver Creek and the Wood River country.'
   },
 
   {
@@ -17163,7 +17163,7 @@ const HATCHED_TOWNS = {
   'anderson-ranch-res':['Pine','Fall Creek'],
   'arrowrock-res':['Boise'],
   'deadwood-res':['Lowman','Cascade'],
-  'fish-creek-res-id':['Fairfield'],
+  'fish-creek-res-id':['Carey'],
   'yaak-river':['Troy','Yaak'],
   'gardner-river':['Gardiner','Mammoth'],
   'seeley-lake':['Seeley Lake'],
@@ -17507,7 +17507,7 @@ const HATCHED_LAKE_COORDS = {
   'anderson-ranch-res':[43.35,-115.47],
   'arrowrock-res':[43.60281,-115.9081],
   'deadwood-res':[44.3,-115.65],
-  'fish-creek-res-id':[43.42,-114.8],
+  'fish-creek-res-id':[43.4289,-113.8265],
   // montana top-50
   'seeley-lake':[47.1553,-113.44843],
   'whitefish-lake':[48.44,-114.38],
@@ -17523,7 +17523,7 @@ const HATCHED_LAKE_COORDS = {
   'placid-lake':[47.12135,-113.52596],
   'salmon-lake':[47.1,-113.4],
   'upsata-lake':[47.07795,-113.22249],
-  'nevada-lake':[46.92,-112.9],
+  'nevada-lake':[46.7947017,-112.7944067],
   'hungry-horse-res':[48.2,-114],
   'lake-mary-ronan':[47.943,-114.39457],
   'mcgregor-lake':[48.0301,-114.83451],
@@ -17546,7 +17546,7 @@ const HATCHED_LAKE_COORDS = {
   'oakley-reservoir':[42.2,-113.88],
   'pettit-lake':[43.98,-114.87],
   'sawtooth-lake':[44.16,-115.05],
-  'horsethief-reservoir':[44.42,-115.72],
+  'horsethief-reservoir':[44.5109642,-115.9157679],
   'little-wood-reservoir':[43.47,-114.03],
   // states to 100
   'redmond-lake':[38.99,-111.88], 'gunnison-bend-res':[39.35,-112.62],
@@ -17589,7 +17589,7 @@ const HATCHED_LAKE_COORDS = {
   'harding-lake':[64.42,-146.85],
   'fielding-lake':[63.2,-145.68],
   'summit-lake-ak':[63.32,-145.8],
-  'long-lake-ak':[61.77,-147.9],
+  'long-lake-ak':[61.8055483,-148.2160119],
   'hidden-lake-ak':[60.48,-150.3],
   'stormy-lake':[60.75,-151.05],
   'scout-lake':[60.53,-150.83],
