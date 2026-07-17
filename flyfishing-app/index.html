@@ -1282,6 +1282,15 @@
       padding: 8px 10px;
       cursor: pointer;
     }
+    .ui-dialog-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 4000; padding: 24px; }
+    .ui-dialog { background: var(--white); border-radius: 16px; padding: 20px; width: 100%; max-width: 340px; box-shadow: 0 12px 44px rgba(0,0,0,0.32); }
+    .ui-dialog-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+    .ui-dialog-input { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; margin-bottom: 16px; }
+    .ui-dialog-btns { display: flex; gap: 10px; justify-content: flex-end; }
+    .ui-dialog-btn { padding: 10px 18px; border-radius: 20px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; }
+    .ui-dialog-btn.cancel { background: var(--green-pale); color: var(--text); }
+    .ui-dialog-btn.ok { background: var(--green); color: #fff; }
+    .ui-dialog-btn.danger { background: #c0392b; color: #fff; }
     .trip-delete { font-size: 11px; color: #c62828; cursor: pointer; margin-top: 10px; display: inline-block; }
 
     /* Trip detail page */
@@ -1860,6 +1869,18 @@
     <button class="save-bar-btn" onclick="saveTrip()">Save Trip</button>
   </div>
 
+  <!-- In-app dialog (replaces native prompt/confirm/alert, which are blocked in standalone PWAs) -->
+  <div id="uiDialog" class="ui-dialog-overlay" style="display:none;" onclick="if(event.target===this)_uiClose(document.getElementById('uiDialogInput').style.display!=='none'?null:false)">
+    <div class="ui-dialog">
+      <div class="ui-dialog-title" id="uiDialogTitle"></div>
+      <input type="text" class="ui-dialog-input" id="uiDialogInput" style="display:none;" enterkeyhint="done">
+      <div class="ui-dialog-btns">
+        <button class="ui-dialog-btn cancel" id="uiDialogCancel">Cancel</button>
+        <button class="ui-dialog-btn ok" id="uiDialogOk">OK</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom nav -->
   <div class="bottom-nav">
     <div class="nav-item active" data-nav="home" onclick="showNav2('home')">
@@ -2168,7 +2189,7 @@
         saveEntries(list);
       } catch (err) {
         if (idx > -1) list[idx] = backup;                       // roll back on failure
-        alert('Storage is full — try fewer or smaller photos. This entry was not saved.');
+        uiAlert('Storage is full — try fewer or smaller photos. This entry was not saved.');
         return;
       }
       // clear form
@@ -2179,8 +2200,9 @@
       closeEntryForm();
       renderJournal();
     }
-    function deleteEntry(id) {
-      if (!confirm('Delete this journal entry? This can\'t be undone.')) return;
+    async function deleteEntry(id) {
+      const ok = await uiConfirm('Delete this journal entry? This can’t be undone.', 'Delete', true);
+      if (!ok) return;
       saveEntries(loadEntries().filter(e => e.id !== id));
       renderJournal();
     }
@@ -5057,7 +5079,7 @@
         () => {
           localStorage.setItem('hatched_loc_pref', 'denied');
           updateLocSetting();
-          if (showFeedback) alert('Couldn’t get your location. Enable it for Hatched in your device Settings, or type a place above.');
+          if (showFeedback) uiAlert('Couldn’t get your location. Enable it for Hatched in your device Settings, or type a place above.');
         }
       );
     }
@@ -5096,7 +5118,7 @@
         localStorage.setItem('hatched_loc_pref', 'off');
         USER_LOC = null; nearbyByDistance = false;
         updateLocSetting();
-        alert('Location turned off in Hatched. To fully revoke access, use your device Settings.');
+        uiAlert('Location turned off in Hatched. To fully revoke access, use your device Settings.');
       } else {
         requestLocation(true);   // re-request (triggers the OS prompt if not permanently denied)
       }
@@ -5538,10 +5560,37 @@
         if (c) c.textContent = label;
       });
     }
-    function saveTrip(){
+    // In-app dialogs — native prompt()/confirm()/uiAlert() do nothing in standalone PWAs (iOS/Android).
+    let _uiResolve = null;
+    function _uiClose(val){ const d=document.getElementById('uiDialog'); if(d) d.style.display='none'; const r=_uiResolve; _uiResolve=null; if(r) r(val); }
+    function _uiOpen(title, opts){
+      opts = opts || {};
+      return new Promise(function(resolve){
+        _uiResolve = resolve;
+        document.getElementById('uiDialogTitle').textContent = title;
+        const inp = document.getElementById('uiDialogInput');
+        inp.style.display = opts.input ? 'block' : 'none';
+        if (opts.input) inp.value = opts.def || '';
+        const ok = document.getElementById('uiDialogOk');
+        ok.textContent = opts.okLabel || 'OK';
+        ok.className = 'ui-dialog-btn ' + (opts.danger ? 'danger' : 'ok');
+        const cancel = document.getElementById('uiDialogCancel');
+        cancel.style.display = opts.noCancel ? 'none' : '';
+        document.getElementById('uiDialog').style.display = 'flex';
+        ok.onclick = function(){ _uiClose(opts.input ? (inp.value.trim() || opts.def || '') : true); };
+        cancel.onclick = function(){ _uiClose(opts.input ? null : false); };
+        inp.onkeydown = function(e){ if(e.key==='Enter'){ e.preventDefault(); ok.onclick(); } };
+        if (opts.input) setTimeout(function(){ try{ inp.focus(); inp.select(); }catch(e){} }, 60);
+      });
+    }
+    function uiPrompt(title, def, okLabel){ return _uiOpen(title, {input:true, def:def, okLabel:okLabel||'Save'}); }
+    function uiConfirm(title, okLabel, danger){ return _uiOpen(title, {okLabel:okLabel||'Confirm', danger:!!danger}); }
+    function uiAlert(title){ return _uiOpen(title, {okLabel:'OK', noCancel:true}); }
+
+    async function saveTrip(){
       if (!tripSelection.size) return;
       const def = lastPlanLabel || 'My Trip';
-      const name = prompt('Name this trip:', def);
+      const name = await uiPrompt('Name this trip', def, 'Save Trip');
       if (name === null) return; // cancelled
       const trip = {
         id: Date.now(),
@@ -5560,11 +5609,12 @@
       document.querySelectorAll('.trip-add-btn.added').forEach(b => { b.classList.remove('added'); b.textContent='+ Add to Trip'; });
       document.getElementById('savedTripsWrap').scrollIntoView({behavior:'smooth', block:'start'});
     }
-    function deleteTrip(id){
-      if (!confirm('Delete this trip? This can\'t be undone.')) return false;
+    async function deleteTrip(id){
+      const ok = await uiConfirm('Delete this trip? This can’t be undone.', 'Delete', true);
+      if (!ok) return;
       storeTrips(loadTrips().filter(t => t.id !== id));
       renderSavedTrips();
-      return true;
+      showNav('plan');
     }
     function renderSavedTrips(){
       const list = loadTrips();
@@ -5666,7 +5716,7 @@
           <div class="shop-list">${shopsHTML || '<div class="sli-hint">No shops listed for this area yet.</div>'}</div>
         </div>
 
-        <span class="trip-delete" onclick="if(deleteTrip(${t.id})) showNav('plan');">Delete this trip</span>
+        <span class="trip-delete" onclick="deleteTrip(${t.id})">Delete this trip</span>
       `;
       showTab('tripdetail');
     }
