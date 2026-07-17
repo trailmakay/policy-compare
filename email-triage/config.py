@@ -93,53 +93,51 @@ EMAIL_TO = [a.strip() for a in os.environ.get("EMAIL_TO", "").split(",") if a.st
 # Time of day the scheduler sends the digest (24h "HH:MM", local time).
 DAILY_RUN_TIME = os.environ.get("DAILY_RUN_TIME", "07:00")
 
-# >>> EDIT THIS for each client. This is what makes the tool feel bespoke. <<<
-# Tailored for: the OWNER of an independent insurance agency, who also produces.
-TRIAGE_CRITERIA = """\
-You are triaging the inbox of the OWNER of an independent insurance agency, who
-also works as a producing agent. He is short on time and wants to spend it only
-on what truly matters — to his clients, to winning new business, and to running
-the agency.
+# --- Per-client triage criteria ---------------------------------------------
+# This is the ONE thing you customize per customer. It's kept in a plain-text
+# file (criteria.txt) so you can tailor it for each person WITHOUT editing any
+# code — just open criteria.txt, rewrite it for their job, and redeploy.
+#
+# To onboard a new customer: edit criteria.txt to describe who they are and what
+# "urgent / high / medium / low" means for their work. If criteria.txt is missing
+# for any reason, the built-in default below is used so the tool never breaks.
+
+_DEFAULT_CRITERIA = """\
+You are triaging the inbox of a busy professional who is short on time and wants
+to spend it only on what truly matters — to their clients, their business, and
+the people who depend on them.
 
 Rate each email's importance:
 
-- "urgent": needs his attention today.
-  * A client reporting a claim or loss (accident, injury, fire, theft, water
-    damage, etc.) — someone needs help right now.
-  * A policy about to cancel, lapse, or non-renew, or a missed/failed payment
-    that could leave a client without coverage.
-  * A binding or underwriting deadline, or an effective-date issue, where
-    coverage depends on a fast response.
-  * A hot new lead or quote request — a prospect ready to buy. New business is
-    time-sensitive; leads go cold fast.
-  * Anything from a state insurance department or regulator, or about his
-    license, E&O coverage, or continuing-education deadlines.
-  * As the owner: legal threats, anything endangering the business, or a serious
-    payroll/staff/vendor/carrier problem that can't wait.
+- "urgent": needs their attention today. A real person with a time-sensitive
+  problem, a hard deadline, money at risk, or anything that endangers the
+  business if ignored.
+- "high": matters and needs action this week, but not today. Genuine client or
+  prospect requests, follow-ups, and business decisions that aren't same-day.
+- "medium": worth being aware of, but no personal action needed. FYI notices,
+  routine updates, industry news.
+- "low": newsletters, marketing, automated notifications, receipts, promotions,
+  social notifications, and anything that reads like a mass send.
 
-- "high": matters and needs action soon (this week), but not today.
-  * Existing-client requests: coverage changes, policy questions, adding a
-    vehicle/driver/property, certificates of insurance, document requests.
-  * New-business follow-ups and referrals that aren't same-day.
-  * Carrier or underwriter requests for information, commission statements, or
-    notices that need his review.
-  * Owner/operations decisions due this week (finances, vendors, hiring, agency
-    management).
+Treat as LOW by default: bulk marketing, "no-reply" automated emails that are
+purely informational, and anything that reads like a mass send rather than a
+genuine 1:1 message.
 
-- "medium": worth being aware of, but no personal action needed.
-  * Routine carrier updates, FYI notices, market/industry news that informs
-    decisions, non-urgent internal or staff updates.
-
-- "low": newsletters, marketing, automated portal notifications that are purely
-  informational, receipts, promotions, social notifications, mass sends.
-
-Treat as LOW by default: bulk marketing, "no-reply" automated carrier/portal
-emails that are purely informational, lead-vendor spam, and anything that reads
-like a mass send rather than a genuine 1:1 message.
-
-Treat as HIGHER: messages from actual clients/policyholders and real prospects,
-anything mentioning a claim, a deadline, money owed or owing, a policy effective
-or cancellation date, and direct questions addressed to him by name. Because he
-OWNS the agency, also surface business-level matters (legal, financial, staffing,
-key carrier/vendor relationships) that a non-owner agent could safely ignore.
+Treat as HIGHER: real messages from actual clients and prospects, anything
+mentioning a deadline, money owed or owing, and direct questions addressed to
+them by name.
 """
+
+
+def _load_criteria() -> str:
+    """Read criteria.txt next to this file; fall back to the default if absent."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "criteria.txt")
+    try:
+        with open(path, encoding="utf-8") as f:
+            text = f.read().strip()
+        return text or _DEFAULT_CRITERIA
+    except FileNotFoundError:
+        return _DEFAULT_CRITERIA
+
+
+TRIAGE_CRITERIA = _load_criteria()
