@@ -752,6 +752,21 @@
     #backupMsg { font-size: 12px; margin-top: -8px; margin-bottom: 14px; padding: 0 2px; line-height: 1.4; }
     #backupMsg.ok { color: var(--green); }
     #backupMsg.err { color: #c0392b; }
+    .trophy-room { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 16px; }
+    .trophy-room-head { display: flex; align-items: center; justify-content: space-between; }
+    .trophy-room-title { font-size: 16px; font-weight: 800; color: var(--text); }
+    .trophy-room-sub { font-size: 12px; color: var(--text-soft); margin: 2px 0 12px; }
+    .trophy-add-btn { background: var(--green); color: #fff; border: none; padding: 7px 14px; border-radius: 16px; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .trophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .trophy-card { text-align: left; background: var(--green-pale); border: 1px solid var(--border); border-radius: 12px; padding: 12px; cursor: pointer; font: inherit; }
+    .trophy-fish { font-size: 12px; font-weight: 700; color: var(--text-soft); margin-bottom: 4px; }
+    .trophy-size { font-size: 22px; font-weight: 800; color: var(--green); line-height: 1.05; }
+    .trophy-where { font-size: 11px; color: var(--text-soft); margin-top: 6px; }
+    .trophy-empty { grid-column: 1 / -1; font-size: 13px; color: var(--text-soft); padding: 8px 2px; line-height: 1.5; }
+    .trophy-label { display: block; font-size: 12px; font-weight: 700; color: var(--text-soft); margin: 2px 0 6px; }
+    .trophy-select { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; margin-bottom: 12px; background: var(--white); }
+    .trophy-delete { font-size: 12px; color: #c0392b; cursor: pointer; font-weight: 700; }
+    #trophyModal { z-index: 3500; }
     .journal-empty {
       text-align: center;
       padding: 50px 20px;
@@ -1727,6 +1742,16 @@
         <div class="recap-body" id="recapBody"></div>
       </div>
 
+      <!-- Trophy Room (personal bests) -->
+      <div class="trophy-room">
+        <div class="trophy-room-head">
+          <div class="trophy-room-title">🏆 Trophy Room</div>
+          <button class="trophy-add-btn" onclick="openTrophyForm()">+ Add</button>
+        </div>
+        <div class="trophy-room-sub">Your personal bests — your biggest of each species.</div>
+        <div id="trophyGrid" class="trophy-grid"></div>
+      </div>
+
       <!-- Entry list -->
       <div id="journalList"></div>
 
@@ -1881,6 +1906,26 @@
     </div>
   </div>
 
+  <!-- Trophy add/edit modal -->
+  <div id="trophyModal" class="ui-dialog-overlay" style="display:none;" onclick="if(event.target===this)closeTrophyForm()">
+    <div class="ui-dialog">
+      <div class="ui-dialog-title" id="trophyModalTitle">Add a Personal Best</div>
+      <label class="trophy-label">Fish</label>
+      <select id="trophySpecies" class="trophy-select"></select>
+      <label class="trophy-label">Size (your PB)</label>
+      <input type="text" id="trophySize" class="ui-dialog-input" placeholder="e.g. 22&quot; or 5 lb 4 oz" enterkeyhint="done" onkeydown="if(event.key==='Enter'){event.preventDefault();saveTrophy();}">
+      <label class="trophy-label">Where (optional)</label>
+      <input type="text" id="trophyWhere" class="ui-dialog-input" placeholder="e.g. Green River" onkeydown="if(event.key==='Enter'){event.preventDefault();saveTrophy();}">
+      <div class="ui-dialog-btns" style="justify-content:space-between;align-items:center;">
+        <span id="trophyDelete" class="trophy-delete" onclick="deleteTrophy()" style="display:none;">Remove</span>
+        <span style="display:flex;gap:10px;margin-left:auto;">
+          <button class="ui-dialog-btn cancel" onclick="closeTrophyForm()">Cancel</button>
+          <button class="ui-dialog-btn ok" onclick="saveTrophy()">Save</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom nav -->
   <div class="bottom-nav">
     <div class="nav-item active" data-nav="home" onclick="showNav2('home')">
@@ -1941,7 +1986,7 @@
     /* ─── Journal (localStorage) ─── */
     const STORE_KEY = 'hatched_journal';
     // ---- Journal backup / restore (device-local safety net until cloud login exists) ----
-    function _bkKeys(){ return { journal:'hatched_journal', favorites:'hatched_favorites', trips:'hatched_trips', homeConditions:'hatched_home_conditions' }; }
+    function _bkKeys(){ return { journal:'hatched_journal', favorites:'hatched_favorites', trips:'hatched_trips', trophies:'hatched_trophies', homeConditions:'hatched_home_conditions' }; }
     function _bkGet(k, dflt){ try { const v=localStorage.getItem(k); return v==null?dflt:JSON.parse(v); } catch(e){ return dflt; } }
     function backupMsg(text, isErr){
       const el=document.getElementById('backupMsg'); if(!el) return;
@@ -1951,7 +1996,7 @@
     function exportBackup(){
       const K=_bkKeys();
       const data={ app:'hatched', kind:'backup', version:1, exportedAt:new Date().toISOString(),
-        journal:_bkGet(K.journal,[]), favorites:_bkGet(K.favorites,[]), trips:_bkGet(K.trips,[]), homeConditions:_bkGet(K.homeConditions,null) };
+        journal:_bkGet(K.journal,[]), favorites:_bkGet(K.favorites,[]), trips:_bkGet(K.trips,[]), trophies:_bkGet(K.trophies,{}), homeConditions:_bkGet(K.homeConditions,null) };
       try{
         const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
         const url=URL.createObjectURL(blob);
@@ -1984,7 +2029,11 @@
           const tById={}; _bkGet(K.trips,[]).forEach(t=>{ if(t&&t.id!=null) tById[t.id]=t; });
           ((data.trips)||[]).forEach(t=>{ if(t&&t.id!=null) tById[t.id]=t; });
           localStorage.setItem(K.trips, JSON.stringify(Object.values(tById)));
+          // trophies: merge by species (incoming wins)
+          const trMerged=Object.assign({}, _bkGet(K.trophies,{}), (data.trophies)||{});
+          localStorage.setItem(K.trophies, JSON.stringify(trMerged));
           // re-render whatever's on screen
+          try{ if(typeof renderTrophies==='function') renderTrophies(); }catch(e){}
           try{ if(typeof renderJournal==='function') renderJournal(); }catch(e){}
           try{ if(typeof renderFavorites==='function') renderFavorites(); }catch(e){}
           try{ if(typeof renderSavedTrips==='function') renderSavedTrips(); }catch(e){}
@@ -2274,7 +2323,65 @@
       if (best)         html += '<div class="recap-row"><span class="rk">🏆 Best day</span><span class="rv">' + (parseInt(best.count,10)) + ' fish · ' + esc(best.water) + '</span></div>';
       body.innerHTML = html;
     }
+    // ---- Trophy Room: personal bests, one per species (key: hatched_trophies) ----
+    function loadTrophies(){ try{ return JSON.parse(localStorage.getItem('hatched_trophies')) || {}; }catch(e){ return {}; } }
+    function saveTrophies(o){ localStorage.setItem('hatched_trophies', JSON.stringify(o)); }
+    function renderTrophies(){
+      const grid=document.getElementById('trophyGrid'); if(!grid) return;
+      const t=loadTrophies(); const keys=Object.keys(t).sort();
+      if(!keys.length){ grid.innerHTML='<div class="trophy-empty">No personal bests yet — tap <b>+ Add</b> to log your biggest catch of a species.</div>'; return; }
+      grid.innerHTML=keys.map(sp=>`
+        <button class="trophy-card" data-sp="${esc(sp)}" onclick="openTrophyForm(this.dataset.sp)">
+          <div class="trophy-fish">${ICO.fish} ${esc(sp)}</div>
+          <div class="trophy-size">${esc(t[sp].size||'')}</div>
+          ${t[sp].where?`<div class="trophy-where">📍 ${esc(t[sp].where)}</div>`:''}
+        </button>`).join('');
+    }
+    let editingTrophy=null;
+    function openTrophyForm(species){
+      editingTrophy = species || null;
+      const sel=document.getElementById('trophySpecies');
+      sel.innerHTML=JOURNAL_SPECIES.map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join('');
+      const t=loadTrophies();
+      if(species && t[species]){
+        sel.value=species;
+        document.getElementById('trophySize').value=t[species].size||'';
+        document.getElementById('trophyWhere').value=t[species].where||'';
+        document.getElementById('trophyModalTitle').textContent='Edit Personal Best';
+        document.getElementById('trophyDelete').style.display='inline-block';
+      } else {
+        document.getElementById('trophySize').value='';
+        document.getElementById('trophyWhere').value='';
+        document.getElementById('trophyModalTitle').textContent='Add a Personal Best';
+        document.getElementById('trophyDelete').style.display='none';
+      }
+      document.getElementById('trophyModal').style.display='flex';
+      setTimeout(function(){ try{ document.getElementById('trophySize').focus(); }catch(e){} }, 60);
+    }
+    function closeTrophyForm(){ const m=document.getElementById('trophyModal'); if(m) m.style.display='none'; }
+    function saveTrophy(){
+      const sp=document.getElementById('trophySpecies').value;
+      const size=document.getElementById('trophySize').value.trim();
+      const where=document.getElementById('trophyWhere').value.trim();
+      if(!size){ const el=document.getElementById('trophySize'); el.focus(); el.style.borderColor='#c0392b'; return; }
+      const t=loadTrophies();
+      if(editingTrophy && editingTrophy!==sp) delete t[editingTrophy];
+      const prevDate = t[sp] && t[sp].date;
+      t[sp]={ size:size, where:where, date: prevDate || todayLocal() };
+      saveTrophies(t);
+      closeTrophyForm();
+      renderTrophies();
+    }
+    async function deleteTrophy(){
+      if(!editingTrophy) return;
+      const ok=await uiConfirm('Remove this personal best?', 'Remove', true);
+      if(!ok) return;
+      const t=loadTrophies(); delete t[editingTrophy]; saveTrophies(t);
+      closeTrophyForm(); renderTrophies();
+    }
+
     function renderJournal() {
+      renderTrophies();
       renderRecap();
       const list = loadEntries();
       const cont = document.getElementById('journalList');
