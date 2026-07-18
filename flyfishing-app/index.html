@@ -766,6 +766,9 @@
     .trophy-label { display: block; font-size: 12px; font-weight: 700; color: var(--text-soft); margin: 2px 0 6px; }
     .trophy-select { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; margin-bottom: 12px; background: var(--white); }
     .trophy-delete { font-size: 12px; color: #c0392b; cursor: pointer; font-weight: 700; }
+    .trophy-photo { width: 100%; height: 92px; background-size: cover; background-position: center; border-radius: 8px; margin-bottom: 8px; }
+    .trophy-photo-preview { margin-bottom: 12px; }
+    .trophy-photo-add { width: 100%; padding: 16px; border: 1.5px dashed var(--green); border-radius: 10px; background: var(--green-pale); color: var(--green); font-size: 14px; font-weight: 700; cursor: pointer; }
     #trophyModal { z-index: 3500; }
     .journal-empty {
       text-align: center;
@@ -1748,7 +1751,7 @@
           <div class="trophy-room-title">🏆 Trophy Room</div>
           <button class="trophy-add-btn" onclick="openTrophyForm()">+ Add</button>
         </div>
-        <div class="trophy-room-sub">Your personal bests — your biggest of each species.</div>
+        <div class="trophy-room-sub">Your biggest catches — add the fish, size, spot, and a photo for each.</div>
         <div id="trophyGrid" class="trophy-grid"></div>
       </div>
 
@@ -1916,6 +1919,9 @@
       <input type="text" id="trophySize" class="ui-dialog-input" placeholder="e.g. 22&quot; or 5 lb 4 oz" enterkeyhint="done" onkeydown="if(event.key==='Enter'){event.preventDefault();saveTrophy();}">
       <label class="trophy-label">Where (optional)</label>
       <input type="text" id="trophyWhere" class="ui-dialog-input" placeholder="e.g. Green River" onkeydown="if(event.key==='Enter'){event.preventDefault();saveTrophy();}">
+      <label class="trophy-label">Photo (optional)</label>
+      <div id="trophyPhotoPreview" class="trophy-photo-preview"></div>
+      <input type="file" id="trophyPhotoInput" accept="image/*" style="display:none;" onchange="addTrophyPhoto(this.files)">
       <div class="ui-dialog-btns" style="justify-content:space-between;align-items:center;">
         <span id="trophyDelete" class="trophy-delete" onclick="deleteTrophy()" style="display:none;">Remove</span>
         <span style="display:flex;gap:10px;margin-left:auto;">
@@ -1996,7 +2002,7 @@
     function exportBackup(){
       const K=_bkKeys();
       const data={ app:'hatched', kind:'backup', version:1, exportedAt:new Date().toISOString(),
-        journal:_bkGet(K.journal,[]), favorites:_bkGet(K.favorites,[]), trips:_bkGet(K.trips,[]), trophies:_bkGet(K.trophies,{}), homeConditions:_bkGet(K.homeConditions,null) };
+        journal:_bkGet(K.journal,[]), favorites:_bkGet(K.favorites,[]), trips:_bkGet(K.trips,[]), trophies:(typeof loadTrophies==='function'?loadTrophies():_trArr(_bkGet(K.trophies,null))), homeConditions:_bkGet(K.homeConditions,null) };
       try{
         const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
         const url=URL.createObjectURL(blob);
@@ -2029,9 +2035,10 @@
           const tById={}; _bkGet(K.trips,[]).forEach(t=>{ if(t&&t.id!=null) tById[t.id]=t; });
           ((data.trips)||[]).forEach(t=>{ if(t&&t.id!=null) tById[t.id]=t; });
           localStorage.setItem(K.trips, JSON.stringify(Object.values(tById)));
-          // trophies: merge by species (incoming wins)
-          const trMerged=Object.assign({}, _bkGet(K.trophies,{}), (data.trophies)||{});
-          localStorage.setItem(K.trophies, JSON.stringify(trMerged));
+          // trophies: merge by id (normalize old object-format too)
+          const trById={}; _trArr(_bkGet(K.trophies,null)).forEach(t=>{ if(t&&t.id!=null) trById[t.id]=t; });
+          _trArr(data.trophies).forEach(t=>{ if(t&&t.id!=null) trById[t.id]=t; });
+          localStorage.setItem(K.trophies, JSON.stringify(Object.values(trById)));
           // re-render whatever's on screen
           try{ if(typeof renderTrophies==='function') renderTrophies(); }catch(e){}
           try{ if(typeof renderJournal==='function') renderJournal(); }catch(e){}
@@ -2323,63 +2330,101 @@
       if (best)         html += '<div class="recap-row"><span class="rk">🏆 Best day</span><span class="rv">' + (parseInt(best.count,10)) + ' fish · ' + esc(best.water) + '</span></div>';
       body.innerHTML = html;
     }
-    // ---- Trophy Room: personal bests, one per species (key: hatched_trophies) ----
-    function loadTrophies(){ try{ return JSON.parse(localStorage.getItem('hatched_trophies')) || {}; }catch(e){ return {}; } }
-    function saveTrophies(o){ localStorage.setItem('hatched_trophies', JSON.stringify(o)); }
+    // ---- Trophy Room: list of trophies {id,species,size,where,date,photo} (key: hatched_trophies) ----
+    function _trArr(v){
+      if(Array.isArray(v)) return v;
+      if(v && typeof v==='object') return Object.keys(v).map((sp,i)=>({ id:Date.now()+i, species:sp, size:(v[sp]&&v[sp].size)||'', where:(v[sp]&&v[sp].where)||'', date:(v[sp]&&v[sp].date)||'', photo:(v[sp]&&v[sp].photo)||'' }));
+      return [];
+    }
+    function loadTrophies(){
+      let raw; try{ raw=JSON.parse(localStorage.getItem('hatched_trophies')); }catch(e){ raw=null; }
+      if(Array.isArray(raw)) return raw;
+      const arr=_trArr(raw);                       // migrate old one-per-species object -> array
+      if(arr.length){ try{ localStorage.setItem('hatched_trophies', JSON.stringify(arr)); }catch(e){} }
+      return arr;
+    }
+    function saveTrophies(a){ localStorage.setItem('hatched_trophies', JSON.stringify(a)); }
+    let editingTrophy=null;   // id being edited, or null for new
+    let trophyPhoto='';       // pending photo data URL in the form
     function renderTrophies(){
       const grid=document.getElementById('trophyGrid'); if(!grid) return;
-      const t=loadTrophies(); const keys=Object.keys(t).sort();
-      if(!keys.length){ grid.innerHTML='<div class="trophy-empty">No personal bests yet — tap <b>+ Add</b> to log your biggest catch of a species.</div>'; return; }
-      grid.innerHTML=keys.map(sp=>`
-        <button class="trophy-card" data-sp="${esc(sp)}" onclick="openTrophyForm(this.dataset.sp)">
-          <div class="trophy-fish">${ICO.fish} ${esc(sp)}</div>
-          <div class="trophy-size">${esc(t[sp].size||'')}</div>
-          ${t[sp].where?`<div class="trophy-where">📍 ${esc(t[sp].where)}</div>`:''}
+      const list=loadTrophies();
+      if(!list.length){ grid.innerHTML='<div class="trophy-empty">No trophies yet — tap <b>+ Add</b> to log a big catch: pick the fish, its size, where, and a photo.</div>'; return; }
+      grid.innerHTML=list.map(t=>`
+        <button class="trophy-card" data-id="${t.id}" onclick="openTrophyForm(this.dataset.id)">
+          ${t.photo?`<div class="trophy-photo" style="background-image:url('${t.photo}')"></div>`:''}
+          <div class="trophy-fish">${ICO.fish} ${esc(t.species)}</div>
+          <div class="trophy-size">${esc(t.size||'')}</div>
+          ${t.where?`<div class="trophy-where">📍 ${esc(t.where)}</div>`:''}
         </button>`).join('');
     }
-    let editingTrophy=null;
-    function openTrophyForm(species){
-      editingTrophy = species || null;
+    function openTrophyForm(id){
+      const list=loadTrophies();
+      const rec = (id!=null && id!=='') ? list.find(t=>String(t.id)===String(id)) : null;
+      editingTrophy = rec ? rec.id : null;
+      trophyPhoto = rec ? (rec.photo||'') : '';
       const sel=document.getElementById('trophySpecies');
       sel.innerHTML=JOURNAL_SPECIES.map(s=>'<option value="'+esc(s)+'">'+esc(s)+'</option>').join('');
-      const t=loadTrophies();
-      if(species && t[species]){
-        sel.value=species;
-        document.getElementById('trophySize').value=t[species].size||'';
-        document.getElementById('trophyWhere').value=t[species].where||'';
-        document.getElementById('trophyModalTitle').textContent='Edit Personal Best';
+      if(rec){
+        sel.value=rec.species;
+        document.getElementById('trophySize').value=rec.size||'';
+        document.getElementById('trophyWhere').value=rec.where||'';
+        document.getElementById('trophyModalTitle').textContent='Edit Trophy';
         document.getElementById('trophyDelete').style.display='inline-block';
       } else {
+        sel.selectedIndex=0;
         document.getElementById('trophySize').value='';
         document.getElementById('trophyWhere').value='';
-        document.getElementById('trophyModalTitle').textContent='Add a Personal Best';
+        document.getElementById('trophyModalTitle').textContent='Add a Trophy';
         document.getElementById('trophyDelete').style.display='none';
       }
+      document.getElementById('trophySize').style.borderColor='';
+      renderTrophyPhoto();
       document.getElementById('trophyModal').style.display='flex';
       setTimeout(function(){ try{ document.getElementById('trophySize').focus(); }catch(e){} }, 60);
     }
-    function closeTrophyForm(){ const m=document.getElementById('trophyModal'); if(m) m.style.display='none'; }
+    function closeTrophyForm(){ const m=document.getElementById('trophyModal'); if(m) m.style.display='none'; trophyPhoto=''; }
+    function addTrophyPhoto(files){
+      const file=files && files[0]; if(!file || !file.type.startsWith('image/')) return;
+      const reader=new FileReader();
+      reader.onload=function(ev){ const img=new Image(); img.onload=function(){
+        const max=1100; let width=img.width, height=img.height;
+        if(width>max||height>max){ if(width>height){height=Math.round(height*max/width);width=max;} else {width=Math.round(width*max/height);height=max;} }
+        const c=document.createElement('canvas'); c.width=width; c.height=height; c.getContext('2d').drawImage(img,0,0,width,height);
+        trophyPhoto=c.toDataURL('image/jpeg',0.7); renderTrophyPhoto();
+      }; img.src=ev.target.result; };
+      reader.readAsDataURL(file);
+      const el=document.getElementById('trophyPhotoInput'); if(el) el.value='';
+    }
+    function removeTrophyPhoto(){ trophyPhoto=''; renderTrophyPhoto(); }
+    function renderTrophyPhoto(){
+      const box=document.getElementById('trophyPhotoPreview'); if(!box) return;
+      if(trophyPhoto){
+        box.innerHTML='<div class="photo-thumb"><img src="'+trophyPhoto+'" onclick="openLightbox(encodeURIComponent(this.src),\'data\')"><button class="photo-remove" onclick="removeTrophyPhoto()">✕</button></div>';
+      } else {
+        box.innerHTML='<button type="button" class="trophy-photo-add" onclick="document.getElementById(\'trophyPhotoInput\').click()">📷 Add photo</button>';
+      }
+    }
     function saveTrophy(){
       const sp=document.getElementById('trophySpecies').value;
       const size=document.getElementById('trophySize').value.trim();
       const where=document.getElementById('trophyWhere').value.trim();
       if(!size){ const el=document.getElementById('trophySize'); el.focus(); el.style.borderColor='#c0392b'; return; }
-      const t=loadTrophies();
-      if(editingTrophy && editingTrophy!==sp) delete t[editingTrophy];
-      const prevDate = t[sp] && t[sp].date;
-      t[sp]={ size:size, where:where, date: prevDate || todayLocal() };
-      saveTrophies(t);
-      closeTrophyForm();
-      renderTrophies();
-    }
-    async function deleteTrophy(){
-      if(!editingTrophy) return;
-      const ok=await uiConfirm('Remove this personal best?', 'Remove', true);
-      if(!ok) return;
-      const t=loadTrophies(); delete t[editingTrophy]; saveTrophies(t);
+      const list=loadTrophies();
+      const rec = editingTrophy!=null ? list.find(t=>t.id===editingTrophy) : null;
+      if(rec){ rec.species=sp; rec.size=size; rec.where=where; rec.photo=trophyPhoto; }
+      else { list.unshift({ id:Date.now(), species:sp, size:size, where:where, date:todayLocal(), photo:trophyPhoto }); }
+      try{ saveTrophies(list); }
+      catch(e){ uiAlert('Storage is full — try removing a photo. This trophy wasn’t saved.'); return; }
       closeTrophyForm(); renderTrophies();
     }
-
+    async function deleteTrophy(){
+      if(editingTrophy==null) return;
+      const ok=await uiConfirm('Remove this trophy?', 'Remove', true);
+      if(!ok) return;
+      saveTrophies(loadTrophies().filter(t=>t.id!==editingTrophy));
+      closeTrophyForm(); renderTrophies();
+    }
     function renderJournal() {
       renderTrophies();
       renderRecap();
