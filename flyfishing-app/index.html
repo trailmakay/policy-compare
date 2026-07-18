@@ -4892,7 +4892,7 @@
               <div class="result-name">${esc(s.name)}</div>
               <div class="result-sub">${esc(s.town)}, ${esc(s.state)}</div>
             </div>
-            <a class="shop-phone" href="tel:${esc(s.phone.replace(/[^0-9]/g,''))}" onclick="event.stopPropagation()">${esc(s.phone)}</a>
+            ${s.phone ? `<a class="shop-phone" href="tel:${esc(s.phone.replace(/[^0-9]/g,''))}" onclick="event.stopPropagation()">${esc(s.phone)}</a>` : ''}
           </div>`).join('');
       }
       // Fisheries
@@ -5330,7 +5330,7 @@
       const shopRows = shops.map(s => `
         <div class="shop-row">
           <span>${ICO.shop} ${esc(s.name)} <span class="shop-town">· ${esc(s.town)}</span></span>
-          <a class="shop-phone" href="tel:${esc(s.phone.replace(/[^0-9]/g,''))}">${esc(s.phone)}</a>
+          ${s.phone ? `<a class="shop-phone" href="tel:${esc(s.phone.replace(/[^0-9]/g,''))}">${esc(s.phone)}</a>` : ''}
         </div>`).join('');
       return `
       <div class="plan-card">
@@ -5681,7 +5681,7 @@
       const shopsHTML = shops.map(s => `
         <div class="shop-row">
           <span>${ICO.shop} ${esc(s.name)} <span class="shop-town">· ${esc(s.town)}</span></span>
-          <a class="shop-phone" href="tel:${esc(s.phone.replace(/[^0-9]/g,''))}">${esc(s.phone)}</a>
+          ${s.phone ? `<a class="shop-phone" href="tel:${esc(s.phone.replace(/[^0-9]/g,''))}">${esc(s.phone)}</a>` : ''}
         </div>`).join('');
 
       const td = t.details || {};
