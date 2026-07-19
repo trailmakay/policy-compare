@@ -766,6 +766,10 @@
     .trophy-label { display: block; font-size: 12px; font-weight: 700; color: var(--text-soft); margin: 2px 0 6px; }
     .trophy-select { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; margin-bottom: 12px; background: var(--white); }
     .trophy-delete { font-size: 12px; color: #c0392b; cursor: pointer; font-weight: 700; }
+    .trophy-room-btn { display:flex; align-items:center; justify-content:space-between; background:var(--white); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:16px; cursor:pointer; }
+    .trophy-chevron { font-size:24px; color:var(--text-soft); }
+    .trophy-page-head { display:flex; align-items:center; justify-content:space-between; margin-top:4px; }
+    .trophy-page-title { font-size:22px; font-weight:800; }
     .trophy-photo { width: 100%; height: 92px; background-size: cover; background-position: center; border-radius: 8px; margin-bottom: 8px; }
     .trophy-photo-preview { margin-bottom: 12px; }
     .trophy-photo-add { width: 100%; padding: 16px; border: 1.5px dashed var(--green); border-radius: 10px; background: var(--green-pale); color: var(--green); font-size: 14px; font-weight: 700; cursor: pointer; }
@@ -1703,6 +1707,16 @@
       <div id="tripDetail"></div>
     </div>
 
+    <div class="page" id="tab-trophies">
+      <div class="back-link" style="color:var(--green);" onclick="showNav('journal')">‹ My Journal</div>
+      <div class="trophy-page-head">
+        <div class="trophy-page-title">🏆 Trophy Room</div>
+        <button class="trophy-add-btn" onclick="openTrophyForm()">+ Add</button>
+      </div>
+      <div class="trophy-room-sub" style="margin:4px 0 14px;">Your biggest catches — tap a trophy to edit it.</div>
+      <div id="trophyGrid" class="trophy-grid"></div>
+    </div>
+
     <!-- ═══ FAVORITES PAGE ═══ -->
     <div class="page" id="tab-favorites">
       <p class="section-label" style="margin-top:0"><svg class="lbl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.85-4.25 4.15 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.65l5.9-.85L12 3.5Z"/></svg>My Favorites</p>
@@ -1745,14 +1759,13 @@
         <div class="recap-body" id="recapBody"></div>
       </div>
 
-      <!-- Trophy Room (personal bests) -->
-      <div class="trophy-room">
-        <div class="trophy-room-head">
+      <!-- Trophy Room (tap to open its own page) -->
+      <div class="trophy-room-btn" onclick="openTrophyRoom()">
+        <div>
           <div class="trophy-room-title">🏆 Trophy Room</div>
-          <button class="trophy-add-btn" onclick="openTrophyForm()">+ Add</button>
+          <div class="trophy-room-sub" id="trophyCount" style="margin:2px 0 0;">0 trophies</div>
         </div>
-        <div class="trophy-room-sub">Your biggest catches — add the fish, size, spot, and a photo for each.</div>
-        <div id="trophyGrid" class="trophy-grid"></div>
+        <span class="trophy-chevron">›</span>
       </div>
 
       <!-- Entry list -->
@@ -1973,6 +1986,7 @@
       if (sbt) sbt.style.display = showSave;
       if (name === 'plan') buildFishOptions();
       if (name === 'home') renderHomeConditions();
+      if (name === 'journal') renderTrophies();
       if (name === 'nearby' && !keepNearbyState) resetNearby();
       keepNearbyState = false;
       window.scrollTo(0, 0);
@@ -2346,9 +2360,11 @@
     function saveTrophies(a){ localStorage.setItem('hatched_trophies', JSON.stringify(a)); }
     let editingTrophy=null;   // id being edited, or null for new
     let trophyPhoto='';       // pending photo data URL in the form
+    function openTrophyRoom(){ showTab('trophies'); renderTrophies(); }
     function renderTrophies(){
-      const grid=document.getElementById('trophyGrid'); if(!grid) return;
       const list=loadTrophies();
+      const cEl=document.getElementById('trophyCount'); if(cEl) cEl.textContent=list.length+' '+(list.length===1?'trophy':'trophies');
+      const grid=document.getElementById('trophyGrid'); if(!grid) return;
       if(!list.length){ grid.innerHTML='<div class="trophy-empty">No trophies yet — tap <b>+ Add</b> to log a big catch: pick the fish, its size, where, and a photo.</div>'; return; }
       grid.innerHTML=list.map(t=>`
         <button class="trophy-card" data-id="${t.id}" onclick="openTrophyForm(this.dataset.id)">
