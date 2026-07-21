@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policy Renewal Checker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-900: #0c2461;
+      --blue-800: #1a3a8f;
+      --blue-700: #1e4db7;
+      --blue-600: #2563eb;
+      --blue-500: #3b82f6;
+      --blue-100: #dbeafe;
+      --blue-50:  #eff6ff;
+      --white:    #ffffff;
+      --gray-50:  #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+      --red:      #dc2626;
+      --red-50:   #fff1f2;
+      --amber:    #d97706;
+      --amber-50: #fffbeb;
+      --green:    #16a34a;
+      --green-50: #f0fdf4;
+      --indigo:   #4f46e5;
+      --indigo-50:#eef2ff;
+      --radius:   6px;
+      --shadow-sm: 0 1px 2px rgba(15,23,42,0.06);
+      --shadow:    0 1px 3px rgba(15,23,42,0.1), 0 1px 2px rgba(15,23,42,0.06);
+      --shadow-md: 0 4px 6px rgba(15,23,42,0.07), 0 2px 4px rgba(15,23,42,0.05);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      min-height: 100vh;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Top nav ── */
+    .topbar {
+      background: var(--blue-900);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(12,36,97,0.25);
+    }
+
+    .topbar__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+
+    .topbar__logo {
+      width: 32px;
+      height: 32px;
+      background: var(--blue-600);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+    }
+
+    .topbar__divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .topbar__subtitle {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 400;
+    }
+
+    .topbar__right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .topbar__dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 0 2px rgba(52,211,153,0.25);
+    }
+
+    /* ── Sub-header ── */
+    .subheader {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 2rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--gray-400);
+    }
+
+    .breadcrumb__current {
+      color: var(--gray-700);
+      font-weight: 600;
+    }
+
+    /* ── Page ── */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .page-header__left h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+    }
+
+    .page-header__left p {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    /* ── Section labels ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── Upload grid ── */
+    .upload-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 640px) { .upload-grid { grid-template-columns: 1fr; } }
+
+    .upload-zone {
+      background: var(--white);
+      border: 1.5px dashed var(--gray-300);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .upload-zone:hover, .upload-zone.dragover {
+      border-color: var(--blue-600);
+      background: var(--blue-50);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+    }
+
+    .upload-zone.loaded {
+      border-style: solid;
+      border-color: var(--green);
+      background: var(--green-50);
+    }
+
+    .upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%; height: 100%;
+    }
+
+    .upload-zone__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.9rem;
+    }
+
+    .upload-zone--old .upload-zone__tag {
+      background: var(--gray-100);
+      color: var(--gray-500);
+    }
+
+    .upload-zone--new .upload-zone__tag {
+      background: var(--blue-50);
+      color: var(--blue-700);
+      border: 1px solid var(--blue-100);
+    }
+
+    .upload-zone__body {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .upload-zone__icon {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+
+    .upload-zone.loaded .upload-zone__icon {
+      background: #dcfce7;
+      border-color: #86efac;
+    }
+
+    .upload-zone__text h3 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.15rem;
+    }
+
+    .upload-zone__hint {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+    }
+
+    .upload-zone__filename {
+      display: none;
+      font-size: 0.75rem;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .upload-zone.loaded .upload-zone__filename { display: block; }
+    .upload-zone.loaded .upload-zone__hint { display: none; }
+
+    /* ── Config strip ── */
+    .config-strip {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-left: 3px solid var(--blue-600);
+      border-radius: var(--radius);
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 1rem;
+      display: none;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .config-strip label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      white-space: nowrap;
+    }
+
+    .config-strip select {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-300);
+      color: var(--gray-900);
+      padding: 0.4rem 2rem 0.4rem 0.65rem;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-family: inherit;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.6rem center;
+    }
+
+    .config-strip select:focus { outline: 2px solid var(--blue-500); outline-offset: 1px; }
+
+    .config-strip__hint {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      flex: 1;
+    }
+
+    /* ── Run button ── */
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      background: var(--blue-700);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      transition: background 0.15s, box-shadow 0.15s;
+      box-shadow: 0 1px 3px rgba(30,77,183,0.4), 0 1px 2px rgba(30,77,183,0.25);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--blue-800);
+      box-shadow: 0 4px 8px rgba(30,77,183,0.35);
+    }
+
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+
+    /* ── Summary stats ── */
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 640px) { .summary { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .stat--missing::before { background: var(--red); }
+    .stat--changed::before { background: var(--amber); }
+    .stat--added::before   { background: var(--indigo); }
+    .stat--match::before   { background: var(--green); }
+
+    .stat__num {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.04em;
+    }
+
+    .stat--missing .stat__num { color: var(--red); }
+    .stat--changed .stat__num { color: var(--amber); }
+    .stat--added .stat__num   { color: var(--indigo); }
+    .stat--match .stat__num   { color: var(--green); }
+
+    .stat__label {
+      font-size: 0.72rem;
+      color: var(--gray-400);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    /* ── Policy identity check ── */
+    .policy-id {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (max-width: 640px) { .policy-id { grid-template-columns: 1fr; } }
+
+    .policy-id__card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 0.8rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .policy-id__tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      background: var(--gray-100);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .policy-id__tag--new { color: var(--blue-700); background: var(--blue-50); border: 1px solid var(--blue-100); }
+
+    .policy-id__name { font-size: 0.95rem; font-weight: 700; color: var(--gray-900); }
+    .policy-id__meta { font-size: 0.76rem; color: var(--gray-500); margin-top: 0.2rem; line-height: 1.5; }
+
+    /* ── Alerts ── */
+    .alert {
+      border-radius: var(--radius);
+      padding: 0.7rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+    .alert--warn { background: var(--amber-50); border: 1px solid #fcd34d; color: #92400e; }
+
+    /* ── Verify / source check ── */
+    .verify-row {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .btn-verify {
+      align-self: flex-start;
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      color: var(--gray-700);
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius);
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .btn-verify:hover { border-color: var(--blue-600); color: var(--blue-700); background: var(--blue-50); }
+    .verify-note { font-size: 0.74rem; color: var(--gray-500); line-height: 1.5; max-width: 720px; }
+
+    .extract-view {
+      margin-top: 0.85rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 760px) { .extract-view { grid-template-columns: 1fr; } }
+    .extract-col {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+    }
+    .extract-col__head {
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0.5rem 0.8rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gray-600);
+    }
+    .extract-col__body { max-height: 320px; overflow-y: auto; }
+    .extract-col__body table { font-size: 0.74rem; }
+    .extract-col__body th { background: var(--gray-100); color: var(--gray-600); position: sticky; top: 0; }
+
+    .privacy-note {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      line-height: 1.55;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 0.55rem 0.8rem;
+      margin-bottom: 1rem;
+      max-width: 100%;
+    }
+
+    /* Page reference tag */
+    .page-tag {
+      display: inline-block;
+      margin-left: 0.5rem;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--gray-500);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      padding: 0.08rem 0.4rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* Row "review" pill */
+    .pill-review {
+      display: inline-block;
+      margin-left: 0.35rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-50);
+      border: 1px solid #fcd34d;
+      border-radius: 4px;
+      padding: 0.1rem 0.35rem;
+      vertical-align: middle;
+    }
+
+    /* ── Premium headline banner ── */
+    .premium-banner {
+      display: flex;
+      gap: 1.5rem;
+      align-items: stretch;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-left: 5px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.4rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+    }
+
+    .premium-banner.pb-up   { border-left-color: var(--red);   background: linear-gradient(90deg, #fff5f5 0%, var(--white) 60%); }
+    .premium-banner.pb-down { border-left-color: var(--green); background: linear-gradient(90deg, #f0fdf4 0%, var(--white) 60%); }
+    .premium-banner.pb-flat { border-left-color: var(--gray-400); }
+
+    .premium-banner__left {
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 1.5rem;
+      border-right: 1px solid var(--gray-200);
+    }
+
+    .premium-banner__label, .premium-banner__sublabel {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 0.35rem;
+    }
+
+    .premium-banner__amount {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--gray-900);
+    }
+
+    .pb-up   .premium-banner__amount { color: var(--red); }
+    .pb-down .premium-banner__amount { color: var(--green); }
+
+    .premium-banner__oldnew {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .premium-banner__right { flex: 1; display: flex; flex-direction: column; justify-content: center; min-width: 240px; }
+
+    .premium-banner__list {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .premium-banner__list li {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      font-weight: 500;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .premium-banner__list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.5rem;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--blue-500);
+    }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-tabs {
+      display: flex;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 3px;
+      box-shadow: var(--shadow-sm);
+      gap: 2px;
+    }
+
+    .filter-tab {
+      padding: 0.3rem 0.85rem;
+      border-radius: 4px;
+      border: none;
+      background: transparent;
+      color: var(--gray-500);
+      font-size: 0.775rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.12s;
+      white-space: nowrap;
+    }
+
+    .filter-tab.active {
+      background: var(--blue-700);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-export {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      color: var(--gray-700);
+      padding: 0.38rem 0.9rem;
+      border-radius: var(--radius);
+      font-size: 0.775rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.12s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-export:hover {
+      border-color: var(--blue-600);
+      color: var(--blue-700);
+      background: var(--blue-50);
+    }
+
+    /* ── AI Panel ── */
+    .ai-panel {
+      margin-top: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .ai-panel__header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.1rem;
+      background: linear-gradient(135deg, var(--indigo-50) 0%, var(--blue-50) 100%);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .ai-panel__icon {
+      width: 26px; height: 26px;
+      background: var(--indigo);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .ai-panel__title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gray-900);
+    }
+
+    .ai-panel__subtitle {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-left: auto;
+    }
+
+    .ai-panel__body {
+      padding: 1rem 1.1rem;
+    }
+
+    .ai-messages {
+      min-height: 60px;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .ai-msg {
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    .ai-msg--user {
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      color: var(--blue-900);
+      align-self: flex-end;
+      max-width: 85%;
+    }
+
+    .ai-msg--assistant {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-900);
+      align-self: flex-start;
+      max-width: 95%;
+    }
+
+    .ai-msg--error {
+      background: var(--red-50);
+      border: 1px solid #fecdd3;
+      color: var(--red);
+    }
+
+    .ai-input-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .ai-question-input {
+      flex: 1;
+      font-family: inherit;
+      font-size: 0.82rem;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius);
+      padding: 0.45rem 0.8rem;
+      color: var(--gray-900);
+      resize: none;
+      min-height: 38px;
+      max-height: 100px;
+    }
+
+    .ai-question-input:focus { outline: none; border-color: var(--indigo); }
+
+    .btn-ask {
+      background: var(--indigo);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 0.35rem;
+      transition: background 0.12s;
+      white-space: nowrap;
+      align-self: flex-end;
+    }
+
+    .btn-ask:hover:not(:disabled) { background: #4338ca; }
+    .btn-ask:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* ── Table ── */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+
+    thead { background: var(--blue-900); }
+
+    th {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      border-bottom: none;
+      white-space: nowrap;
+    }
+
+    th:first-child { color: rgba(255,255,255,0.5); }
+
+    td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--gray-100);
+      vertical-align: middle;
+      color: var(--gray-700);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--gray-50); }
+
+    tr.row--missing td { background: #fff8f8; }
+    tr.row--missing:hover td { background: #fff1f2; }
+    tr.row--changed td { background: #fffdf5; }
+    tr.row--changed:hover td { background: #fefce8; }
+    tr.row--added td { background: #f5f3ff; }
+    tr.row--added:hover td { background: #ede9fe; }
+
+    td strong { color: var(--gray-900); font-weight: 600; }
+
+    .cell-old { color: var(--red); text-decoration: line-through; font-size: 0.78rem; opacity: 0.85; }
+    .cell-new { color: var(--green); font-weight: 600; }
+    .cell-arrow { color: var(--gray-300); font-size: 0.7rem; margin: 0 0.25rem; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.22rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    .badge--missing { background: var(--red-50);   color: var(--red); }
+    .badge--changed { background: var(--amber-50);  color: var(--amber); }
+    .badge--added   { background: var(--indigo-50); color: var(--indigo); }
+    .badge--match   { background: var(--green-50);  color: var(--green); }
+
+    /* ── Idle state ── */
+    .idle-state {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .idle-state__icon {
+      width: 52px; height: 52px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin: 0 auto 1rem;
+    }
+
+    .idle-state h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.4rem;
+    }
+
+    .idle-state p {
+      font-size: 0.82rem;
+      color: var(--gray-400);
+      max-width: 360px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .hidden { display: none !important; }
+
+    /* ── Email draft panel ── */
+    .email-panel {
+      margin-top: 1rem;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .email-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1rem;
+      background: var(--green-50);
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .email-panel__body {
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--gray-900);
+      white-space: pre-wrap;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .email-panel__footer {
+      padding: 0.6rem 1rem;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-copy {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 0.35rem;
+      transition: background 0.12s;
+    }
+
+    .btn-copy:hover { background: #15803d; }
+
+    .btn-draft-email {
+      background: var(--white);
+      border: 1px solid var(--green);
+      color: var(--green);
+      border-radius: var(--radius);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 0.35rem;
+      transition: all 0.12s;
+      margin-top: 0.6rem;
+    }
+
+    .btn-draft-email:hover:not(:disabled) { background: var(--green-50); }
+    .btn-draft-email:disabled { opacity: 0.45; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <!-- Top nav -->
+  <div class="topbar">
+    <div class="topbar__brand">
+      <div class="topbar__logo">PR</div>
+      <div class="topbar__divider"></div>
+      <span>Policy Renewal Checker</span>
+      <span class="topbar__subtitle">Insurance Agency Tool</span>
+    </div>
+    <div class="topbar__right">
+      <span id="whoami" style="color:rgba(255,255,255,0.75);font-weight:600;"></span>
+      <a id="logoutBtn" href="#" style="color:rgba(255,255,255,0.85);font-size:0.78rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,0.25);padding:0.25rem 0.7rem;border-radius:6px;margin-left:0.5rem;">Sign out</a>
+    </div>
+  </div>
+
+  <!-- Sub-header breadcrumb -->
+  <div class="subheader">
+    <div class="breadcrumb">
+      <span>Tools</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <span class="breadcrumb__current">Policy Comparison</span>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-header__left">
+        <h1>Policy Comparison</h1>
+        <p>Upload the previous policy and renewal PDFs to identify missing, changed, or added coverages across all policy types.</p>
+      </div>
+    </div>
+
+    <!-- Upload -->
+    <div class="section-label">Step 1 — Upload Policy Files</div>
+    <div class="upload-grid">
+      <div class="upload-zone upload-zone--old" id="dropOld">
+        <input type="file" id="fileOld" accept=".csv,.pdf" />
+        <div class="upload-zone__tag">Previous Policy</div>
+        <div class="upload-zone__body">
+          <div class="upload-zone__icon">📄</div>
+          <div class="upload-zone__text">
+            <h3>Upload Old Policy</h3>
+            <p class="upload-zone__hint">Click to browse or drag &amp; drop a .csv or .pdf file</p>
+            <p class="upload-zone__filename" id="nameOld"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="upload-zone upload-zone--new" id="dropNew">
+        <input type="file" id="fileNew" accept=".csv,.pdf" />
+        <div class="upload-zone__tag">Renewal Policy</div>
+        <div class="upload-zone__body">
+          <div class="upload-zone__icon">📋</div>
+          <div class="upload-zone__text">
+            <h3>Upload Renewal Policy</h3>
+            <p class="upload-zone__hint">Click to browse or drag &amp; drop a .csv or .pdf file</p>
+            <p class="upload-zone__filename" id="nameNew"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="privacy-note">🔒 Uploaded policies are read to extract coverage details, then discarded — nothing is stored. Phone numbers, emails, and ID numbers are stripped out before any AI processing. Coverage data is processed via Anthropic's API, which does not train on it.</p>
+
+    <!-- Key field config (only shown for CSV files) -->
+    <div class="section-label" id="stepTwoLabel" style="display:none; margin-top:1rem;">Step 2 — Select Matching Column</div>
+    <div class="config-strip" id="configRow">
+      <label for="keyField">Match rows by:</label>
+      <select id="keyField"></select>
+      <span class="config-strip__hint">Select the column that uniquely identifies each coverage line (e.g. Coverage Type, Description).</span>
+    </div>
+
+    <button class="btn-primary" id="btnCompare" disabled>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      Run Comparison
+    </button>
+
+    <!-- Results -->
+    <div id="results" class="hidden">
+      <!-- Policy identity check -->
+      <div class="policy-id" id="policyId">
+        <div class="policy-id__card">
+          <div class="policy-id__tag">Previous Policy</div>
+          <div class="policy-id__name" id="idOldName">—</div>
+          <div class="policy-id__meta" id="idOldMeta"></div>
+        </div>
+        <div class="policy-id__card">
+          <div class="policy-id__tag policy-id__tag--new">Renewal Policy</div>
+          <div class="policy-id__name" id="idNewName">—</div>
+          <div class="policy-id__meta" id="idNewMeta"></div>
+        </div>
+      </div>
+      <div class="alert alert--warn hidden" id="idWarn"></div>
+
+      <!-- Premium reconciliation warning -->
+      <div class="alert alert--warn hidden" id="reconWarn"></div>
+
+      <!-- Agent headline banner -->
+      <div class="premium-banner hidden" id="premiumBanner">
+        <div class="premium-banner__left">
+          <div class="premium-banner__label">Total Premium</div>
+          <div class="premium-banner__amount" id="pbAmount">—</div>
+          <div class="premium-banner__oldnew" id="pbOldNew"></div>
+        </div>
+        <div class="premium-banner__right">
+          <div class="premium-banner__sublabel">What's driving it</div>
+          <ul class="premium-banner__list" id="pbDrivers"></ul>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="stat stat--missing">
+          <div class="stat__num" id="cntMissing">0</div>
+          <div class="stat__label">Missing from Renewal</div>
+        </div>
+        <div class="stat stat--changed">
+          <div class="stat__num" id="cntChanged">0</div>
+          <div class="stat__label">Values Changed</div>
+        </div>
+        <div class="stat stat--added">
+          <div class="stat__num" id="cntAdded">0</div>
+          <div class="stat__label">Newly Added</div>
+        </div>
+        <div class="stat stat--match">
+          <div class="stat__num" id="cntMatch">0</div>
+          <div class="stat__label">Unchanged</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="filter-tabs" id="filterRow">
+          <button class="filter-tab active" data-filter="all">All Changes</button>
+          <button class="filter-tab" data-filter="key">⚑ Key Changes</button>
+          <button class="filter-tab" data-filter="missing">Missing</button>
+          <button class="filter-tab" data-filter="changed">Changed</button>
+          <button class="filter-tab" data-filter="added">Added</button>
+          <button class="filter-tab" data-filter="match">Unchanged</button>
+        </div>
+        <button class="btn-export" id="btnExport">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export Report
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="mainTable">
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- AI Assistant Panel -->
+      <div class="ai-panel">
+        <div class="ai-panel__header">
+          <div class="ai-panel__icon">✦</div>
+          <div class="ai-panel__title">Ask AI about this comparison</div>
+          <div class="ai-panel__subtitle">Powered by Claude</div>
+        </div>
+        <div class="ai-panel__body">
+          <div class="ai-messages" id="aiMessages"></div>
+          <div class="ai-input-row">
+            <textarea class="ai-question-input" id="aiQuestion" rows="1" placeholder="e.g. Summarise the most critical changes in plain English…"></textarea>
+            <button class="btn-ask" id="btnAsk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Ask
+            </button>
+          </div>
+          <button class="btn-draft-email" id="btnDraftEmail" disabled>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Draft Client Email
+          </button>
+          <div class="email-panel hidden" id="emailPanel">
+            <div class="email-panel__header">
+              <span>✉️ Client Email Draft</span>
+            </div>
+            <div class="email-panel__body" id="emailBody"></div>
+            <div class="email-panel__footer">
+              <button class="btn-copy" id="btnCopyEmail">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy to Clipboard
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verify / source check -->
+      <div class="verify-row">
+        <button class="btn-verify" id="btnViewExtract">🔍 Show what the AI read from each PDF</button>
+        <div class="verify-note">⚠️ Figures are read from the PDF by AI and may contain errors. Always confirm key numbers against the declarations page before quoting a client.</div>
+      </div>
+      <div class="extract-view hidden" id="extractView"></div>
+    </div>
+
+    <!-- Idle state -->
+    <div class="idle-state" id="idleState">
+      <div class="idle-state__icon">🔍</div>
+      <h3>No Comparison Run Yet</h3>
+      <p>Upload both policy PDFs above and click Run Comparison. AI will automatically extract all coverages — auto, home, umbrella, and more.</p>
+    </div>
+  </div>
+
+<script>
+  // ── Auth guard: must be signed in, else go to the login page ────────────────
+  (async () => {
+    try {
+      const r = await fetch('/api/auth/me', { credentials: 'same-origin' });
+      if (!r.ok) { location.href = '/'; return; }
+      const { user, agency } = await r.json();
+      const who = document.getElementById('whoami');
+      if (who) who.textContent = (agency && agency.name ? agency.name : '') + (user && user.name ? '  ·  ' + user.name : '');
+    } catch { location.href = '/'; }
+  })();
+  document.addEventListener('click', e => {
+    if (e.target && e.target.id === 'logoutBtn') {
+      e.preventDefault();
+      fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' }).finally(() => { location.href = '/'; });
+    }
+  });
+
+  // ── Toast ───────────────────────────────────────────────────────────────────
+  function showToast(msg, type = 'info') {
+    const t = document.createElement('div');
+    t.textContent = msg;
+    Object.assign(t.style, {
+      position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 9999,
+      background: type === 'error' ? '#c0392b' : '#1a56db',
+      color: '#fff', padding: '0.65rem 1.1rem', borderRadius: '8px',
+      fontSize: '0.82rem', fontWeight: '500', boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+      transition: 'opacity 0.3s'
+    });
+    document.body.appendChild(t);
+    setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 3500);
+  }
+
+  // ── PDF Parser (server reads the PDF, then Claude extracts coverages) ───────
+  async function parsePDF(file, statusCallback) {
+    statusCallback('⏳ Uploading PDF…');
+
+    // Read the file as base64 (reliable in every browser, including Safari)
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(String(e.target.result).split(',')[1]);
+      reader.onerror = () => reject(new Error('Could not read file'));
+      reader.readAsDataURL(file);
+    });
+
+    statusCallback('⏳ Extracting with AI… (this takes ~15 sec)');
+
+    const resp = await fetch('/api/extract', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ pdf: base64 }),
+    });
+
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.error || `AI extraction failed (${resp.status})`);
+    }
+
+    const result = await resp.json();
+    if (result.error) throw new Error(result.error);
+    if (!result.rows || !Array.isArray(result.rows) || result.rows.length === 0) {
+      throw new Error('AI could not find coverage data in this PDF.');
+    }
+
+    const AI_HEADERS = ['Policy Line', 'Type', 'Section', 'Coverage', 'Limit', 'Deductible', 'Premium'];
+    const records = result.rows.map(row => ({
+      'Policy Line': [row.Type, row.Section, row.Coverage].filter(Boolean).join(' › '),
+      'Type':        row.Type        || '',
+      'Section':     row.Section     || '',
+      'Coverage':    row.Coverage    || '',
+      'Limit':       row.Limit       || '',
+      'Deductible':  row.Deductible  || '',
+      'Premium':     row.Premium     || '',
+      'Page':        row.Page        || null,
+    }));
+
+    return { headers: AI_HEADERS, records, aiExtracted: true, meta: result.meta || {} };
+  }
+
+  // ── CSV Parser ──────────────────────────────────────────────────────────────
+  function parseCSV(text) {
+    const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    const result = [];
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      const row = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+          if (inQ && line[i+1] === '"') { cur += '"'; i++; }
+          else inQ = !inQ;
+        } else if (ch === ',' && !inQ) {
+          row.push(cur.trim()); cur = '';
+        } else {
+          cur += ch;
+        }
+      }
+      row.push(cur.trim());
+      result.push(row);
+    }
+    return result;
+  }
+
+  function csvToObjects(rows) {
+    if (rows.length < 2) return { headers: [], records: [] };
+    const headers = rows[0].map(h => h.trim());
+    const records = rows.slice(1).map(row => {
+      const obj = {};
+      headers.forEach((h, i) => { obj[h] = (row[i] ?? '').trim(); });
+      return obj;
+    });
+    return { headers, records };
+  }
+
+  // ── State ───────────────────────────────────────────────────────────────────
+  let dataOld = null, dataNew = null;
+  let currentFilter = 'all';
+  let compareResults = [];
+  let savedValueHeaders = [], savedKeyField = '';
+
+  // ── File Handling ───────────────────────────────────────────────────────────
+  async function readFile(file, which) {
+    const suffix = which === 'old' ? 'Old' : 'New';
+    const drop = document.getElementById(`drop${suffix}`);
+    const nameEl = document.getElementById(`name${suffix}`);
+    const btn = document.getElementById('btnCompare');
+    btn.disabled = true;
+
+    try {
+      let parsed;
+      if (file.name.toLowerCase().endsWith('.pdf')) {
+        parsed = await parsePDF(file, msg => { nameEl.textContent = msg; });
+
+        showToast(`✓ AI extracted ${parsed.records.length} coverage lines`);
+      } else {
+        nameEl.textContent = '⏳ Parsing…';
+        const text = await file.text();
+        parsed = csvToObjects(parseCSV(text));
+        showToast(`CSV loaded — ${parsed.records.length} rows`);
+      }
+
+      if (which === 'old') dataOld = parsed;
+      else dataNew = parsed;
+
+      nameEl.textContent = '✓ ' + file.name;
+      drop.classList.add('loaded');
+      maybeShowConfig();
+    } catch (err) {
+      nameEl.textContent = '';
+      drop.classList.remove('loaded');
+      showToast('Could not parse file: ' + err.message, 'error');
+      console.error(err);
+    } finally {
+      updateBtn();
+    }
+  }
+
+  ['Old', 'New'].forEach(which => {
+    const input = document.getElementById(`file${which}`);
+    const drop  = document.getElementById(`drop${which}`);
+    input.addEventListener('change', () => { if (input.files[0]) readFile(input.files[0], which.toLowerCase()); });
+    drop.addEventListener('dragover',  e => { e.preventDefault(); drop.classList.add('dragover'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+    drop.addEventListener('drop', e => {
+      e.preventDefault(); drop.classList.remove('dragover');
+      const f = e.dataTransfer.files[0];
+      if (f && (f.name.endsWith('.csv') || f.name.endsWith('.pdf'))) readFile(f, which.toLowerCase());
+    });
+  });
+
+  function maybeShowConfig() {
+    if (!dataOld || !dataNew) { updateBtn(); return; }
+    const common = dataOld.headers.filter(h => dataNew.headers.includes(h));
+    const sel = document.getElementById('keyField');
+    sel.innerHTML = common.map(h => `<option value="${h}">${h}</option>`).join('');
+
+    // Auto-select "Policy Line" when both files are AI-extracted from PDFs
+    if (common.includes('Policy Line')) {
+      sel.value = 'Policy Line';
+      document.getElementById('configRow').style.display = 'none';
+      document.getElementById('stepTwoLabel').style.display = 'none';
+    } else {
+      document.getElementById('configRow').style.display = 'flex';
+      document.getElementById('stepTwoLabel').style.display = 'block';
+    }
+    updateBtn();
+  }
+
+  function updateBtn() {
+    document.getElementById('btnCompare').disabled = !(dataOld && dataNew);
+  }
+
+  // ── Compare ─────────────────────────────────────────────────────────────────
+  // Shared: once we have compareResults + headers, paint the screen.
+  function finishCompare(keyField, valueHeaders) {
+    savedKeyField = keyField;
+    savedValueHeaders = valueHeaders;
+
+    const order = { missing: 0, changed: 1, added: 2, match: 3 };
+    compareResults.sort((a, b) => order[a.status] - order[b.status]);
+
+    document.getElementById('cntMissing').textContent = compareResults.filter(r => r.status === 'missing').length;
+    document.getElementById('cntChanged').textContent = compareResults.filter(r => r.status === 'changed').length;
+    document.getElementById('cntAdded').textContent   = compareResults.filter(r => r.status === 'added').length;
+    document.getElementById('cntMatch').textContent   = compareResults.filter(r => r.status === 'match').length;
+
+    document.getElementById('tableHead').innerHTML = `<tr>
+      <th>Status</th>
+      <th>${esc(keyField)}</th>
+      ${valueHeaders.map(h => `<th>${esc(h)}</th>`).join('')}
+    </tr>`;
+
+    currentFilter = 'all';
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+    renderRows();
+
+    const aiMode = !!(dataOld && dataOld.aiExtracted && dataNew && dataNew.aiExtracted);
+    buildAgentSummary();
+    buildPolicyIdentity(aiMode);
+    buildReconciliation(aiMode);
+    document.querySelector('.verify-row').style.display = aiMode ? 'flex' : 'none';
+    document.getElementById('extractView').classList.add('hidden');
+
+    document.getElementById('results').classList.remove('hidden');
+    document.getElementById('idleState').classList.add('hidden');
+    maybeEnableDraftEmail();
+  }
+
+  function parseMoney(v) {
+    if (v == null) return null;
+    const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));
+    return isNaN(n) ? null : n;
+  }
+
+  function money(n) {
+    return '$' + Number(n).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function parseDate(s) {
+    if (!s) return null;
+    const t = Date.parse(String(s).replace(/-/g, '/'));
+    return isNaN(t) ? null : new Date(t);
+  }
+
+  function normName(s) {
+    return String(s || '').toLowerCase().replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim();
+  }
+
+  // Feature 1: confirm we loaded the right two policies (same client, right order).
+  function buildPolicyIdentity(aiMode) {
+    const block = document.getElementById('policyId');
+    const warn = document.getElementById('idWarn');
+    warn.classList.add('hidden');
+    const mo = (dataOld && dataOld.meta) || {}, mn = (dataNew && dataNew.meta) || {};
+
+    if (!aiMode || (!mo.insured && !mn.insured && !mo.policyNumber && !mn.policyNumber)) {
+      block.classList.add('hidden');
+      return;
+    }
+    block.classList.remove('hidden');
+    document.getElementById('idOldName').textContent = mo.insured || '(name not found)';
+    document.getElementById('idNewName').textContent = mn.insured || '(name not found)';
+    const metaLine = m => {
+      const bits = [];
+      if (m.policyNumber) bits.push('Policy ' + m.policyNumber);
+      if (m.effectiveDate || m.expirationDate) bits.push('Term ' + (m.effectiveDate || '?') + ' – ' + (m.expirationDate || '?'));
+      if (m.carrier) bits.push(m.carrier);
+      return bits.join('  •  ');
+    };
+    document.getElementById('idOldMeta').textContent = metaLine(mo);
+    document.getElementById('idNewMeta').textContent = metaLine(mn);
+
+    const warns = [];
+    if (mo.insured && mn.insured && normName(mo.insured) !== normName(mn.insured)) {
+      warns.push(`The named insured differs between the two files ("${mo.insured}" vs "${mn.insured}"). Make sure both PDFs are for the SAME client.`);
+    }
+    const dOld = parseDate(mo.effectiveDate), dNew = parseDate(mn.effectiveDate);
+    if (dOld && dNew && dOld.getTime() > dNew.getTime()) {
+      warns.push(`The renewal effective date (${mn.effectiveDate}) is earlier than the previous policy (${mo.effectiveDate}). The two files may be loaded in the wrong slots.`);
+    }
+    if (warns.length) {
+      warn.classList.remove('hidden');
+      warn.innerHTML = '<span>⚠️</span><span>' + warns.map(esc).join('<br>') + '</span>';
+    }
+  }
+
+  // Feature 2: do the line-item premiums add up to the stated total?
+  function policyTotals(records) {
+    let sum = 0, total = null;
+    (records || []).forEach(r => {
+      const prem = parseMoney(r.Premium);
+      if (prem == null) return;
+      if (/total[^›]*premium/i.test(r.Coverage || '') || /summary/i.test(r.Section || '')) {
+        if (total == null) total = prem;
+      } else {
+        sum += prem;
+      }
+    });
+    return { sum, total };
+  }
+
+  function buildReconciliation(aiMode) {
+    const el = document.getElementById('reconWarn');
+    el.classList.add('hidden');
+    if (!aiMode) return;
+    const msgs = [];
+    [['Previous', dataOld], ['Renewal', dataNew]].forEach(([label, d]) => {
+      const { sum, total } = policyTotals(d.records);
+      if (total == null || sum <= 0) return;
+      const diff = Math.abs(sum - total);
+      if (diff > 20 && diff / total > 0.03) {
+        msgs.push(`${label} policy: the line-item premiums I read add up to ${money(sum)}, but the stated total is ${money(total)} (off by ${money(diff)}). Verify against the declarations page.`);
+      }
+    });
+    if (msgs.length) {
+      el.classList.remove('hidden');
+      el.innerHTML = '<span>⚠️</span><span>' + msgs.map(esc).join('<br>') + '</span>';
+    }
+  }
+
+  // Feature 3: let the agent see exactly what was read from each PDF.
+  function buildExtractView() {
+    const wrap = document.getElementById('extractView');
+    const col = (title, d) => {
+      const rows = (d && d.records) || [];
+      const body = rows.map(r =>
+        `<tr><td>${esc(r.Section || '')}</td><td>${esc(r.Coverage || '')}</td><td>${esc(r.Limit || '')}</td><td>${esc(r.Deductible || '')}</td><td>${esc(r.Premium || '')}</td></tr>`).join('');
+      return `<div class="extract-col"><div class="extract-col__head">${esc(title)} — ${rows.length} lines</div>` +
+        `<div class="extract-col__body"><table><thead><tr><th>Section</th><th>Coverage</th><th>Limit</th><th>Deduct.</th><th>Premium</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+    };
+    wrap.innerHTML = col('Previous Policy', dataOld) + col('Renewal Policy', dataNew);
+  }
+
+  // Build the headline banner: total premium change + what's driving it.
+  function buildAgentSummary() {
+    const banner = document.getElementById('premiumBanner');
+
+    // Total premium: prefer explicit "Total … Premium" summary lines.
+    let oldT = 0, newT = 0, found = false;
+    compareResults.forEach(r => {
+      if (/total[^›]*premium/i.test(r.key)) {
+        const o = parseMoney(r.oldRow && r.oldRow.Premium);
+        const n = parseMoney(r.newRow && r.newRow.Premium);
+        if (o != null) { oldT += o; found = true; }
+        if (n != null) { newT += n; found = true; }
+      }
+    });
+    // Fallback: sum individual line premiums (skip summary rows to avoid double count).
+    if (!found) {
+      compareResults.forEach(r => {
+        if (/summary|total/i.test(r.key)) return;
+        const o = parseMoney(r.oldRow && r.oldRow.Premium);
+        const n = parseMoney(r.newRow && r.newRow.Premium);
+        if (o != null) oldT += o;
+        if (n != null) newT += n;
+      });
+      found = oldT > 0 || newT > 0;
+    }
+
+    if (!found) { banner.classList.add('hidden'); return; }
+
+    const delta = newT - oldT;
+    const pct = oldT > 0 ? Math.round(Math.abs(delta) / oldT * 100) : 0;
+    const up = delta > 0.5, down = delta < -0.5;
+
+    banner.classList.remove('hidden', 'pb-up', 'pb-down', 'pb-flat');
+    banner.classList.add(up ? 'pb-up' : down ? 'pb-down' : 'pb-flat');
+
+    const arrow = up ? '▲' : down ? '▼' : '';
+    document.getElementById('pbAmount').textContent =
+      `${arrow} ${money(Math.abs(delta))}  (${up ? '+' : down ? '−' : ''}${pct}%)`;
+    document.getElementById('pbOldNew').textContent =
+      `${money(oldT)} → ${money(newT)} ${up ? 'increase' : down ? 'decrease' : '(no change)'}`;
+
+    // What's driving it
+    const vehAdded   = compareResults.filter(r => /vehicle added/i.test(r.key)).length;
+    const vehRemoved = compareResults.filter(r => /vehicle removed/i.test(r.key)).length;
+    const drvAdded   = compareResults.filter(r => r.status === 'added'   && /driver -/i.test(r.key)).length;
+    const drvRemoved = compareResults.filter(r => r.status === 'missing' && /driver -/i.test(r.key)).length;
+    const covChanges = compareResults.filter(r => r.status === 'changed' && !/total[^›]*premium/i.test(r.key) && isMeaningfulChange(r)).length;
+    const covAdded   = compareResults.filter(r => r.status === 'added'   && !/vehicle added/i.test(r.key)   && !/driver -/i.test(r.key)).length;
+    const covDropped = compareResults.filter(r => r.status === 'missing' && !/vehicle removed/i.test(r.key) && !/driver -/i.test(r.key) && !/total[^›]*premium/i.test(r.key)).length;
+
+    const items = [];
+    if (vehRemoved) items.push(`${vehRemoved} vehicle${vehRemoved > 1 ? 's' : ''} removed`);
+    if (vehAdded)   items.push(`${vehAdded} vehicle${vehAdded > 1 ? 's' : ''} added`);
+    if (drvRemoved) items.push(`${drvRemoved} driver${drvRemoved > 1 ? 's' : ''} removed`);
+    if (drvAdded)   items.push(`${drvAdded} driver${drvAdded > 1 ? 's' : ''} added`);
+    if (covChanges) items.push(`${covChanges} coverage/limit change${covChanges > 1 ? 's' : ''}`);
+    if (covDropped) items.push(`${covDropped} coverage${covDropped > 1 ? 's' : ''} dropped`);
+    if (covAdded)   items.push(`${covAdded} coverage${covAdded > 1 ? 's' : ''} added`);
+
+    if (!items.length && (up || down)) {
+      items.push(`Coverage appears unchanged — this looks like a straight rate ${up ? 'increase' : 'decrease'}.`);
+    } else if (!items.length) {
+      items.push('No coverage changes detected.');
+    }
+
+    document.getElementById('pbDrivers').innerHTML = items.map(t => `<li>${esc(t)}</li>`).join('');
+  }
+
+  // Simple exact-match comparison (used for CSV files).
+  function runLocalCompare() {
+    const keyField = document.getElementById('keyField').value;
+    const allHeaders = [...new Set([...dataOld.headers, ...dataNew.headers])];
+    const valueHeaders = allHeaders.filter(h => h !== keyField);
+
+    const oldMap = new Map(dataOld.records.map(r => [r[keyField], r]));
+    const newMap = new Map(dataNew.records.map(r => [r[keyField], r]));
+
+    compareResults = [];
+    for (const [key, oldRow] of oldMap) {
+      if (!newMap.has(key)) { compareResults.push({ status: 'missing', key, oldRow, newRow: null, changes: [] }); continue; }
+      const newRow = newMap.get(key);
+      const changes = valueHeaders.filter(h => (oldRow[h] ?? '') !== (newRow[h] ?? ''));
+      compareResults.push({ status: changes.length ? 'changed' : 'match', key, oldRow, newRow, changes });
+    }
+    for (const [key, newRow] of newMap) {
+      if (!oldMap.has(key)) compareResults.push({ status: 'added', key, oldRow: null, newRow, changes: [] });
+    }
+    finishCompare(keyField, valueHeaders);
+  }
+
+  // AI-powered comparison (used for PDFs): Claude matches coverages across the
+  // two policies even when vehicle numbers shift or wording differs.
+  async function runAiCompare() {
+    const VALUE_HEADERS = ['Limit', 'Deductible', 'Premium'];
+    const slim = recs => recs.map(r => ({
+      Type: r.Type || '', Section: r.Section || '', Coverage: r.Coverage || '',
+      Limit: r.Limit || '', Deductible: r.Deductible || '', Premium: r.Premium || '', Page: r.Page || null,
+    }));
+
+    const resp = await fetch('/api/compare', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ oldRows: slim(dataOld.records), newRows: slim(dataNew.records) }),
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.error || `Comparison failed (${resp.status})`);
+    }
+    const result = await resp.json();
+    if (result.error) throw new Error(result.error);
+    if (!Array.isArray(result.entries)) throw new Error('Unexpected comparison response.');
+
+    compareResults = result.entries.map(e => {
+      const status = e.s || 'match';
+      const oldRow = e.o ? { Limit: e.o.Limit || '', Deductible: e.o.Deductible || '', Premium: e.o.Premium || '' } : null;
+      const newRow = e.n ? { Limit: e.n.Limit || '', Deductible: e.n.Deductible || '', Premium: e.n.Premium || '' } : null;
+      let changes = [];
+      if (status === 'changed' && oldRow && newRow) {
+        changes = VALUE_HEADERS.filter(h => (oldRow[h] || '') !== (newRow[h] || ''));
+      }
+      return { status, key: e.k || '', oldRow, newRow, changes, review: !!e.rv, pg: e.pg || null, pgs: e.pgs || null };
+    });
+
+    compareResults = collapseWholeVehicles(compareResults);
+    finishCompare('Policy Line', VALUE_HEADERS);
+  }
+
+  // If an ENTIRE vehicle was added or removed, show it as a single line
+  // ("2017 Mazda 6 — vehicle removed") instead of one row per coverage.
+  function vehicleInfo(key) {
+    const parts = String(key).split(' › ');
+    const section = parts[1] || '', coverage = parts[2] || '';
+    const yearRe = /\b(19|20)\d{2}\b/;
+    let disp = null;
+    if (yearRe.test(section)) disp = section.replace(/^vehicle\s*\d+\s*-\s*/i, '').trim();
+    // A "Vehicles" list row carries the car in the coverage, with or without a
+    // "Vehicle -" prefix — catch either so it collapses with the car's lines.
+    else if (yearRe.test(coverage)) disp = coverage.replace(/^vehicle\s*-\s*/i, '').trim();
+    if (!disp) return null;
+    const norm = disp.toLowerCase().replace(/[^a-z0-9 ]/g, ' ')
+      .replace(/\binternational\b/g, 'intl').replace(/\s+/g, ' ').trim();
+    return { norm, disp };
+  }
+
+  function collapseWholeVehicles(results) {
+    const groups = new Map(); // normalized vehicle -> { idxs, disp }
+    results.forEach((r, i) => {
+      const v = vehicleInfo(r.key);
+      if (!v) return;
+      if (!groups.has(v.norm)) groups.set(v.norm, { idxs: [], disp: v.disp });
+      const g = groups.get(v.norm);
+      g.idxs.push(i);
+      if (v.disp.length > g.disp.length) g.disp = v.disp; // keep the fullest description
+    });
+
+    const remove = new Set();
+    const collapsed = [];
+    for (const g of groups.values()) {
+      if (g.idxs.length < 2) continue;
+      const statuses = g.idxs.map(i => results[i].status);
+      const allMissing = statuses.every(s => s === 'missing');
+      const allAdded   = statuses.every(s => s === 'added');
+      if (!allMissing && !allAdded) continue; // car still exists — keep its line items
+      g.idxs.forEach(i => remove.add(i));
+      const rep = g.idxs.map(i => results[i]).find(r => r.pg) || results[g.idxs[0]];
+      collapsed.push({
+        status: allMissing ? 'missing' : 'added',
+        key: `Auto › ${allMissing ? 'Vehicle Removed' : 'Vehicle Added'} › ${g.disp}`,
+        oldRow: null, newRow: null, changes: [],
+        pg: rep.pg || null, pgs: rep.pgs || null,
+      });
+    }
+    if (!remove.size) return results;
+    return results.filter((_, i) => !remove.has(i)).concat(collapsed);
+  }
+
+  document.getElementById('btnCompare').addEventListener('click', async () => {
+    const btn = document.getElementById('btnCompare');
+    const useAi = dataOld.aiExtracted && dataNew.aiExtracted;
+    const originalHtml = btn.innerHTML;
+
+    if (useAi) {
+      btn.disabled = true;
+      btn.innerHTML = '⏳ AI is comparing both policies… (~20 sec)';
+    }
+
+    try {
+      if (useAi) await runAiCompare();
+      else runLocalCompare();
+    } catch (err) {
+      showToast('Comparison failed: ' + err.message, 'error');
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalHtml;
+    }
+  });
+
+  // Keywords that signal an agent-relevant field
+  const KEY_FIELDS = [
+    'premium','deductible','limit','coverage','amount','cost','payment','fee','rate',
+    'driver','insured','named','policyholder','owner','member','person','passenger',
+    'vehicle','car','auto','vin','make','model','year','plate',
+    'effective','expir','cancel','term','period',
+    'liability','collision','comprehensive','uninsured','underinsured','medical','pip',
+    'dwelling','flood','fire','theft','loss','damage','bodily','property',
+  ];
+
+  function stringSimilarity(a, b) {
+    a = String(a).toLowerCase().trim();
+    b = String(b).toLowerCase().trim();
+    if (a === b) return 1;
+    const longer = a.length > b.length ? a : b;
+    const shorter = a.length > b.length ? b : a;
+    if (longer.length === 0) return 1;
+    let matches = 0;
+    for (let i = 0; i < shorter.length; i++) {
+      if (longer.includes(shorter[i])) matches++;
+    }
+    return matches / longer.length;
+  }
+
+  function isTrivialChange(col, oldRow, newRow) {
+    const oldVal = String(oldRow?.[col] ?? '').trim();
+    const newVal = String(newRow?.[col] ?? '').trim();
+    const oldNum = parseFloat(oldVal.replace(/[$,]/g,''));
+    const newNum = parseFloat(newVal.replace(/[$,]/g,''));
+    if (!isNaN(oldNum) && !isNaN(newNum)) {
+      const diff = Math.abs(newNum - oldNum);
+      if (diff <= 1) return true;
+    }
+    if (isNaN(oldNum) || isNaN(newNum)) {
+      if (stringSimilarity(oldVal, newVal) > 0.88) return true;
+    }
+    return false;
+  }
+
+  function isMeaningfulChange(r) {
+    if (r.status === 'missing' || r.status === 'added') return true;
+    if (r.status === 'match') return false;
+    return r.changes.some(col => !isTrivialChange(col, r.oldRow, r.newRow));
+  }
+
+  function isKeyChange(r) {
+    if (r.status === 'missing' || r.status === 'added') return true;
+    if (r.status === 'match') return false;
+    return r.changes.some(col => {
+      if (isTrivialChange(col, r.oldRow, r.newRow)) return false;
+      const colLower = col.toLowerCase();
+      if (KEY_FIELDS.some(k => colLower.includes(k))) return true;
+      const oldVal = parseFloat(String(r.oldRow?.[col] ?? '').replace(/[$,]/g,''));
+      const newVal = parseFloat(String(r.newRow?.[col] ?? '').replace(/[$,]/g,''));
+      if (!isNaN(oldVal) && !isNaN(newVal) && oldVal !== newVal) {
+        const diff = Math.abs(newVal - oldVal);
+        const pct  = oldVal !== 0 ? diff / Math.abs(oldVal) : 1;
+        if (diff > 50 || pct > 0.05) return true;
+      }
+      return false;
+    });
+  }
+
+  function renderRows() {
+    const tbody = document.getElementById('tableBody');
+    const filtered = currentFilter === 'all' ? compareResults.filter(isMeaningfulChange)
+      : currentFilter === 'key' ? compareResults.filter(isKeyChange)
+      : compareResults.filter(r => r.status === currentFilter);
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="99" style="text-align:center;color:var(--gray-400);padding:2rem;font-size:0.82rem;">No items in this category.</td></tr>`;
+      return;
+    }
+
+    const labels = { missing: 'Missing', changed: 'Changed', added: 'Added', match: 'Unchanged' };
+    tbody.innerHTML = filtered.map(r => {
+      const pageTag = r.pg
+        ? `<span class="page-tag" title="Find this on page ${r.pg} of the ${r.pgs === 'old' ? 'current' : 'renewal'} policy">${r.pgs === 'old' ? 'current' : 'renewal'} p.${r.pg}</span>`
+        : '';
+      const keyCell = `<td><strong>${esc(r.key)}</strong>${pageTag}</td>`;
+      const valueCells = savedValueHeaders.map(h => {
+        if (r.status === 'missing') {
+          const v = r.oldRow?.[h] ?? '';
+          return `<td>${v ? `<span class="cell-old">${esc(v)}</span>` : '<span style="color:var(--gray-300)">—</span>'}</td>`;
+        }
+        if (r.status === 'added') {
+          const v = r.newRow?.[h] ?? '';
+          return `<td>${v ? `<span class="cell-new">${esc(v)}</span>` : '<span style="color:var(--gray-300)">—</span>'}</td>`;
+        }
+        const oldV = r.oldRow?.[h] ?? '', newV = r.newRow?.[h] ?? '';
+        if (r.changes?.includes(h)) {
+          return `<td><span class="cell-old">${esc(oldV)}</span><span class="cell-arrow"> → </span><span class="cell-new">${esc(newV)}</span></td>`;
+        }
+        return `<td>${esc(newV || oldV)}</td>`;
+      }).join('');
+
+      return `<tr class="row--${r.status}">
+        <td><span class="badge badge--${r.status}">${labels[r.status]}</span>${r.review ? '<span class="pill-review" title="The AI was not confident about this line — double-check it">review</span>' : ''}</td>
+        ${keyCell}${valueCells}
+      </tr>`;
+    }).join('');
+  }
+
+  function esc(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ── View extracted data toggle ───────────────────────────────────────────────
+  document.getElementById('btnViewExtract').addEventListener('click', () => {
+    const v = document.getElementById('extractView');
+    if (v.classList.contains('hidden')) { buildExtractView(); v.classList.remove('hidden'); }
+    else v.classList.add('hidden');
+  });
+
+  // ── Filters ─────────────────────────────────────────────────────────────────
+  document.getElementById('filterRow').addEventListener('click', e => {
+    if (!e.target.classList.contains('filter-tab')) return;
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentFilter = e.target.dataset.filter;
+    renderRows();
+  });
+
+  // ── AI Assistant ─────────────────────────────────────────────────────────────
+  function buildComparisonContext() {
+    if (!compareResults.length) return 'No comparison data available.';
+    const missing = compareResults.filter(r => r.status === 'missing');
+    const changed = compareResults.filter(r => r.status === 'changed');
+    const added   = compareResults.filter(r => r.status === 'added');
+
+    const lines = [
+      `Policy comparison summary:`,
+      `- ${missing.length} coverage lines missing from renewal`,
+      `- ${changed.length} lines with changed values`,
+      `- ${added.length} new lines added`,
+      `- ${compareResults.filter(r => r.status === 'match').length} lines unchanged`,
+      '',
+    ];
+
+    if (missing.length) {
+      lines.push('Missing from renewal:');
+      missing.forEach(r => lines.push(`  • ${r.key}`));
+      lines.push('');
+    }
+
+    if (changed.length) {
+      lines.push('Changed values:');
+      changed.forEach(r => {
+        lines.push(`  • ${r.key}`);
+        r.changes.forEach(col => {
+          const ov = r.oldRow?.[col] ?? '';
+          const nv = r.newRow?.[col] ?? '';
+          lines.push(`      ${col}: "${ov}" → "${nv}"`);
+        });
+      });
+      lines.push('');
+    }
+
+    if (added.length) {
+      lines.push('Newly added in renewal:');
+      added.forEach(r => lines.push(`  • ${r.key}`));
+    }
+
+    return lines.join('\n');
+  }
+
+  function appendMsg(role, text) {
+    const el = document.createElement('div');
+    el.className = `ai-msg ai-msg--${role}`;
+    el.textContent = text;
+    const box = document.getElementById('aiMessages');
+    box.appendChild(el);
+    box.scrollTop = box.scrollHeight;
+    return el;
+  }
+
+  document.getElementById('btnAsk').addEventListener('click', async () => {
+    const question = document.getElementById('aiQuestion').value.trim();
+    if (!question) return;
+
+    const btn = document.getElementById('btnAsk');
+    btn.disabled = true;
+    document.getElementById('aiQuestion').value = '';
+
+    appendMsg('user', question);
+    const assistantEl = appendMsg('assistant', '…');
+
+    const systemPrompt =
+      'You are a helpful insurance policy analyst. The user has run a comparison between their current policy and a renewal policy. ' +
+      'Answer their question concisely and clearly. Use the data below.\n\n' +
+      buildComparisonContext();
+
+    try {
+      const resp = await fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5',
+          max_tokens: 1024,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: question }],
+        }),
+      });
+
+      if (!resp.ok) {
+        const err = await resp.json().catch(() => ({ error: { message: resp.statusText } }));
+        assistantEl.className = 'ai-msg ai-msg--error';
+        assistantEl.textContent = `Error ${resp.status}: ${err?.error?.message ?? resp.statusText}`;
+        return;
+      }
+
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        for (const line of chunk.split('\n')) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6);
+          if (data === '[DONE]') continue;
+          try {
+            const ev = JSON.parse(data);
+            if (ev.type === 'content_block_delta' && ev.delta?.type === 'text_delta') {
+              fullText += ev.delta.text;
+              assistantEl.textContent = fullText;
+              document.getElementById('aiMessages').scrollTop = document.getElementById('aiMessages').scrollHeight;
+            }
+          } catch {}
+        }
+      }
+    } catch (err) {
+      assistantEl.className = 'ai-msg ai-msg--error';
+      assistantEl.textContent = `Request failed: ${err.message}`;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  document.getElementById('aiQuestion').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById('btnAsk').click();
+    }
+  });
+
+  function maybeEnableDraftEmail() {
+    document.getElementById('btnDraftEmail').disabled = !compareResults.length;
+  }
+
+  document.getElementById('btnDraftEmail').addEventListener('click', async () => {
+    const btn = document.getElementById('btnDraftEmail');
+    btn.disabled = true;
+    btn.textContent = 'Drafting…';
+
+    const emailPanel = document.getElementById('emailPanel');
+    const emailBody  = document.getElementById('emailBody');
+    emailPanel.classList.remove('hidden');
+    emailBody.textContent = '…';
+
+    const systemPrompt =
+      'You are an insurance agent writing a professional, friendly email to a client about their policy renewal. ' +
+      'Write a complete ready-to-send email (with Subject line, greeting, body, and sign-off) that clearly explains ' +
+      'the key changes between their current policy and the renewal. Use plain English — avoid jargon. ' +
+      'Be specific about what changed, what was removed, and what was added. End with a call to action to contact the agent with questions.\n\n' +
+      buildComparisonContext();
+
+    try {
+      const resp = await fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5',
+          max_tokens: 1024,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: 'Please draft the client email now.' }],
+        }),
+      });
+
+      if (!resp.ok) {
+        const err = await resp.json().catch(() => ({}));
+        emailBody.textContent = `Error ${resp.status}: ${err?.error?.message ?? resp.statusText}`;
+        return;
+      }
+
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        for (const line of chunk.split('\n')) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6);
+          if (data === '[DONE]') continue;
+          try {
+            const ev = JSON.parse(data);
+            if (ev.type === 'content_block_delta' && ev.delta?.type === 'text_delta') {
+              fullText += ev.delta.text;
+              emailBody.textContent = fullText;
+              emailBody.scrollTop = emailBody.scrollHeight;
+            }
+          } catch {}
+        }
+      }
+    } catch (err) {
+      emailBody.textContent = `Request failed: ${err.message}`;
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Draft Client Email`;
+    }
+  });
+
+  document.getElementById('btnCopyEmail').addEventListener('click', () => {
+    const text = document.getElementById('emailBody').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('btnCopyEmail');
+      btn.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy to Clipboard`;
+      }, 2000);
+    });
+  });
+
+  // ── Export ───────────────────────────────────────────────────────────────────
+  document.getElementById('btnExport').addEventListener('click', () => {
+    if (!compareResults.length) return;
+    const cols = ['Status', savedKeyField, ...savedValueHeaders];
+    const rows = [cols, ...compareResults.map(r => {
+      const row = [r.status, r.key];
+      for (const h of savedValueHeaders) {
+        const oldV = r.oldRow?.[h] ?? '', newV = r.newRow?.[h] ?? '';
+        if (r.status === 'missing') row.push(oldV);
+        else if (r.status === 'added') row.push(newV);
+        else if (r.changes?.includes(h)) row.push(`${oldV} → ${newV}`);
+        else row.push(newV || oldV);
+      }
+      return row;
+    })];
+    const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    a.download = `policy-comparison-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+  });
+</script>
+</body>
+</html>

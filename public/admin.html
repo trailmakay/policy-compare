@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — Invite Codes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Inter',sans-serif; background:#0c2461; color:#1e293b; min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:48px 20px; }
+  .card { background:#fff; width:100%; max-width:620px; border-radius:16px; box-shadow:0 20px 50px rgba(0,0,0,.3); overflow:hidden; }
+  .head { background:linear-gradient(150deg,#0c2461,#1a4a8a); color:#fff; padding:26px 30px; }
+  .head h1 { font-size:20px; font-weight:800; }
+  .head p { font-size:13px; color:rgba(255,255,255,.65); margin-top:4px; }
+  .body { padding:26px 30px; }
+  label { display:block; font-size:12px; font-weight:700; color:#475569; margin-bottom:6px; text-transform:uppercase; letter-spacing:.4px; }
+  input { width:100%; padding:11px 13px; border:1px solid #e2e8f0; border-radius:10px; font-size:14px; font-family:inherit; outline:none; margin-bottom:16px; }
+  input:focus { border-color:#1e4db7; box-shadow:0 0 0 3px #dbeafe; }
+  .row { display:flex; gap:12px; }
+  .row > div { flex:1; }
+  button { background:#1e4db7; color:#fff; border:none; border-radius:10px; padding:12px 16px; font-size:14px; font-weight:700; cursor:pointer; }
+  button:hover { background:#1a3a8f; }
+  .err { background:#fee2e2; color:#dc2626; font-size:13px; padding:10px 12px; border-radius:9px; margin-bottom:14px; display:none; }
+  .err.show { display:block; }
+  .codes { margin-top:22px; }
+  .code { font-family:ui-monospace,Menlo,monospace; font-size:16px; font-weight:700; letter-spacing:1px; background:#eef2f7; border:1px solid #e2e8f0; border-radius:9px; padding:11px 14px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+  .code.used { opacity:.55; text-decoration:line-through; }
+  .code small { font-family:'Inter',sans-serif; font-weight:600; letter-spacing:0; color:#64748b; }
+  .tag { font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px; }
+  .tag.avail { background:#dcfce7; color:#16a34a; }
+  .tag.used { background:#f1f5f9; color:#64748b; }
+  .muted { font-size:12.5px; color:#64748b; margin-top:6px; line-height:1.5; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <h1>Invite Codes</h1>
+      <p>Generate one-time codes so people can create an agency account. Each code works once.</p>
+    </div>
+    <div class="body">
+      <div class="err" id="err"></div>
+      <label>Admin Password</label>
+      <input type="password" id="admin" placeholder="Your admin password" />
+      <div class="row">
+        <div><label>How many</label><input type="number" id="count" value="1" min="1" max="50" /></div>
+        <div><label>Note (optional)</label><input type="text" id="note" placeholder="e.g. Trail Insurance" /></div>
+      </div>
+      <button onclick="gen()">Generate Codes</button>
+      <button onclick="load()" style="background:#475569;margin-left:8px;">Refresh List</button>
+      <div class="muted">Give a fresh code to each new agency/user. They enter it on the "Create an agency account" screen.</div>
+      <div class="codes" id="codes"></div>
+    </div>
+  </div>
+<script>
+  function secret(){ return document.getElementById('admin').value; }
+  function showErr(m){ const e=document.getElementById('err'); e.textContent=m; e.classList.add('show'); }
+  function clearErr(){ document.getElementById('err').classList.remove('show'); }
+  async function api(path, method, body){
+    const res = await fetch(path, { method, headers:{'Content-Type':'application/json','x-admin-secret':secret()}, body: body?JSON.stringify(body):undefined });
+    const data = await res.json().catch(()=>({}));
+    if(!res.ok) throw new Error(data.error || 'Request failed.');
+    return data;
+  }
+  async function gen(){
+    clearErr();
+    try{
+      await api('/api/admin/codes','POST',{ count: parseInt(document.getElementById('count').value)||1, note: document.getElementById('note').value });
+      load();
+    }catch(e){ showErr(e.message); }
+  }
+  async function load(){
+    clearErr();
+    try{
+      const list = await api('/api/admin/codes','GET');
+      document.getElementById('codes').innerHTML = list.map(c =>
+        `<div class="code ${c.used?'used':''}"><span>${c.code}${c.note?` <small>— ${c.note}</small>`:''}</span>`+
+        `<span class="tag ${c.used?'used':'avail'}">${c.used?('used by '+(c.used_by||'?')):'available'}</span></div>`
+      ).join('') || '<div class="muted">No codes yet — generate one above.</div>';
+    }catch(e){ showErr(e.message); }
+  }
+</script>
+</body>
+</html>

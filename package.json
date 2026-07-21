@@ -1,11 +1,22 @@
 {
   "name": "policy-compare",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Policy Renewal Checker — AI-assisted insurance policy comparison, with per-agency accounts.",
+  "type": "commonjs",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "math": "node math-server.js"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "pdf-parse": "^1.1.1"
   }
 }

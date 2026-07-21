@@ -1,22 +1,19 @@
-const http = require('http');
-const https = require('https');
-const fs = require('fs');
+// ── Policy Renewal Checker server ──────────────────────────────────────────
+// Express API + static frontend. Real per-agency accounts (hashed passwords,
+// JWT cookie sessions, one-time invite codes, self-serve reset) wrapped around
+// the AI-assisted policy comparison engine.
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 const path = require('path');
-const url = require('url');
-const pdfParse = require('pdf-parse/lib/pdf-parse.js');
+const fs = require('fs');
 const crypto = require('crypto');
+const https = require('https');
+const pdfParse = require('pdf-parse/lib/pdf-parse.js');
+const db = require('./db');
 
-// Simple in-memory cache so identical inputs always return the identical answer
-// (makes results repeatable, instant, and free on re-runs).
-const cache = new Map();
-const hash = s => crypto.createHash('sha256').update(s).digest('hex');
-function cacheGet(k) { return cache.get(k); }
-function cacheSet(k, v) {
-  cache.set(k, v);
-  if (cache.size > 80) cache.delete(cache.keys().next().value); // cap memory
-}
-
-// Load .env if present
+// ── Load .env if present (local dev) ────────────────────────────────────────
 try {
   fs.readFileSync(path.join(__dirname, '.env'), 'utf8')
     .split('\n').forEach(line => {
@@ -25,93 +22,56 @@ try {
     });
 } catch {}
 
+// ── Settings (secrets from env in production, config.json for local) ────────
+const CONFIG_PATH = path.join(__dirname, 'config.json');
+let config = {};
+try { config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')); } catch (e) { config = {}; }
+if (!config.jwtSecret) {
+  config.jwtSecret = crypto.randomBytes(32).toString('hex');
+  if (!config.adminPassword) config.adminPassword = 'trailadmin';
+  try { fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2)); } catch (e) {}
+}
+
 const API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const PORT = process.env.PORT || 3000;
+const JWT_SECRET = process.env.JWT_SECRET || config.jwtSecret;
+const ADMIN_SECRET = process.env.ADMIN_SECRET || config.adminPassword || 'trailadmin';
+const PROD = process.env.NODE_ENV === 'production';
+const COOKIE_OPTS = { httpOnly: true, sameSite: 'lax', secure: PROD, maxAge: 30 * 864e5 };
 
-// Optional password protection (HTTP Basic Auth). Set APP_PASSWORD in the
-// environment to lock the app; leave it unset to run open (e.g. local dev).
-const APP_USER = process.env.APP_USER || 'agent';
-const APP_PASSWORD = process.env.APP_PASSWORD || '';
+if (!API_KEY) { console.error('ERROR: Set ANTHROPIC_API_KEY in your environment or .env file'); process.exit(1); }
 
-if (!API_KEY) {
-  console.error('ERROR: Set ANTHROPIC_API_KEY in your environment or .env file');
-  process.exit(1);
-}
-if (!APP_PASSWORD) {
-  console.warn('WARNING: APP_PASSWORD is not set — the app is open to anyone with the URL.');
-}
+// ── In-memory cache (identical inputs → identical answer, instant/free) ─────
+const cache = new Map();
+const hash = s => crypto.createHash('sha256').update(s).digest('hex');
+function cacheGet(k) { return cache.get(k); }
+function cacheSet(k, v) { cache.set(k, v); if (cache.size > 80) cache.delete(cache.keys().next().value); }
 
-// Returns true if the request carries the correct Basic-Auth credentials
-// (or if no password is configured at all).
-function checkAuth(req) {
-  if (!APP_PASSWORD) return true;
-  const header = req.headers['authorization'] || '';
-  const m = header.match(/^Basic (.+)$/);
-  if (!m) return false;
-  let decoded = '';
-  try { decoded = Buffer.from(m[1], 'base64').toString('utf8'); } catch { return false; }
-  const i = decoded.indexOf(':');
-  if (i < 0) return false;
-  const user = decoded.slice(0, i);
-  const pass = decoded.slice(i + 1);
-  const passBuf = Buffer.from(pass);
-  const wantBuf = Buffer.from(APP_PASSWORD);
-  const passOk = passBuf.length === wantBuf.length && crypto.timingSafeEqual(passBuf, wantBuf);
-  return user === APP_USER && passOk;
-}
-
-// Pull a named array out of the AI's JSON reply. Handles the normal case, and
-// also repairs a response that got cut off mid-list (keeps all complete items).
+// ════════════════════════════════════════════════════════════════════════════
+// COMPARISON ENGINE (unchanged business logic)
+// ════════════════════════════════════════════════════════════════════════════
 function extractArray(text, key) {
   const m = text.match(/\{[\s\S]*\}/);
-  if (m) {
-    try {
-      const obj = JSON.parse(m[0]);
-      if (Array.isArray(obj[key])) return obj[key];
-    } catch {}
-  }
-  // Repair case: response truncated — close the array after the last full item
+  if (m) { try { const obj = JSON.parse(m[0]); if (Array.isArray(obj[key])) return obj[key]; } catch {} }
   const start = text.indexOf('[');
   if (start >= 0) {
     let arr = text.slice(start);
     const lastObj = arr.lastIndexOf('}');
-    if (lastObj >= 0) {
-      arr = arr.slice(0, lastObj + 1) + ']';
-      try {
-        const items = JSON.parse(arr);
-        if (Array.isArray(items)) return items;
-      } catch {}
-    }
+    if (lastObj >= 0) { arr = arr.slice(0, lastObj + 1) + ']'; try { const items = JSON.parse(arr); if (Array.isArray(items)) return items; } catch {} }
   }
   return null;
 }
 
-// One promise-based call to Claude; returns the assistant's text.
-// Uses the stronger model (Sonnet) by default. If the per-minute rate limit is
-// hit it waits and retries once; if it's still limited, it falls back to the
-// faster model (Haiku, higher limits) so the app never hard-fails on a big read.
 const PRIMARY_MODEL = 'claude-haiku-4-5';
 const FALLBACK_MODEL = 'claude-haiku-4-5';
-
 function askAnthropic({ system, content, max_tokens = 8192, model = PRIMARY_MODEL, attempt = 0 }) {
   return new Promise((resolve, reject) => {
-    const data = JSON.stringify({
-      model, max_tokens, temperature: 0,
-      system, messages: [{ role: 'user', content }],
-    });
+    const data = JSON.stringify({ model, max_tokens, temperature: 0, system, messages: [{ role: 'user', content }] });
     const options = {
       hostname: 'api.anthropic.com', path: '/v1/messages', method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'content-length': Buffer.byteLength(data),
-        'x-api-key': API_KEY,
-        'anthropic-version': '2023-06-01',
-      },
+      headers: { 'content-type': 'application/json', 'content-length': Buffer.byteLength(data), 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01' },
     };
-    const again = (opts, waitMs) => setTimeout(() => {
-      askAnthropic({ system, content, max_tokens, ...opts }).then(resolve, reject);
-    }, waitMs);
-
+    const again = (opts, waitMs) => setTimeout(() => { askAnthropic({ system, content, max_tokens, ...opts }).then(resolve, reject); }, waitMs);
     let resp = '';
     const r = https.request(options, up => {
       up.on('data', c => { resp += c; });
@@ -120,10 +80,9 @@ function askAnthropic({ system, content, max_tokens = 8192, model = PRIMARY_MODE
           const m = JSON.parse(resp);
           if (m.error) {
             const msg = m.error.message || 'Anthropic error';
-            const rateLimited = up.statusCode === 429 || up.statusCode === 529 ||
-              m.error.type === 'rate_limit_error' || /rate limit|overloaded/i.test(msg);
-            if (rateLimited && attempt < 1) return again({ model, attempt: 1 }, 25000);       // wait & retry same model
-            if (rateLimited && model !== FALLBACK_MODEL) return again({ model: FALLBACK_MODEL, attempt: 0 }, 1500); // fall back
+            const rateLimited = up.statusCode === 429 || up.statusCode === 529 || m.error.type === 'rate_limit_error' || /rate limit|overloaded/i.test(msg);
+            if (rateLimited && attempt < 1) return again({ model, attempt: 1 }, 25000);
+            if (rateLimited && model !== FALLBACK_MODEL) return again({ model: FALLBACK_MODEL, attempt: 0 }, 1500);
             return reject(new Error(msg));
           }
           resolve(m.content?.[0]?.text ?? '');
@@ -135,67 +94,37 @@ function askAnthropic({ system, content, max_tokens = 8192, model = PRIMARY_MODE
   });
 }
 
-function parseMoneyServer(v) {
-  if (v == null) return null;
-  const n = parseFloat(String(v).replace(/[^0-9.\-]/g, ''));
-  return isNaN(n) ? null : n;
-}
-
-// Use the policy's own printed total premium as an answer key: do the line-item
-// premiums add up to it? Returns { total, diff } or null if no total found.
+function parseMoneyServer(v) { if (v == null) return null; const n = parseFloat(String(v).replace(/[^0-9.\-]/g, '')); return isNaN(n) ? null : n; }
 function reconcileScore(rows) {
   let sum = 0, total = null;
-  (rows || []).forEach(r => {
-    const p = parseMoneyServer(r.Premium);
-    if (p == null) return;
-    if (/total[^a-z]*premium/i.test(r.Coverage || '') || /summary/i.test(r.Section || '')) {
-      if (total == null) total = p;
-    } else sum += p;
-  });
+  (rows || []).forEach(r => { const p = parseMoneyServer(r.Premium); if (p == null) return;
+    if (/total[^a-z]*premium/i.test(r.Coverage || '') || /summary/i.test(r.Section || '')) { if (total == null) total = p; } else sum += p; });
   if (total == null) return null;
   return { total, diff: Math.abs(sum - total) };
 }
-
-// Strip PII the tool doesn't need (phones, emails, SSNs) BEFORE sending text to
-// the AI. Coverage/premium/vehicle data and the insured name are kept (needed).
-// Page-finding uses the un-redacted text, which never leaves the server.
 function redactPII(text) {
   return String(text)
     .replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, '[email]')
-    .replace(/\b\d{3}-\d{2}-\d{4}\b/g, '[id]')                          // SSN-like
-    .replace(/\(\d{3}\)\s*\d{3}[-.\s]?\d{4}/g, '[phone]')               // (801) 785-4343
-    .replace(/\b\d{3}[-.\s]\d{3}[-.\s]\d{4}\b/g, '[phone]')             // 801-785-4343
-    .replace(/\b1[-.\s]?\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/g, '[phone]');  // 1.800.288.8740
+    .replace(/\b\d{3}-\d{2}-\d{4}\b/g, '[id]')
+    .replace(/\(\d{3}\)\s*\d{3}[-.\s]?\d{4}/g, '[phone]')
+    .replace(/\b\d{3}[-.\s]\d{3}[-.\s]\d{4}\b/g, '[phone]')
+    .replace(/\b1[-.\s]?\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/g, '[phone]');
 }
-
 function parseMeta(text) {
   let meta = {};
   const f = text.match(/\{[\s\S]*\}/);
   if (f) { try { const o = JSON.parse(f[0]); if (o.meta) meta = o.meta; } catch {} }
-  if (!meta.insured) {
-    const mm = text.match(/"meta"\s*:\s*(\{[^}]*\})/);
-    if (mm) { try { meta = JSON.parse(mm[1]); } catch {} }
-  }
+  if (!meta.insured) { const mm = text.match(/"meta"\s*:\s*(\{[^}]*\})/); if (mm) { try { meta = JSON.parse(mm[1]); } catch {} } }
   return meta;
 }
 
-// ── Deterministic policy comparison ─────────────────────────────────────────
-// Matches coverages across two policies in code (no AI), so the result is exact,
-// instant, and identical every time for the same input.
 const CMP_MAKE_MAP = { toyt:'toyota', hond:'honda', intl:'international', chev:'chevrolet', chevy:'chevrolet', vw:'volkswagen', mercbenz:'mercedes', frt:'freightliner' };
 const cmpNorm = s => String(s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 const CMP_YEAR = /\b(19|20)\d{2}\b/;
-
 function comparePolicies(oldRows, newRows) {
-  // Drop per-vehicle premium SUBTOTALS (a "Total Premium" line under a specific
-  // vehicle). They're redundant with the vehicle's own coverage premiums, and
-  // one policy's read often has them while the other's doesn't — which would
-  // create false "missing" rows and double-count the premium banner.
-  const isVehSubtotal = r => CMP_YEAR.test(String(r.Section||'')) &&
-    (/total[^a-z]*premium/i.test(String(r.Coverage||'')) || /^\s*premium\s*$/i.test(String(r.Coverage||'')));
+  const isVehSubtotal = r => CMP_YEAR.test(String(r.Section||'')) && (/total[^a-z]*premium/i.test(String(r.Coverage||'')) || /^\s*premium\s*$/i.test(String(r.Coverage||'')));
   oldRows = oldRows.filter(r => !isVehSubtotal(r));
   newRows = newRows.filter(r => !isVehSubtotal(r));
-
   const vehDescriptor = r => {
     const sec = String(r.Section||''), cov = String(r.Coverage||'');
     if (CMP_YEAR.test(sec)) return sec.replace(/^vehicle\s*\d+\s*-\s*/i,'').trim();
@@ -209,7 +138,6 @@ function comparePolicies(oldRows, newRows) {
     return { year, toks: rest, desc };
   };
   const vehScore = (a,b) => { if(a.year&&b.year&&a.year!==b.year) return -1; const sb=new Set(b.toks); let s=0; a.toks.forEach(t=>{ if(sb.has(t)) s++; }); return s; };
-
   const oldDescs=[...new Set(oldRows.map(vehDescriptor).filter(Boolean))];
   const newDescs=[...new Set(newRows.map(vehDescriptor).filter(Boolean))];
   const oldV=oldDescs.map(parseVeh), newV=newDescs.map(parseVeh);
@@ -220,26 +148,12 @@ function comparePolicies(oldRows, newRows) {
   cand.forEach(([s,i,j])=>{ if(usedOi.has(i)||usedNj.has(j)) return; usedOi.add(i); usedNj.add(j); oldDescToId[oldDescs[i]]='V'+j; newDescToId[newDescs[j]]='V'+j; });
   oldDescs.forEach(d=>{ if(!(d in oldDescToId)) oldDescToId[d]='Oonly:'+d; });
   newDescs.forEach(d=>{ if(!(d in newDescToId)) newDescToId[d]='Nonly:'+d; });
-
-  // Match drivers by last name + first 3 letters of the first name, so spelling
-  // variations of the same person ("Tayler"/"Taylor") pair instead of looking
-  // like one driver dropped and another added.
   const driverKey = cov => { const n=cmpNorm(cov).replace(/^driver\s*/,'').trim().split(' ').filter(Boolean); return 'DR|'+((n[0]||'').slice(0,3))+'|'+(n[n.length-1]||''); };
-  // Normalize a coverage name for matching: drop parenthetical abbreviations
-  // like "(BI)"/"(COMP)" and filler words, so "Bodily Injury Liability" and
-  // "Bodily Injury (BI)" match (different carriers write the same coverage
-  // differently), while keeping genuinely distinct coverages distinct.
   const covKey = cov => {
     const raw = String(cov||'').toLowerCase();
-    // Canonicalize a few common coverages that carriers word very differently,
-    // so e.g. "Tow/Roadside Assistance" == "Towing and Emergency Road Side Services".
     if (/\btow|road\s?side/.test(raw)) return 'roadside';
     if (/rental|loss of use|transportation expense/.test(raw)) return 'rental';
-    return raw
-      .replace(/\([^)]*\)/g,' ')
-      .replace(/[^a-z0-9 ]/g,' ')
-      .replace(/\b(liability|coverage|cov|premium|limits?)\b/g,' ')
-      .replace(/\s+/g,' ').trim();
+    return raw.replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\b(liability|coverage|cov|premium|limits?)\b/g,' ').replace(/\s+/g,' ').trim();
   };
   const rowKey = (r, side) => {
     const desc=vehDescriptor(r);
@@ -260,23 +174,17 @@ function comparePolicies(oldRows, newRows) {
     return 'Auto › '+(r.Section||'')+' › '+r.Coverage;
   };
   const val = r => ({ Limit: r.Limit||'', Deductible: r.Deductible||'', Premium: r.Premium||'' });
-
   const oldMap=new Map(), newMap=new Map();
   oldRows.forEach(r=>{ const k=rowKey(r,'o'); if(!oldMap.has(k)) oldMap.set(k,r); });
   newRows.forEach(r=>{ const k=rowKey(r,'n'); if(!newMap.has(k)) newMap.set(k,r); });
-
   const matched=[], missing=[], added=[];
   for (const [k,r] of oldMap){ if(newMap.has(k)) matched.push([r,newMap.get(k)]); else missing.push(r); }
   for (const [k,r] of newMap){ if(!oldMap.has(k)) added.push(r); }
-
-  // Reconcile leftover package/other coverages by unique coverage name (handles
-  // the same coverage filed under a different section name in each policy).
   const mCov=new Map(), aCov=new Map();
   missing.forEach((r,i)=>{ if(!isOT(r)) return; const c=covKey(r.Coverage); (mCov.get(c)||mCov.set(c,[]).get(c)).push(i); });
   added.forEach((r,j)=>{ if(!isOT(r)) return; const c=covKey(r.Coverage); (aCov.get(c)||aCov.set(c,[]).get(c)).push(j); });
   const dropM=new Set(), dropA=new Set();
   for (const [c,mis] of mCov){ const adds=aCov.get(c); if(mis.length===1 && adds && adds.length===1){ matched.push([missing[mis[0]], added[adds[0]]]); dropM.add(mis[0]); dropA.add(adds[0]); } }
-
   const pg = r => (r && (r.Page || r.page)) || null;
   const entries=[];
   matched.forEach(([o,n])=>{ const ov=val(o), nv=val(n); const ch=ov.Limit!==nv.Limit||ov.Deductible!==nv.Deductible||ov.Premium!==nv.Premium; entries.push({ s: ch?'changed':'match', k: label(n), o: ov, n: nv, pg: pg(n)||pg(o), pgs:'new' }); });
@@ -285,8 +193,6 @@ function comparePolicies(oldRows, newRows) {
   return entries;
 }
 
-// ── Page tracking ───────────────────────────────────────────────────────────
-// Read a PDF but tag each page so we can later say which page a coverage is on.
 function pageMarkedRender() {
   let counter = 0;
   return pageData => {
@@ -304,164 +210,32 @@ function buildPages(marked) {
   if (prev!==null) parts.push({ page:prev, text:marked.slice(lastIdx) });
   return parts.map(p => ({ page:p.page, norm:' '+p.text.toUpperCase().replace(/[^A-Z0-9]+/g,' ').trim()+' ' }));
 }
-// Find the page whose text contains the most of the needle's distinctive words.
-// Distinctive words (make/model/coverage names) are weighted far above the year,
-// which appears on many pages — and we refuse to guess on a year-only match.
 function pageForNeedle(pages, needle) {
   if (!needle) return null;
   const toks=[...new Set(String(needle).toUpperCase().replace(/[^A-Z0-9]+/g,' ').split(' ').filter(t => t.length>=3 || /^(19|20)\d{2}$/.test(t)))];
   if (!toks.length) return null;
   let best=null, bestScore=0;
-  for (const p of pages) {
-    let sc=0; for (const t of toks) if (p.norm.includes(' '+t+' ')) sc += /^(19|20)\d{2}$/.test(t) ? 1 : 10;
-    if (sc>bestScore) { bestScore=sc; best=p.page; }
-  }
-  if (bestScore>=10) return best; // found a distinctive (non-year) word cleanly
-  // Last resort for glued/abbreviated raw text (e.g. "2017MAZD 6"): the 4-char
-  // prefix of the longest distinctive word as a substring.
+  for (const p of pages) { let sc=0; for (const t of toks) if (p.norm.includes(' '+t+' ')) sc += /^(19|20)\d{2}$/.test(t) ? 1 : 10; if (sc>bestScore) { bestScore=sc; best=p.page; } }
+  if (bestScore>=10) return best;
   const distinct=toks.filter(t => !/^(19|20)\d{2}$/.test(t)).sort((a,b)=>b.length-a.length);
-  for (const t of distinct) { const pre=t.slice(0,4); if (pre.length<4) continue;
-    for (const p of pages) if (p.norm.includes(pre)) return p.page;
-  }
+  for (const t of distinct) { const pre=t.slice(0,4); if (pre.length<4) continue; for (const p of pages) if (p.norm.includes(pre)) return p.page; }
   return null;
 }
 function rowNeedle(r) {
   const sec=String(r.Section||''), cov=String(r.Coverage||'');
   const desc = CMP_YEAR.test(sec) ? sec.replace(/^vehicle\s*\d+\s*-\s*/i,'').trim()
-    : (/^vehicles?$/i.test(sec) && CMP_YEAR.test(cov)) ? cov.replace(/^vehicle\s*-\s*/i,'').trim()
-    : null;
+    : (/^vehicles?$/i.test(sec) && CMP_YEAR.test(cov)) ? cov.replace(/^vehicle\s*-\s*/i,'').trim() : null;
   if (desc) return desc;
   if (/drivers?/i.test(sec)) return cov.replace(/^driver\s*-?\s*/i,'').trim();
   return cov || sec;
 }
 
-const MIME = {
-  '.html': 'text/html',
-  '.css':  'text/css',
-  '.js':   'application/javascript',
-  '.csv':  'text/csv',
-  '.pdf':  'application/pdf',
-};
-
-const server = http.createServer((req, res) => {
-  const parsed = url.parse(req.url);
-
-  // Password gate — applies to the page and every API endpoint.
-  if (!checkAuth(req)) {
-    res.writeHead(401, {
-      'WWW-Authenticate': 'Basic realm="Policy Renewal Checker", charset="UTF-8"',
-      'content-type': 'text/plain',
-    });
-    res.end('Authentication required.');
-    return;
-  }
-
-  // ── Proxy endpoint ──────────────────────────────────────────────────────────
-  if (req.method === 'POST' && parsed.pathname === '/api/ask') {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      let payload;
-      try { payload = JSON.parse(body); } catch {
-        res.writeHead(400); res.end('Bad JSON'); return;
-      }
-
-      const data = JSON.stringify({
-        model:      payload.model      || 'claude-opus-4-8',
-        max_tokens: payload.max_tokens || 1024,
-        system:     payload.system,
-        messages:   payload.messages,
-        stream:     true,
-      });
-
-      const options = {
-        hostname: 'api.anthropic.com',
-        path:     '/v1/messages',
-        method:   'POST',
-        headers: {
-          'content-type':    'application/json',
-          'content-length':  Buffer.byteLength(data),
-          'x-api-key':       API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-      };
-
-      const proxy = https.request(options, upstream => {
-        res.writeHead(upstream.statusCode, {
-          'content-type':  'text/event-stream',
-          'cache-control': 'no-cache',
-          'access-control-allow-origin': '*',
-        });
-        upstream.pipe(res);
-      });
-
-      proxy.on('error', err => {
-        if (!res.headersSent) res.writeHead(502);
-        res.end(`Upstream error: ${err.message}`);
-      });
-
-      proxy.write(data);
-      proxy.end();
-    });
-    return;
-  }
-
-  // ── Extract endpoint (AI policy parsing, non-streaming) ────────────────────
-  if (req.method === 'POST' && parsed.pathname === '/api/extract') {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', async () => {
-      let payload;
-      try { payload = JSON.parse(body); } catch {
-        res.writeHead(400); res.end('Bad JSON'); return;
-      }
-
-      // Return a cached result if we've seen this exact file/text before.
-      const extractKey = 'extract:' + hash(payload.pdf || ('text:' + String(payload.text || '')));
-      const cachedExtract = cacheGet(extractKey);
-      if (cachedExtract) {
-        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
-        res.end(JSON.stringify(cachedExtract));
-        return;
-      }
-
-      // Get the policy text — either provided directly, or extracted from an
-      // uploaded PDF (base64) right here on the server (works regardless of
-      // which browser the client uses, and keeps token usage low).
-      let policyText = String(payload.text || '');
-      let markedText = '';
-      if (payload.pdf) {
-        try {
-          const buf = Buffer.from(payload.pdf, 'base64');
-          const data = await pdfParse(buf, { pagerender: pageMarkedRender() });
-          markedText = data.text || '';
-          policyText = markedText.replace(/===PAGE \d+===/g, ' '); // clean copy for the AI
-        } catch (err) {
-          res.writeHead(500, { 'content-type': 'application/json' });
-          res.end(JSON.stringify({ error: 'Could not read PDF: ' + err.message }));
-          return;
-        }
-      }
-
-      if (!policyText.trim()) {
-        res.writeHead(400, { 'content-type': 'application/json' });
-        res.end(JSON.stringify({ error: 'No text found in the file. It may be a scanned image.' }));
-        return;
-      }
-
-      const systemPrompt = `You are an insurance document parser. Your job is to extract the policy identity AND every coverage, limit, premium, driver, and vehicle from the insurance policy text provided.
+const EXTRACT_PROMPT = `You are an insurance document parser. Your job is to extract the policy identity AND every coverage, limit, premium, driver, and vehicle from the insurance policy text provided.
 
 Return ONLY a valid JSON object in this exact format:
 {"meta":{"insured":"JOHN A SMITH","policyNumber":"43-0127-00","effectiveDate":"11-20-2025","expirationDate":"11-20-2026","carrier":"Auto-Owners Insurance"},
 "rows": [
-  {
-    "Type": "Auto",
-    "Section": "Vehicle 1 - 2019 Ford F-150",
-    "Coverage": "Bodily Injury Liability",
-    "Limit": "$100,000/$300,000",
-    "Deductible": "N/A",
-    "Premium": "$145.00"
-  }
+  {"Type":"Auto","Section":"Vehicle 1 - 2019 Ford F-150","Coverage":"Bodily Injury Liability","Limit":"$100,000/$300,000","Deductible":"N/A","Premium":"$145.00"}
 ]}
 
 META rules:
@@ -473,122 +247,227 @@ META rules:
 
 ROW rules:
 - "Type" = policy type: Auto, Homeowners, Renters, Umbrella, Life, Farm, Commercial, or Other
-- "Section" = logical grouping within the policy. For auto: use vehicle description (e.g. "Vehicle 1 - 2020 Toyota Camry VIN:1HGBH41"). For home: use section name (Dwelling, Personal Property, Liability). For drivers: use "Drivers".
+- "Section" = logical grouping. For auto: vehicle description (e.g. "Vehicle 1 - 2020 Toyota Camry VIN:1HGBH41"). For home: section name (Dwelling, Personal Property, Liability). For drivers: "Drivers".
 - "Coverage" = the specific coverage or item name
 - "Limit" = coverage limit, insured amount, or "Included" if bundled
 - "Deductible" = deductible amount, or "N/A" if not applicable
 - "Premium" = premium amount shown, or "" if not listed separately
 
 ALSO include:
-- One row per named driver: Type=same as policy type, Section="Drivers", Coverage="Driver - [Full Name]", Limit="", Deductible="", Premium=""
-- One row per vehicle: Type="Auto", Section="Vehicles", Coverage="Vehicle - [Year Make Model]", Limit="VIN: [VIN if available]", Deductible="", Premium=""
-- One row for total premium per policy type: Type=[type], Section="Summary", Coverage="Total [Type] Premium", Limit="", Deductible="", Premium="[amount]"
-- Do NOT create a per-vehicle premium subtotal row (e.g. a "Total Premium" line under an individual vehicle). The only total-premium row is the single policy-wide one in the Summary section above.
+- One row per named driver: Section="Drivers", Coverage="Driver - [Full Name]", others "".
+- One row per vehicle: Type="Auto", Section="Vehicles", Coverage="Vehicle - [Year Make Model]", Limit="VIN: [VIN if available]", others "".
+- One row for total premium per policy type: Section="Summary", Coverage="Total [Type] Premium", Premium="[amount]".
+- Do NOT create a per-vehicle premium subtotal row. The only total-premium row is the single policy-wide one in the Summary section.
 
-BUNDLED PACKAGES — IMPORTANT for consistency:
-- If the policy includes a bundled package of extra coverages (e.g. a name containing "Package", "Plus", "Advantage", "Enhancement", or a grouping called "Additional Coverage"/"Additional Coverages"), output exactly ONE row for the WHOLE package: Section="[package name]", Coverage="[package name]", Limit="Included", Deductible="N/A", Premium="[the package's premium if shown, else '']".
-- Do NOT itemize the individual sub-coverages inside such a package. Treat the package as a single line item.
+BUNDLED PACKAGES: If the policy includes a bundled package of extra coverages (a name containing "Package", "Plus", "Advantage", "Enhancement", or an "Additional Coverage(s)" grouping), output exactly ONE row for the WHOLE package: Section="[package name]", Coverage="[package name]", Limit="Included", Deductible="N/A", Premium="[the package premium if shown, else '']". Do NOT itemize its sub-coverages.
 
-Skip: page numbers, addresses, phone numbers, agent contact info, privacy notices, legal boilerplate, accident instruction cards, ID card text.
+Skip: page numbers, addresses, phone numbers, agent contact info, privacy notices, legal boilerplate, accident cards, ID cards.
 Focus on: declarations pages, coverage schedules, premium breakdowns.
 
-Return ONLY the JSON — no explanation, no markdown, no code blocks. Output compact minified JSON (no extra spaces or line breaks) so the full list fits.`;
+Return ONLY the JSON — no explanation, no markdown. Output compact minified JSON so the full list fits.`;
 
-      const content = redactPII(policyText).slice(0, 120000);
-      try {
-        // First read.
-        const text1 = await askAnthropic({ system: systemPrompt, content });
-        let rows = extractArray(text1, 'rows');
-        if (!rows) throw new Error('Could not read AI response');
-        let meta = parseMeta(text1);
+async function runExtraction(payload) {
+  const extractKey = 'extract:' + hash(payload.pdf || ('text:' + String(payload.text || '')));
+  const cached = cacheGet(extractKey);
+  if (cached) return cached;
 
-        // Self-check: do the line-item premiums add up to the printed total?
-        // If not, the read missed something — read it again, more carefully,
-        // and keep whichever version reconciles better with the printed total.
-        const score1 = reconcileScore(rows);
-        if (score1 && score1.total > 0 && score1.diff > Math.max(25, score1.total * 0.03)) {
-          try {
-            const carefulPrompt = systemPrompt +
-              `\n\nCAREFUL RE-READ: A first pass did not fully reconcile. Be exhaustive: include EVERY premium-bearing line (each vehicle's coverages and every per-vehicle premium) so the individual premiums add up to the printed total premium. Do not skip any line that carries a premium.`;
-            const text2 = await askAnthropic({ system: carefulPrompt, content });
-            const rows2 = extractArray(text2, 'rows');
-            const score2 = reconcileScore(rows2);
-            if (rows2 && rows2.length && score2 && score2.diff < score1.diff) {
-              rows = rows2;
-              meta = parseMeta(text2) || meta;
-            }
-          } catch { /* keep first read if the re-read fails (e.g. rate limit) */ }
-        }
+  let policyText = String(payload.text || '');
+  let markedText = '';
+  if (payload.pdf) {
+    const buf = Buffer.from(payload.pdf, 'base64');
+    const data = await pdfParse(buf, { pagerender: pageMarkedRender() });
+    markedText = data.text || '';
+    policyText = markedText.replace(/===PAGE \d+===/g, ' ');
+  }
+  if (!policyText.trim()) { const e = new Error('No text found in the file. It may be a scanned image.'); e.status = 400; throw e; }
 
-        // Stamp each row with the PDF page it was found on (deterministic search).
-        if (markedText) {
-          const pages = buildPages(markedText);
-          rows.forEach(r => { const p = pageForNeedle(pages, rowNeedle(r)); if (p) r.Page = p; });
-        }
+  const content = redactPII(policyText).slice(0, 120000);
+  const text1 = await askAnthropic({ system: EXTRACT_PROMPT, content });
+  let rows = extractArray(text1, 'rows');
+  if (!rows) throw new Error('Could not read AI response');
+  let meta = parseMeta(text1);
 
-        const out = { rows, meta };
-        cacheSet(extractKey, out);
-        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
-        res.end(JSON.stringify(out));
-      } catch (err) {
-        res.writeHead(500, { 'content-type': 'application/json' });
-        res.end(JSON.stringify({ error: err.message }));
-      }
-    });
-    return;
+  const score1 = reconcileScore(rows);
+  if (score1 && score1.total > 0 && score1.diff > Math.max(25, score1.total * 0.03)) {
+    try {
+      const carefulPrompt = EXTRACT_PROMPT + `\n\nCAREFUL RE-READ: A first pass did not fully reconcile. Be exhaustive: include EVERY premium-bearing line so the individual premiums add up to the printed total premium. Do not skip any line that carries a premium.`;
+      const text2 = await askAnthropic({ system: carefulPrompt, content });
+      const rows2 = extractArray(text2, 'rows');
+      const score2 = reconcileScore(rows2);
+      if (rows2 && rows2.length && score2 && score2.diff < score1.diff) { rows = rows2; meta = parseMeta(text2) || meta; }
+    } catch {}
   }
 
-  // ── Compare endpoint (AI matches coverages across two policies) ────────────
-  if (req.method === 'POST' && parsed.pathname === '/api/compare') {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      let payload;
-      try { payload = JSON.parse(body); } catch {
-        res.writeHead(400); res.end('Bad JSON'); return;
-      }
-      const oldRows = Array.isArray(payload.oldRows) ? payload.oldRows : [];
-      const newRows = Array.isArray(payload.newRows) ? payload.newRows : [];
+  if (markedText) { const pages = buildPages(markedText); rows.forEach(r => { const p = pageForNeedle(pages, rowNeedle(r)); if (p) r.Page = p; }); }
+  const out = { rows, meta };
+  cacheSet(extractKey, out);
+  return out;
+}
 
-      // Same two policies in → same comparison out.
-      const compareKey = 'compare:' + hash(JSON.stringify({ o: oldRows, n: newRows }));
-      const cachedCompare = cacheGet(compareKey);
-      if (cachedCompare) {
-        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
-        res.end(JSON.stringify(cachedCompare));
-        return;
-      }
+// ════════════════════════════════════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════════════════════════════════════
+const newSess = () => crypto.randomBytes(16).toString('hex');
+function signToken(user) { return jwt.sign({ uid: user.id, aid: user.agency_id, sess: user.sess }, JWT_SECRET, { expiresIn: '30d' }); }
+const isEmail = s => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s || '');
+function makeCode() { const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; const g=()=>Array.from({length:4},()=>a[Math.floor(Math.random()*a.length)]).join(''); return `${g()}-${g()}-${g()}`; }
+function makeRecoveryCode() { const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; const g=()=>Array.from({length:4},()=>a[Math.floor(Math.random()*a.length)]).join(''); return `${g()}-${g()}-${g()}-${g()}`; }
 
-      try {
-        const entries = comparePolicies(oldRows, newRows);
-        const out = { entries };
-        cacheSet(compareKey, out);
-        res.writeHead(200, { 'content-type': 'application/json', 'access-control-allow-origin': '*' });
-        res.end(JSON.stringify(out));
-      } catch (err) {
-        res.writeHead(500, { 'content-type': 'application/json' });
-        res.end(JSON.stringify({ error: err.message }));
-      }
-    });
-    return;
+async function authRequired(req, res, next) {
+  try {
+    const token = req.cookies.token || (req.headers.authorization || '').replace('Bearer ', '');
+    if (!token) return res.status(401).json({ error: 'Not signed in' });
+    let payload;
+    try { payload = jwt.verify(token, JWT_SECRET); } catch (e) { return res.status(401).json({ error: 'Session expired — please sign in again' }); }
+    const user = await db.get('SELECT id, agency_id, sess FROM users WHERE id = ?', [payload.uid]);
+    if (!user || !user.sess || user.sess !== payload.sess) { res.clearCookie('token'); return res.status(401).json({ error: 'Your session is no longer valid — please sign in again.' }); }
+    req.userId = user.id; req.agencyId = user.agency_id; next();
+  } catch (e) { res.status(500).json({ error: 'Auth error' }); }
+}
+function adminRequired(req, res, next) {
+  const provided = req.headers['x-admin-secret'] || (req.body && req.body.adminSecret);
+  if (!provided || provided !== ADMIN_SECRET) return res.status(401).json({ error: 'Wrong admin password.' });
+  next();
+}
+
+const app = express();
+app.use(express.json({ limit: '25mb' }));
+app.use(cookieParser());
+if (PROD) app.set('trust proxy', 1);
+
+// ── Auth routes ─────────────────────────────────────────────────────────────
+app.post('/api/auth/register', async (req, res) => {
+  try {
+    const { agencyName, name, email, password, code } = req.body || {};
+    if (!agencyName || !name || !isEmail(email) || !password) return res.status(400).json({ error: 'All fields are required and email must be valid.' });
+    if (String(password).length < 8) return res.status(400).json({ error: 'Password must be at least 8 characters.' });
+    const invite = await db.get('SELECT * FROM invite_codes WHERE code = ?', [String(code || '').trim().toUpperCase()]);
+    if (!invite) return res.status(403).json({ error: 'Invalid access code. Ask your administrator for a valid one-time code.' });
+    if (invite.used) return res.status(403).json({ error: 'This access code has already been used. Each code works only once.' });
+    const existing = await db.get('SELECT id FROM users WHERE email = ?', [email.toLowerCase()]);
+    if (existing) return res.status(409).json({ error: 'An account with that email already exists.' });
+
+    const recovery = makeRecoveryCode();
+    const sess = newSess();
+    const agency = await db.run('INSERT INTO agencies (name) VALUES (?)', [agencyName.trim()]);
+    const hashPw = bcrypt.hashSync(password, 10);
+    const recHash = bcrypt.hashSync(recovery, 10);
+    const user = await db.run('INSERT INTO users (agency_id, email, name, password_hash, role, recovery_hash, sess) VALUES (?,?,?,?,?,?,?)',
+      [agency.lastInsertRowid, email.toLowerCase(), name.trim(), hashPw, 'owner', recHash, sess]);
+    await db.run("UPDATE invite_codes SET used = 1, used_by = ?, used_at = datetime('now') WHERE id = ?", [email.toLowerCase(), invite.id]);
+    const token = signToken({ id: user.lastInsertRowid, agency_id: agency.lastInsertRowid, sess });
+    res.cookie('token', token, COOKIE_OPTS);
+    res.json({ ok: true, recoveryCode: recovery });
+  } catch (e) { res.status(500).json({ error: 'Could not create account. ' + e.message }); }
+});
+
+app.post('/api/auth/login', async (req, res) => {
+  try {
+    const { email, password } = req.body || {};
+    const user = await db.get('SELECT * FROM users WHERE email = ?', [String(email || '').toLowerCase()]);
+    if (!user || !bcrypt.compareSync(password || '', user.password_hash)) return res.status(401).json({ error: 'Incorrect email or password.' });
+    let sess = user.sess;
+    if (!sess) { sess = newSess(); await db.run('UPDATE users SET sess = ? WHERE id = ?', [sess, user.id]); }
+    const token = signToken({ id: user.id, agency_id: user.agency_id, sess });
+    res.cookie('token', token, COOKIE_OPTS);
+    res.json({ ok: true });
+  } catch (e) { res.status(500).json({ error: 'Login error.' }); }
+});
+
+app.post('/api/auth/logout', (req, res) => { res.clearCookie('token'); res.json({ ok: true }); });
+
+app.post('/api/auth/reset', async (req, res) => {
+  try {
+    const { email, recoveryCode, newPassword } = req.body || {};
+    if (!isEmail(email) || !recoveryCode || !newPassword) return res.status(400).json({ error: 'Email, recovery code, and a new password are all required.' });
+    if (String(newPassword).length < 8) return res.status(400).json({ error: 'New password must be at least 8 characters.' });
+    const user = await db.get('SELECT * FROM users WHERE email = ?', [String(email).toLowerCase()]);
+    const codeNorm = String(recoveryCode).trim().toUpperCase();
+    if (!user || !user.recovery_hash || !bcrypt.compareSync(codeNorm, user.recovery_hash)) return res.status(401).json({ error: "That email and recovery code don't match." });
+    const newRecovery = makeRecoveryCode();
+    await db.run('UPDATE users SET password_hash = ?, recovery_hash = ?, sess = ? WHERE id = ?', [bcrypt.hashSync(newPassword, 10), bcrypt.hashSync(newRecovery, 10), newSess(), user.id]);
+    res.json({ ok: true, recoveryCode: newRecovery });
+  } catch (e) { res.status(500).json({ error: 'Reset error.' }); }
+});
+
+app.get('/api/auth/me', authRequired, async (req, res) => {
+  const user = await db.get('SELECT id, email, name, role, agency_id FROM users WHERE id = ?', [req.userId]);
+  const agency = user ? await db.get('SELECT id, name FROM agencies WHERE id = ?', [req.agencyId]) : null;
+  if (!user || !agency) { res.clearCookie('token'); return res.status(401).json({ error: 'Your session is no longer valid — please sign in again.' }); }
+  res.json({ user, agency });
+});
+
+// ── Admin: one-time invite codes ────────────────────────────────────────────
+app.post('/api/admin/codes', adminRequired, async (req, res) => {
+  const count = Math.min(Math.max(parseInt((req.body && req.body.count) || 1, 10) || 1, 1), 50);
+  const note = String((req.body && req.body.note) || '').slice(0, 120);
+  const created = [];
+  for (let i = 0; i < count; i++) {
+    let code, tries = 0;
+    do { code = makeCode(); tries++; } while ((await db.get('SELECT 1 AS x FROM invite_codes WHERE code = ?', [code])) && tries < 10);
+    await db.run('INSERT INTO invite_codes (code, note) VALUES (?, ?)', [code, note]);
+    created.push(code);
   }
+  res.json({ created });
+});
+app.get('/api/admin/codes', adminRequired, async (req, res) => {
+  res.json(await db.all('SELECT code, note, used, used_by, used_at, created_at FROM invite_codes ORDER BY id DESC'));
+});
+app.post('/api/admin/recovery', adminRequired, async (req, res) => {
+  const email = String((req.body && req.body.email) || '').toLowerCase();
+  const user = await db.get('SELECT id FROM users WHERE email = ?', [email]);
+  if (!user) return res.status(404).json({ error: 'No account with that email.' });
+  const recovery = makeRecoveryCode();
+  await db.run('UPDATE users SET recovery_hash = ? WHERE id = ?', [bcrypt.hashSync(recovery, 10), user.id]);
+  res.json({ email, recoveryCode: recovery });
+});
 
-  // ── CORS preflight ──────────────────────────────────────────────────────────
-  if (req.method === 'OPTIONS') {
-    res.writeHead(204, { 'access-control-allow-origin': '*', 'access-control-allow-headers': 'content-type' });
-    res.end(); return;
-  }
+// ── App API (require a signed-in account) ───────────────────────────────────
+app.post('/api/extract', authRequired, async (req, res) => {
+  try { res.json(await runExtraction(req.body || {})); }
+  catch (err) { res.status(err.status || 500).json({ error: err.message }); }
+});
 
-  // ── Static files ────────────────────────────────────────────────────────────
-  let filePath = path.join(__dirname, parsed.pathname === '/' ? 'policy-compare.html' : parsed.pathname);
-  const ext = path.extname(filePath);
-  fs.readFile(filePath, (err, data) => {
-    if (err) { res.writeHead(404); res.end('Not found'); return; }
-    res.writeHead(200, { 'content-type': MIME[ext] || 'application/octet-stream' });
-    res.end(data);
+app.post('/api/compare', authRequired, (req, res) => {
+  try {
+    const oldRows = Array.isArray(req.body && req.body.oldRows) ? req.body.oldRows : [];
+    const newRows = Array.isArray(req.body && req.body.newRows) ? req.body.newRows : [];
+    const compareKey = 'compare:' + hash(JSON.stringify({ o: oldRows, n: newRows }));
+    const cached = cacheGet(compareKey);
+    if (cached) return res.json(cached);
+    const out = { entries: comparePolicies(oldRows, newRows) };
+    cacheSet(compareKey, out);
+    res.json(out);
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+app.post('/api/ask', authRequired, (req, res) => {
+  const payload = req.body || {};
+  const data = JSON.stringify({
+    model: payload.model || 'claude-haiku-4-5',
+    max_tokens: payload.max_tokens || 1024,
+    system: payload.system, messages: payload.messages, stream: true,
   });
+  const options = { hostname: 'api.anthropic.com', path: '/v1/messages', method: 'POST',
+    headers: { 'content-type': 'application/json', 'content-length': Buffer.byteLength(data), 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01' } };
+  const proxy = https.request(options, upstream => {
+    res.writeHead(upstream.statusCode, { 'content-type': 'text/event-stream', 'cache-control': 'no-cache' });
+    upstream.pipe(res);
+  });
+  proxy.on('error', err => { if (!res.headersSent) res.status(502); res.end('Upstream error: ' + err.message); });
+  proxy.write(data); proxy.end();
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// ── Static frontend (login at /, app at /app.html) ──────────────────────────
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api/')) return res.status(404).json({ error: 'Not found' });
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+db.init()
+  .then(() => app.listen(PORT, () => {
+    console.log(`Policy Renewal Checker running on http://localhost:${PORT}`);
+    if (!process.env.TURSO_DATABASE_URL) console.warn('NOTE: Using a LOCAL database file. Set TURSO_DATABASE_URL for cloud persistence.');
+  }))
+  .catch(err => { console.error('DB init failed:', err.message); process.exit(1); });
