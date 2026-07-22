@@ -766,6 +766,12 @@
     .trophy-label { display: block; font-size: 12px; font-weight: 700; color: var(--text-soft); margin: 2px 0 6px; }
     .trophy-select { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px; margin-bottom: 12px; background: var(--white); }
     .trophy-delete { font-size: 12px; color: #c0392b; cursor: pointer; font-weight: 700; }
+    .account-row { display:none; align-items:center; justify-content:space-between; gap:10px; background:var(--green-pale); border:1px solid var(--border); border-radius:12px; padding:10px 12px; margin-bottom:16px; }
+    .account-row .acct-info { font-size:12px; color:var(--text-soft); line-height:1.4; flex:1; min-width:120px; }
+    .account-row .acct-info b { color:var(--text); }
+    .acct-btn { background:var(--white); color:var(--green); border:1px solid var(--green); padding:7px 14px; border-radius:16px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; }
+    .acct-btn.primary { background:var(--green); color:#fff; }
+    .auth-toggle { font-size:12px; color:var(--green); font-weight:700; cursor:pointer; }
     .trophy-room-btn { display:flex; align-items:center; justify-content:space-between; background:var(--white); border:1px solid var(--border); border-radius:14px; padding:16px; margin-bottom:16px; cursor:pointer; }
     .trophy-chevron { font-size:24px; color:var(--text-soft); }
     .trophy-page-head { display:flex; align-items:center; justify-content:space-between; margin-top:4px; }
@@ -1739,6 +1745,7 @@
         <button class="journal-new-btn" onclick="openEntryForm()">+ New Entry</button>
       </div>
 
+      <div id="accountRow" class="account-row" style="display:none;"></div>
       <div class="journal-backup">
         <div class="jb-text">💾 <b>Back up your log.</b> Your entries live only on this phone — save a backup so a lost or reset phone can’t erase them.</div>
         <div class="jb-btns">
@@ -1945,6 +1952,23 @@
     </div>
   </div>
 
+  <!-- Sign in / Create account modal (cloud sync) -->
+  <div id="authModal" class="ui-dialog-overlay" style="display:none;" onclick="if(event.target===this)closeAuth()">
+    <div class="ui-dialog">
+      <div class="ui-dialog-title" id="authTitle">Sign in</div>
+      <input type="email" id="authEmail" class="ui-dialog-input" placeholder="Email" autocomplete="email" enterkeyhint="next">
+      <input type="password" id="authPass" class="ui-dialog-input" placeholder="Password" autocomplete="current-password" enterkeyhint="go" onkeydown="if(event.key==='Enter'){event.preventDefault();doAuth();}">
+      <div id="authMsg" style="font-size:12px;min-height:16px;margin-bottom:8px;line-height:1.4;"></div>
+      <div class="ui-dialog-btns" style="justify-content:space-between;align-items:center;">
+        <span class="auth-toggle" id="authToggle" onclick="toggleAuthMode()">New here? Create account</span>
+        <span style="display:flex;gap:10px;">
+          <button class="ui-dialog-btn cancel" onclick="closeAuth()">Cancel</button>
+          <button class="ui-dialog-btn ok" id="authGo" onclick="doAuth()">Sign in</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
   <!-- Bottom nav -->
   <div class="bottom-nav">
     <div class="nav-item active" data-nav="home" onclick="showNav2('home')">
@@ -2005,6 +2029,95 @@
 
     /* ─── Journal (localStorage) ─── */
     const STORE_KEY = 'hatched_journal';
+    /* ─── Cloud login + sync (Supabase). INERT until the two keys below are filled in. ─── */
+    const SUPABASE_URL = '';   // ← paste your Project URL here (https://xxxx.supabase.co)
+    const SUPABASE_ANON = '';  // ← paste your anon public key here
+    const CLOUD_ON = !!(SUPABASE_URL && SUPABASE_ANON);
+    let sb=null, cloudUser=null, _cloudPushT=null, _sbLoad=null, authMode='in';
+    function loadSupabase(){
+      if (window.supabase && window.supabase.createClient) return Promise.resolve();
+      if (_sbLoad) return _sbLoad;
+      _sbLoad = new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'; s.onload=res; s.onerror=rej; document.head.appendChild(s); });
+      return _sbLoad;
+    }
+    async function _sbClient(){ await loadSupabase(); if(!sb) sb=window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON); return sb; }
+    function _localAll(){ return {
+      journal:_bkGet('hatched_journal',[]), favorites:_bkGet('hatched_favorites',[]),
+      trips:_bkGet('hatched_trips',[]),
+      trophies:(typeof _trArr==='function'?_trArr(_bkGet('hatched_trophies',null)):_bkGet('hatched_trophies',[]))
+    }; }
+    function _mById(a,b){ const m={}; (a||[]).forEach(x=>{if(x&&x.id!=null)m[x.id]=x;}); (b||[]).forEach(x=>{if(x&&x.id!=null)m[x.id]=x;}); return Object.values(m); }
+    function _rerenderAll(){ ['renderJournal','renderTrophies','renderFavorites','renderSavedTrips'].forEach(fn=>{ try{ if(typeof window[fn]==='function') window[fn](); }catch(e){} }); }
+    async function cloudInit(){
+      if(!CLOUD_ON){ renderAccount(); return; }
+      try{
+        await _sbClient();
+        const { data } = await sb.auth.getSession();
+        cloudUser = (data && data.session) ? data.session.user : null;
+        sb.auth.onAuthStateChange((_e,session)=>{ cloudUser = session?session.user:null; renderAccount(); });
+        renderAccount();
+        if(cloudUser) await cloudSyncMerge();
+      }catch(e){ /* offline / SDK blocked — app still works locally */ renderAccount(); }
+    }
+    // Merge cloud + local (union, NEVER delete), write to both, re-render.
+    async function cloudSyncMerge(){
+      if(!sb || !cloudUser) return;
+      let cloud={journal:[],favorites:[],trips:[],trophies:[]};
+      try{ const { data } = await sb.from('user_data').select('journal,favorites,trips,trophies').eq('user_id',cloudUser.id).maybeSingle();
+        if(data) cloud={journal:data.journal||[],favorites:data.favorites||[],trips:data.trips||[],trophies:data.trophies||[]}; }
+      catch(e){ return; }
+      const L=_localAll();
+      const m={
+        journal:_mById(L.journal,cloud.journal),
+        favorites:[...new Set([...(L.favorites||[]),...(cloud.favorites||[])])],
+        trips:_mById(L.trips,cloud.trips),
+        trophies:_mById(L.trophies,cloud.trophies)
+      };
+      localStorage.setItem('hatched_journal',JSON.stringify(m.journal));
+      localStorage.setItem('hatched_favorites',JSON.stringify(m.favorites));
+      localStorage.setItem('hatched_trips',JSON.stringify(m.trips));
+      localStorage.setItem('hatched_trophies',JSON.stringify(m.trophies));
+      try{ await sb.from('user_data').upsert({ user_id:cloudUser.id, journal:m.journal, favorites:m.favorites, trips:m.trips, trophies:m.trophies, updated_at:new Date().toISOString() }); }catch(e){}
+      _rerenderAll();
+    }
+    // Debounced upload of current local data (called after every save; no-op unless signed in).
+    function cloudPush(){
+      if(!CLOUD_ON || !sb || !cloudUser) return;
+      clearTimeout(_cloudPushT);
+      _cloudPushT=setTimeout(async ()=>{ const L=_localAll();
+        try{ await sb.from('user_data').upsert({ user_id:cloudUser.id, journal:L.journal, favorites:L.favorites, trips:L.trips, trophies:L.trophies, updated_at:new Date().toISOString() }); }catch(e){}
+      }, 1500);
+    }
+    async function cloudSignOut(){ try{ if(sb) await sb.auth.signOut(); }catch(e){} cloudUser=null; renderAccount(); }
+    function renderAccount(){
+      const row=document.getElementById('accountRow'); if(!row) return;
+      if(!CLOUD_ON){ row.style.display='none'; return; }
+      row.style.display='flex';
+      if(cloudUser){ row.innerHTML='<div class="acct-info">☁️ <b>Synced across devices</b> · '+esc(cloudUser.email||'signed in')+'</div><button class="acct-btn" onclick="cloudSignOut()">Log out</button>'; }
+      else { row.innerHTML='<div class="acct-info">☁️ <b>Sign in to sync</b> your journal, trophies & trips to every device.</div><button class="acct-btn primary" onclick="openAuth(\'in\')">Sign in</button>'; }
+    }
+    function openAuth(mode){ authMode=mode||'in'; setAuthMode(); document.getElementById('authEmail').value=''; document.getElementById('authPass').value=''; const m=document.getElementById('authMsg'); m.textContent=''; document.getElementById('authModal').style.display='flex'; setTimeout(()=>{try{document.getElementById('authEmail').focus();}catch(e){}},60); }
+    function closeAuth(){ const m=document.getElementById('authModal'); if(m) m.style.display='none'; }
+    function setAuthMode(){ const up=authMode==='up'; document.getElementById('authTitle').textContent=up?'Create account':'Sign in'; document.getElementById('authGo').textContent=up?'Create account':'Sign in'; document.getElementById('authToggle').textContent=up?'Have an account? Sign in':'New here? Create account'; }
+    function toggleAuthMode(){ authMode=authMode==='up'?'in':'up'; setAuthMode(); document.getElementById('authMsg').textContent=''; }
+    async function doAuth(){
+      const email=document.getElementById('authEmail').value.trim();
+      const pass=document.getElementById('authPass').value;
+      const msg=document.getElementById('authMsg'); msg.style.color='#c0392b';
+      if(!email||!pass){ msg.textContent='Enter your email and password.'; return; }
+      if(pass.length<6){ msg.textContent='Password must be at least 6 characters.'; return; }
+      const go=document.getElementById('authGo'); const label=go.textContent; go.textContent='…';
+      try{
+        await _sbClient();
+        const res = authMode==='up'
+          ? await sb.auth.signUp({email:email,password:pass})
+          : await sb.auth.signInWithPassword({email:email,password:pass});
+        if(res.error){ msg.textContent=res.error.message; go.textContent=label; return; }
+        if(authMode==='up' && res.data && !res.data.session){ msg.style.color='var(--green)'; msg.textContent='Account made! Check your email to confirm, then sign in.'; authMode='in'; setAuthMode(); return; }
+        cloudUser=res.data.user; await cloudSyncMerge(); closeAuth(); renderAccount();
+      }catch(e){ msg.textContent='Couldn’t reach the server — check your connection.'; go.textContent=label; }
+    }
+
     // ---- Journal backup / restore (device-local safety net until cloud login exists) ----
     function _bkKeys(){ return { journal:'hatched_journal', favorites:'hatched_favorites', trips:'hatched_trips', trophies:'hatched_trophies', homeConditions:'hatched_home_conditions' }; }
     function _bkGet(k, dflt){ try { const v=localStorage.getItem(k); return v==null?dflt:JSON.parse(v); } catch(e){ return dflt; } }
@@ -2070,6 +2183,7 @@
     }
     function saveEntries(list) {
       localStorage.setItem(STORE_KEY, JSON.stringify(list));
+      cloudPush();
     }
     let pendingPhotos = [];   // base64 data URLs for the entry being edited
     let editingId = null;     // id of the entry being edited, or null for a new entry
@@ -2357,7 +2471,7 @@
       if(arr.length){ try{ localStorage.setItem('hatched_trophies', JSON.stringify(arr)); }catch(e){} }
       return arr;
     }
-    function saveTrophies(a){ localStorage.setItem('hatched_trophies', JSON.stringify(a)); }
+    function saveTrophies(a){ localStorage.setItem('hatched_trophies', JSON.stringify(a)); cloudPush(); }
     let editingTrophy=null;   // id being edited, or null for new
     let trophyPhoto='';       // pending photo data URL in the form
     function openTrophyRoom(){ showTab('trophies'); renderTrophies(); }
@@ -5667,12 +5781,12 @@
     /* ─── Trip selection & saving ─── */
     const TRIPS_KEY = 'hatched_trips';
     function loadTrips(){ try { return JSON.parse(localStorage.getItem(TRIPS_KEY)) || []; } catch(e){ return []; } }
-    function storeTrips(list){ localStorage.setItem(TRIPS_KEY, JSON.stringify(list)); }
+    function storeTrips(list){ localStorage.setItem(TRIPS_KEY, JSON.stringify(list)); cloudPush(); }
 
     /* ─── Favorites ─── */
     const FAV_KEY = 'hatched_favorites';
     function loadFavs(){ try { return JSON.parse(localStorage.getItem(FAV_KEY)) || []; } catch(e){ return []; } }
-    function saveFavs(a){ localStorage.setItem(FAV_KEY, JSON.stringify(a)); }
+    function saveFavs(a){ localStorage.setItem(FAV_KEY, JSON.stringify(a)); cloudPush(); }
     function isFav(id){ return loadFavs().includes(id); }
     function toggleFav(ev, id){
       if (ev) ev.stopPropagation();
@@ -5948,6 +6062,7 @@
       maybeShowLocationOnboard();
       document.getElementById('freeCount').textContent = '100% Free · ' + DATA.length + ' fisheries';
       setMapsPref(mapsPref()); // reflect saved maps preference in the toggle
+      cloudInit();
     });
 
     /* Register service worker for offline install */
